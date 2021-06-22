@@ -9,7 +9,10 @@ public class PlayerLook : MonoBehaviour
     [SerializeField]
     private float sensY;
 
-    Camera cam;
+    [SerializeField]
+    Transform cam;
+    [SerializeField]
+    Transform orientation;
 
     private float mouseX;
     private float mouseY;
@@ -22,8 +25,6 @@ public class PlayerLook : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        cam = GetComponentInChildren<Camera>();
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -33,8 +34,8 @@ public class PlayerLook : MonoBehaviour
     {
         PlayerInput();
 
-        cam.transform.localRotation = Quaternion.Euler(xRot, 0, 0);
-        transform.rotation = Quaternion.Euler(0, yRot, 0);
+        cam.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
+        orientation.transform.rotation = Quaternion.Euler(0, yRot, 0);
     }
 
     private void PlayerInput()
