@@ -44,6 +44,17 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerInput();
         ControlDrag();
+
+        if (Input.GetKey(KeyCode.LeftShift))
+            isSprinting = true;
+        else
+            isSprinting = false;
+
+        if (isSprinting)
+            moveSpeed = 15f;
+
+        if (!isSprinting)
+            moveSpeed = 6f;
     }
 
     private void FixedUpdate()
