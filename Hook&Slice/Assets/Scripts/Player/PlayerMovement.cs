@@ -11,10 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform orientation;
 
-    [SerializeField]
-    private bool isMoving;
-    [SerializeField]
-    private bool isSprinting;
+    public bool isMoving;
+    public bool isSprinting;
     
     [SerializeField]
     private float moveSpeed = 6f;
@@ -72,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
         if (!isSprinting)
             moveSpeed = 6f;
 
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            isMoving = true;
+        else
+            isMoving = false;
+
         slopeDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
     }
 
@@ -120,5 +123,4 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRB.drag = rbDrag;
     }
-
 }
