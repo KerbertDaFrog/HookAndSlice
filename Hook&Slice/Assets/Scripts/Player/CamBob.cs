@@ -12,11 +12,11 @@ public class CamBob : MonoBehaviour
 
     [Header("Head Bob")]
     [SerializeField]
-    private float bobFrequency = 5f;
+    private float bobFrequency = 5f; 
     [SerializeField]
     private float bobHorAmp = 0.1f;
     [SerializeField]
-    private float bobVerAmp = 0.4f;
+    private float bobVerAmp = 0.2f;
     [SerializeField]
     [Range(0, 1)] private float headBobSmooth = 0.1f;
 
@@ -36,7 +36,7 @@ public class CamBob : MonoBehaviour
 
         //Checks to see if player is sprinting
         if (GetComponent<PlayerMovement>().isMoving != false && GetComponent<PlayerMovement>().isSprinting != false)
-            bobFrequency = 10f;
+            bobFrequency = 6f;
         else
             bobFrequency = 5f;
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
+    public static PlayerLook instance;
+
     [SerializeField]
     private float sensX;
     [SerializeField]
@@ -21,6 +23,11 @@ public class PlayerLook : MonoBehaviour
 
     private float xRot;
     private float yRot;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     private void Start()
