@@ -29,12 +29,14 @@ public class CamBob : MonoBehaviour
     private void Update()
     {
         //Checks to see if player is moving
+        //Remove GetComponent in future
         if (GetComponent<PlayerMovement>().isMoving != false)
             isWalking = true;
         else
             isWalking = false;
 
         //Checks to see if player is sprinting
+        //Remove GetComponent in future 
         if (GetComponent<PlayerMovement>().isMoving != false && GetComponent<PlayerMovement>().isSprinting != false)
             bobFrequency = 6f;
         else

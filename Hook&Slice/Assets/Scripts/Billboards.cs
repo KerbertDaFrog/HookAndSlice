@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class Billboards : MonoBehaviour
 {
-    private SpriteRenderer sprite;
+    private Camera cam;
+
+    private bool useStaticBillboard;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        sprite.flipX = true;
+        cam = Camera.main;
     }
 
     // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        transform.LookAt(PlayerLook.instance.transform.position, -Vector3.forward);
+        if(!useStaticBillboard)
+        {
+            transform.LookAt(cam.transform);
+        }
+        else
+        {
+            transform.rotation = cam.transform.rotation;
+        }
+
+        transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
     }
 }
