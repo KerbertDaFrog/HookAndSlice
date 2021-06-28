@@ -1435,6 +1435,8 @@ MonoBehaviour:
   jumpHeight: 2
   rbDrag: 6
   playerHeight: 2
+  gravityAmount: 2
+  gravityMulti: 2
   groundMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1469,7 +1471,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1701828341
 MonoBehaviour:

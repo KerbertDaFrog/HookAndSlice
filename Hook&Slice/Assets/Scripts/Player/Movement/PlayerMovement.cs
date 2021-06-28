@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     private float rbDrag = 6f;
     [SerializeField]
     private float playerHeight = 2f;
+    [SerializeField]
+    private float gravityAmount = 2f;
+    [SerializeField]
+    private float gravityMulti;
 
     private float horMov;
     private float verMov;
@@ -76,6 +80,12 @@ public class PlayerMovement : MonoBehaviour
             isMoving = false;
 
         slopeDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
+
+        //gravityAmount += gravityMulti;
+
+        if (!isGrounded)
+            playerRB.AddForce((Vector3.down * gravityAmount), ForceMode.Acceleration);
+            
     }
 
     private void FixedUpdate()

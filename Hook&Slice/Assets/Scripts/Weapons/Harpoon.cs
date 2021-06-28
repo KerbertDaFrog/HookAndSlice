@@ -23,6 +23,10 @@ public class Harpoon : MonoBehaviour
     [SerializeField]
     private GameObject point;
 
+    [Header("Layer Masks")]
+    private LayerMask enemy;
+    private LayerMask wall;
+
     private LineRenderer line;
 
     // Start is called before the first frame update
@@ -39,10 +43,10 @@ public class Harpoon : MonoBehaviour
         {
             FireHarpoon();
         }
-
-        if(Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             fired = false;
+            line.enabled = false;
         }
 
         HarpCol();
