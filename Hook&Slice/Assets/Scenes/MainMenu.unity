@@ -601,12 +601,12 @@ GameObject:
   - component: {fileID: 132884639}
   - component: {fileID: 132884638}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Back-up-main-menu things
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &132884638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1571,7 +1571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1130996032
 MonoBehaviour:
   m_ObjectHideFlags: 0
