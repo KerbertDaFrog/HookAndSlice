@@ -8,9 +8,27 @@ public class Harpoon2 : MonoBehaviour
     public int maxReflectionCount = 5;
     public float maxStepDistance = 200;
 
+    
+    private bool hasShot;
+
+    private Camera fpsCam;
+
+    private void Start()
+    {
+        fpsCam = Camera.main;
+    }
+
     private void Update()
     {
-        
+        transform.rotation = fpsCam.transform.rotation;
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(hasShot != true)
+            {
+                
+            }
+        }
     }
 
     private void OnDrawGizmos()
@@ -47,54 +65,54 @@ public class Harpoon2 : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(startingPosition, position);
 
-        DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
-
-        //[SerializeField]
-        //private int rayCount = 2;
-
-        //private LineRenderer lr;
-
-        //// Start is called before the first frame update
-        //void Start()
-        //{
-        //    lr = GetComponent<LineRenderer>();
-        //    lr.material = new Material(Shader.Find("Sprites/Default"));
-        //}
-
-        //// Update is called once per frame
-        //void Update()
-        //{
-        //    CastRay(transform.position, transform.forward);
-
-        //    lr.positionCount = rayCount;
-        //}
-
-        //private void CastRay(Vector3 position, Vector3 direction)
-        //{
-        //    for(int i = 0; i < rayCount; i++)
-        //    {
-        //        lr.SetPosition(i, Vector3.zero);
-        //    }
-
-        //    for(int i = 0; i < rayCount; i++)
-        //    {
-        //        Ray ray = new Ray(position, direction);
-        //        RaycastHit hit;
-
-        //        if(Physics.Raycast(ray, out hit, 10, 1))
-        //        {
-        //            lr.SetPosition(i, hit.point);
-        //            Debug.DrawLine(position, hit.point, Color.red);
-        //            position = hit.point;
-        //            direction = Vector3.Reflect(direction, hit.normal);
-        //        }
-        //        else
-        //        {
-        //            lr.SetPosition(i, direction * 10f);
-        //            Debug.DrawRay(position, direction * 10, Color.blue);
-        //            break;
-        //        }
-        //    }
-        //}
+        DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);    
     }
+
+    //[SerializeField]
+    //private int rayCount = 2;
+
+    //private LineRenderer lr;
+
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    lr = GetComponent<LineRenderer>();
+    //    lr.material = new Material(Shader.Find("Sprites/Default"));
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    CastRay(transform.position, transform.forward);
+
+    //    lr.positionCount = rayCount;
+    //}
+
+    //private void CastRay(Vector3 position, Vector3 direction)
+    //{
+    //    for(int i = 0; i < rayCount; i++)
+    //    {
+    //        lr.SetPosition(i, Vector3.zero);
+    //    }
+
+    //    for(int i = 0; i < rayCount; i++)
+    //    {
+    //        Ray ray = new Ray(position, direction);
+    //        RaycastHit hit;
+
+    //        if(Physics.Raycast(ray, out hit, 10, 1))
+    //        {
+    //            lr.SetPosition(i, hit.point);
+    //            Debug.DrawLine(position, hit.point, Color.red);
+    //            position = hit.point;
+    //            direction = Vector3.Reflect(direction, hit.normal);
+    //        }
+    //        else
+    //        {
+    //            lr.SetPosition(i, direction * 10f);
+    //            Debug.DrawRay(position, direction * 10, Color.blue);
+    //            break;
+    //        }
+    //    }
+    //}
 }
