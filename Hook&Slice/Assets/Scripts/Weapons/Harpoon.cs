@@ -1,111 +1,114 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Harpoon : MonoBehaviour
 {
-    [Header("Harpoon Modifiers")]
-    private float damage;
-    private float speed;
-    private float range;
+    [SerializeField]
+    private GameObject staticHook;
+    [SerializeField]
+    private Transform firePoint;
+    [SerializeField]
+    private Transform hook;
 
-    private bool fired = false;
+    private int maxReflectionCount = 5;
+    private float maxStepDistance = 200;
 
-    //Vector Variables
-    private Vector3 origin;
-    private Vector3 endPoint;
-    private Vector3 mousePos;
-    private Vector3 rayHitPos;
-    private float rayHitDistance;
+    public List<Vector3> hitPoints = new List<Vector3>();
 
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private GameObject point;
+    private bool hasShot;
 
-    [Header("Layer Masks")]
-    private LayerMask enemy;
-    private LayerMask wall;
+    private Camera fpsCam;
 
-    private LineRenderer line;
-
-    // Start is called before the first frame update
     private void Start()
     {
-        line = GetComponent<LineRenderer>();
-        line.enabled = false;
+        fpsCam = Camera.main;
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        transform.rotation = fpsCam.transform.rotation;
+
+        if (Input.GetMouseButtonDown(0))
         {
-            FireHarpoon();
+            if (!hasShot)
+            {
+                hasShot = true;
+                staticHook.SetActive(false);
+                Instantiate(hook, firePoint);
+            }
+
+            PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            fired = false;
-            line.enabled = false;
-        }
-
-        HarpCol();
-
-        origin = player.transform.position + player.transform.forward * 0.5f * player.transform.lossyScale.z;
-
-        line.SetPosition(0, origin);
-
-        line.SetPosition(1, endPoint);
     }
 
-    private void FireHarpoon()
+    private void OnDrawGizmos()
     {
-        if(fired != true)
+        Handles.color = Color.red;
+        Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, 0.25f);
+
+        DrawPredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+    }
+
+    void DrawPredictionReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
+    {
+        if (reflectionsRemaining == 0)
         {
-            line.enabled = true;
-            fired = true;
+            //fire projectile
+            return;
         }
 
-        if (rayHitDistance < range)
+        Vector3 startingPosition = position;
+
+        Ray ray = new Ray(position, direction);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxStepDistance))
         {
-            endPoint = rayHitPos;
+            direction = Vector3.Reflect(direction, hit.normal);
+            position = hit.point;
         }
         else
         {
-            endPoint = origin + player.transform.forward * range;
+            position += direction * maxStepDistance;
         }
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(startingPosition, position);
+
+        DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
     }
-
-    private void HarpCol()
+    void PredictionReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
     {
-        var ray = new Ray(transform.position, transform.forward);
-        var beamPoint = (transform.position + Vector3.up);
-        Vector3 dir = endPoint - origin;
-        dir.Normalize();
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(origin, dir, out hit, range))
+        if (reflectionsRemaining == 0)
         {
-            ////Damage Enemy Health
-            //if (hit.collider.gameObject.tag == "Enemy")
-            //{
-            //    if (hit.collider.gameObject.GetComponent<EnemyHealth>())
-            //    {
-            //        //endPoint = hit.point;
-            //        hit.collider.gameObject.GetComponent<EnemyHealth>().HurtEnemy(damageToGive);
-            //        Debug.Log(hit.transform.name);
-            //    }
-            //}
-
-            if (hit.collider)
-            {
-                //endPoint = hit.point;
-                Debug.Log(hit.collider.gameObject.name);
-            }
-
-            rayHitDistance = hit.distance;
-            rayHitPos = hit.point;
+            //fire projectile
+            return;
         }
+
+        if (reflectionsRemaining == maxReflectionCount)
+            hitPoints.Clear();
+
+        Vector3 startingPosition = position;
+
+        Ray ray = new Ray(position, direction);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxStepDistance))
+        {
+            direction = Vector3.Reflect(direction, hit.normal);
+            hitPoints.Add(hit.point);
+            if (hitPoints.Count > maxReflectionCount)
+                hitPoints.RemoveAt(0);
+            position = hit.point;
+        }
+        else
+        {
+            position += direction * maxStepDistance;
+        }
+
+        PredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
     }
 }

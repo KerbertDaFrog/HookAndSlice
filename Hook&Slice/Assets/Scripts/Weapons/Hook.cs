@@ -6,74 +6,54 @@ using UnityEditor;
 public class Hook : MonoBehaviour
 {
     [SerializeField]
-    private Camera cam;
+    private bool movingToPoint;
 
     [SerializeField]
-    private LayerMask colMask;
-
-    public int maxReflectionCount = 5;
-    public float maxStepDistance = 200;
+    private float speed;
 
     [SerializeField]
-    private bool fired;
-    [SerializeField]
-    private float range;
+    private int damage;
 
-    // Start is called before the first frame update
+    public List<Vector3> targets = new List<Vector3>();
+
+    public Harpoon harpoon;
+
+    private Transform destination;
+
+    private void Awake()
+    {
+        harpoon = FindObjectOfType<Harpoon>();
+    }
+
     private void Start()
     {
-        cam = GetComponent<Camera>();
+        //StartCoroutine(HookTravelPath());
+
+        //int targetPoints = targets.Count;
+
+        //for (int i = 0; i < targetPoints; i++)
+        //{
+
+        //}
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //RaycastHit hit = Physics.Raycast(ray.origin, ray.direction, Mathf.Infinity, colMask);
-        }
+        
     }
 
-    private void OnDrawGizmos()
+    private IEnumerator HookTravelPath()
     {
-        Handles.color = Color.red;
-        Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, 0.25f);
-
-        DrawPredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
-    }
-
-    void DrawPredictionReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
-    {
-        if (reflectionsRemaining == 0)
-        {
-            return;
-        }
-
-        Vector3 startingPosition = position;
-
-        Ray ray = new Ray(position, direction);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxStepDistance))
-        {
-            direction = Vector3.Reflect(direction, hit.normal);
-            position = hit.point;
-        }
-        else
-        {
-            position += direction * maxStepDistance;
-        }
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(startingPosition, position);
-
-        DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
-    }
-
-    void ShootHook()
-    {
-
+        targets.AddRange(harpoon.hitPoints);
+        yield return new WaitForSeconds(0.1f);
+        Vector3 a = transform.position;
+        Vector3 b = targets[0];
+        Vector3 c = targets[1];
+        Vector3 d = targets[2];
+        Vector3 e = targets[3];
+        Vector3 f = targets[4];
+        Vector3.MoveTowards(a, b, speed);
+        //Checks to see if the first index of the Vector3 list is null. If not, it will assign a value index 0 with value b, then check if the next index is null and continue the process until it finds a null index or reaches the end.
+        
     }
 }
