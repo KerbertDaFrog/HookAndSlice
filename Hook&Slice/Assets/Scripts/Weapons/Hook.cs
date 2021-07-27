@@ -16,9 +16,14 @@ public class Hook : MonoBehaviour
 
     public List<Vector3> targets = new List<Vector3>();
 
+    public int index = 0;
+
+    public float t;
+
     public Harpoon harpoon;
 
-    private Transform destination;
+    private Transform target1;
+    private Transform target2;
 
     private void Awake()
     {
@@ -26,34 +31,34 @@ public class Hook : MonoBehaviour
     }
 
     private void Start()
-    {
-        //StartCoroutine(HookTravelPath());
-
-        //int targetPoints = targets.Count;
-
-        //for (int i = 0; i < targetPoints; i++)
-        //{
-
-        //}
+    {    
+        StartCoroutine(HookTravelPath());
     }
 
     private void Update()
     {
-        
+        Vector3 a = target1.position;
+        Vector3 b = target2.position;
+        transform.position = Vector3.MoveTowards(a, Vector3.Lerp(a, b, t), speed);
     }
 
     private IEnumerator HookTravelPath()
     {
         targets.AddRange(harpoon.hitPoints);
         yield return new WaitForSeconds(0.1f);
+        foreach (Vector3 target in targets)
+        {
+            index++;
+            print(targets.IndexOf(target));
+        }
+
         Vector3 a = transform.position;
         Vector3 b = targets[0];
-        Vector3 c = targets[1];
-        Vector3 d = targets[2];
-        Vector3 e = targets[3];
-        Vector3 f = targets[4];
+        yield return new WaitForSeconds(0.1f);
         Vector3.MoveTowards(a, b, speed);
-        //Checks to see if the first index of the Vector3 list is null. If not, it will assign a value index 0 with value b, then check if the next index is null and continue the process until it finds a null index or reaches the end.
-        
+        for (int i = 0; i < targets.Count; i++)
+        {
+
+        }
     }
 }

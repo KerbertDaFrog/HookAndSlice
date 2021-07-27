@@ -12,7 +12,9 @@ public class Harpoon : MonoBehaviour
     [SerializeField]
     private Transform hook;
 
+    [SerializeField]
     private int maxReflectionCount = 5;
+    [SerializeField]
     private float maxStepDistance = 200;
 
     public List<Vector3> hitPoints = new List<Vector3>();
