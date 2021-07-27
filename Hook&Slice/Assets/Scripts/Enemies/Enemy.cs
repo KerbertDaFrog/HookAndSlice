@@ -76,8 +76,10 @@ public class Enemy : MonoBehaviour
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
-		if (!playerInSightRange && !playerInAttackRange && !isDead) nav.speed = walkSpeed;
-		if (playerInSightRange && !playerInAttackRange && !isDead|| playerInSightRange && !playerInAttackRange && !isDead) Chase();
+		if (!playerInSightRange && !playerInAttackRange) nav.speed = walkSpeed;
+
+		if (playerInSightRange && !playerInAttackRange) Chase();
+		if (playerInSightRange && !playerInAttackRange) Chase();
 	}
 
 	private void Chase()
