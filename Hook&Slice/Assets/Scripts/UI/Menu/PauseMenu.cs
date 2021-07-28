@@ -8,14 +8,14 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenu;
 
-    [SerializeField]
-    private GameObject settingsPage;
+    //[SerializeField]
+    //private GameObject settingsPage;
     
-    [SerializeField]
-    private GameObject leavePopUp;
+    //[SerializeField]
+    //private GameObject leavePopUp;
 
-    [SerializeField]
-    private GameObject quitPopUp;
+    //[SerializeField]
+    //private GameObject quitPopUp;
 
     bool paused = false;
 
