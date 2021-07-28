@@ -6,9 +6,6 @@ using UnityEditor;
 public class Hook : MonoBehaviour
 {
     [SerializeField]
-    private bool movingToPoint;
-
-    [SerializeField]
     private float speed;
 
     [SerializeField]
@@ -31,34 +28,24 @@ public class Hook : MonoBehaviour
     }
 
     private void Start()
-    {    
+    {
+        targets.AddRange(harpoon.hitPoints);
+        this.transform.SetParent(null);
         StartCoroutine(HookTravelPath());
     }
 
     private void Update()
     {
-        Vector3 a = target1.position;
-        Vector3 b = target2.position;
-        transform.position = Vector3.MoveTowards(a, Vector3.Lerp(a, b, t), speed);
+        Vector3 gun = harpoon.transform.position;
+        Vector3 hook = this.transform.position;
+        Vector3 a = targets[0];
+        float distFromGun = Vector3.Distance(gun, hook);
+        float distFromTarget = Vector3.Distance(hook, a);
+        this.transform.position = Vector3.MoveTowards(hook, a, speed);
     }
 
     private IEnumerator HookTravelPath()
     {
-        targets.AddRange(harpoon.hitPoints);
         yield return new WaitForSeconds(0.1f);
-        foreach (Vector3 target in targets)
-        {
-            index++;
-            print(targets.IndexOf(target));
-        }
-
-        Vector3 a = transform.position;
-        Vector3 b = targets[0];
-        yield return new WaitForSeconds(0.1f);
-        Vector3.MoveTowards(a, b, speed);
-        for (int i = 0; i < targets.Count; i++)
-        {
-
-        }
     }
 }
