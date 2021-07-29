@@ -8,6 +8,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenu;
 
+    [SerializeField]
+    private PlayerLook pl;
+
     //[SerializeField]
     //private GameObject settingsPage;
     
@@ -47,7 +50,9 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         paused = true;
+        
         pauseMenu.SetActive(true);
+        pl.Paused();
     }
 
     //unpausing the game
@@ -55,6 +60,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         paused = false;
+        pl.UnPaused();
         pauseMenu.SetActive(false);
     }
 
