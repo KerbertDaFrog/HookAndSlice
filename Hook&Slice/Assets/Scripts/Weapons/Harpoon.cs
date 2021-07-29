@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class Harpoon : MonoBehaviour
 {
+    [Header("Transform Variables")]
     [SerializeField]
     private GameObject staticHook;
     [SerializeField]
@@ -12,13 +13,16 @@ public class Harpoon : MonoBehaviour
     [SerializeField]
     private Transform hook;
 
+    [Header("Hook Distance & Reflection Amount")]
     [SerializeField]
     private int maxReflectionCount = 5;
     [SerializeField]
     private float maxStepDistance = 200;
 
+    [Header("Vector3 Hit Points")]
     public List<Vector3> hitPoints = new List<Vector3>();
 
+    [Header("Bools")]
     [SerializeField]
     private bool hasShot;
 
@@ -35,14 +39,19 @@ public class Harpoon : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (!hasShot)
+            PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+
+            if (!hasShot && hitPoints.Count != 0)
             {
                 hasShot = true;
                 staticHook.SetActive(false);
                 Instantiate(hook, firePoint);
-            }
+            }          
 
-            PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+            if(hasShot != true)
+            {
+                hitPoints.Clear();
+            }
         }
     }
 
@@ -83,6 +92,7 @@ public class Harpoon : MonoBehaviour
 
         DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
     }
+
     void PredictionReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
     {
         if (reflectionsRemaining == 0)
@@ -93,8 +103,6 @@ public class Harpoon : MonoBehaviour
 
         if (reflectionsRemaining == maxReflectionCount)
             hitPoints.Clear();
-
-        Vector3 startingPosition = position;
 
         Ray ray = new Ray(position, direction);
         RaycastHit hit;

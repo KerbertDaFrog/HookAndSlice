@@ -11,16 +11,20 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private int damage;
 
-    public List<Vector3> targets = new List<Vector3>();
-
-    public int index = 0;
-
-    public float t;
+    [SerializeField]
+    private List<Vector3> targets = new List<Vector3>();
 
     public Harpoon harpoon;
 
-    private Transform target1;
-    private Transform target2;
+    [SerializeField]
+    private Vector3 origin;
+    [SerializeField]
+    private Vector3 target;
+
+    [SerializeField]
+    private float dist;
+
+    private int index = 0;
 
     private void Awake()
     {
@@ -28,24 +32,35 @@ public class Hook : MonoBehaviour
     }
 
     private void Start()
-    {
+    {       
         targets.AddRange(harpoon.hitPoints);
         this.transform.SetParent(null);
-        StartCoroutine(HookTravelPath());
     }
 
     private void Update()
     {
-        Vector3 gun = harpoon.transform.position;
-        Vector3 hook = this.transform.position;
-        Vector3 a = targets[0];
-        float distFromGun = Vector3.Distance(gun, hook);
-        float distFromTarget = Vector3.Distance(hook, a);
-        this.transform.position = Vector3.MoveTowards(hook, a, speed);
-    }
+        print("my target = " + index);
 
-    private IEnumerator HookTravelPath()
-    {
-        yield return new WaitForSeconds(0.1f);
+        //origin = harpoon.originPoint
+
+        dist = Vector3.Distance(origin, target);
+        if (dist < 0.1)
+        {
+            index++;
+        }      
+
+        if (index == targets.Count - 1 && dist < 0.1)
+        {
+            Destroy(gameObject);
+        }
+
+        origin = transform.position;
+
+        if(targets != null)
+        {
+            target = targets[index];
+        }
+        
+        transform.position = Vector3.MoveTowards(origin, target, speed);
     }
 }
