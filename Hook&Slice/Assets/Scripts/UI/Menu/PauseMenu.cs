@@ -9,13 +9,16 @@ public class PauseMenu : MonoBehaviour
     private GameObject pauseMenu;
 
     [SerializeField]
-    private GameObject settingsPage;
-    
-    [SerializeField]
-    private GameObject leavePopUp;
+    private PlayerLook pl;
 
-    [SerializeField]
-    private GameObject quitPopUp;
+    //[SerializeField]
+    //private GameObject settingsPage;
+    
+    //[SerializeField]
+    //private GameObject leavePopUp;
+
+    //[SerializeField]
+    //private GameObject quitPopUp;
 
     bool paused = false;
 
@@ -47,7 +50,9 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         paused = true;
+        
         pauseMenu.SetActive(true);
+        pl.Paused();
     }
 
     //unpausing the game
@@ -55,6 +60,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         paused = false;
+        pl.UnPaused();
         pauseMenu.SetActive(false);
     }
 

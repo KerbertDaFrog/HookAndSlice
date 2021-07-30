@@ -24,6 +24,11 @@ public class PlayerLook : MonoBehaviour
     private float xRot;
     private float yRot;
 
+
+    //if paused the player can't look around
+    private bool paused = false;
+
+
     private void Awake()
     {
         instance = this;
@@ -39,7 +44,11 @@ public class PlayerLook : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        PlayerInput();
+        if (!paused)
+        {
+            PlayerInput();
+        }
+        
 
         cam.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
         orientation.transform.rotation = Quaternion.Euler(0, yRot, 0);
@@ -55,4 +64,20 @@ public class PlayerLook : MonoBehaviour
 
         xRot = Mathf.Clamp(xRot, -90f, 90f);
     }
+
+
+    public void Paused()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        paused = true;
+    }
+
+    public void UnPaused()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        paused = false;
+    }
+
 }
