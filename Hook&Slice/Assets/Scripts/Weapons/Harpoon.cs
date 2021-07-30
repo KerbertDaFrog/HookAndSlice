@@ -23,8 +23,7 @@ public class Harpoon : MonoBehaviour
     public List<Vector3> hitPoints = new List<Vector3>();
 
     [Header("Bools")]
-    [SerializeField]
-    private bool hasShot;
+    public bool hasShot;
 
     private Camera fpsCam;
 
