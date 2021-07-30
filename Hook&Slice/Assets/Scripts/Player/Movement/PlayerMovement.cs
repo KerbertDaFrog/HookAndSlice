@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), groundDist, groundMask);
 
-        print(isGrounded);
+        //print(isGrounded);
 
         if (Input.GetKey(KeyCode.LeftShift))
             isSprinting = true;
