@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7693ecd35d1c83499b24fe688e5b94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.2
   dist: 0
   distanceFromGun: 0
   setTimer: 3

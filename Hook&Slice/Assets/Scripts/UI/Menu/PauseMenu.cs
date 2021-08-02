@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private PlayerLook pl;
 
+    [SerializeField]
+    private Hook hook;
+
     //[SerializeField]
     //private GameObject settingsPage;
     
@@ -20,7 +23,7 @@ public class PauseMenu : MonoBehaviour
     //[SerializeField]
     //private GameObject quitPopUp;
 
-    bool paused = false;
+    public bool paused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +40,7 @@ public class PauseMenu : MonoBehaviour
             {
                 UnpauseGame();
             }
-            else
+            else if(!paused)
             {
                 PauseGame();
             }
@@ -68,7 +71,4 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
-
-
 }

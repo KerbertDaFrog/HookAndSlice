@@ -6,6 +6,8 @@ using UnityEditor;
 public class Hook : MonoBehaviour
 {
     [SerializeField]
+    private float currentSpeed;
+    [SerializeField]
     private float speed;
     [SerializeField]
     private float dist;
@@ -18,6 +20,10 @@ public class Hook : MonoBehaviour
 
     [SerializeField]
     private bool done;
+    [SerializeField]
+    private bool _travellingforward;
+    [SerializeField]
+    private bool retracting;
     [SerializeField]
     private bool retracted;
 
@@ -38,7 +44,7 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private Vector3 origin;
     [SerializeField]
-    private Vector3 target; 
+    private Vector3 target;
 
     private void Awake()
     {
@@ -48,7 +54,6 @@ public class Hook : MonoBehaviour
     private void Start()
     {
         currentTimer = setTimer;
-        speed = 0.3f;
         //Take all of the elements from the hitPoints list in the Harpoon Component and add/copy them to the targets list in this script.
         targets.AddRange(harpoon.hitPoints);
         this.transform.SetParent(null);
@@ -56,6 +61,8 @@ public class Hook : MonoBehaviour
 
     private void Update()
     {
+        currentSpeed = speed;
+
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
         if (targets != null && !done)
         {
@@ -70,7 +77,7 @@ public class Hook : MonoBehaviour
         //origin = harpoon.originPoint
 
         dist = Vector3.Distance(origin, target);
-
+       
         distanceFromGun = Vector3.Distance(this.transform.position, harpoon.transform.position);
 
         //If the distance to the target is less 0.1 than change the index to one element up.
@@ -99,10 +106,10 @@ public class Hook : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.LookAt(target);
-       
-        transform.position = Vector3.MoveTowards(origin, target, speed);
-
+        transform.LookAt(target);     
+        
+        transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
+        
         //If the number of enemies on the enemies list is more than 0, start the countdown timer.
         if(enemies.Count > 0 && retracted != false)
         {

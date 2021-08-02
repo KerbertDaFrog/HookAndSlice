@@ -61,7 +61,6 @@ public class Enemy : MonoBehaviour
 		player = GameObject.Find("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
 		//health = GetComponent<Health>();
-
 	}
 
 	void Start()
