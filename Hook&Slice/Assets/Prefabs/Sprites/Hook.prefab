@@ -129,11 +129,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   dist: 0
+  distanceFromGun: 0
+  setTimer: 3
+  currentTimer: 0
   done: 0
-  forward: 0
-  backward: 0
+  retracted: 0
   damage: 0
+  maxEnemies: 5
   targets: []
+  enemies: []
   origin: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
 --- !u!65 &9078185385329879667
@@ -144,8 +148,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9078185385329879671}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.4, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

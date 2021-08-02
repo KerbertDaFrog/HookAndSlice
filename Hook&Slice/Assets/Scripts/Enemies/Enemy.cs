@@ -5,25 +5,33 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-	public NavMeshAgent nav;
+	[SerializeField]
+	private NavMeshAgent nav;
 
-	public Transform player;
+	[SerializeField]
+	private Transform player;
 
-	[SerializeField] float walkSpeed = 1f;
-	[SerializeField] float runSpeed = 4f;
+	[SerializeField] 
+	private float walkSpeed = 1f;
+	[SerializeField] 
+	private float runSpeed = 4f;
 
-	[SerializeField] float timeBetweenAttacks;
-	[SerializeField] float attackDelay;
-	public bool playerInSightRange, playerInAttackRange;
-	public bool attacking;
-	public bool alerted;
-	public bool isDead = false;
-
-	public GameObject damageBox;
-
-	public Vector3 storedPos;
-
-	public float attackRange;
+	[SerializeField] 
+	private float timeBetweenAttacks;
+	[SerializeField] 
+	private float attackDelay;
+	[SerializeField]
+	private float attackRange;
+	[SerializeField]
+	private bool playerInSightRange;
+	[SerializeField]
+	private bool playerInAttackRange;
+	[SerializeField]
+	private bool attacking;
+	[SerializeField]
+	private bool alerted;
+	[SerializeField]
+	private bool isDead = false;
 
 	//[HideInInspector]
 	//public Health health;
@@ -64,10 +72,7 @@ public class Enemy : MonoBehaviour
 			viewMesh.name = "View Mesh";
 			viewMeshFilter.mesh = viewMesh;
 		}
-	}
 
-	void OnEnable()
-	{
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
 

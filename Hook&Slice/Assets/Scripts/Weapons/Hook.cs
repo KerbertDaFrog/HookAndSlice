@@ -11,17 +11,27 @@ public class Hook : MonoBehaviour
     private float dist;
     [SerializeField]
     private float distanceFromGun;
+    [SerializeField]
+    private float setTimer;
+    [SerializeField]
+    private float currentTimer;
 
     [SerializeField]
     private bool done;
+    [SerializeField]
+    private bool retracted;
 
     [SerializeField]
     private int damage;
+    [SerializeField]
+    private int maxEnemies;
 
     private int index = 0;
 
     [SerializeField]
     private List<Vector3> targets = new List<Vector3>();
+    [SerializeField]
+    private List<Transform> enemies = new List<Transform>();
 
     private Harpoon harpoon;
 
@@ -37,6 +47,7 @@ public class Hook : MonoBehaviour
 
     private void Start()
     {
+        currentTimer = setTimer;
         speed = 0.3f;
         //Take all of the elements from the hitPoints list in the Harpoon Component and add/copy them to the targets list in this script.
         targets.AddRange(harpoon.hitPoints);
@@ -80,8 +91,8 @@ public class Hook : MonoBehaviour
             target = harpoon.transform.position;
         }
 
-        //If done and the hook's distance to the harpoon gun is less than 0.1, turn off done, turn off hasShot to false in Harpoon script, and destroy hook game object.
-        if(done && distanceFromGun < 0.1)
+        //If done and the hook's distance to the harpoon gun is less than 0.1 and the index count of enemies is 0, turn off done, turn off hasShot to false in Harpoon script, and destroy hook game object.
+        if(done && distanceFromGun < 0.1 && enemies.Count == 0)
         {
             done = false;
             harpoon.hasShot = false;
@@ -91,5 +102,36 @@ public class Hook : MonoBehaviour
         transform.LookAt(target);
        
         transform.position = Vector3.MoveTowards(origin, target, speed);
+
+        //If the number of enemies on the enemies list is more than 0, start the countdown timer.
+        if(enemies.Count > 0 && retracted != false)
+        {
+            currentTimer = Mathf.Clamp(currentTimer -= Time.deltaTime, 0f, setTimer);
+        }
+
+        if(harpoon.hasShot != false && enemies.Count > 0)
+        {
+            retracted = true;
+        }
+
+        if(retracted != true && enemies.Count == 0)
+        {
+            retracted = false;
+        }
+
+        //If index larger than maxEnemies than Remove all elements until maxEnemies limit reached.
+        if(enemies.Count > maxEnemies)
+        {
+            enemies.RemoveAt(maxEnemies);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //If the trigger collided object has tag "Enemy", then add the Transform to the enemies list.
+        if(other.gameObject.tag == "Enemy")
+        {
+            enemies.Add(other.transform);
+        }
     }
 }
