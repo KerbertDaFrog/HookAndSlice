@@ -21,8 +21,6 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private bool done;
     [SerializeField]
-    private bool _travellingforward;
-    [SerializeField]
     private bool retracting;
     [SerializeField]
     private bool retracted;
@@ -117,13 +115,13 @@ public class Hook : MonoBehaviour
             currentTimer = Mathf.Clamp(currentTimer -= Time.deltaTime, 0f, setTimer);
         }
 
-        if(harpoon.hasShot != false && enemies.Count > 0)
+        if(harpoon.hasShot != false && enemies.Count > 0 && distanceFromGun < 0.1)
         {
-            //retracting = false;
-            //retracted = true;
+            retracting = false;
+            retracted = true;
         }
 
-        if(retracted != false && enemies.Count > 0)
+        if(retracted != false && enemies.Count <= 0)
         {
             retracted = false;
         }
