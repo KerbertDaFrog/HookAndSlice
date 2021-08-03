@@ -121,7 +121,7 @@ public class Hook : MonoBehaviour
             retracted = true;
         }
 
-        if(retracted != true && enemies.Count == 0)
+        if(retracted != false && enemies.Count == 0)
         {
             retracted = false;
         }
@@ -130,6 +130,22 @@ public class Hook : MonoBehaviour
         if(enemies.Count > maxEnemies)
         {
             enemies.RemoveAt(maxEnemies);
+        }
+
+        //For each enemy in the enemies transform list: Set as a child of this transform(the hook) and set their transform.position to the same position that the hook is at.
+        foreach(Transform enemy in enemies)
+        {
+            enemy.SetParent(this.transform);
+            enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
+        }
+
+        if(currentTimer <= 0)
+        {
+            for(int i = enemies.Count - 1; i >= 0; i--)
+            {
+                enemies[i].transform.parent = null;
+                enemies.Remove(enemies[i]);
+            }
         }
     }
 
