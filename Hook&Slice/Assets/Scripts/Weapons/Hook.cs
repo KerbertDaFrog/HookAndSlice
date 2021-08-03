@@ -96,6 +96,7 @@ public class Hook : MonoBehaviour
         if(done)
         {
             target = harpoon.transform.position;
+            retracting = true;
         }
 
         //If done and the hook's distance to the harpoon gun is less than 0.1 and the index count of enemies is 0, turn off done, turn off hasShot to false in Harpoon script, and destroy hook game object.
@@ -118,10 +119,11 @@ public class Hook : MonoBehaviour
 
         if(harpoon.hasShot != false && enemies.Count > 0)
         {
-            retracted = true;
+            //retracting = false;
+            //retracted = true;
         }
 
-        if(retracted != false && enemies.Count == 0)
+        if(retracted != false && enemies.Count > 0)
         {
             retracted = false;
         }
@@ -139,7 +141,9 @@ public class Hook : MonoBehaviour
             enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
         }
 
-        if(currentTimer <= 0)
+        //If current timer is less than or equal to 0 than run a for loop that iterates through the enemies list backwards starting at the last element of the index
+        //and unparent each enemy from the list then remove all the elements from the list.
+        if (currentTimer <= 0)
         {
             for(int i = enemies.Count - 1; i >= 0; i--)
             {
