@@ -20,6 +20,7 @@ public class Billboards : MonoBehaviour
         if(!useStaticBillboard)
         {
             transform.LookAt(cam.transform);
+            transform.Rotate(0, 180, 0);
         }
         else
         {
