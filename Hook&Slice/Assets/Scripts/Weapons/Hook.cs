@@ -27,15 +27,14 @@ public class Hook : MonoBehaviour
 
     [SerializeField]
     private int damage;
-    [SerializeField]
-    private int maxEnemies;
+    public int maxEnemies;
 
     private int index = 0;
 
     [SerializeField]
     private List<Vector3> targets = new List<Vector3>();
-    [SerializeField]
-    private List<Transform> enemies = new List<Transform>();
+
+    public List<Transform> enemies = new List<Transform>();
 
     private Harpoon harpoon;
 
@@ -135,8 +134,12 @@ public class Hook : MonoBehaviour
         //For each enemy in the enemies transform list: Set as a child of this transform(the hook) and set their transform.position to the same position that the hook is at.
         foreach(Transform enemy in enemies)
         {
-            enemy.SetParent(this.transform);
-            enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
+            enemy.GetComponent<Enemy>().nav.speed = 0;
+            if(retracted)
+            {
+                enemy.SetParent(this.transform);
+                enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
+            }         
         }
 
         //If current timer is less than or equal to 0 than run a for loop that iterates through the enemies list backwards starting at the last element of the index
@@ -146,6 +149,7 @@ public class Hook : MonoBehaviour
             for(int i = enemies.Count - 1; i >= 0; i--)
             {
                 enemies[i].transform.parent = null;
+                enemies[i].GetComponent<Enemy>().nav.speed = 1;
                 enemies.Remove(enemies[i]);
             }
         }

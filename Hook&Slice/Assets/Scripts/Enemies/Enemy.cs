@@ -5,23 +5,28 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-	[SerializeField]
-	private NavMeshAgent nav;
+	public NavMeshAgent nav;
 
 	[SerializeField]
 	private Transform player;
 
+	[Header("Movement Speed Variables")]
 	[SerializeField] 
 	private float walkSpeed = 1f;
 	[SerializeField] 
 	private float runSpeed = 4f;
 
+	[Header("Attack Variables")]
 	[SerializeField] 
 	private float timeBetweenAttacks;
 	[SerializeField] 
 	private float attackDelay;
 	[SerializeField]
 	private float attackRange;
+	[SerializeField]
+	private float damage;
+
+	[Header("Booleans")]
 	[SerializeField]
 	private bool playerInSightRange;
 	[SerializeField]
@@ -36,24 +41,34 @@ public class Enemy : MonoBehaviour
 	//[HideInInspector]
 	//public Health health;
 
-	//FOV variables
+	[Header("FOV Variables")]
 	public float viewRadius;
 	[Range(0, 360)]
 	public float viewAngle;
 
-	public LayerMask targetMask;
-	public LayerMask obstacleMask;
+	[Header("Layer Masks")]
+	[SerializeField]
+	private LayerMask targetMask;
+	[SerializeField]
+	private LayerMask obstacleMask;
 
+	[Header("Lists")]
 	//[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
-	public float meshResolution;
-	public int edgeResolveIterations;
-	public float edgeDstThreshold;
+	[Header("FOV Mesh")]
+	[SerializeField]
+	private float meshResolution;
+	[SerializeField]
+	private int edgeResolveIterations;
+	[SerializeField]
+	private float edgeDstThreshold;
 
-	public float maskCutawayDst = .1f;
+	[SerializeField]
+	private float maskCutawayDst = .1f;
 
-	public MeshFilter viewMeshFilter;
+	[SerializeField]
+	private MeshFilter viewMeshFilter;
 	Mesh viewMesh;
 
 	private void Awake()
