@@ -56,10 +56,12 @@ public class Harpoon : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+#if UNITY_EDITOR
         Handles.color = Color.red;
         Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, 0.25f);
+#endif 
 
         DrawPredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
     }
@@ -86,8 +88,10 @@ public class Harpoon : MonoBehaviour
             position += direction * maxStepDistance;
         }
 
+#if UNITY_EDITOR
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(startingPosition, position);
+#endif
 
         DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
     }

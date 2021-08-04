@@ -32,7 +32,7 @@ public class Sword : MonoBehaviour
             if(!swinging)
             {
                 swinging = true;
-                if(hook)
+                if(hook && hook.retracted)
                 {
                     for (int i = hook.enemies.Count - 1; i >= 0; i--)
                     {

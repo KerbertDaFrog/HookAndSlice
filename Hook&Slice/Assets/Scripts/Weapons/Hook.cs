@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class Hook : MonoBehaviour
 {
@@ -22,8 +21,7 @@ public class Hook : MonoBehaviour
     private bool done;
     [SerializeField]
     private bool retracting;
-    [SerializeField]
-    private bool retracted;
+    public bool retracted;
 
     [SerializeField]
     private int damage;
