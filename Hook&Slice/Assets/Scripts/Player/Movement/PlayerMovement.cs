@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             isSprinting = false;
 
         if (isSprinting)
-            moveSpeed = 15f;
+            moveSpeed = 10f;
 
         if (!isSprinting)
             moveSpeed = 6f;

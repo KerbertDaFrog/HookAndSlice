@@ -25,7 +25,7 @@ public class Harpoon : MonoBehaviour
     [Header("Bools")]
     public bool hasShot;
 
-    private Camera fpsCam;
+    private Camera fpsCam;    
 
     private void Start()
     {
@@ -45,13 +45,13 @@ public class Harpoon : MonoBehaviour
                 hasShot = true;
                 staticHook.SetActive(false);
                 Instantiate(hook, firePoint);
-            }          
+            }
 
-            if(hasShot != true)
+            if (hasShot != true)
             {
                 hitPoints.Clear();
-            }
-        }
+            }       
+        }       
     }
 
     private void OnDrawGizmos()
