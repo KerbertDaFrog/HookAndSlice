@@ -24,11 +24,19 @@ public class Harpoon : MonoBehaviour
 
     [Header("Bools")]
     public bool hasShot;
+    public bool returned;
+
+    [Header("Cooldown Timer")]
+    [SerializeField]
+    private float currentCDTimer;
+    [SerializeField]
+    private float setCDTimer;
 
     private Camera fpsCam;    
 
     private void Start()
     {
+        //currentCDTimer = setCDTimer;
         fpsCam = Camera.main;
     }
 
@@ -51,7 +59,12 @@ public class Harpoon : MonoBehaviour
             {
                 hitPoints.Clear();
             }       
-        }       
+        }
+
+        //if (hasShot != false)
+        //{          
+        //    currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
+        //}
     }
 
     private void OnDrawGizmos()
