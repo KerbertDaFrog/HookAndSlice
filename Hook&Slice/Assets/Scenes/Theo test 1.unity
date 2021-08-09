@@ -28686,6 +28686,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050915883010721832, guid: d619fb8bb719ac242ad73e7ed9f4f47f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b8b86b345cc3e844aa42d9d1c455d594, type: 2}
     - target: {fileID: 4050915883010721833, guid: d619fb8bb719ac242ad73e7ed9f4f47f, type: 3}
       propertyPath: m_Name
       value: tomb-tile (1)
