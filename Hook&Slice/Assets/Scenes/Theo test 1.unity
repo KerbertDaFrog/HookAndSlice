@@ -1659,6 +1659,10 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 8572949311388523382}
+    - target: {fileID: 7473704933016252085, guid: 4c21e5daa09d91f4d9fec1248310df91, type: 3}
+      propertyPath: setCDTimer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7473704933420074344, guid: 4c21e5daa09d91f4d9fec1248310df91, type: 3}
       propertyPath: m_Name
       value: CameraHolder
@@ -41942,6 +41946,10 @@ PrefabInstance:
       propertyPath: bobVerAmp
       value: 0.02
       objectReference: {fileID: 0}
+    - target: {fileID: 8949455222031849620, guid: 5a141cc380960ad449bdb53e735fc6dc, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b8b86b345cc3e844aa42d9d1c455d594, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a141cc380960ad449bdb53e735fc6dc, type: 3}
 --- !u!1001 &1156012198607860174
