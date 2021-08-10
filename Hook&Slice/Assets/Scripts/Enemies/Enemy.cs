@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
 		//health = GetComponent<Health>();
 	}
 
-	void Start()
+	private void Start()
 	{
 		if (viewMeshFilter != null)
 		{
@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
 
-	void Update()
+	private void Update()
 	{
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
@@ -119,12 +119,12 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	void LateUpdate()
+	private void LateUpdate()
 	{
 		DrawFieldOfView();
 	}
 
-	void FindVisibleTargets()
+	private void FindVisibleTargets()
 	{
 		visibleTargets.Clear();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
@@ -161,18 +161,15 @@ public class Enemy : MonoBehaviour
 		}
 
 		if (targetsInViewRadius.Length == 0)
-		{
 			playerInSightRange = false;
-		}
+
 
 		if (targetsInAttackRadius.Length == 0)
-		{
 			playerInAttackRange = false;
-		}
 	}
 
 	#region FOVMeshDraw
-	void DrawFieldOfView()
+	private void DrawFieldOfView()
 	{
 		int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
 		float stepAngleSize = viewAngle / stepCount;

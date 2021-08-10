@@ -60,9 +60,7 @@ public class Hook : MonoBehaviour
 
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
         if (targets != null && !done)
-        {
             target = targets[index];
-        }
 
         origin = transform.position;
 
@@ -77,15 +75,11 @@ public class Hook : MonoBehaviour
 
         //If the distance to the target is less 0.1 than change the index to one element up.
         if (dist < 0.1)
-        {
-            index++;
-        }      
+            index++;  
 
         //If the index int is equal to the amount of elements in the Vector3 targets list and the distance to the target is less than 0.1, do this.
         if (index == targets.Count && dist < 0.1)
-        {
             done = true;
-        }
 
         //If done, change the target to the harpoon gun's transform position.
         if(done)
@@ -99,6 +93,8 @@ public class Hook : MonoBehaviour
         {
             done = false;
             harpoon.hasShot = false;
+            harpoon.staticHook.SetActive(true);
+            harpoon.returned = true;
             Destroy(gameObject);
         }
 
@@ -108,9 +104,7 @@ public class Hook : MonoBehaviour
         
         //If the number of enemies on the enemies list is more than 0, start the countdown timer.
         if(enemies.Count > 0 && retracted != false)
-        {
             currentTimer = Mathf.Clamp(currentTimer -= Time.deltaTime, 0f, setTimer);
-        }
 
         if(harpoon.hasShot != false && enemies.Count > 0 && distanceFromGun < 0.1)
         {
@@ -119,38 +113,62 @@ public class Hook : MonoBehaviour
         }
 
         if(retracted != false && enemies.Count <= 0)
-        {
             retracted = false;
-        }
 
         //If index larger than maxEnemies than Remove all elements until maxEnemies limit reached.
         if(enemies.Count > maxEnemies)
-        {
             enemies.RemoveAt(maxEnemies);
-        }
 
+        if(currentTimer <= 0)
+            OnTimerEnd();
+
+        PullEnemyToPlayer();
+
+        if(harpoon.hookCancelled)
+            OnHookCancelled();
+    }
+
+    private void DistanceChecks()
+    {
+
+    }
+
+    private void PullEnemyToPlayer()
+    {
         //For each enemy in the enemies transform list: Set as a child of this transform(the hook) and set their transform.position to the same position that the hook is at.
-        foreach(Transform enemy in enemies)
+        foreach (Transform enemy in enemies)
         {
             enemy.GetComponent<Enemy>().nav.speed = 0;
-            if(retracted)
+            if (retracted)
             {
                 enemy.SetParent(this.transform);
                 enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
-            }         
-        }
-
-        //If current timer is less than or equal to 0 than run a for loop that iterates through the enemies list backwards starting at the last element of the index
-        //and unparent each enemy from the list then remove all the elements from the list.
-        if (currentTimer <= 0)
-        {
-            for(int i = enemies.Count - 1; i >= 0; i--)
-            {
-                enemies[i].transform.parent = null;
-                enemies[i].GetComponent<Enemy>().nav.speed = 1;
-                enemies.Remove(enemies[i]);
             }
         }
+    }
+
+    private void OnTimerEnd()
+    {
+        //If current timer is less than or equal to 0 than run a for loop that iterates through the enemies list backwards starting at the last element of the index
+        //and unparent each enemy from the list then remove all the elements from the list.
+        for (int i = enemies.Count - 1; i >= 0; i--)
+        {
+            enemies[i].transform.parent = null;
+            enemies[i].GetComponent<Enemy>().nav.speed = 1;
+            enemies.Remove(enemies[i]);
+        }
+    }
+
+    private void OnHookCancelled()
+    {
+        for (int i = enemies.Count - 1; i >= 0; i--)
+        {
+            enemies[i].transform.parent = null;
+            enemies[i].GetComponent<Enemy>().nav.speed = 1;
+            enemies.Remove(enemies[i]);
+        }
+        harpoon.staticHook.SetActive(true);
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
