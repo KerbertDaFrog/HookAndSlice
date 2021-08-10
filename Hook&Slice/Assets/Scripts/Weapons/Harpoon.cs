@@ -7,20 +7,15 @@ public class Harpoon : MonoBehaviour
 {
     [Header("Transform Variables")]
     public GameObject staticHook;
-    [SerializeField]
-    public GameObject activeHook;
+    private GameObject activeHook;
     [SerializeField]
     private Transform firePoint;
     [SerializeField]
     private Transform hook;
 
     [Header("Hook Distance & Reflection Amount")]
-    [SerializeField]
     private int maxReflectionCount = 5;
-    [SerializeField]
     private float maxStepDistance = 200;
-    [SerializeField]
-    private float distFromHarpoon;
 
     [Header("Vector3 Hit Points")]
     public List<Vector3> hitPoints = new List<Vector3>();
@@ -33,8 +28,7 @@ public class Harpoon : MonoBehaviour
     [Header("Cooldown Timer")]
     [SerializeField]
     private float currentCDTimer;
-    [SerializeField]
-    private float setCDTimer;
+    private float setCDTimer = 1f;
 
     private Camera fpsCam;    
 

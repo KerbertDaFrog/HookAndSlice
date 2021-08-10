@@ -122,8 +122,11 @@ public class Hook : MonoBehaviour
         if(currentTimer <= 0)
             OnTimerEnd();
 
-        PullEnemyToPlayer();
-
+        if(targets.Count > 0)
+        {
+            PullEnemyToPlayer();
+        }
+        
         if(harpoon.hookCancelled)
             OnHookCancelled();
     }
