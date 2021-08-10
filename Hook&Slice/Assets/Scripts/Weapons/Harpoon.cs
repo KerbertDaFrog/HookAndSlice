@@ -6,8 +6,9 @@ using UnityEditor;
 public class Harpoon : MonoBehaviour
 {
     [Header("Transform Variables")]
+    public GameObject staticHook;
     [SerializeField]
-    private GameObject staticHook;
+    public GameObject activeHook;
     [SerializeField]
     private Transform firePoint;
     [SerializeField]
@@ -18,14 +19,17 @@ public class Harpoon : MonoBehaviour
     private int maxReflectionCount = 5;
     [SerializeField]
     private float maxStepDistance = 200;
+    [SerializeField]
+    private float distFromHarpoon;
 
     [Header("Vector3 Hit Points")]
     public List<Vector3> hitPoints = new List<Vector3>();
 
     [Header("Bools")]
     public bool hasShot;
+    public bool hookCancelled;
     public bool returned;
-
+    
     [Header("Cooldown Timer")]
     [SerializeField]
     private float currentCDTimer;
@@ -35,8 +39,7 @@ public class Harpoon : MonoBehaviour
     private Camera fpsCam;    
 
     private void Start()
-    {
-        //currentCDTimer = setCDTimer;
+    {        
         fpsCam = Camera.main;
     }
 
@@ -46,27 +49,43 @@ public class Harpoon : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+            PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);         
 
-            if (!hasShot && hitPoints.Count != 0)
+            if (!hasShot && hitPoints.Count != 0 && currentCDTimer <= 0)
             {
                 hasShot = true;
                 staticHook.SetActive(false);
-                Instantiate(hook, firePoint);
+                activeHook = Instantiate(hook, firePoint).gameObject;
             }
 
             if (hasShot != true)
-            {
                 hitPoints.Clear();
-            }       
         }
 
-        //if (hasShot != false)
-        //{          
-        //    currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
-        //}
+        if (Input.GetKeyDown(KeyCode.LeftControl) && currentCDTimer <= 0 && hasShot)
+            hookCancelled = true;
+
+        if (returned)
+        {
+            currentCDTimer = setCDTimer;
+            returned = false;
+        }
+
+        if(!hasShot)
+            currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
+
+        if(hookCancelled)
+        {
+            hasShot = false;
+            currentCDTimer = setCDTimer;
+            if(activeHook == null)
+            {
+                hookCancelled = false;
+            }
+        }
     }
 
+    #region ReflectionPattern
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
@@ -137,4 +156,5 @@ public class Harpoon : MonoBehaviour
 
         PredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
     }
+    #endregion
 }
