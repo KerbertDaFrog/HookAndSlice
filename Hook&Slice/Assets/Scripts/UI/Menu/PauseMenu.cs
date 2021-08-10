@@ -11,8 +11,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private PlayerLook pl;
 
-    [SerializeField]
-    private Hook hook;
+    //[SerializeField]
+    //private Hook hook;
 
     //[SerializeField]
     //private GameObject settingsPage;

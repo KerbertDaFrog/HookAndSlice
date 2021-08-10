@@ -5,10 +5,11 @@ using UnityEngine;
 public class Keys : MonoBehaviour
 {
     //hud collection confirmation
+    //[SerializeField]
+    //private GameObject hudCollectIcon;
+
     [SerializeField]
-    private GameObject hudCollectIcon;
-
-
+    private DoorOpen dr;
 
 
 
@@ -28,7 +29,7 @@ public class Keys : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //hudCollectIcon.SetActive(true);
-
+        dr.UnLock();
         Destroy(gameObject);
     }
 
