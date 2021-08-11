@@ -16,6 +16,10 @@ public class Hook : MonoBehaviour
     private float setTimer;
     [SerializeField]
     private float currentTimer;
+    [SerializeField]
+    private float totalDist;
+    [SerializeField]
+    private float maxDist = 1000f;
 
     [SerializeField]
     private bool done;
@@ -48,6 +52,7 @@ public class Hook : MonoBehaviour
 
     private void Start()
     {
+        origin = transform.position;
         currentTimer = setTimer;
         //Take all of the elements from the hitPoints list in the Harpoon Component and add/copy them to the targets list in this script.
         targets.AddRange(harpoon.hitPoints);
@@ -67,11 +72,13 @@ public class Hook : MonoBehaviour
         if(!done)
             print("my target = " + index);
 
-        //origin = harpoon.originPoint
+        totalDist += dist;
 
         dist = Vector3.Distance(origin, target);
        
         distanceFromGun = Vector3.Distance(this.transform.position, harpoon.transform.position);
+
+        origin = transform.position;
 
         //If the distance to the target is less 0.1 than change the index to one element up.
         if (dist < 0.1)
@@ -129,11 +136,14 @@ public class Hook : MonoBehaviour
         
         if(harpoon.hookCancelled)
             OnHookCancelled();
+
+        if (totalDist >= maxDist)
+            OnHookCancelled();
     }
 
-    private void DistanceChecks()
+    private void OnDestroy()
     {
-
+        Debug.Log("Total distance travelled:" + totalDist);
     }
 
     private void PullEnemyToPlayer()

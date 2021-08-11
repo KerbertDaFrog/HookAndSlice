@@ -77,6 +77,9 @@ public class Harpoon : MonoBehaviour
                 hookCancelled = false;
             }
         }
+
+        if (activeHook == null)
+            hasShot = false;
     }
 
     #region ReflectionPattern

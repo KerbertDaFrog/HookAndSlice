@@ -134,6 +134,8 @@ MonoBehaviour:
   distanceFromGun: 0
   setTimer: 3
   currentTimer: 0
+  totalDist: 0
+  maxDist: 1000
   done: 0
   retracting: 0
   retracted: 0
