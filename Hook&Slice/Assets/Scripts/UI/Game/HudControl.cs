@@ -25,7 +25,7 @@ public class HudControl : MonoBehaviour
 
     IEnumerator FeedbackOFF()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         CollectionOFF();
     }
 
