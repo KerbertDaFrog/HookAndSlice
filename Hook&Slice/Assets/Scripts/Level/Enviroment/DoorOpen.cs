@@ -30,7 +30,8 @@ public class DoorOpen : MonoBehaviour
             {
                 anim.SetBool("doorOpen", true);
                 Debug.Log("Door-opens-now");
-                //Opened();
+                open = true; 
+                InteractOFF();
             }
 
         }
@@ -39,15 +40,21 @@ public class DoorOpen : MonoBehaviour
     //if player enters the Trigger eitherside of the door the player is counted as "in-range"
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && unlocked)
+        if (other.gameObject.tag == "Player" && unlocked && !open)
         {
             interact = true;
             interactIcon.SetActive(true);
+
         }   
     }
 
     //Upon leaving the tirgger the player is no longer in range of interacting
     private void OnTriggerExit(Collider other)
+    {
+        InteractOFF();
+    }
+
+    private void InteractOFF()
     {
         interact = false;
         interactIcon.SetActive(false);
