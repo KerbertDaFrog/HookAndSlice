@@ -27,8 +27,7 @@ public class Hook : MonoBehaviour
     private bool retracting;
     public bool retracted;
 
-    [SerializeField]
-    private int damage;
+    public int damage;
     public int maxEnemies;
 
     private int index = 0;
@@ -102,7 +101,7 @@ public class Hook : MonoBehaviour
             harpoon.hasShot = false;
             harpoon.staticHook.SetActive(true);
             harpoon.returned = true;
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
 
         transform.LookAt(target);     
@@ -130,15 +129,16 @@ public class Hook : MonoBehaviour
             OnTimerEnd();
 
         if(targets.Count > 0)
-        {
             PullEnemyToPlayer();
-        }
         
         if(harpoon.hookCancelled)
             OnHookCancelled();
 
         if (totalDist >= maxDist)
             OnHookCancelled();
+
+        if (retracted && enemies.Count > 0)
+            CheckIfListElementsNull();
     }
 
     private void OnDestroy()
@@ -146,13 +146,26 @@ public class Hook : MonoBehaviour
         Debug.Log("Total distance travelled:" + totalDist);
     }
 
+    private void CheckIfListElementsNull()
+    {
+        for (int i = enemies.Count - 1; i >= 0; i--)
+        {
+            if (enemies[i] == null)
+            {
+                OnHookCancelled();
+            }
+        }
+    }    
+
     private void PullEnemyToPlayer()
     {
         //For each enemy in the enemies transform list: Set as a child of this transform(the hook) and set their transform.position to the same position that the hook is at.
         foreach (Transform enemy in enemies)
         {
-            enemy.GetComponent<Enemy>().nav.speed = 0;
-            if (retracted)
+            if(enemy != null)
+                enemy.GetComponent<Enemy>().nav.speed = 0;
+
+            if (retracted && enemy != null)
             {
                 enemy.SetParent(this.transform);
                 enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
@@ -166,9 +179,12 @@ public class Hook : MonoBehaviour
         //and unparent each enemy from the list then remove all the elements from the list.
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            enemies[i].transform.parent = null;
-            enemies[i].GetComponent<Enemy>().nav.speed = 1;
-            enemies.Remove(enemies[i]);
+            if(enemies[i] != null)
+            {
+                enemies[i].transform.parent = null;
+                enemies[i].GetComponent<Enemy>().nav.speed = 1;
+                enemies.Remove(enemies[i]);
+            }           
         }
     }
 
@@ -176,9 +192,12 @@ public class Hook : MonoBehaviour
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            enemies[i].transform.parent = null;
-            enemies[i].GetComponent<Enemy>().nav.speed = 1;
-            enemies.Remove(enemies[i]);
+            if(enemies[i] != null)
+            {
+                enemies[i].transform.parent = null;
+                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.Reasons.offHook);
+                enemies.Remove(enemies[i]);
+            }           
         }
         harpoon.staticHook.SetActive(true);
         Destroy(this.gameObject);

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: -5657102997963627178}
   m_Layer: 0
   m_Name: Hook
-  m_TagString: Untagged
+  m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   done: 0
   retracting: 0
   retracted: 0
-  damage: 0
+  damage: 10
   maxEnemies: 5
   targets: []
   enemies: []
