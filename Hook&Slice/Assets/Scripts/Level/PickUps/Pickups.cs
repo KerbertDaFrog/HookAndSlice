@@ -3,32 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Keys : MonoBehaviour
+public class Pickups : MonoBehaviour
 {
-    //hud collection confirmation
-    //[SerializeField]
-    //private GameObject hudCollectIcon;
 
+    [Header("Collection")]
     [SerializeField]
     private HudControl HC;
 
     [SerializeField]
     private Text confirmationText;
 
-    [SerializeField]
-    private string keyType;
 
-    [Header("Doors to Unlock")]
-
+    [Header("Type Of Pickup")]
     [SerializeField]
-    private DoorOpen door;
+    private bool healthPickup;
+
+
 
     private void OnTriggerEnter(Collider other)
     {
-        confirmationText.text = "Collected: " + keyType;
-        HC.CollectionON();
         //hudCollectIcon.SetActive(true);
-        door.UnLock();
+        Result();
         Destroy(gameObject);
     }
+
+    private void Result()
+    {
+        if (healthPickup)
+        {
+            HC.CollectionON();
+            confirmationText.text = "Collected: " + "Health";
+        }
+    }
+
 }
