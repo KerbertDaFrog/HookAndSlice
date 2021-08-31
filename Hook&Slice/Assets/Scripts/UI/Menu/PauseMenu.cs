@@ -14,9 +14,12 @@ public class PauseMenu : MonoBehaviour
     //[SerializeField]
     //private Hook hook;
 
-    //[SerializeField]
-    //private GameObject settingsPage;
-    
+    [SerializeField]
+    private GameObject settingsPage;
+
+    [SerializeField]
+    private GameObject pauseButtons;
+
     //[SerializeField]
     //private GameObject leavePopUp;
 
@@ -53,8 +56,11 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         paused = true;
-        
+
         pauseMenu.SetActive(true);
+        pauseButtons.SetActive(true);
+        settingsPage.SetActive(false);
+
         pl.Paused();
     }
 
@@ -71,4 +77,24 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void SettingsON()
+    {
+        settingsPage.SetActive(true);
+        pauseButtons.SetActive(false);
+
+    }
+
+    public void SettingsOFF()
+    {
+        settingsPage.SetActive(false);
+        pauseButtons.SetActive(true);
+    }
+
+
+
+
+
+
+
 }
