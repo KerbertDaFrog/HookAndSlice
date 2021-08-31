@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private Transform player;
 
+	[SerializeField]
+	private GameObject damageBox;
+
 	[Header("Movement Speed Variables")]
 	[SerializeField] 
 	private float walkSpeed = 1f;
@@ -81,6 +84,7 @@ public class Enemy : MonoBehaviour
 	{
 		player = GameObject.Find("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
+		damageBox = this.transform.Find("DamageBox").gameObject;
 		//health = GetComponent<Health>();
 	}
 
@@ -104,7 +108,7 @@ public class Enemy : MonoBehaviour
 		if (!playerInSightRange && !playerInAttackRange) nav.speed = walkSpeed;
 
 		if (playerInSightRange && !playerInAttackRange) Chase();
-		if (playerInSightRange && !playerInAttackRange) Chase();
+		if (playerInSightRange && playerInAttackRange) Attack();
 	}
 
 	private void Chase()
@@ -115,6 +119,11 @@ public class Enemy : MonoBehaviour
 			nav.SetDestination(player.position);
 		}
 	}
+
+	private void Attack()
+    {
+		damageBox.SetActive(true);
+    }
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{

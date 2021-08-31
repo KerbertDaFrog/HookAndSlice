@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     private int setHealth;
     [SerializeField]
     private int currentHealth;
+    [SerializeField]
+    private int damageTaken;
 
     [SerializeField]
     private Hook hook;
@@ -29,12 +31,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void TakeDamage()
     {
-
+        Debug.Log("oof");
+        currentHealth -= damageTaken;
     }
 
     private void KillPlayer()
     {
-        
+        Debug.Log("i ded");
+        //Restart scene or something
     }
 
     private void OnTriggerEnter(Collider other)

@@ -44,8 +44,12 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private Vector3 target;
 
+    [SerializeField]
+    private PauseMenu pauseMenu;
+
     private void Awake()
     {
+        pauseMenu = FindObjectOfType<PauseMenu>();
         harpoon = FindObjectOfType<Harpoon>();
     }
 
@@ -60,7 +64,18 @@ public class Hook : MonoBehaviour
 
     private void Update()
     {
-        currentSpeed = speed;
+        //Pause Menu Stuff: If Paused, current speed is set to 0 until not paused, which will return currentSpeed to the player set speed.
+        if (pauseMenu.paused != true)
+            currentSpeed = speed;
+
+        if (pauseMenu.paused != false)
+        {
+            currentSpeed = 0;
+        }
+        else if (pauseMenu.paused != true)
+        {
+            currentSpeed = speed;
+        }
 
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
         if (targets != null && !done)
@@ -139,6 +154,8 @@ public class Hook : MonoBehaviour
 
         if (retracted && enemies.Count > 0)
             CheckIfListElementsNull();
+
+                  
     }
 
     private void OnDestroy()
