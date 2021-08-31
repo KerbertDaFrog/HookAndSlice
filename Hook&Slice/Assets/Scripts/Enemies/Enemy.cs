@@ -5,10 +5,19 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+	public enum Reasons
+    {
+		nill,
+		onHook,
+		offHook
+    }
 	public NavMeshAgent nav;
 
 	[SerializeField]
 	private Transform player;
+
+	[SerializeField]
+	private GameObject damageBox;
 
 	[Header("Movement Speed Variables")]
 	[SerializeField] 
@@ -75,6 +84,7 @@ public class Enemy : MonoBehaviour
 	{
 		player = GameObject.Find("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
+		damageBox = this.transform.Find("DamageBox").gameObject;
 		//health = GetComponent<Health>();
 	}
 
@@ -98,7 +108,7 @@ public class Enemy : MonoBehaviour
 		if (!playerInSightRange && !playerInAttackRange) nav.speed = walkSpeed;
 
 		if (playerInSightRange && !playerInAttackRange) Chase();
-		if (playerInSightRange && !playerInAttackRange) Chase();
+		if (playerInSightRange && playerInAttackRange) Attack();
 	}
 
 	private void Chase()
@@ -109,6 +119,11 @@ public class Enemy : MonoBehaviour
 			nav.SetDestination(player.position);
 		}
 	}
+
+	private void Attack()
+    {
+		damageBox.SetActive(true);
+    }
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{
@@ -168,8 +183,24 @@ public class Enemy : MonoBehaviour
 			playerInAttackRange = false;
 	}
 
-	#region FOVMeshDraw
-	private void DrawFieldOfView()
+	public void SetSpeed(Reasons _r)
+	{
+		switch (_r)
+		{
+			case Reasons.nill:
+				nav.speed = runSpeed;
+				break;
+			case Reasons.onHook:
+				nav.speed = 1;
+				break;
+			case Reasons.offHook:
+				nav.speed = runSpeed;
+				break;
+		}
+	}
+
+        #region FOVMeshDraw
+        private void DrawFieldOfView()
 	{
 		int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
 		float stepAngleSize = viewAngle / stepCount;
@@ -284,7 +315,7 @@ public class Enemy : MonoBehaviour
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
 	}
 
-	public struct ViewCastInfo
+    public struct ViewCastInfo
 	{
 		public bool hit;
 		public Vector3 point;
@@ -319,5 +350,5 @@ public class Enemy : MonoBehaviour
 		//Gizmos.color = Color.yellow;
 		//Gizmos.DrawWireSphere(transform.position, sightRange);
 	}
-	#endregion
+    #endregion
 }

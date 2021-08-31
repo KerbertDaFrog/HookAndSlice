@@ -16,6 +16,10 @@ public class Hook : MonoBehaviour
     private float setTimer;
     [SerializeField]
     private float currentTimer;
+    [SerializeField]
+    private float totalDist;
+    [SerializeField]
+    private float maxDist = 1000f;
 
     [SerializeField]
     private bool done;
@@ -23,8 +27,7 @@ public class Hook : MonoBehaviour
     private bool retracting;
     public bool retracted;
 
-    [SerializeField]
-    private int damage;
+    public int damage;
     public int maxEnemies;
 
     private int index = 0;
@@ -41,13 +44,18 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private Vector3 target;
 
+    [SerializeField]
+    private PauseMenu pauseMenu;
+
     private void Awake()
     {
+        pauseMenu = FindObjectOfType<PauseMenu>();
         harpoon = FindObjectOfType<Harpoon>();
     }
 
     private void Start()
     {
+        origin = transform.position;
         currentTimer = setTimer;
         //Take all of the elements from the hitPoints list in the Harpoon Component and add/copy them to the targets list in this script.
         targets.AddRange(harpoon.hitPoints);
@@ -56,7 +64,18 @@ public class Hook : MonoBehaviour
 
     private void Update()
     {
-        currentSpeed = speed;
+        //Pause Menu Stuff: If Paused, current speed is set to 0 until not paused, which will return currentSpeed to the player set speed.
+        if (pauseMenu.paused != true)
+            currentSpeed = speed;
+
+        if (pauseMenu.paused != false)
+        {
+            currentSpeed = 0;
+        }
+        else if (pauseMenu.paused != true)
+        {
+            currentSpeed = speed;
+        }
 
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
         if (targets != null && !done)
@@ -67,11 +86,13 @@ public class Hook : MonoBehaviour
         if(!done)
             print("my target = " + index);
 
-        //origin = harpoon.originPoint
+        totalDist += dist;
 
         dist = Vector3.Distance(origin, target);
        
         distanceFromGun = Vector3.Distance(this.transform.position, harpoon.transform.position);
+
+        origin = transform.position;
 
         //If the distance to the target is less 0.1 than change the index to one element up.
         if (dist < 0.1)
@@ -95,7 +116,7 @@ public class Hook : MonoBehaviour
             harpoon.hasShot = false;
             harpoon.staticHook.SetActive(true);
             harpoon.returned = true;
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
 
         transform.LookAt(target);     
@@ -122,24 +143,46 @@ public class Hook : MonoBehaviour
         if(currentTimer <= 0)
             OnTimerEnd();
 
-        PullEnemyToPlayer();
-
+        if(targets.Count > 0)
+            PullEnemyToPlayer();
+        
         if(harpoon.hookCancelled)
             OnHookCancelled();
+
+        if (totalDist >= maxDist)
+            OnHookCancelled();
+
+        if (retracted && enemies.Count > 0)
+            CheckIfListElementsNull();
+
+                  
     }
 
-    private void DistanceChecks()
+    private void OnDestroy()
     {
-
+        Debug.Log("Total distance travelled:" + totalDist);
     }
+
+    private void CheckIfListElementsNull()
+    {
+        for (int i = enemies.Count - 1; i >= 0; i--)
+        {
+            if (enemies[i] == null)
+            {
+                OnHookCancelled();
+            }
+        }
+    }    
 
     private void PullEnemyToPlayer()
     {
         //For each enemy in the enemies transform list: Set as a child of this transform(the hook) and set their transform.position to the same position that the hook is at.
         foreach (Transform enemy in enemies)
         {
-            enemy.GetComponent<Enemy>().nav.speed = 0;
-            if (retracted)
+            if(enemy != null)
+                enemy.GetComponent<Enemy>().nav.speed = 0;
+
+            if (retracted && enemy != null)
             {
                 enemy.SetParent(this.transform);
                 enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
@@ -153,9 +196,12 @@ public class Hook : MonoBehaviour
         //and unparent each enemy from the list then remove all the elements from the list.
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            enemies[i].transform.parent = null;
-            enemies[i].GetComponent<Enemy>().nav.speed = 1;
-            enemies.Remove(enemies[i]);
+            if(enemies[i] != null)
+            {
+                enemies[i].transform.parent = null;
+                enemies[i].GetComponent<Enemy>().nav.speed = 1;
+                enemies.Remove(enemies[i]);
+            }           
         }
     }
 
@@ -163,9 +209,12 @@ public class Hook : MonoBehaviour
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            enemies[i].transform.parent = null;
-            enemies[i].GetComponent<Enemy>().nav.speed = 1;
-            enemies.Remove(enemies[i]);
+            if(enemies[i] != null)
+            {
+                enemies[i].transform.parent = null;
+                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.Reasons.offHook);
+                enemies.Remove(enemies[i]);
+            }           
         }
         harpoon.staticHook.SetActive(true);
         Destroy(this.gameObject);
