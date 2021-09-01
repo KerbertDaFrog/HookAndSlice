@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nav: {fileID: 0}
   player: {fileID: 0}
+  damageBox: {fileID: 0}
   walkSpeed: 3
   runSpeed: 5
   timeBetweenAttacks: 0
@@ -224,7 +225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5352998104635328187
 Transform:
   m_ObjectHideFlags: 0
