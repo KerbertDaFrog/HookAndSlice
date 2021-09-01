@@ -114,9 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3d6bcff40238c48a5394462078b3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nav: {fileID: 0}
-  player: {fileID: 0}
-  damageBox: {fileID: 0}
+  nav: {fileID: 4295101526577440104}
+  player: {fileID: 4294189449872304334, guid: 063aa7738cf15364998db0588c8106ff, type: 3}
+  damageBox: {fileID: 4641237462318576440}
   walkSpeed: 3
   runSpeed: 5
   timeBetweenAttacks: 0
