@@ -64,6 +64,7 @@ MonoBehaviour:
   enemies: []
   origin: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
+  pauseMenu: {fileID: 0}
 --- !u!65 &9078185385329879667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86,7 +87,7 @@ TrailRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9078185385329879671}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -226,6 +227,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.138
+      objectReference: {fileID: 0}
     - target: {fileID: 6535860424444682083, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_Name
       value: Projectile (1)
@@ -290,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2.138
       objectReference: {fileID: 0}
     - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_LocalScale.x
