@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 4295101526577440105}
   - component: {fileID: 4295101526577440106}
   - component: {fileID: 303073293147733644}
+  - component: {fileID: 2126474418713510310}
   m_Layer: 2
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -163,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3d6bcff40238c48a5394462078b3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nav: {fileID: 0}
+  nav: {fileID: 4295101526577440104}
   player: {fileID: 0}
-  damageBox: {fileID: 0}
+  damageBox: {fileID: 4641237462318576440}
   walkSpeed: 0.5
   runSpeed: 1.5
   timeBetweenAttacks: 0
@@ -191,6 +192,7 @@ MonoBehaviour:
   edgeDstThreshold: 0
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 0}
+  anim: {fileID: 2126474418713510310}
 --- !u!195 &4295101526577440104
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -258,6 +260,25 @@ MonoBehaviour:
   currentHealth: 0
   hooked: 0
   hook: {fileID: 0}
+--- !u!95 &2126474418713510310
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295101526577440099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2839104d6c3714c4785cb6fe2bb7489c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4641237462318576440
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +291,7 @@ GameObject:
   - component: {fileID: 3001851918221225044}
   m_Layer: 2
   m_Name: DamageBox
-  m_TagString: Untagged
+  m_TagString: DamageBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

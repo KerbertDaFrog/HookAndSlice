@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour
 	private bool playerInAttackRange;
 	[SerializeField]
 	private bool attacking;
-	[SerializeField]
-	private bool alerted;
+	//[SerializeField]
+	//private bool alerted;
 	[SerializeField]
 	private bool isDead = false;
 
@@ -79,6 +79,9 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private MeshFilter viewMeshFilter;
 	Mesh viewMesh;
+
+	[SerializeField]
+	private Animator anim;
 
 	private void Awake()
 	{
@@ -122,6 +125,8 @@ public class Enemy : MonoBehaviour
 
 	private void Attack()
     {
+		Debug.Log("killthetrator");
+		anim.SetBool("attack", true);
 		damageBox.SetActive(true);
     }
 
@@ -183,24 +188,24 @@ public class Enemy : MonoBehaviour
 			playerInAttackRange = false;
 	}
 
-	public void SetSpeed(Reasons _r)
-	{
-		switch (_r)
-		{
-			case Reasons.nill:
-				nav.speed = runSpeed;
-				break;
-			case Reasons.onHook:
-				nav.speed = 1;
-				break;
-			case Reasons.offHook:
-				nav.speed = runSpeed;
-				break;
-		}
-	}
+    public void SetSpeed(Reasons _r)
+    {
+        switch (_r)
+        {
+            case Reasons.nill:
+                nav.speed = runSpeed;
+                break;
+            case Reasons.onHook:
+                nav.speed = 1;
+                break;
+            case Reasons.offHook:
+                nav.speed = runSpeed;
+                break;
+        }
+    }
 
-        #region FOVMeshDraw
-        private void DrawFieldOfView()
+    #region FOVMeshDraw
+    private void DrawFieldOfView()
 	{
 		int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
 		float stepAngleSize = viewAngle / stepCount;
