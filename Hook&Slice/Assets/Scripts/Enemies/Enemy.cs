@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
 
 	private void Attack()
     {
-		Debug.Log("killthetrator");
+		Debug.Log("die");
 		anim.SetBool("attack", true);
 		damageBox.SetActive(true);
     }
