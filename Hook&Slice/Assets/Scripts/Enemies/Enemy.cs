@@ -80,6 +80,9 @@ public class Enemy : MonoBehaviour
 	private MeshFilter viewMeshFilter;
 	Mesh viewMesh;
 
+	[SerializeField]
+	private Animator anim;
+
 	private void Awake()
 	{
 		player = GameObject.Find("Player").transform;
@@ -122,6 +125,8 @@ public class Enemy : MonoBehaviour
 
 	private void Attack()
     {
+		Debug.Log("die");
+		anim.SetBool("attack", true);
 		damageBox.SetActive(true);
     }
 

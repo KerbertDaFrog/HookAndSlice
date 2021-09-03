@@ -15,6 +15,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private Hook hook;
 
+    [SerializeField]
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,15 @@ public class EnemyHealth : MonoBehaviour
 
         if (transform.parent == null)
             hooked = false;
+
+        if(hooked != false)
+        {
+            anim.SetBool("caught", true);
+        }
+        else if (hooked != true)
+        {
+            anim.SetBool("caught", false);
+        }
     }
 
     private void KillEnemy()
