@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 4295101526577440105}
   - component: {fileID: 4295101526577440106}
   - component: {fileID: 303073293147733644}
-  - component: {fileID: 2126474418713510310}
   m_Layer: 2
   m_Name: EnemyTest
   m_TagString: Enemy
@@ -176,7 +175,6 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   attacking: 0
-  alerted: 0
   isDead: 0
   viewRadius: 6
   viewAngle: 360
@@ -192,7 +190,7 @@ MonoBehaviour:
   edgeDstThreshold: 0
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 0}
-  anim: {fileID: 2126474418713510310}
+  anim: {fileID: 7899148833459127956}
 --- !u!195 &4295101526577440104
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -260,25 +258,7 @@ MonoBehaviour:
   currentHealth: 0
   hooked: 0
   hook: {fileID: 0}
---- !u!95 &2126474418713510310
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4295101526577440099}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2839104d6c3714c4785cb6fe2bb7489c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  anim: {fileID: 7899148833459127956}
 --- !u!1 &4641237462318576440
 GameObject:
   m_ObjectHideFlags: 0

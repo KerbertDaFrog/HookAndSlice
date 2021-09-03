@@ -31356,10 +31356,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 337119498}
     m_Modifications:
-    - target: {fileID: 2126474418713510310, guid: 4f88b32896f418047bc095e640239395, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4295101526577440099, guid: 4f88b32896f418047bc095e640239395, type: 3}
       propertyPath: m_Name
       value: EnemyTest
@@ -31412,10 +31408,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2076281159}
-    - target: {fileID: 4295101526577440103, guid: 4f88b32896f418047bc095e640239395, type: 3}
-      propertyPath: playerInSightRange
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f88b32896f418047bc095e640239395, type: 3}
 --- !u!1001 &1587600437
