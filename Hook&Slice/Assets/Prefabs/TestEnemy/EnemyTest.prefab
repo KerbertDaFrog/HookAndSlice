@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4295101526577440099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 6}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.8000001, y: 0.8, z: 0.8000001}
   m_Children:
   - {fileID: 7917403711787742281}
   - {fileID: 5352998104635328187}
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 34e06f6877052924dab82d03f5ba84ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 10d63bee288a215469c0cb70b0cc02f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56f9b198a5cc0e648b965a19247ea183, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,11 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3d6bcff40238c48a5394462078b3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nav: {fileID: 4295101526577440104}
-  player: {fileID: 4294189449872304334, guid: 063aa7738cf15364998db0588c8106ff, type: 3}
-  damageBox: {fileID: 4641237462318576440}
-  walkSpeed: 3
-  runSpeed: 5
+  nav: {fileID: 0}
+  player: {fileID: 0}
+  damageBox: {fileID: 0}
+  walkSpeed: 0.5
+  runSpeed: 1.5
   timeBetweenAttacks: 0
   attackDelay: 0
   attackRange: 2
@@ -128,7 +128,7 @@ MonoBehaviour:
   attacking: 0
   alerted: 0
   isDead: 0
-  viewRadius: 30
+  viewRadius: 6
   viewAngle: 360
   targetMask:
     serializedVersion: 2
@@ -248,7 +248,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4641237462318576440}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1, z: 0.6}
