@@ -6349,6 +6349,18 @@ PrefabInstance:
       propertyPath: viewRadius
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4295101526577440103, guid: 4f88b32896f418047bc095e640239395, type: 3}
+      propertyPath: nav
+      value: 
+      objectReference: {fileID: 1335278028}
+    - target: {fileID: 4295101526577440103, guid: 4f88b32896f418047bc095e640239395, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 511427338}
+    - target: {fileID: 4295101526577440103, guid: 4f88b32896f418047bc095e640239395, type: 3}
+      propertyPath: damageBox
+      value: 
+      objectReference: {fileID: 1224379739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f88b32896f418047bc095e640239395, type: 3}
 --- !u!4 &308491865 stripped
@@ -11085,6 +11097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
+--- !u!4 &511427338 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2401013544465233256, guid: 45b0dbf2fdd024c14a9c23c58e6ff970, type: 3}
+  m_PrefabInstance: {fileID: 1123981556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &512392419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
@@ -26485,6 +26502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
+--- !u!1 &1224379739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4641237462318576440, guid: 4f88b32896f418047bc095e640239395, type: 3}
+  m_PrefabInstance: {fileID: 308491864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1231327702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4050915883010721813, guid: d619fb8bb719ac242ad73e7ed9f4f47f, type: 3}
@@ -28661,6 +28683,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &1335278028 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 4295101526577440104, guid: 4f88b32896f418047bc095e640239395, type: 3}
+  m_PrefabInstance: {fileID: 308491864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1336439012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37685,7 +37712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 951825466437698331, guid: 2f061f3a9c6af774caee74ab858cf0e3, type: 3}
       propertyPath: m_Name
-      value: door-trigger
+      value: door-woood
       objectReference: {fileID: 0}
     - target: {fileID: 951825466437698331, guid: 2f061f3a9c6af774caee74ab858cf0e3, type: 3}
       propertyPath: m_IsActive
