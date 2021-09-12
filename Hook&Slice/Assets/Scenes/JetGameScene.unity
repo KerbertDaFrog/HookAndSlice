@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: b4ee41130c40a2f44a279833d0bab79f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 099f292addde85543b46a8a4f2f2e8d4, type: 2}
 --- !u!1001 &396389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,10 +133,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -275,10 +271,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (52)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6266627
@@ -340,10 +332,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (42)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -468,10 +456,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (116)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1382,10 +1366,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (27)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -1583,10 +1563,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (196)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -1653,10 +1629,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (91)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1933,10 +1905,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (195)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -2069,10 +2037,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (81)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -2135,10 +2099,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (76)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -2200,10 +2160,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (188)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2318,10 +2274,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (197)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2574,10 +2526,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (65)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -2762,10 +2710,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (109)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3733373
@@ -2828,10 +2772,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (192)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.626675
@@ -2888,10 +2828,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2959,10 +2895,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (15)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3313,10 +3245,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (96)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -3521,10 +3449,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (21)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -3672,10 +3596,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (93)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -3737,10 +3657,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (14)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3819,10 +3735,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (39)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -3884,10 +3796,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4017,10 +3925,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (87)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4838,10 +4742,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (56)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.626663
@@ -4903,10 +4803,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (104)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5252,10 +5148,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (219)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3733373
@@ -5458,10 +5350,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5666,10 +5554,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (171)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5965,10 +5849,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (200)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -6200,10 +6080,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (131)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7019,10 +6895,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (162)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.626663
@@ -7137,10 +7009,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (30)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -7208,10 +7076,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (126)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.626675
@@ -7268,10 +7132,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (159)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7405,10 +7265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (89)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -7471,10 +7327,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (16)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.626674
@@ -7536,10 +7388,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (158)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7612,10 +7460,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (170)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7824,10 +7668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (102)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -7890,10 +7730,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (82)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -7955,10 +7791,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8231,10 +8063,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (50)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -8296,10 +8124,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (172)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8757,10 +8581,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (125)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.626675
@@ -9121,10 +8941,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (143)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -9191,10 +9007,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (156)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9380,10 +9192,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (70)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -9512,10 +9320,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (150)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9776,10 +9580,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (64)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -10012,10 +9812,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (34)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -10078,10 +9874,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3733373
@@ -10143,10 +9935,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (139)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10735,6 +10523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1904783469997300966, guid: 4e90b24335589e54b8afe0bdc8df344b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db7d3d938b2212b4d9c20b142fd6ff6c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e90b24335589e54b8afe0bdc8df344b, type: 3}
 --- !u!4 &537459866 stripped
@@ -10752,10 +10544,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (110)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10879,10 +10667,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (129)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -10939,10 +10723,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (164)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11128,10 +10908,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (147)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -11188,10 +10964,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (47)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11279,10 +11051,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (155)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11407,10 +11175,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (212)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11541,10 +11305,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (88)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -11612,10 +11372,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (58)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626663
@@ -11678,10 +11434,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (120)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6266627
@@ -11738,10 +11490,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (201)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12097,10 +11845,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (132)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -12212,10 +11956,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (189)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12375,10 +12115,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (46)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12797,10 +12533,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (101)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -12963,10 +12695,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (78)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -13122,10 +12850,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (83)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13534,10 +13258,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (178)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -13868,10 +13588,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (141)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -14017,10 +13733,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (86)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14374,10 +14086,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (138)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -14689,10 +14397,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (194)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -14920,10 +14624,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (144)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -15066,10 +14766,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (181)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.626675
@@ -15126,10 +14822,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (48)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15207,10 +14899,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (45)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15335,10 +15023,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (137)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15656,10 +15340,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (151)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -15726,10 +15406,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (199)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15943,10 +15619,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (66)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -16073,10 +15745,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (37)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16417,10 +16085,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (180)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.626675
@@ -16702,10 +16366,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (31)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -16860,10 +16520,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (193)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.626675
@@ -16920,10 +16576,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (148)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16991,10 +16643,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (63)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17275,10 +16923,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17618,10 +17262,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (121)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.626663
@@ -17793,10 +17433,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (18)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.626675
@@ -17874,10 +17510,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (173)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -17934,10 +17566,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (174)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18066,10 +17694,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (94)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -18131,10 +17755,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (130)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18522,10 +18142,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (213)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -18593,10 +18209,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (122)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.626675
@@ -18653,10 +18265,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (103)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18879,10 +18487,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (98)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.626675
@@ -18950,10 +18554,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (182)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -19010,10 +18610,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (95)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19076,10 +18672,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (28)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19219,10 +18811,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (85)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19380,10 +18968,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (191)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -19518,10 +19102,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (119)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.626663
@@ -19578,10 +19158,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (69)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20064,10 +19640,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (43)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -20207,10 +19779,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (146)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -20277,10 +19845,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (214)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21016,10 +20580,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (57)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626663
@@ -21086,10 +20646,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (161)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21305,10 +20861,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (117)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.6266627
@@ -21365,10 +20917,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (107)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21701,10 +21249,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (24)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -21776,10 +21320,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (175)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22184,10 +21724,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (165)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626663
@@ -22244,10 +21780,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (40)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22409,10 +21941,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (190)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -22569,10 +22097,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (136)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -22634,10 +22158,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (41)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23056,10 +22576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (99)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -23121,10 +22637,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (111)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23605,10 +23117,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (13)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6266627
@@ -23670,10 +23178,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (112)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23793,14 +23297,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (12)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24005,10 +23501,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (60)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -24070,10 +23562,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (97)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24264,10 +23752,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (205)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.626675
@@ -24399,10 +23883,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (204)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24948,10 +24428,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (22)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -25199,10 +24675,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (149)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25454,10 +24926,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (187)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25756,10 +25224,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (26)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -25885,10 +25349,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (114)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26018,10 +25478,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (211)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26216,10 +25672,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (51)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26494,10 +25946,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (134)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -26554,10 +26002,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (79)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26682,10 +26126,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (49)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26912,10 +26352,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (29)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27275,10 +26711,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (179)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -27340,10 +26772,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (209)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27463,10 +26891,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (215)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27807,10 +27231,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (152)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -27867,10 +27287,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (168)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27929,10 +27345,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (118)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.6266627
@@ -27989,10 +27401,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (218)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28130,10 +27538,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (128)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28319,10 +27723,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (202)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28516,10 +27916,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (203)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29203,10 +28599,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (124)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -29501,10 +28893,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (106)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -29571,10 +28959,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (23)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30040,10 +29424,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (115)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.6266627
@@ -30273,10 +29653,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (73)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.626675
@@ -30467,10 +29843,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (72)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30857,10 +30229,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (154)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31360,6 +30728,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTest
       objectReference: {fileID: 0}
+    - target: {fileID: 4295101526577440099, guid: 4f88b32896f418047bc095e640239395, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4295101526577440102, guid: 4f88b32896f418047bc095e640239395, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.76
@@ -31804,10 +31176,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (208)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -31865,10 +31233,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (217)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.3733373
@@ -31925,10 +31289,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (186)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32119,10 +31479,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (38)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -32252,10 +31608,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (163)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.626663
@@ -32312,10 +31664,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (92)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32506,10 +31854,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (127)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.626675
@@ -32571,10 +31915,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (183)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32877,10 +32217,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (36)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -32942,10 +32278,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (135)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33286,10 +32618,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (153)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -33428,10 +32756,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (77)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -33493,10 +32817,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (123)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33626,10 +32946,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (185)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33893,10 +33209,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (133)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -34033,10 +33345,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (53)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34289,10 +33597,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (108)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.3733373
@@ -34349,10 +33653,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34421,10 +33721,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (207)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.626675
@@ -34481,10 +33777,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (160)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34599,10 +33891,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (80)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34935,10 +34223,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (210)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.626675
@@ -35067,10 +34351,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (17)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35313,10 +34593,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (145)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -35378,10 +34654,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (54)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35562,10 +34834,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (105)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36038,10 +35306,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.62666273
@@ -36113,10 +35377,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (166)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36244,10 +35504,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (198)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36473,10 +35729,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (67)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.626675
@@ -36538,10 +35790,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (157)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36662,10 +35910,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (74)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.626675
@@ -36728,10 +35972,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.6266627
@@ -36793,10 +36033,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (142)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36952,10 +36188,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (68)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37156,10 +36388,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (140)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -37216,10 +36444,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (100)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37425,10 +36649,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (75)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.626675
@@ -37490,10 +36710,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (90)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37561,10 +36777,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (216)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37695,10 +36907,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (61)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.626675
@@ -37761,10 +36969,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (71)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -37826,10 +37030,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (32)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38062,10 +37262,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38488,10 +37684,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (62)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.626675
@@ -38838,10 +38030,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (167)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -38971,10 +38159,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (35)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -39041,10 +38225,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (33)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39429,10 +38609,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (59)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -39628,10 +38804,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (177)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -39991,10 +39163,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (84)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.626675
@@ -40298,10 +39466,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (19)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.626675
@@ -40363,10 +39527,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (44)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40494,10 +39654,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (25)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40627,10 +39783,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (206)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40927,10 +40079,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (169)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.626675
@@ -40987,10 +40135,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (113)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41054,10 +40198,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor dungeon (184)
       objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.626675
@@ -41114,10 +40254,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (55)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41185,10 +40321,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (20)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41308,10 +40440,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41504,10 +40632,6 @@ PrefabInstance:
     - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_Name
       value: floor dungeon (176)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6160821079418217397, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41876,6 +41000,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 2068811563}
+    - target: {fileID: 2401013544465233261, guid: 45b0dbf2fdd024c14a9c23c58e6ff970, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401013544465233261, guid: 45b0dbf2fdd024c14a9c23c58e6ff970, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45b0dbf2fdd024c14a9c23c58e6ff970, type: 3}
 --- !u!1001 &7161813935993087274

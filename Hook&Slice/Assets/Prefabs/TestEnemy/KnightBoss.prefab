@@ -123,13 +123,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4295101526577440102}
-  - component: {fileID: 4295101526577440103}
   - component: {fileID: 4295101526577440104}
   - component: {fileID: 4295101526577440105}
   - component: {fileID: 4295101526577440106}
   - component: {fileID: 303073293147733644}
+  - component: {fileID: 1443689076441032580}
   m_Layer: 2
-  m_Name: EnemyTest
+  m_Name: KnightBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,47 +151,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4295101526577440103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4295101526577440099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3d6bcff40238c48a5394462078b3b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nav: {fileID: 4295101526577440104}
-  player: {fileID: 0}
-  damageBox: {fileID: 4641237462318576440}
-  distanceFromPlayer: 0
-  walkSpeed: 0.5
-  runSpeed: 1.5
-  timeBetweenAttacks: 0
-  attackDelay: 0
-  attackRange: 0.5
-  damage: 0
-  playerInSightRange: 0
-  playerInAttackRange: 0
-  attacking: 0
-  isDead: 0
-  viewRadius: 6
-  viewAngle: 360
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
-  visibleTargets: []
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
-  maskCutawayDst: 0.1
-  viewMeshFilter: {fileID: 0}
-  anim: {fileID: 7899148833459127956}
 --- !u!195 &4295101526577440104
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -222,7 +181,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4295101526577440099}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.61, y: 0.99, z: 0.2}
@@ -261,6 +220,46 @@ MonoBehaviour:
   hook: {fileID: 0}
   sword: {fileID: 0}
   anim: {fileID: 7899148833459127956}
+--- !u!114 &1443689076441032580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295101526577440099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9bcb98ce400e44798aa78aea27532c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nav: {fileID: 4295101526577440104}
+  player: {fileID: 0}
+  damageBox: {fileID: 4641237462318576440}
+  walkSpeed: 1
+  runSpeed: 4
+  timeBetweenAttacks: 0
+  attackDelay: 0
+  attackRange: 0
+  damage: 0
+  playerInSightRange: 0
+  playerInAttackRange: 0
+  attacking: 0
+  isDead: 0
+  viewRadius: 0
+  viewAngle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  visibleTargets: []
+  meshResolution: 0
+  edgeResolveIterations: 0
+  edgeDstThreshold: 0
+  maskCutawayDst: 0.1
+  viewMeshFilter: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1 &4641237462318576440
 GameObject:
   m_ObjectHideFlags: 0

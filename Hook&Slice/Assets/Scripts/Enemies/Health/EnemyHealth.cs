@@ -16,6 +16,9 @@ public class EnemyHealth : MonoBehaviour
     private Hook hook;
 
     [SerializeField]
+    private Sword sword;
+
+    [SerializeField]
     private Animator anim;
 
     // Start is called before the first frame update
@@ -29,10 +32,15 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
 
-        if (currentHealth <= 0)
-            KillEnemy();
+        //if (currentHealth <= 0)
+        //    StartCoroutine("KillEnemy");
 
         hook = FindObjectOfType<Hook>();
+
+        sword = FindObjectOfType<Sword>();
+
+        if(hooked && sword.swinging)
+            StartCoroutine("KillEnemy");
 
         if (transform.parent == null)
             hooked = false;
@@ -45,28 +53,33 @@ public class EnemyHealth : MonoBehaviour
         {
             anim.SetBool("caught", false);
         }
+
+        //if (Input.GetKeyDown(KeyCode.P))
+        //    Debug.Log("goblin ded");
+        //    anim.SetBool("dead", true);
     }
 
-    private void KillEnemy()
+    IEnumerator KillEnemy()
     {
-        Destroy(gameObject);
+        anim.SetBool("dead", true);
+        yield return new WaitForSeconds(2f);
     }
 
-    IEnumerator TakeDamage()
-    {
-        while(hooked)
-        {
-            currentHealth -= hook.damage;
-            yield return new WaitForSeconds(1f);
-        }        
-    }
+    //IEnumerator TakeDamage()
+    //{
+    //    while(hooked)
+    //    {
+    //        currentHealth -= hook.damage;
+    //        yield return new WaitForSeconds(1f);
+    //    }        
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Hook" && !hooked)
         {
             hooked = true;
-            StartCoroutine("TakeDamage");
+            //StartCoroutine("TakeDamage");
         }
     }
 }

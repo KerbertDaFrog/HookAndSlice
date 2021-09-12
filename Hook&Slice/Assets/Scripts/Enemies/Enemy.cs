@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-	public enum Reasons
+	public enum EnemyStates
     {
 		nill,
 		onHook,
@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
 
 	[SerializeField]
 	private GameObject damageBox;
+
+	[SerializeField]
+	private float distanceFromPlayer;
 
 	[Header("Movement Speed Variables")]
 	[SerializeField] 
@@ -41,7 +44,7 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private bool playerInAttackRange;
 	[SerializeField]
-	private bool attacking;
+	protected bool attacking;
 	//[SerializeField]
 	//private bool alerted;
 	[SerializeField]
@@ -103,20 +106,43 @@ public class Enemy : MonoBehaviour
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
 
-	private void Update()
+	protected virtual void Update()
 	{
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
 		if (!playerInSightRange && !playerInAttackRange) nav.speed = walkSpeed;
 
-		if (playerInSightRange && !playerInAttackRange) Chase();
-		if (playerInSightRange && playerInAttackRange) Attack();
+		if (playerInSightRange && !playerInAttackRange)
+		{
+			Chase();
+		}
+		
+		if (playerInSightRange && playerInAttackRange)
+        {
+			attacking = true;
+			Attack();
+		}	
+		else if(!playerInAttackRange)
+        {
+			attacking = false;
+        }
+
+		if (attacking)
+		{
+			anim.SetBool("attack", true);
+		}
+		else if (!attacking)
+		{
+			anim.SetBool("attack", false);
+		}
+
+		distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
 	}
 
 	private void Chase()
 	{
-		if (!attacking && !isDead)
+		if (!attacking && !isDead) //&& distanceFromPlayer > 1.5f)
 		{
 			nav.speed = runSpeed;
 			nav.SetDestination(player.position);
@@ -125,10 +151,9 @@ public class Enemy : MonoBehaviour
 
 	private void Attack()
     {
-		Debug.Log("die");
-		anim.SetBool("attack", true);
-		damageBox.SetActive(true);
-    }
+		//Debug.Log("die");				
+		damageBox.SetActive(true);		
+	}
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{
@@ -188,17 +213,17 @@ public class Enemy : MonoBehaviour
 			playerInAttackRange = false;
 	}
 
-    public void SetSpeed(Reasons _r)
+    public void SetSpeed(EnemyStates _r)
     {
         switch (_r)
         {
-            case Reasons.nill:
+            case EnemyStates.nill:
                 nav.speed = runSpeed;
                 break;
-            case Reasons.onHook:
+            case EnemyStates.onHook:
                 nav.speed = 1;
                 break;
-            case Reasons.offHook:
+            case EnemyStates.offHook:
                 nav.speed = runSpeed;
                 break;
         }

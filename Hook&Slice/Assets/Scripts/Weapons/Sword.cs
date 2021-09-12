@@ -7,8 +7,7 @@ public class Sword : MonoBehaviour
     [SerializeField]
     private Hook hook;
 
-    [SerializeField]
-    private bool swinging;
+    public bool swinging;
 
     [SerializeField]
     private float damage;
@@ -34,13 +33,8 @@ public class Sword : MonoBehaviour
                 swinging = true;
                 if(hook && hook.retracted)
                 {
-                    for (int i = hook.enemies.Count - 1; i >= 0; i--)
-                    {
-                        Destroy(hook.enemies[i].gameObject);
-                        hook.enemies.Remove(hook.enemies[i]);
-                    }
-                }               
-                Invoke("SwingDone", 1f);
+                    Invoke("SwingDone", 3f);
+                }                            
                 //Play Animation
                 //Deal Damage to Enemies
             }
@@ -49,6 +43,11 @@ public class Sword : MonoBehaviour
 
     void SwingDone()
     {
+        for (int i = hook.enemies.Count - 1; i >= 0; i--)
+        {
+            Destroy(hook.enemies[i].gameObject);
+            hook.enemies.Remove(hook.enemies[i]);
+        }
         swinging = false;
     }
 

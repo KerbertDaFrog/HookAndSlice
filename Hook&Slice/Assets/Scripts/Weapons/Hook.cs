@@ -212,7 +212,7 @@ public class Hook : MonoBehaviour
             if(enemies[i] != null)
             {
                 enemies[i].transform.parent = null;
-                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.Reasons.offHook);
+                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.EnemyStates.offHook);
                 enemies.Remove(enemies[i]);
             }           
         }
