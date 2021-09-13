@@ -17,17 +17,37 @@ public class KnightBoss : Enemy
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    // Update is called once per frame
+    public override void Update()
+    {
         
     }
 
-    //// Update is called once per frame
-    //public override void Update()
-    //{
-        
-    //}
-
-    public void SetState(KnightState _r)
+    protected override void Attack()
     {
+        attacking = true;
+        base.Attack();
+    }
 
+    public void SetState(KnightState state)
+    {
+        switch(state)
+        {
+            case KnightState.idle:
+                //idle
+                break;
+            case KnightState.staggered:
+                //staggered
+                break;
+            case KnightState.attacking:
+                Attack();
+                break;
+            case KnightState.dead:
+                //dead
+                break;
+        }
     }
 }

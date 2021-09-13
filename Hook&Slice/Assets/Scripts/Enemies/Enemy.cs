@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
 
-	protected virtual void Update()
+	public virtual void Update()
 	{
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	private void Attack()
+	protected virtual void Attack()
     {
 		//Debug.Log("die");				
 		damageBox.SetActive(true);		
