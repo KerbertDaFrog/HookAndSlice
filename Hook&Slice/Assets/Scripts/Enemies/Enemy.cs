@@ -7,20 +7,26 @@ public class Enemy : MonoBehaviour
 {
 	public enum EnemyStates
     {
+		idle,
+		attacking,
+		dead,
 		nill,
 		onHook,
 		offHook
     }
+	
+	public EnemyStates state;
+
+	[Header("NavMesh")]
 	public NavMeshAgent nav;
 
+	[Header("Player")]
 	[SerializeField]
 	private Transform player;
 
+	[Header("GameObjects")]
 	[SerializeField]
 	private GameObject damageBox;
-
-	[SerializeField]
-	private float distanceFromPlayer;
 
 	[Header("Movement Speed Variables")]
 	[SerializeField] 
@@ -45,13 +51,8 @@ public class Enemy : MonoBehaviour
 	private bool playerInAttackRange;
 	[SerializeField]
 	protected bool attacking;
-	//[SerializeField]
-	//private bool alerted;
 	[SerializeField]
 	private bool isDead = false;
-
-	//[HideInInspector]
-	//public Health health;
 
 	[Header("FOV Variables")]
 	public float viewRadius;
@@ -75,7 +76,6 @@ public class Enemy : MonoBehaviour
 	private int edgeResolveIterations;
 	[SerializeField]
 	private float edgeDstThreshold;
-
 	[SerializeField]
 	private float maskCutawayDst = .1f;
 
@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
 	private MeshFilter viewMeshFilter;
 	Mesh viewMesh;
 
+	[Header("Animator")]
 	[SerializeField]
 	private Animator anim;
 
@@ -91,7 +92,6 @@ public class Enemy : MonoBehaviour
 		player = GameObject.Find("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
 		damageBox = this.transform.Find("DamageBox").gameObject;
-		//health = GetComponent<Health>();
 	}
 
 	private void Start()
@@ -111,7 +111,12 @@ public class Enemy : MonoBehaviour
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
-		if (!playerInSightRange && !playerInAttackRange) nav.speed = walkSpeed;
+		if (!playerInSightRange && !playerInAttackRange)
+		{
+			state = EnemyStates.idle;
+		}
+
+		
 
 		if (playerInSightRange && !playerInAttackRange)
 		{
@@ -119,9 +124,8 @@ public class Enemy : MonoBehaviour
 		}
 		
 		if (playerInSightRange && playerInAttackRange)
-        {
-			attacking = true;
-			Attack();
+        {		
+			state = EnemyStates.attacking;
 		}	
 		else if(!playerInAttackRange)
         {
@@ -137,12 +141,21 @@ public class Enemy : MonoBehaviour
 			anim.SetBool("attack", false);
 		}
 
-		distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
+		if(state == EnemyStates.attacking)
+			SetState(EnemyStates.attacking);
+
+		if (state == EnemyStates.idle)
+			SetState(EnemyStates.idle);
+	}
+
+	private void Idle()
+    {
+		nav.speed = walkSpeed;
 	}
 
 	private void Chase()
 	{
-		if (!attacking && !isDead) //&& distanceFromPlayer > 1.5f)
+		if (!attacking && !isDead)
 		{
 			nav.speed = runSpeed;
 			nav.SetDestination(player.position);
@@ -151,7 +164,8 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void Attack()
     {
-		//Debug.Log("die");				
+		attacking = true;
+		//Debug.Log("die");		
 		damageBox.SetActive(true);		
 	}
 
@@ -169,6 +183,41 @@ public class Enemy : MonoBehaviour
 		DrawFieldOfView();
 	}
 
+	public void SetState(EnemyStates state)
+	{
+		switch (state)
+		{
+			case EnemyStates.idle:
+				//idle
+				Idle();				
+				break;
+			case EnemyStates.attacking:
+				//attack
+				Attack();
+				break;
+			case EnemyStates.dead:
+				//dead
+				break;
+		}
+	}
+
+	public void SetSpeed(EnemyStates speed)
+	{
+		switch (speed)
+		{
+			case EnemyStates.nill:
+				nav.speed = runSpeed;
+				break;
+			case EnemyStates.onHook:
+				nav.speed = 1;
+				break;
+			case EnemyStates.offHook:
+				nav.speed = runSpeed;
+				break;
+		}
+	}
+
+	#region FindTargets
 	private void FindVisibleTargets()
 	{
 		visibleTargets.Clear();
@@ -212,22 +261,9 @@ public class Enemy : MonoBehaviour
 		if (targetsInAttackRadius.Length == 0)
 			playerInAttackRange = false;
 	}
+    #endregion
 
-    public void SetSpeed(EnemyStates _r)
-    {
-        switch (_r)
-        {
-            case EnemyStates.nill:
-                nav.speed = runSpeed;
-                break;
-            case EnemyStates.onHook:
-                nav.speed = 1;
-                break;
-            case EnemyStates.offHook:
-                nav.speed = runSpeed;
-                break;
-        }
-    }
+
 
     #region FOVMeshDraw
     private void DrawFieldOfView()

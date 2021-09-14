@@ -12,8 +12,6 @@ public class KnightBoss : Enemy
         dead
     }
 
-    public KnightState state; 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +27,7 @@ public class KnightBoss : Enemy
     protected override void Attack()
     {
         attacking = true;
+        
         base.Attack();
     }
 

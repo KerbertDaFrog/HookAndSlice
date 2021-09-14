@@ -53,10 +53,6 @@ public class EnemyHealth : MonoBehaviour
         {
             anim.SetBool("caught", false);
         }
-
-        //if (Input.GetKeyDown(KeyCode.P))
-        //    Debug.Log("goblin ded");
-        //    anim.SetBool("dead", true);
     }
 
     IEnumerator KillEnemy()
