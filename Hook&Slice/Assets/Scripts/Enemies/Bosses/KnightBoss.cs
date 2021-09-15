@@ -4,48 +4,45 @@ using UnityEngine;
 
 public class KnightBoss : Enemy
 {
-    public enum KnightState
-    {
-        idle,
-        staggered,
-        attacking,
-        dead
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private List<GameObject> armorPieces = new List<GameObject>();
 
-    }
+    private bool staggered;
+    private bool frenzied;
 
     // Update is called once per frame
-    public override void Update()
+    protected override void Update()
     {
-        
+        base.Update();
+    }
+
+    protected override void EnemyBehaviour()
+    {
+        base.EnemyBehaviour();
     }
 
     protected override void Attack()
-    {
-        attacking = true;
-        
+    {        
         base.Attack();
     }
 
-    public void SetState(KnightState state)
+    private void Frenzy()
+    {
+        
+    }
+
+    public override void SetState(EnemyStates state)
     {
         switch(state)
         {
-            case KnightState.idle:
-                //idle
+            case EnemyStates.idle:
+                Idle();
                 break;
-            case KnightState.staggered:
-                //staggered
-                break;
-            case KnightState.attacking:
+            case EnemyStates.attacking:
                 Attack();
                 break;
-            case KnightState.dead:
-                //dead
+            case EnemyStates.frenzy:
+                Frenzy();
                 break;
         }
     }

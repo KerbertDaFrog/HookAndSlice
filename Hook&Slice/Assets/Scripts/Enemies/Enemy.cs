@@ -9,13 +9,15 @@ public class Enemy : MonoBehaviour
     {
 		idle,
 		attacking,
+		chasing,
+		staggered,
+		frenzy,
 		dead,
-		nill,
 		onHook,
 		offHook
     }
 	
-	public EnemyStates state;
+	public EnemyStates currentState;
 
 	[Header("NavMesh")]
 	public NavMeshAgent nav;
@@ -52,7 +54,9 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	protected bool attacking;
 	[SerializeField]
-	private bool isDead = false;
+	protected bool isDead = false;
+	[SerializeField]
+	protected bool chasing;
 
 	[Header("FOV Variables")]
 	public float viewRadius;
@@ -106,65 +110,73 @@ public class Enemy : MonoBehaviour
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
 
-	public virtual void Update()
+	protected virtual void Update()
 	{
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
 		if (!playerInSightRange && !playerInAttackRange)
-		{
-			state = EnemyStates.idle;
-		}
-
-		
+			currentState = EnemyStates.idle;
 
 		if (playerInSightRange && !playerInAttackRange)
-		{
-			Chase();
-		}
+			currentState = EnemyStates.chasing;
 		
-		if (playerInSightRange && playerInAttackRange)
-        {		
-			state = EnemyStates.attacking;
-		}	
+		if (playerInSightRange && playerInAttackRange)	
+			currentState = EnemyStates.attacking;
 		else if(!playerInAttackRange)
-        {
 			attacking = false;
-        }
 
 		if (attacking)
-		{
 			anim.SetBool("attack", true);
-		}
 		else if (!attacking)
-		{
 			anim.SetBool("attack", false);
+
+		EnemyBehaviour();
+	}
+
+	protected virtual void EnemyBehaviour()
+    {
+		if (currentState == EnemyStates.attacking)
+		{
+			attacking = true;
+			SetState(EnemyStates.attacking);
+		}
+		else
+		{
+			attacking = false;
 		}
 
-		if(state == EnemyStates.attacking)
-			SetState(EnemyStates.attacking);
+		if (currentState == EnemyStates.chasing)
+		{
+			chasing = true;
+			SetState(EnemyStates.chasing);
+		}
+		else
+		{
+			chasing = false;
+		}
 
-		if (state == EnemyStates.idle)
+		if (currentState == EnemyStates.idle)
 			SetState(EnemyStates.idle);
 	}
 
-	private void Idle()
+	protected void Idle()
     {
 		nav.speed = walkSpeed;
+		nav.ResetPath();
 	}
 
 	private void Chase()
 	{
-		if (!attacking && !isDead)
-		{
+		if (chasing && !attacking && !isDead)
+        {
 			nav.speed = runSpeed;
 			nav.SetDestination(player.position);
-		}
+        }		
 	}
 
 	protected virtual void Attack()
     {
-		attacking = true;
 		//Debug.Log("die");		
 		damageBox.SetActive(true);		
 	}
@@ -183,7 +195,7 @@ public class Enemy : MonoBehaviour
 		DrawFieldOfView();
 	}
 
-	public void SetState(EnemyStates state)
+	public virtual void SetState(EnemyStates state)
 	{
 		switch (state)
 		{
@@ -195,6 +207,10 @@ public class Enemy : MonoBehaviour
 				//attack
 				Attack();
 				break;
+			case EnemyStates.chasing:
+				//chasing
+				Chase();
+				break;
 			case EnemyStates.dead:
 				//dead
 				break;
@@ -205,9 +221,6 @@ public class Enemy : MonoBehaviour
 	{
 		switch (speed)
 		{
-			case EnemyStates.nill:
-				nav.speed = runSpeed;
-				break;
 			case EnemyStates.onHook:
 				nav.speed = 1;
 				break;
@@ -397,7 +410,7 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	public struct EdgeInfo
+	private struct EdgeInfo
 	{
 		public Vector3 pointA;
 		public Vector3 pointB;
