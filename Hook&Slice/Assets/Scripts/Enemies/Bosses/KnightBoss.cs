@@ -5,7 +5,9 @@ using UnityEngine;
 public class KnightBoss : Enemy
 {
 
-    private List<GameObject> armorPieces = new List<GameObject>();
+    private List<GameObject> armourPieces = new List<GameObject>();
+
+    private int maxArmour;
 
     private bool staggered;
     private bool frenzied;
@@ -13,11 +15,41 @@ public class KnightBoss : Enemy
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
+        if (!playerInSightRange && !playerInAttackRange)
+            currentState = EnemyStates.idle;
+
+        if (currentState == EnemyStates.frenzy)
+            frenzied = true;
+        else
+            frenzied = false;
+
+        if (playerInSightRange && !playerInAttackRange)
+            currentState = EnemyStates.chasing;
+
+        if (playerInSightRange && playerInAttackRange)
+            currentState = EnemyStates.attacking;
+        else if (!playerInAttackRange)
+            attacking = false;
+
+        if (attacking)
+            anim.SetBool("attack", true);
+        else if (!attacking)
+            anim.SetBool("attack", false);
+
+        EnemyBehaviour();
+    }
+
+    private void OnArmourRemoved()
+    {
+        if(armourPieces.Count < armourPieces.Count)
+        {
+            frenzied = true;
+        }
     }
 
     protected override void EnemyBehaviour()
     {
+
         base.EnemyBehaviour();
     }
 
@@ -28,7 +60,10 @@ public class KnightBoss : Enemy
 
     private void Frenzy()
     {
-        
+        if(frenzied)
+        {
+
+        }
     }
 
     public override void SetState(EnemyStates state)

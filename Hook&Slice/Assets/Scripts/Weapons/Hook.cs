@@ -46,7 +46,7 @@ public class Hook : MonoBehaviour
 
     [SerializeField]
     private PauseMenu pauseMenu;
-
+    
     private void Awake()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
@@ -212,7 +212,7 @@ public class Hook : MonoBehaviour
             if(enemies[i] != null)
             {
                 enemies[i].transform.parent = null;
-                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.EnemyStates.);
+                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.EnemyStates.offHook);
                 enemies.Remove(enemies[i]);
             }           
         }

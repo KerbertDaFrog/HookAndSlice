@@ -48,15 +48,18 @@ public class Enemy : MonoBehaviour
 
 	[Header("Booleans")]
 	[SerializeField]
-	private bool playerInSightRange;
+	protected bool playerInSightRange;
 	[SerializeField]
-	private bool playerInAttackRange;
+	protected bool playerInAttackRange;
 	[SerializeField]
 	protected bool attacking;
 	[SerializeField]
 	protected bool isDead = false;
 	[SerializeField]
 	protected bool chasing;
+	//If the enemy has already seen the player, this bool will be checked until death of said enemy.
+	[SerializeField]
+	protected bool hasSeenPlayer;
 
 	[Header("FOV Variables")]
 	public float viewRadius;
@@ -89,7 +92,7 @@ public class Enemy : MonoBehaviour
 
 	[Header("Animator")]
 	[SerializeField]
-	private Animator anim;
+	protected Animator anim;
 
 	private void Awake()
 	{
@@ -136,6 +139,9 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void EnemyBehaviour()
     {
+		if (currentState == EnemyStates.idle)
+			SetState(EnemyStates.idle);
+
 		if (currentState == EnemyStates.attacking)
 		{
 			attacking = true;
@@ -155,15 +161,19 @@ public class Enemy : MonoBehaviour
 		{
 			chasing = false;
 		}
-
-		if (currentState == EnemyStates.idle)
-			SetState(EnemyStates.idle);
 	}
 
 	protected void Idle()
     {
-		nav.speed = walkSpeed;
-		nav.ResetPath();
+		if(hasSeenPlayer)
+        {
+			nav.speed = walkSpeed;
+			nav.ResetPath();
+		}	
+		else
+        {
+			nav.speed = walkSpeed;
+        }
 	}
 
 	private void Chase()
@@ -199,10 +209,10 @@ public class Enemy : MonoBehaviour
 	{
 		switch (state)
 		{
-			case EnemyStates.idle:
-				//idle
-				Idle();				
-				break;
+			//case EnemyStates.idle:
+			//	//idle
+			//	Idle();				
+			//	break;
 			case EnemyStates.attacking:
 				//attack
 				Attack();
