@@ -57,7 +57,6 @@ public class Enemy : MonoBehaviour
 	protected bool isDead = false;
 	[SerializeField]
 	protected bool chasing;
-	//If the enemy has already seen the player, this bool will be checked until death of said enemy.
 	[SerializeField]
 	protected bool hasSeenPlayer;
 
@@ -101,7 +100,7 @@ public class Enemy : MonoBehaviour
 		damageBox = this.transform.Find("DamageBox").gameObject;
 	}
 
-	private void Start()
+	protected virtual void Start()
 	{
 		if (viewMeshFilter != null)
 		{
@@ -118,7 +117,11 @@ public class Enemy : MonoBehaviour
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
-		if (!playerInSightRange && !playerInAttackRange)
+		//If the enemy has already seen the player, this bool will be checked until death of said enemy.
+		if (playerInSightRange)
+			hasSeenPlayer = true;
+
+		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
 			currentState = EnemyStates.idle;
 
 		if (playerInSightRange && !playerInAttackRange)
@@ -163,19 +166,6 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	protected void Idle()
-    {
-		if(hasSeenPlayer)
-        {
-			nav.speed = walkSpeed;
-			nav.ResetPath();
-		}	
-		else
-        {
-			nav.speed = walkSpeed;
-        }
-	}
-
 	private void Chase()
 	{
 		if (chasing && !attacking && !isDead)
@@ -209,11 +199,10 @@ public class Enemy : MonoBehaviour
 	{
 		switch (state)
 		{
-			//case EnemyStates.idle:
-			//	//idle
-			//	Idle();				
-			//	break;
-			case EnemyStates.attacking:
+            case EnemyStates.idle:
+                //idle
+                break;
+            case EnemyStates.attacking:
 				//attack
 				Attack();
 				break;

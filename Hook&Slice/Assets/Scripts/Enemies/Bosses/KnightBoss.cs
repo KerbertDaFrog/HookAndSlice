@@ -7,12 +7,18 @@ public class KnightBoss : Enemy
 
     private List<GameObject> armourPieces = new List<GameObject>();
 
-    private int maxArmour;
+    private int armourAmount;
 
     private bool staggered;
     private bool frenzied;
 
-    // Update is called once per frame
+    protected override void Start()
+    {
+        armourAmount = armourPieces.Count;
+
+        base.Start();
+    }
+
     protected override void Update()
     {
         if (!playerInSightRange && !playerInAttackRange)
@@ -39,16 +45,28 @@ public class KnightBoss : Enemy
         EnemyBehaviour();
     }
 
-    private void OnArmourRemoved()
-    {
-        if(armourPieces.Count < armourPieces.Count)
-        {
-            frenzied = true;
-        }
-    }
+    //private GameObject[] ArmourAmount
+    //{
+
+    //}
+    //private void OnArmourRemoved()
+    //{
+    //    if()
+    //    {
+    //        frenzied = true;
+    //    }
+    //}
 
     protected override void EnemyBehaviour()
     {
+        if (currentState == EnemyStates.frenzy)
+        {
+            frenzied = true;
+            SetState(EnemyStates.frenzy);
+        }
+            
+        if (currentState == EnemyStates.staggered)
+            SetState(EnemyStates.staggered);
 
         base.EnemyBehaviour();
     }
@@ -71,7 +89,6 @@ public class KnightBoss : Enemy
         switch(state)
         {
             case EnemyStates.idle:
-                Idle();
                 break;
             case EnemyStates.attacking:
                 Attack();

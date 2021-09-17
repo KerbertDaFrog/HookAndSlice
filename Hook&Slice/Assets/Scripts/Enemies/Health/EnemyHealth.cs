@@ -46,13 +46,9 @@ public class EnemyHealth : MonoBehaviour
             hooked = false;
 
         if(hooked != false)
-        {
             anim.SetBool("caught", true);
-        }
         else if (hooked != true)
-        {
             anim.SetBool("caught", false);
-        }
     }
 
     IEnumerator KillEnemy()
