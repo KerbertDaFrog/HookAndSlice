@@ -44,13 +44,18 @@ public class DoorOpen : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && unlocked && !open)
         {
-            interact = true;
-            interactIcon.SetActive(true);
+            InteractON();
         }
         else if (other.gameObject.tag == "Player" && !open)
         {
             locked.SetActive(true);
         }
+    }
+
+    private void InteractON()
+    {
+        interact = true;
+        interactIcon.SetActive(true);
     }
 
     //Upon leaving the tirgger the player is no longer in range of interacting
