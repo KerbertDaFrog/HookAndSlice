@@ -15,7 +15,7 @@ public class LevelComplete : MonoBehaviour
     private int secretsFoundInt;
 
     //The Text Objects for the stats
-    [SerializeField] private Text timeText;
+    //[SerializeField] private Text timeText;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,7 +31,9 @@ public class LevelComplete : MonoBehaviour
         Time.timeScale = 0;
         winLevelScreen.SetActive(true);
         //timeText.text = "" + timeInlevelInt;
-      
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
     }
 
 }
