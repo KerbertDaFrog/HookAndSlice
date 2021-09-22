@@ -19,6 +19,8 @@ public class DoorOpen : MonoBehaviour
     [SerializeField]
     private GameObject locked;
 
+    [SerializeField]
+    private GameObject doorLight;
 
 
     private bool interact = false;
@@ -32,7 +34,8 @@ public class DoorOpen : MonoBehaviour
             if (unlocked)
             {
                 anim.SetBool("doorOpen", true);              
-                open = true; 
+                open = true;
+                //Destroy.doorLight;
                 InteractOFF();
             }
 
