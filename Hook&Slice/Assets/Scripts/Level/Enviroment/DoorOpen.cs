@@ -35,7 +35,7 @@ public class DoorOpen : MonoBehaviour
             {
                 anim.SetBool("doorOpen", true);              
                 open = true;
-                //Destroy.doorLight;
+                Destroy(doorLight);
                 InteractOFF();
             }
 

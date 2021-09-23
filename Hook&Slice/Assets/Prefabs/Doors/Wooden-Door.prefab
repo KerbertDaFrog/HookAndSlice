@@ -65,6 +65,7 @@ MonoBehaviour:
   unlocked: 1
   interactIcon: {fileID: 0}
   locked: {fileID: 0}
+  doorLight: {fileID: 9110541460172650023}
 --- !u!95 &221677154
 Animator:
   serializedVersion: 3
