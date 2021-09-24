@@ -25,10 +25,13 @@ public class Keys : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        confirmationText.text = "Collected: " + keyType;
-        HC.CollectionON();
-        //hudCollectIcon.SetActive(true);
-        door.UnLock();
-        Destroy(gameObject);
+        if(other.gameObject.tag == "Player")
+        {
+            confirmationText.text = "Collected: " + keyType;
+            HC.CollectionON();
+            //hudCollectIcon.SetActive(true);
+            door.UnLock();
+            Destroy(gameObject);
+        }
     }
 }
