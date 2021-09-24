@@ -8,6 +8,7 @@ public class DoorOpen : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    
    
     //is the door able to be opened? 
     [SerializeField] 
@@ -53,7 +54,9 @@ public class DoorOpen : MonoBehaviour
         {
             locked.SetActive(true);
         }
+        
     }
+
 
     private void InteractON()
     {
@@ -64,7 +67,11 @@ public class DoorOpen : MonoBehaviour
     //Upon leaving the tirgger the player is no longer in range of interacting
     private void OnTriggerExit(Collider other)
     {
-        InteractOFF();
+        if (other.gameObject.tag == "Player")
+        {
+            InteractOFF();
+        }
+        
     }
 
     private void InteractOFF()
