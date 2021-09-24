@@ -54843,7 +54843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3571788356654131683, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3571788356654131683, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -54851,15 +54851,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3571788356654131683, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3571788356654131683, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3571788356654131683, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 3571788356654131683, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -54923,7 +54923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3571788357806678995, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 4420784308941832125, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -54931,7 +54931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420784309377232362, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4420784309922881346, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_Name
@@ -55031,7 +55031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7060551135666114715, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7060551135666114715, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
       propertyPath: m_FontData.m_MinSize
