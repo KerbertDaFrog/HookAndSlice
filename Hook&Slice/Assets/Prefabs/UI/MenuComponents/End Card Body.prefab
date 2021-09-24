@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1695210502571308315}
   - component: {fileID: 7966198215965627747}
   m_Layer: 0
-  m_Name: win text (4)
+  m_Name: End Card Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,9 +66,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: 6c342bb21527cf74db684eb03e5ba6dd, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
