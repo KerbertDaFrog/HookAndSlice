@@ -1823,7 +1823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5617970271530919734, guid: e40707a62ebc44449b2299f4ddb015c1, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6675981927990093899, guid: e40707a62ebc44449b2299f4ddb015c1, type: 3}
       propertyPath: m_Text
