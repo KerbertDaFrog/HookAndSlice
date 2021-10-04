@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 2401013544465233258}
   - component: {fileID: 2401013544465233259}
   - component: {fileID: 2401013544465233260}
+  - component: {fileID: 1638438596}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -272,6 +273,22 @@ MonoBehaviour:
   bobVerAmp: 0.02
   headBobSmooth: 0.3
   isWalking: 0
+--- !u!114 &1638438596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401013544465233257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79a8e9230a035a4fb1e571cad4520ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setHealth: 100
+  currentHealth: 0
+  damageTaken: 5
+  hook: {fileID: 0}
 --- !u!1 &2401013544530944609
 GameObject:
   m_ObjectHideFlags: 0

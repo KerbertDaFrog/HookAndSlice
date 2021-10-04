@@ -5,17 +5,28 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-	public enum Reasons
+	public enum EnemyStates
     {
-		nill,
+		idle,
+		attacking,
+		chasing,
+		staggered,
+		frenzy,
+		dead,
 		onHook,
 		offHook
     }
+	
+	public EnemyStates currentState;
+
+	[Header("NavMesh")]
 	public NavMeshAgent nav;
 
+	[Header("Player")]
 	[SerializeField]
 	private Transform player;
 
+	[Header("GameObjects")]
 	[SerializeField]
 	private GameObject damageBox;
 
@@ -37,18 +48,17 @@ public class Enemy : MonoBehaviour
 
 	[Header("Booleans")]
 	[SerializeField]
-	private bool playerInSightRange;
+	protected bool playerInSightRange;
 	[SerializeField]
-	private bool playerInAttackRange;
+	protected bool playerInAttackRange;
 	[SerializeField]
-	private bool attacking;
-	//[SerializeField]
-	//private bool alerted;
+	protected bool attacking;
 	[SerializeField]
-	private bool isDead = false;
-
-	//[HideInInspector]
-	//public Health health;
+	protected bool isDead = false;
+	[SerializeField]
+	protected bool chasing;
+	[SerializeField]
+	protected bool hasSeenPlayer;
 
 	[Header("FOV Variables")]
 	public float viewRadius;
@@ -72,7 +82,6 @@ public class Enemy : MonoBehaviour
 	private int edgeResolveIterations;
 	[SerializeField]
 	private float edgeDstThreshold;
-
 	[SerializeField]
 	private float maskCutawayDst = .1f;
 
@@ -80,18 +89,18 @@ public class Enemy : MonoBehaviour
 	private MeshFilter viewMeshFilter;
 	Mesh viewMesh;
 
+	[Header("Animator")]
 	[SerializeField]
-	private Animator anim;
+	protected Animator anim;
 
 	private void Awake()
 	{
 		player = GameObject.Find("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
 		damageBox = this.transform.Find("DamageBox").gameObject;
-		//health = GetComponent<Health>();
 	}
 
-	private void Start()
+	protected virtual void Start()
 	{
 		if (viewMeshFilter != null)
 		{
@@ -103,32 +112,74 @@ public class Enemy : MonoBehaviour
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
 
-	private void Update()
+	protected virtual void Update()
 	{
 		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
-		if (!playerInSightRange && !playerInAttackRange) nav.speed = walkSpeed;
+		//If the enemy has already seen the player, this bool will be checked until death of said enemy.
+		if (playerInSightRange)
+			hasSeenPlayer = true;
 
-		if (playerInSightRange && !playerInAttackRange) Chase();
-		if (playerInSightRange && playerInAttackRange) Attack();
+		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
+			currentState = EnemyStates.idle;
+
+		if (playerInSightRange && !playerInAttackRange)
+			currentState = EnemyStates.chasing;
+		
+		if (playerInSightRange && playerInAttackRange)	
+			currentState = EnemyStates.attacking;
+		else if(!playerInAttackRange)
+			attacking = false;
+
+		if (attacking)
+			anim.SetBool("attack", true);
+		else if (!attacking)
+			anim.SetBool("attack", false);
+
+		EnemyBehaviour();
+	}
+
+	protected virtual void EnemyBehaviour()
+    {
+		if (currentState == EnemyStates.idle)
+			SetState(EnemyStates.idle);
+
+		if (currentState == EnemyStates.attacking)
+		{
+			attacking = true;
+			SetState(EnemyStates.attacking);
+		}
+		else
+		{
+			attacking = false;
+		}
+
+		if (currentState == EnemyStates.chasing)
+		{
+			chasing = true;
+			SetState(EnemyStates.chasing);
+		}
+		else
+		{
+			chasing = false;
+		}
 	}
 
 	private void Chase()
 	{
-		if (!attacking && !isDead)
-		{
+		if (chasing && !attacking && !isDead)
+        {
 			nav.speed = runSpeed;
 			nav.SetDestination(player.position);
-		}
+        }		
 	}
 
-	private void Attack()
+	protected virtual void Attack()
     {
-		Debug.Log("die");
-		anim.SetBool("attack", true);
-		damageBox.SetActive(true);
-    }
+		//Debug.Log("die");		
+		damageBox.SetActive(true);		
+	}
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{
@@ -144,6 +195,41 @@ public class Enemy : MonoBehaviour
 		DrawFieldOfView();
 	}
 
+	public virtual void SetState(EnemyStates state)
+	{
+		switch (state)
+		{
+            case EnemyStates.idle:
+                //idle
+                break;
+            case EnemyStates.attacking:
+				//attack
+				Attack();
+				break;
+			case EnemyStates.chasing:
+				//chasing
+				Chase();
+				break;
+			case EnemyStates.dead:
+				//dead
+				break;
+		}
+	}
+
+	public void SetSpeed(EnemyStates speed)
+	{
+		switch (speed)
+		{
+			case EnemyStates.onHook:
+				nav.speed = 1;
+				break;
+			case EnemyStates.offHook:
+				nav.speed = runSpeed;
+				break;
+		}
+	}
+
+	#region FindTargets
 	private void FindVisibleTargets()
 	{
 		visibleTargets.Clear();
@@ -187,22 +273,9 @@ public class Enemy : MonoBehaviour
 		if (targetsInAttackRadius.Length == 0)
 			playerInAttackRange = false;
 	}
+    #endregion
 
-    public void SetSpeed(Reasons _r)
-    {
-        switch (_r)
-        {
-            case Reasons.nill:
-                nav.speed = runSpeed;
-                break;
-            case Reasons.onHook:
-                nav.speed = 1;
-                break;
-            case Reasons.offHook:
-                nav.speed = runSpeed;
-                break;
-        }
-    }
+
 
     #region FOVMeshDraw
     private void DrawFieldOfView()
@@ -336,7 +409,7 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	public struct EdgeInfo
+	private struct EdgeInfo
 	{
 		public Vector3 pointA;
 		public Vector3 pointB;

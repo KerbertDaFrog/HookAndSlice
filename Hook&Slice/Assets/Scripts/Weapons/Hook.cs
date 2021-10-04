@@ -46,7 +46,7 @@ public class Hook : MonoBehaviour
 
     [SerializeField]
     private PauseMenu pauseMenu;
-
+    
     private void Awake()
     {
         pauseMenu = FindObjectOfType<PauseMenu>();
@@ -69,13 +69,9 @@ public class Hook : MonoBehaviour
             currentSpeed = speed;
 
         if (pauseMenu.paused != false)
-        {
             currentSpeed = 0;
-        }
         else if (pauseMenu.paused != true)
-        {
             currentSpeed = speed;
-        }
 
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
         if (targets != null && !done)
@@ -153,9 +149,7 @@ public class Hook : MonoBehaviour
             OnHookCancelled();
 
         if (retracted && enemies.Count > 0)
-            CheckIfListElementsNull();
-
-                  
+            CheckIfListElementsNull();                
     }
 
     private void OnDestroy()
@@ -212,7 +206,7 @@ public class Hook : MonoBehaviour
             if(enemies[i] != null)
             {
                 enemies[i].transform.parent = null;
-                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.Reasons.offHook);
+                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.EnemyStates.offHook);
                 enemies.Remove(enemies[i]);
             }           
         }
@@ -224,8 +218,6 @@ public class Hook : MonoBehaviour
     {
         //If the trigger collided object has tag "Enemy", then add the Transform to the enemies list.
         if(other.gameObject.tag == "Enemy")
-        {
             enemies.Add(other.transform);
-        }
     }
 }
