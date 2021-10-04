@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8572949311321164385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8572949311321164389}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
@@ -358,6 +358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 8572949311321164389}
+  pl: {fileID: 0}
+  settingsPage: {fileID: 0}
+  pauseButtons: {fileID: 0}
+  paused: 0
 --- !u!1001 &8572949311040707564
 PrefabInstance:
   m_ObjectHideFlags: 0

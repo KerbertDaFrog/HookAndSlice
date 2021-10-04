@@ -9,7 +9,7 @@ AnimatorController:
   m_Name: swordv2
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: slash
+  - m_Name: swing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -39,7 +39,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8455681571545357122}
-    m_Position: {x: 100, y: 360, z: 0}
+    m_Position: {x: 100, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8435368281626267644}
     m_Position: {x: 100, y: 260, z: 0}
@@ -84,7 +84,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: slash
+    m_ConditionEvent: swing
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8455681571545357122}
