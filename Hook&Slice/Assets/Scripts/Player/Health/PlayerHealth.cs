@@ -38,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
     private void KillPlayer()
     {
         Debug.Log("i ded");
+        Debug.Log("something");
         //Restart scene or something
     }
 
