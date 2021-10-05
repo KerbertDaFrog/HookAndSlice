@@ -10,6 +10,7 @@ public class Hook : MonoBehaviour
     private float speed;
     [SerializeField]
     private float dist;
+    //The distance of the hook from the harpoon gun.
     [SerializeField]
     private float distanceFromGun;
     [SerializeField]
@@ -20,6 +21,8 @@ public class Hook : MonoBehaviour
     private float totalDist;
     [SerializeField]
     private float maxDist = 1000f;
+    [SerializeField]
+    private float gapDist = 0.2f;
 
     [SerializeField]
     private bool done;
@@ -40,6 +43,9 @@ public class Hook : MonoBehaviour
     private Harpoon harpoon;
 
     [SerializeField]
+    private GameObject firePoint;
+
+    [SerializeField]
     private Vector3 origin;
     [SerializeField]
     private Vector3 target;
@@ -49,6 +55,7 @@ public class Hook : MonoBehaviour
     
     private void Awake()
     {
+        firePoint = GameObject.Find("FirePoint");
         pauseMenu = FindObjectOfType<PauseMenu>();
         harpoon = FindObjectOfType<Harpoon>();
     }
@@ -123,12 +130,14 @@ public class Hook : MonoBehaviour
         if(enemies.Count > 0 && retracted != false)
             currentTimer = Mathf.Clamp(currentTimer -= Time.deltaTime, 0f, setTimer);
 
+        //If the harpoon has been shot (hasShot = true), the Enemy count is more than zero and the hook's distance from the harpoon gun is less than 0.1, set retracting to false and retracted to true.
         if(harpoon.hasShot != false && enemies.Count > 0 && distanceFromGun < 0.1)
         {
             retracting = false;
             retracted = true;
         }
 
+        //If retracted not equal to false and the Enemy count is zero, set retracted to false.
         if(retracted != false && enemies.Count <= 0)
             retracted = false;
 
@@ -149,12 +158,37 @@ public class Hook : MonoBehaviour
             OnHookCancelled();
 
         if (retracted && enemies.Count > 0)
-            CheckIfListElementsNull();                
+        {
+            CheckIfListElementsNull();
+            SeperateEnemiesByDistanceOnHook();
+        }
     }
 
     private void OnDestroy()
     {
         Debug.Log("Total distance travelled:" + totalDist);
+    }
+
+    private void SeperateEnemiesByDistanceOnHook()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i] != null)
+            {
+                // get the world space position of firepoint transform
+                Vector3 onChainPos = firePoint.transform.position;
+
+                // get firepoint forward facing axis
+                Vector3 firepointForwad = firePoint.transform.forward;
+
+                // multiply gap dist by i and move along firepoint local z axis
+                firepointForwad = firepointForwad * gapDist * i;
+
+                onChainPos += firepointForwad;
+
+                enemies[i].transform.position = onChainPos;
+            }
+        }
     }
 
     private void CheckIfListElementsNull()
@@ -178,8 +212,12 @@ public class Hook : MonoBehaviour
 
             if (retracted && enemy != null)
             {
-                enemy.SetParent(this.transform);
-                enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
+
+
+
+                //enemy.SetParent(this.transform);
+                //Change to instant teleport
+                //enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
             }
         }
     }

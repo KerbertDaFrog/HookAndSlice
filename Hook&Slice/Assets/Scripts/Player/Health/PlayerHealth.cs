@@ -12,6 +12,12 @@ public class PlayerHealth : MonoBehaviour
     private int damageTaken;
 
     [SerializeField]
+    private bool dead;
+
+    [SerializeField]
+    private GameObject deathScreen;
+
+    [SerializeField]
     private Hook hook;
 
     // Start is called before the first frame update
@@ -26,7 +32,10 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
 
         if (currentHealth <= 0)
+        {
+            dead = true;
             KillPlayer();
+        }       
     }
 
     private void TakeDamage()
@@ -37,9 +46,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void KillPlayer()
     {
-        Debug.Log("i ded");
-        Debug.Log("something");
-        //Restart scene or something
+        if(dead)
+        {
+            //Time.timeScale = 0;
+            //deathScreen.SetActive(true);
+            Debug.Log("i ded");
+            //Restart scene or something
+        }
     }
 
     private void OnTriggerEnter(Collider other)
