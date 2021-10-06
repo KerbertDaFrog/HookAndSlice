@@ -44,7 +44,6 @@ public class DoorOpen : MonoBehaviour
                 Destroy(doorLight);
                 InteractOFF();
             }
-
         }
     }
 
@@ -63,7 +62,7 @@ public class DoorOpen : MonoBehaviour
     }
 
 
-    private void InteractON()
+    public virtual void InteractON()
     {
         interact = true;
         interactIcon.SetActive(true);
