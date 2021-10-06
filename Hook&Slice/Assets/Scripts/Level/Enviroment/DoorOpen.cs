@@ -24,6 +24,10 @@ public class DoorOpen : MonoBehaviour
     private GameObject doorLight;
 
 
+    //the quick bodging of enemies being blocked by doors AKA: enemies are off untill door is open
+    [SerializeField]
+    private GameObject roomsEnemies;
+
     private bool interact = false;
     private bool open = false;
 
@@ -36,10 +40,10 @@ public class DoorOpen : MonoBehaviour
             {
                 anim.SetBool("doorOpen", true);              
                 open = true;
+                roomsEnemies.SetActive(true);
                 Destroy(doorLight);
                 InteractOFF();
             }
-
         }
     }
 
@@ -58,7 +62,7 @@ public class DoorOpen : MonoBehaviour
     }
 
 
-    private void InteractON()
+    public virtual void InteractON()
     {
         interact = true;
         interactIcon.SetActive(true);

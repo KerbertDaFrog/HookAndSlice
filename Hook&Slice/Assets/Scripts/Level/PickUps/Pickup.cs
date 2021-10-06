@@ -5,35 +5,30 @@ using UnityEngine.UI;
 
 public class Pickup : MonoBehaviour
 {
-
-    [Header("Collection")]
     [SerializeField]
     private HudControl HC;
 
     [SerializeField]
     private Text confirmationText;
 
-
-    [Header("Type Of Pickup")]
     [SerializeField]
-    private bool healthPickup;
-
+    private string pickupType;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        //hudCollectIcon.SetActive(true);
-        Result();
-        Destroy(gameObject);
+        if(other.gameObject.tag == "Player")
+        {
+            confirmationText.text = "Collected: " + pickupType;
+            HC.CollectionON();
+            Result();
+            Destroy(gameObject);
+        }
     }
 
-    private void Result()
+    public virtual void Result()
     {
-        if (healthPickup)
-        {
-            HC.CollectionON();
-            confirmationText.text = "Collected: " + "Health";
-        }
+        Debug.Log("things are supposed to happen here");
     }
 
 }
