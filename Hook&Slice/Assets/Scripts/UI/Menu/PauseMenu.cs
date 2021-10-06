@@ -92,9 +92,9 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-
-
-
-
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 }
