@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
     //[SerializeField]
     //private GameObject quitPopUp;
 
-    public bool paused = false;
+    public static bool paused = false;
 
     // Start is called before the first frame update
     void Start()
