@@ -19,15 +19,15 @@ public class Hook : MonoBehaviour
     private float currentTimer;
     [SerializeField]
     private float totalDist;
-    [SerializeField]
     private float maxDist = 1000f;
-    [SerializeField]
-    private float gapDist = 0.2f;
+    private float gapDist = 0.1f;
 
     [SerializeField]
     private bool done;
     [SerializeField]
     private bool retracting;
+    [SerializeField]
+    private bool firing;
     public bool retracted;
 
     public int damage;
@@ -49,14 +49,10 @@ public class Hook : MonoBehaviour
     private Vector3 origin;
     [SerializeField]
     private Vector3 target;
-
-    [SerializeField]
-    private PauseMenu pauseMenu;
     
     private void Awake()
     {
         firePoint = GameObject.Find("FirePoint");
-        pauseMenu = FindObjectOfType<PauseMenu>();
         harpoon = FindObjectOfType<Harpoon>();
     }
 
@@ -72,30 +68,37 @@ public class Hook : MonoBehaviour
     private void Update()
     {
         //Pause Menu Stuff: If Paused, current speed is set to 0 until not paused, which will return currentSpeed to the player set speed.
-        if (pauseMenu.paused != true)
+        if (PauseMenu.paused != true)
             currentSpeed = speed;
 
-        if (pauseMenu.paused != false)
+        if (PauseMenu.paused != false)
             currentSpeed = 0;
-        else if (pauseMenu.paused != true)
+        else if (PauseMenu.paused != true)
             currentSpeed = speed;
 
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
         if (targets != null && !done)
             target = targets[index];
 
-        origin = transform.position;
-
         if(!done)
             print("my target = " + index);
 
-        totalDist += dist;
+        if(!retracted)
+        {
+            totalDist += dist;
 
-        dist = Vector3.Distance(origin, target);
+            dist = Vector3.Distance(origin, target);
+
+            distanceFromGun = Vector3.Distance(this.transform.position, harpoon.transform.position);
+        }
        
-        distanceFromGun = Vector3.Distance(this.transform.position, harpoon.transform.position);
-
         origin = transform.position;
+
+        transform.LookAt(target);
+
+        //If targets list is not null and the hook has not yet retracted fully back to the gun after being shot, keep running Vector3.MoveTowards on the hook to make it travel from the origin to the target at it's current speed.
+        if(targets != null && !retracted)
+            transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
 
         //If the distance to the target is less 0.1 than change the index to one element up.
         if (dist < 0.1)
@@ -120,11 +123,7 @@ public class Hook : MonoBehaviour
             harpoon.staticHook.SetActive(true);
             harpoon.returned = true;
             Destroy(this.gameObject);
-        }
-
-        transform.LookAt(target);     
-        
-        transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
+        }   
         
         //If the number of enemies on the enemies list is more than 0, start the countdown timer.
         if(enemies.Count > 0 && retracted != false)
@@ -179,12 +178,12 @@ public class Hook : MonoBehaviour
                 Vector3 onChainPos = firePoint.transform.position;
 
                 // get firepoint forward facing axis
-                Vector3 firepointForwad = firePoint.transform.forward;
+                Vector3 firepointForward = firePoint.transform.forward;
 
                 // multiply gap dist by i and move along firepoint local z axis
-                firepointForwad = firepointForwad * gapDist * i;
+                firepointForward = firepointForward * gapDist * i;
 
-                onChainPos += firepointForwad;
+                onChainPos += firepointForward;
 
                 enemies[i].transform.position = onChainPos;
             }
@@ -210,15 +209,15 @@ public class Hook : MonoBehaviour
             if(enemy != null)
                 enemy.GetComponent<Enemy>().nav.speed = 0;
 
-            if (retracted && enemy != null)
-            {
+            //if (retracted && enemy != null)
+            //{
 
+            //    Come back to this line(WIP)
 
-
-                //enemy.SetParent(this.transform);
-                //Change to instant teleport
-                //enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
-            }
+            //    enemy.SetParent(this.transform);
+            //    Change to instant teleport
+            //    enemy.transform.position = Vector3.MoveTowards(origin, target, currentSpeed);
+            //}
         }
     }
 

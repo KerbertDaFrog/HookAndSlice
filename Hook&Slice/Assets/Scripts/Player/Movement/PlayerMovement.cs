@@ -56,36 +56,46 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        PlayerInput();
-        ControlDrag();
-
         isGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 1, 0), groundDist, groundMask);
 
         //print(isGrounded);
 
-        if (Input.GetKey(KeyCode.LeftShift))
-            isSprinting = true;
-        else
-            isSprinting = false;
+        if(!PauseMenu.paused)
+        {
+            PlayerInput();
+            ControlDrag();
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                isSprinting = true;
+            }   
+            else
+            {
+                isSprinting = false;
+            }
+
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+        }
 
         if (isSprinting)
             moveSpeed = 10f;
 
         if (!isSprinting)
-            moveSpeed = 6f;
-
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-            isMoving = true;
-        else
-            isMoving = false;
+            moveSpeed = 6f;          
 
         slopeDir = Vector3.ProjectOnPlane(moveDir, slopeHit.normal);
 
         //gravityAmount += gravityMulti;
 
         if (!isGrounded)
-            playerRB.AddForce((Vector3.down * gravityAmount), ForceMode.Acceleration);
-            
+            playerRB.AddForce((Vector3.down * gravityAmount), ForceMode.Acceleration);           
     }
 
     private void FixedUpdate()
