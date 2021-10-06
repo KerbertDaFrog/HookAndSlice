@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2713544351562427996}
   - component: {fileID: 2713544351562427985}
-  - component: {fileID: 2713544351562427984}
+  - component: {fileID: 2917863697634877179}
   m_Layer: 0
   m_Name: Red-Key
   m_TagString: Untagged
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.4, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2713544351562427984
+--- !u!114 &2917863697634877179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HC: {fileID: 0}
   confirmationText: {fileID: 0}
-  keyType: Red Key
+  pickupType: Red Key
   door: {fileID: 0}
 --- !u!1001 &5262088125449410970
 PrefabInstance:

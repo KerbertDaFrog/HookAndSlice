@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HC: {fileID: 0}
   confirmationText: {fileID: 0}
-  keyType: Blue Key
+  pickupType: Blue Key
   door: {fileID: 0}
 --- !u!1001 &1210736775961365621
 PrefabInstance:
