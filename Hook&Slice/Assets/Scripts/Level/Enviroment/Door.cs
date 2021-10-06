@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
     private GameObject interactIcon;
 
     private bool interact = false;
-    private bool open = false;
+    //private bool open = false;
 
 
 
