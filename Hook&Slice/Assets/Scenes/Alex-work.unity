@@ -28238,6 +28238,14 @@ PrefabInstance:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 733883188}
+    - target: {fileID: 1638438596, guid: 45b0dbf2fdd024c14a9c23c58e6ff970, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 1911266705}
+    - target: {fileID: 1638438596, guid: 45b0dbf2fdd024c14a9c23c58e6ff970, type: 3}
+      propertyPath: pl
+      value: 
+      objectReference: {fileID: 26432733}
     - target: {fileID: 2401013543750177810, guid: 45b0dbf2fdd024c14a9c23c58e6ff970, type: 3}
       propertyPath: m_TagString
       value: Player
@@ -46346,6 +46354,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6160821079418217401, guid: e209d6657543089448ce71187fe6c7b4, type: 3}
   m_PrefabInstance: {fileID: 6641043847957354577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1911266705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2097515583055838899, guid: f09cb1c7dec7e4414bf200ad15613a9f, type: 3}
+  m_PrefabInstance: {fileID: 5449632704492756988}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1912529248 stripped
 Transform:

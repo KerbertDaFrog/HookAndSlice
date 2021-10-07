@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField]
     private bool dead;
+    [SerializeField]
+    private PlayerLook pl;
 
     [SerializeField]
     private GameObject deathScreen;
@@ -40,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
         hpBar.value = currentHealth;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !dead)
         {
             dead = true;
             KillPlayer();
@@ -58,8 +60,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if(dead)
         {
-            //Time.timeScale = 0;
-            //deathScreen.SetActive(true);
+            Time.timeScale = 0;
+            deathScreen.SetActive(true);
+            pl.Paused();
             Debug.Log("i ded");
             //Restart scene or something
         }
