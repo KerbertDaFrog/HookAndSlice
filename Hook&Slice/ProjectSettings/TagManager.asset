@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Hook
   - DamageBox
+  - HealthPotion
   layers:
   - Default
   - TransparentFX
