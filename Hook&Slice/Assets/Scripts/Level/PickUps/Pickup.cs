@@ -28,7 +28,7 @@ public class Pickup : MonoBehaviour
 
     public virtual void Result()
     {
-        Debug.Log("things are supposed to happen here");
+        //Debug.Log("things are supposed to happen here");
     }
 
 }
