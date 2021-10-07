@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerHealth : MonoBehaviour
     private int damageTaken;
     [SerializeField]
     private int healthRestored;
+
+    [SerializeField]
+    private Slider hpBar;
 
     [SerializeField]
     private bool dead;
@@ -26,12 +30,15 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = setHealth;
+        hpBar.maxValue = setHealth;
+        hpBar.value = currentHealth;
     }
 
     // Update is called once per frame
     private void Update()
     {
         currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
+        hpBar.value = currentHealth;
 
         if (currentHealth <= 0)
         {
@@ -44,6 +51,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("oof");
         currentHealth -= damageTaken;
+        hpBar.value = currentHealth;
     }
 
     private void KillPlayer()
@@ -75,6 +83,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Healing-yay");
         currentHealth += healthRestored;
+        hpBar.value = currentHealth;
     }
 
 }

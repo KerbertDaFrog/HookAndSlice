@@ -288,6 +288,9 @@ MonoBehaviour:
   setHealth: 100
   currentHealth: 0
   damageTaken: 5
+  healthRestored: 10
+  dead: 0
+  deathScreen: {fileID: 0}
   hook: {fileID: 0}
 --- !u!1 &2401013544530944609
 GameObject:
