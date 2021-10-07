@@ -52,7 +52,7 @@ public class Harpoon : MonoBehaviour
                 activeHook = Instantiate(hook, firePoint).gameObject;
             }
 
-            if (hasShot != true)
+            if (!hasShot)
                 hitPoints.Clear();
         }
 

@@ -45,6 +45,8 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private GameObject firePoint;
 
+    private StatsManager stats;
+
     [SerializeField]
     private Vector3 origin;
     [SerializeField]
@@ -52,12 +54,14 @@ public class Hook : MonoBehaviour
     
     private void Awake()
     {
+        stats = FindObjectOfType<StatsManager>();
         firePoint = GameObject.Find("FirePoint");
         harpoon = FindObjectOfType<Harpoon>();
     }
 
     private void Start()
     {
+        stats.hooksShot += 1;
         origin = transform.position;
         currentTimer = setTimer;
         //Take all of the elements from the hitPoints list in the Harpoon Component and add/copy them to the targets list in this script.

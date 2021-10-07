@@ -16,14 +16,14 @@ public class EnemyHealth : MonoBehaviour
     private Hook hook;
 
     [SerializeField]
-    private Sword sword;
-
-    [SerializeField]
     private Animator anim;
+
+    private Enemy enemy;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemy = GetComponent<Enemy>();
         currentHealth = setHealth;
     }
 
@@ -32,15 +32,13 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
 
-        //if (currentHealth <= 0)
-        //    StartCoroutine("KillEnemy");
-
         hook = FindObjectOfType<Hook>();
 
-        sword = FindObjectOfType<Sword>();
+        //if (currentHealth <= 0)
+        //    enemy.SetState(Enemy.EnemyStates.dead);
 
-        if(hooked && sword.swinging)
-            StartCoroutine("KillEnemy");
+        if (hooked && currentHealth <= 0 || currentHealth <= 0)
+            enemy.SetState(Enemy.EnemyStates.dead);
 
         if (transform.parent == null)
             hooked = false;
@@ -49,12 +47,6 @@ public class EnemyHealth : MonoBehaviour
             anim.SetBool("caught", true);
         else if (hooked != true)
             anim.SetBool("caught", false);
-    }
-
-    IEnumerator KillEnemy()
-    {
-        anim.SetBool("dead", true);
-        yield return new WaitForSeconds(2f);
     }
 
     //IEnumerator TakeDamage()
