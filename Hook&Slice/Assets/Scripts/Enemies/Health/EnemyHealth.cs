@@ -15,8 +15,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private Hook hook;
 
-    [SerializeField]
-    private Sword sword;
+
 
     [SerializeField]
     private Animator anim;
@@ -37,9 +36,7 @@ public class EnemyHealth : MonoBehaviour
 
         hook = FindObjectOfType<Hook>();
 
-        sword = FindObjectOfType<Sword>();
-
-        if(hooked && sword.swinging)
+        if(hooked && currentHealth <= 0)
             StartCoroutine("KillEnemy");
 
         if (transform.parent == null)

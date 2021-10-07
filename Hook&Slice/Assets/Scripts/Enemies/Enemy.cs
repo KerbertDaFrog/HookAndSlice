@@ -39,7 +39,9 @@ public class Enemy : MonoBehaviour
 	[Header("Attack Variables")]
 	[SerializeField] 
 	private float timeBetweenAttacks;
-	[SerializeField] 
+	[SerializeField]
+	private float setAttackDelay;
+	[SerializeField]
 	private float attackDelay;
 	[SerializeField]
 	private float attackRange;
@@ -53,6 +55,8 @@ public class Enemy : MonoBehaviour
 	protected bool playerInAttackRange;
 	[SerializeField]
 	protected bool attacking;
+	[SerializeField]
+	private bool hasAttacked;
 	[SerializeField]
 	protected bool isDead = false;
 	[SerializeField]
@@ -93,6 +97,9 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	protected Animator anim;
 
+	[SerializeField]
+	private Sword sword;
+
 	private void Awake()
 	{
 		player = GameObject.Find("Player").transform;
@@ -110,6 +117,8 @@ public class Enemy : MonoBehaviour
 		}
 
 		StartCoroutine("FindTargetsWithDelay", .2f);
+
+		sword = FindObjectOfType<Sword>();
 	}
 
 	protected virtual void Update()
@@ -121,37 +130,41 @@ public class Enemy : MonoBehaviour
 		if (playerInSightRange)
 			hasSeenPlayer = true;
 
-		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
-			currentState = EnemyStates.idle;
-
-		if (playerInSightRange && !playerInAttackRange)
-			currentState = EnemyStates.chasing;
-		
-		if (playerInSightRange && playerInAttackRange)	
-			currentState = EnemyStates.attacking;
-		else if(!playerInAttackRange)
-			attacking = false;
+		if (sword.swinging)
+			SetState(EnemyStates.dead);
 
 		if (attacking)
+        {
 			anim.SetBool("attack", true);
+		}		
 		else if (!attacking)
+        {
 			anim.SetBool("attack", false);
+		}
+			
+		if (!hasAttacked)
+			attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
 
 		EnemyBehaviour();
 	}
 
 	protected virtual void EnemyBehaviour()
     {
-		if (currentState == EnemyStates.idle)
+		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
 			SetState(EnemyStates.idle);
 
-		if (currentState == EnemyStates.attacking)
-		{
+		if (playerInSightRange && !playerInAttackRange)
+			SetState(EnemyStates.chasing);
+
+		if (playerInSightRange && playerInAttackRange && !hasAttacked)
+        {
+			hasAttacked = false;
 			attacking = true;
+			attackDelay = setAttackDelay;
 			SetState(EnemyStates.attacking);
 		}
-		else
-		{
+		else if (!playerInAttackRange)
+        {
 			attacking = false;
 		}
 
@@ -160,10 +173,17 @@ public class Enemy : MonoBehaviour
 			chasing = true;
 			SetState(EnemyStates.chasing);
 		}
+
+		if(currentState == EnemyStates.staggered)
+			SetState(EnemyStates.staggered);
 		else
-		{
 			chasing = false;
-		}
+
+		if(currentState == EnemyStates.dead)
+        {
+			isDead = true;
+			SetState(EnemyStates.dead);
+        }
 	}
 
 	private void Chase()
@@ -177,8 +197,8 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void Attack()
     {
-		//Debug.Log("die");		
-		damageBox.SetActive(true);		
+		damageBox.SetActive(true);
+		hasAttacked = true;
 	}
 
 	IEnumerator FindTargetsWithDelay(float delay)
@@ -221,7 +241,7 @@ public class Enemy : MonoBehaviour
 		switch (speed)
 		{
 			case EnemyStates.onHook:
-				nav.speed = 1;
+				nav.speed = 0;
 				break;
 			case EnemyStates.offHook:
 				nav.speed = runSpeed;

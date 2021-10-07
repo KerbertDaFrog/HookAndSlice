@@ -15,12 +15,6 @@ public class Sword : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +26,7 @@ public class Sword : MonoBehaviour
             if(!swinging)
             {
                 swinging = true;
+
                 if(hook && hook.retracted)
                 {
                     for (int i = hook.enemies.Count - 1; i >= 0; i--)
@@ -52,10 +47,14 @@ public class Sword : MonoBehaviour
 
     void SwingDone()
     {
-        for (int i = hook.enemies.Count - 1; i >= 0; i--)
-        {
-            Destroy(hook.enemies[i].gameObject);
-            hook.enemies.Remove(hook.enemies[i]);
+        for (int i = hook.enemies.Count - 1; i >= 0; i--)
+
+        {
+
+            Destroy(hook.enemies[i].gameObject);
+
+            hook.enemies.Remove(hook.enemies[i]);
+
         }
         swinging = false;
         anim.SetBool("swing", false);
