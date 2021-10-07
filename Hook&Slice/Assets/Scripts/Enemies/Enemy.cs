@@ -39,10 +39,10 @@ public class Enemy : MonoBehaviour
 	[Header("Attack Variables")]
 	[SerializeField] 
 	private float timeBetweenAttacks;
-	[SerializeField]
-	private float setAttackDelay;
-	[SerializeField]
-	private float attackDelay;
+	//[SerializeField]
+	//private float setAttackDelay;
+	//[SerializeField]
+	//private float attackDelay;
 	[SerializeField]
 	private float attackRange;
 	[SerializeField]
@@ -55,8 +55,8 @@ public class Enemy : MonoBehaviour
 	protected bool playerInAttackRange;
 	[SerializeField]
 	protected bool attacking;
-	[SerializeField]
-	private bool hasAttacked;
+	//[SerializeField]
+	//private bool hasAttacked;
 	[SerializeField]
 	protected bool isDead = false;
 	[SerializeField]
@@ -133,57 +133,49 @@ public class Enemy : MonoBehaviour
 		if (sword.swinging)
 			SetState(EnemyStates.dead);
 
+		if (currentState == EnemyStates.dead)
+			isDead = true;
+
 		if (attacking)
-        {
-			anim.SetBool("attack", true);
-		}		
+			anim.SetBool("attack", true);		
 		else if (!attacking)
-        {
 			anim.SetBool("attack", false);
-		}
 			
-		if (!hasAttacked)
-			attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
+		//if (!hasAttacked)
+		//	attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
 
 		EnemyBehaviour();
 	}
 
 	protected virtual void EnemyBehaviour()
     {
-		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
+		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer && !isDead)
 			SetState(EnemyStates.idle);
 
-		if (playerInSightRange && !playerInAttackRange)
-			SetState(EnemyStates.chasing);
-
-		if (playerInSightRange && playerInAttackRange && !hasAttacked)
+		if (playerInSightRange && !playerInAttackRange && !isDead)
         {
-			hasAttacked = false;
+			chasing = true;
+			SetState(EnemyStates.chasing);
+		}
+		else
+        {
+			chasing = false;
+        }
+
+		if (playerInSightRange && playerInAttackRange && !isDead)
+        {			
 			attacking = true;
-			attackDelay = setAttackDelay;
-			SetState(EnemyStates.attacking);
+			//attackDelay = setAttackDelay;
+			//hasAttacked = false;
+			if (attacking)
+            {
+				SetState(EnemyStates.attacking);
+            }		
 		}
 		else if (!playerInAttackRange)
         {
 			attacking = false;
 		}
-
-		if (currentState == EnemyStates.chasing)
-		{
-			chasing = true;
-			SetState(EnemyStates.chasing);
-		}
-
-		if(currentState == EnemyStates.staggered)
-			SetState(EnemyStates.staggered);
-		else
-			chasing = false;
-
-		if(currentState == EnemyStates.dead)
-        {
-			isDead = true;
-			SetState(EnemyStates.dead);
-        }
 	}
 
 	private void Chase()
@@ -197,8 +189,21 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void Attack()
     {
-		damageBox.SetActive(true);
-		hasAttacked = true;
+		if(attacking)
+        {
+			damageBox.SetActive(true);
+		}
+		else if(!attacking)
+        {
+			damageBox.SetActive(false);
+        }	
+		//hasAttacked = true;
+	}
+
+	IEnumerator OnDeath()
+    {
+		anim.SetBool("dead", true);
+		yield return new WaitForSeconds(1f);
 	}
 
 	IEnumerator FindTargetsWithDelay(float delay)
@@ -215,6 +220,7 @@ public class Enemy : MonoBehaviour
 		DrawFieldOfView();
 	}
 
+    #region StateManagers
 	public virtual void SetState(EnemyStates state)
 	{
 		switch (state)
@@ -232,6 +238,7 @@ public class Enemy : MonoBehaviour
 				break;
 			case EnemyStates.dead:
 				//dead
+				StartCoroutine("OnDeath");
 				break;
 		}
 	}
@@ -248,9 +255,10 @@ public class Enemy : MonoBehaviour
 				break;
 		}
 	}
+    #endregion
 
-	#region FindTargets
-	private void FindVisibleTargets()
+    #region FindTargets
+    private void FindVisibleTargets()
 	{
 		visibleTargets.Clear();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
@@ -294,8 +302,6 @@ public class Enemy : MonoBehaviour
 			playerInAttackRange = false;
 	}
     #endregion
-
-
 
     #region FOVMeshDraw
     private void DrawFieldOfView()
