@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     [SerializeField]
     private int damageTaken;
+    [SerializeField]
+    private int healthRestored;
 
     [SerializeField]
     private bool dead;
@@ -58,6 +60,21 @@ public class PlayerHealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "DamageBox")
+        {
             TakeDamage();
+        }
+
+        if (other.gameObject.tag == "HealthPotion")
+        {
+            RestoreHealth();
+        }
+            
     }
+
+    private void RestoreHealth()
+    {
+        Debug.Log("Healing-yay");
+        currentHealth += healthRestored;
+    }
+
 }
