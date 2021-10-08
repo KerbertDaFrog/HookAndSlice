@@ -27,18 +27,19 @@ public class Sword : MonoBehaviour
             {
                 swinging = true;
 
-                if(hook && hook.retracted)
+                if (hook && hook.retracted)
                 {
-                    for (int i = hook.enemies.Count - 1; i >= 0; i--)
+                    if(hook.enemies != null)
                     {
-                        Destroy(hook.enemies[i].gameObject);
-                        
-                        hook.enemies.Remove(hook.enemies[i]);
-                    }
-                    
-                }               
+                        for (int i = hook.enemies.Count - 1; i >= 0; i--)
+                        {
+                            Destroy(hook.enemies[i].gameObject);
+                            hook.enemies.Remove(hook.enemies[i]);
+                        }
+                    }               
+                }
                 Invoke("SwingDone", 1f);
-                anim.SetBool("swing", true);
+                //anim.SetBool("swing", true);
                 //Play Animation
                 //Deal Damage to Enemies
             }
@@ -47,17 +48,16 @@ public class Sword : MonoBehaviour
 
     void SwingDone()
     {
-        for (int i = hook.enemies.Count - 1; i >= 0; i--)
-
-        {
-
-            Destroy(hook.enemies[i].gameObject);
-
-            hook.enemies.Remove(hook.enemies[i]);
-
-        }
+        //if(hook.enemies != null)
+        //{
+        //    for (int i = hook.enemies.Count - 1; i >= 0; i--)
+        //    {
+        //        Destroy(hook.enemies[i].gameObject);
+        //        hook.enemies.Remove(hook.enemies[i]);
+        //    }
+        //}       
         swinging = false;
-        anim.SetBool("swing", false);
+        //anim.SetBool("swing", false);
     }
 
     void GetHook()

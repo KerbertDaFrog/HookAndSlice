@@ -39,11 +39,11 @@ public class Enemy : MonoBehaviour
 	[Header("Attack Variables")]
 	[SerializeField] 
 	private float timeBetweenAttacks;
-	//[SerializeField]
-	//private float setAttackDelay;
-	//[SerializeField]
-	//private float attackDelay;
-	[SerializeField]
+    [SerializeField]
+    private float setAttackDelay;
+    [SerializeField]
+    private float attackDelay;
+    [SerializeField]
 	private float attackRange;
 	[SerializeField]
 	private float damage;
@@ -55,8 +55,8 @@ public class Enemy : MonoBehaviour
 	protected bool playerInAttackRange;
 	[SerializeField]
 	protected bool attacking;
-	//[SerializeField]
-	//private bool hasAttacked;
+    [SerializeField]
+    private bool hasAttacked;
 	[SerializeField]
 	protected bool isDead = false;
 	[SerializeField]
@@ -131,7 +131,9 @@ public class Enemy : MonoBehaviour
 			hasSeenPlayer = true;
 
 		if (sword.swinging)
+        {
 			SetState(EnemyStates.dead);
+		}
 
 		if (currentState == EnemyStates.dead)
 			isDead = true;
@@ -140,17 +142,19 @@ public class Enemy : MonoBehaviour
 			anim.SetBool("attack", true);		
 		else if (!attacking)
 			anim.SetBool("attack", false);
-			
-		//if (!hasAttacked)
-		//	attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
 
-		EnemyBehaviour();
+        if (!hasAttacked)
+            attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
+
+        EnemyBehaviour();
 	}
 
 	protected virtual void EnemyBehaviour()
     {
 		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer && !isDead)
+        {
 			SetState(EnemyStates.idle);
+		}
 
 		if (playerInSightRange && !playerInAttackRange && !isDead)
         {
@@ -163,19 +167,16 @@ public class Enemy : MonoBehaviour
         }
 
 		if (playerInSightRange && playerInAttackRange && !isDead)
-        {			
+		{
 			attacking = true;
 			//attackDelay = setAttackDelay;
 			//hasAttacked = false;
-			if (attacking)
-            {
-				SetState(EnemyStates.attacking);
-            }		
+			SetState(EnemyStates.attacking);
 		}
-		else if (!playerInAttackRange)
+		else
         {
 			attacking = false;
-		}
+        }
 	}
 
 	private void Chase()
@@ -189,16 +190,20 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void Attack()
     {
-		if(attacking)
-        {
-			damageBox.SetActive(true);
-		}
-		else if(!attacking)
-        {
-			damageBox.SetActive(false);
-        }	
+		damageBox.SetActive(true);
+		//yield return new WaitForSeconds(0.1f);
+		//if(attacking)
+  //      {
+		//	damageBox.SetActive(true);
+		//	yield return new WaitForSeconds(0.1f);
+		//	attacking = false;
+		//}
+
+		//if (!attacking)
+		//	damageBox.SetActive(false);
+
 		//hasAttacked = true;
-	}
+    }
 
 	IEnumerator OnDeath()
     {
@@ -230,7 +235,7 @@ public class Enemy : MonoBehaviour
                 break;
             case EnemyStates.attacking:
 				//attack
-				Attack();
+				StartCoroutine("Attack");
 				break;
 			case EnemyStates.chasing:
 				//chasing
@@ -241,6 +246,8 @@ public class Enemy : MonoBehaviour
 				StartCoroutine("OnDeath");
 				break;
 		}
+
+		currentState = state;
 	}
 
 	public void SetSpeed(EnemyStates speed)
