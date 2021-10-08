@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3570465845475007726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3570465845475007720}
+  - component: {fileID: 3570465845475007721}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3570465845475007720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570465845475007726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.967, y: 0.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3570465845475007721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570465845475007726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00f32f7f0fb7d346b40bc2a5a88eef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: DungeonMusic
+    clip: {fileID: 8300000, guid: c9adc819de917ca45b75d3950aadc026, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.066
+    pitch: 0.98
+    loop: 1
+    source: {fileID: 0}
+  - name: KnightMusic
+    clip: {fileID: 8300000, guid: 1392d2c40802fe441be5ea6b876f229a, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.5
+    pitch: 0.98
+    loop: 1
+    source: {fileID: 0}
+  - name: MenuMusic
+    clip: {fileID: 8300000, guid: 6ace92dc8cab0b047a208c9d20176a79, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.5
+    pitch: 0.98
+    loop: 1
+    source: {fileID: 0}
+  - name: CastleMusic
+    clip: {fileID: 8300000, guid: bf53bd418f6758146a93b2d60c75a4ca, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.5
+    pitch: 0.98
+    loop: 1
+    source: {fileID: 0}
