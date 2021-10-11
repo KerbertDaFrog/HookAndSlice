@@ -18,6 +18,9 @@ public class PlayerHealth : MonoBehaviour
     private Slider hpBar;
 
     [SerializeField]
+    private Text healthText;
+
+    [SerializeField]
     private bool dead;
     [SerializeField]
     private PlayerLook pl;
@@ -34,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = setHealth;
         hpBar.maxValue = setHealth;
         hpBar.value = currentHealth;
+        healthText.text = currentHealth + "/" + setHealth;
     }
 
     // Update is called once per frame
@@ -54,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("oof");
         currentHealth -= damageTaken;
         hpBar.value = currentHealth;
+        healthText.text = currentHealth + "/" + setHealth;
     }
 
     private void KillPlayer()
@@ -87,6 +92,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Healing-yay");
         currentHealth += healthRestored;
         hpBar.value = currentHealth;
+        healthText.text = currentHealth + "/" + setHealth;
     }
 
 }
