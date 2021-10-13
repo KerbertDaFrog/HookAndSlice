@@ -55,17 +55,17 @@ MonoBehaviour:
   setTimer: 3
   currentTimer: 0
   totalDist: 0
-  maxDist: 1000
   done: 0
   retracting: 0
+  firing: 0
   retracted: 0
   damage: 10
   maxEnemies: 5
   targets: []
   enemies: []
+  firePoint: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
-  pauseMenu: {fileID: 0}
 --- !u!65 &9078185385329879667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -292,7 +292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.138
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6535860424444682083, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_Name
@@ -358,11 +362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.138
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6535860424040695316, guid: b8c7930de0b444069acf60e8ec0f9dd5, type: 3}
       propertyPath: m_LocalScale.z

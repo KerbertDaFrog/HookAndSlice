@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Keys : Pickup
 {
+    [SerializeField]
+    private GameObject icon;
+
     [Header("Doors to Unlock")]
 
     [SerializeField]
@@ -12,6 +15,7 @@ public class Keys : Pickup
     public override void Result()
     {
         door.UnLock();
+        icon.SetActive(true);
     }
 
 }
