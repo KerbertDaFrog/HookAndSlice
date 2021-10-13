@@ -23,13 +23,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private bool dead;
     [SerializeField]
-    private PlayerLook pl;
+    private bool triggered;
 
     [SerializeField]
     private GameObject deathScreen;
 
     [SerializeField]
     private Hook hook;
+
+    [SerializeField]
+    private PlayerLook pl;
 
     // Start is called before the first frame update
     private void Start()
@@ -53,8 +56,9 @@ public class PlayerHealth : MonoBehaviour
         }       
     }
 
-    private void TakeDamage()
+    IEnumerator TakeDamage()
     {
+        yield return new WaitForSeconds(0.1f);
         Debug.Log("oof");
         currentHealth -= damageTaken;
         hpBar.value = currentHealth;
@@ -77,14 +81,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if(other.gameObject.tag == "DamageBox")
         {
-            TakeDamage();
+            StartCoroutine("TakeDamage");
         }
 
         if (other.gameObject.tag == "HealthPotion")
         {
             RestoreHealth();
-        }
-            
+        }          
     }
 
     private void RestoreHealth()
@@ -94,5 +97,4 @@ public class PlayerHealth : MonoBehaviour
         hpBar.value = currentHealth;
         healthText.text = currentHealth + "/" + setHealth;
     }
-
 }

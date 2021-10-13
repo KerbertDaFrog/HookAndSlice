@@ -111,7 +111,7 @@ public class KnightBoss : Enemy
     }
 
     protected override void Attack()
-    {        
+    {
         base.Attack();
     }
 
