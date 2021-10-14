@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
 	private float attackRange;
 	[SerializeField]
-	private float damage;
+	private int damage;
 
 	[Header("Booleans")]
 	[SerializeField]
@@ -97,14 +97,10 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	protected Animator anim;
 
-	[SerializeField]
-	private Sword sword;
-
 	private void Awake()
 	{
 		player = GameObject.Find("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
-		damageBox = this.transform.Find("DamageBox").gameObject;
 	}
 
 	protected virtual void Start()
@@ -118,7 +114,6 @@ public class Enemy : MonoBehaviour
 
 		StartCoroutine("FindTargetsWithDelay", .2f);
 
-		sword = FindObjectOfType<Sword>();
 	}
 
 	protected virtual void Update()
@@ -129,11 +124,6 @@ public class Enemy : MonoBehaviour
 		//If the enemy has already seen the player, this bool will be checked until death of said enemy.
 		if (playerInSightRange)
 			hasSeenPlayer = true;
-
-		if (sword.swinging)
-        {
-			SetState(EnemyStates.dead);
-		}
 
 		if (currentState == EnemyStates.dead)
 			isDead = true;
@@ -181,6 +171,7 @@ public class Enemy : MonoBehaviour
 
 	private void Chase()
 	{
+		currentState = EnemyStates.chasing;
 		if (chasing && !attacking && !isDead)
         {
 			nav.speed = runSpeed;
@@ -207,6 +198,7 @@ public class Enemy : MonoBehaviour
 
 	IEnumerator OnDeath()
     {
+		GoToDead();
 		anim.SetBool("dead", true);
 		yield return new WaitForSeconds(1f);
 	}
@@ -228,29 +220,64 @@ public class Enemy : MonoBehaviour
     #region StateManagers
 	public virtual void SetState(EnemyStates state)
 	{
-		switch (state)
-		{
+        switch (state)
+        {
             case EnemyStates.idle:
-                //idle
+				//idle
                 break;
+
             case EnemyStates.attacking:
-				//attack
-				StartCoroutine("Attack");
-				break;
-			case EnemyStates.chasing:
-				//chasing
-				Chase();
-				break;
-			case EnemyStates.dead:
-				//dead
-				StartCoroutine("OnDeath");
-				break;
-		}
+                //attack
+                StartCoroutine("Attack");
+                break;
 
-		currentState = state;
-	}
+            case EnemyStates.chasing:
+                //chasing
+                Chase();
+                break;
 
-	public void SetSpeed(EnemyStates speed)
+            case EnemyStates.dead:
+                //dead
+                StartCoroutine("OnDeath");
+                break;
+
+            case EnemyStates.staggered:
+				GoToStaggered();
+				break;
+
+            case EnemyStates.frenzy:
+                break;
+
+            case EnemyStates.onHook:
+				SetSpeed(EnemyStates.onHook);
+                break;
+
+            case EnemyStates.offHook:
+				SetSpeed(EnemyStates.offHook);
+                break;
+        }
+
+        currentState = state;
+    }
+
+	private void GoToStaggered()
+    {
+		// This is called by SetState
+		currentState = EnemyStates.staggered;
+		anim.SetBool("caught", true);
+    }
+
+	private void GoToDead()
+    {
+		// This is called from the OnDeath coroutine
+		currentState = EnemyStates.dead;
+		anim.SetBool("caught", false);
+		anim.SetBool("attack", false);
+		anim.SetBool("walk", false);
+		anim.SetBool("dead", true);
+    }
+
+    public void SetSpeed(EnemyStates speed)
 	{
 		switch (speed)
 		{
@@ -461,5 +488,13 @@ public class Enemy : MonoBehaviour
 		//Gizmos.color = Color.yellow;
 		//Gizmos.DrawWireSphere(transform.position, sightRange);
 	}
+    #endregion
+
+    #region Getters
+    public int Damage()
+    {
+        return damage;
+    }
+
     #endregion
 }

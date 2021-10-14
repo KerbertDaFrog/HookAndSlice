@@ -32,7 +32,8 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
 
-        hook = FindObjectOfType<Hook>();
+        // DONT FIND IN UPDATE!!! It loops through EVERY gameObject in the scene EVERY FRAME
+        //hook = FindObjectOfType<Hook>();
 
         //if (currentHealth <= 0)
         //    enemy.SetState(Enemy.EnemyStates.dead);
@@ -40,13 +41,13 @@ public class EnemyHealth : MonoBehaviour
         if (hooked && currentHealth <= 0 || currentHealth <= 0)
             enemy.SetState(Enemy.EnemyStates.dead);
 
-        if (transform.parent == null)
-            hooked = false;
+        //if (transform.parent == null)
+        //    hooked = false;
 
-        if(hooked != false)
-            anim.SetBool("caught", true);
-        else if (hooked != true)
-            anim.SetBool("caught", false);
+        //if(hooked != false)
+        //    anim.SetBool("caught", true);
+        //else if (hooked != true)
+        //    anim.SetBool("caught", false);
     }
 
     //IEnumerator TakeDamage()
@@ -62,8 +63,16 @@ public class EnemyHealth : MonoBehaviour
     {
         if(other.gameObject.tag == "Hook" && !hooked)
         {
+            hook = other.GetComponent<Hook>();
             hooked = true;
             //StartCoroutine("TakeDamage");
         }
+    }
+
+    public void ClearHook()
+    {
+        hook = null;
+        hooked = false;
+        transform.SetParent(null);
     }
 }

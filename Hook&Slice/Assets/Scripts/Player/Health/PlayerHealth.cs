@@ -46,8 +46,8 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
-        hpBar.value = currentHealth;
+        
+
 
         if (currentHealth <= 0 && !dead)
         {
@@ -56,11 +56,12 @@ public class PlayerHealth : MonoBehaviour
         }       
     }
 
-    IEnumerator TakeDamage()
+    // This will get called by anything which needs to damage the player
+    public void TakeDamage(int _damage)
     {
-        yield return new WaitForSeconds(0.1f);
-        Debug.Log("oof");
-        currentHealth -= damageTaken;
+        Debug.Log("oof I took " + _damage + " damage");
+        currentHealth -= _damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
         hpBar.value = currentHealth;
         healthText.text = currentHealth + "/" + setHealth;
     }
@@ -79,10 +80,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "DamageBox")
-        {
-            StartCoroutine("TakeDamage");
-        }
+        //if(other.gameObject.tag == "DamageBox")
+        //{
+        //    StartCoroutine("TakeDamage");
+        //}
 
         if (other.gameObject.tag == "HealthPotion")
         {
@@ -94,6 +95,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Healing-yay");
         currentHealth += healthRestored;
+        currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
         hpBar.value = currentHealth;
         healthText.text = currentHealth + "/" + setHealth;
     }

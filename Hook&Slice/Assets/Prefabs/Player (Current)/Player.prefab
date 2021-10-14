@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2401013543750177815}
   m_Layer: 10
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 1638438596}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,9 +292,10 @@ MonoBehaviour:
   hpBar: {fileID: 0}
   healthText: {fileID: 0}
   dead: 0
-  pl: {fileID: 2401013544465233258}
+  triggered: 0
   deathScreen: {fileID: 0}
   hook: {fileID: 0}
+  pl: {fileID: 2401013544465233258}
 --- !u!1 &2401013544530944609
 GameObject:
   m_ObjectHideFlags: 0

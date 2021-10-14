@@ -38,7 +38,7 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private List<Vector3> targets = new List<Vector3>();
 
-    public List<Transform> enemies = new List<Transform>();
+    public List<Enemy> enemies = new List<Enemy>();
 
     private Harpoon harpoon;
 
@@ -54,7 +54,7 @@ public class Hook : MonoBehaviour
     
     private void Awake()
     {
-        stats = FindObjectOfType<StatsManager>();
+        stats = FindObjectOfType<StatsManager>(); // If you're doing a find then why make the stats manager static?
         firePoint = GameObject.Find("FirePoint");
         harpoon = FindObjectOfType<Harpoon>();
     }
@@ -208,10 +208,10 @@ public class Hook : MonoBehaviour
     private void PullEnemyToPlayer()
     {
         //For each enemy in the enemies transform list: Set as a child of this transform(the hook) and set their transform.position to the same position that the hook is at.
-        foreach (Transform enemy in enemies)
+        foreach (Enemy enemy in enemies)
         {
             if(enemy != null)
-                enemy.GetComponent<Enemy>().nav.speed = 0;
+                enemy.nav.speed = 0;
 
             //if (retracted && enemy != null)
             //{
@@ -234,7 +234,8 @@ public class Hook : MonoBehaviour
             if(enemies[i] != null)
             {
                 enemies[i].transform.parent = null;
-                enemies[i].GetComponent<Enemy>().nav.speed = 1;
+                enemies[i].nav.speed = 1; // Never set the actual enemy speed outside of the enemy. 
+                enemies[i].SetState(Enemy.EnemyStates.offHook);
                 enemies.Remove(enemies[i]);
             }           
         }
@@ -247,7 +248,7 @@ public class Hook : MonoBehaviour
             if(enemies[i] != null)
             {
                 enemies[i].transform.parent = null;
-                enemies[i].GetComponent<Enemy>().SetSpeed(Enemy.EnemyStates.offHook);
+                enemies[i].SetState(Enemy.EnemyStates.offHook);
                 enemies.Remove(enemies[i]);
             }           
         }
@@ -259,6 +260,10 @@ public class Hook : MonoBehaviour
     {
         //If the trigger collided object has tag "Enemy", then add the Transform to the enemies list.
         if(other.gameObject.tag == "Enemy")
-            enemies.Add(other.transform);
+        {
+            Enemy stabbedEnemy = other.GetComponent<Enemy>();
+            enemies.Add(stabbedEnemy);
+            stabbedEnemy.SetState(Enemy.EnemyStates.staggered);
+        }
     }
 }
