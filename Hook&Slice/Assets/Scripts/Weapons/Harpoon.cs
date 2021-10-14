@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class Harpoon : MonoBehaviour
 {
@@ -30,11 +31,16 @@ public class Harpoon : MonoBehaviour
     private float currentCDTimer;
     private float setCDTimer = 1f;
 
+    [SerializeField]
+    private Slider cooldownSlider;
+
     private Camera fpsCam;    
 
     private void Start()
     {        
         fpsCam = Camera.main;
+        cooldownSlider.maxValue = setCDTimer;
+        cooldownSlider.value = currentCDTimer;
     }
 
     private void Update()
@@ -62,13 +68,17 @@ public class Harpoon : MonoBehaviour
         if (returned)
         {
             currentCDTimer = setCDTimer;
+            cooldownSlider.value = currentCDTimer;
             returned = false;
         }
 
-        if(!hasShot)
+        if (!hasShot)
+        {
             currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
+            cooldownSlider.value = currentCDTimer;
+        }
 
-        if(hookCancelled)
+        if (hookCancelled)
         {
             hasShot = false;
             currentCDTimer = setCDTimer;
