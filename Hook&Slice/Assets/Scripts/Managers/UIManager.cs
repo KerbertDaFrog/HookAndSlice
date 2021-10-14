@@ -7,6 +7,15 @@ public class UIManager : MonoBehaviour
 
     private static UIManager _instance;
 
+    [SerializeField]
+    private GameObject deathScreen;
+
+    [SerializeField]
+    private GameObject winScreen;
+
+
+
+
     public static UIManager Instance { get { return _instance; } }
 
     private void Awake()
@@ -25,6 +34,8 @@ public class UIManager : MonoBehaviour
     {
         _instance = null;
     }
+
+
 
 
 
