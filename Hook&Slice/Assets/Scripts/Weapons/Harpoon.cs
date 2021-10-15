@@ -56,6 +56,8 @@ public class Harpoon : MonoBehaviour
                 hasShot = true;
                 staticHook.SetActive(false);
                 activeHook = Instantiate(hook, firePoint).gameObject;
+                FindObjectOfType<AudioManager>().Play("ChainMovement");
+                FindObjectOfType<AudioManager>().Play("HarpoonShoot");
             }
 
             if (!hasShot)
@@ -70,6 +72,8 @@ public class Harpoon : MonoBehaviour
             currentCDTimer = setCDTimer;
             cooldownSlider.value = currentCDTimer;
             returned = false;
+            FindObjectOfType<AudioManager>().StopPlaying("ChainMovement");
+            FindObjectOfType<AudioManager>().Play("HarpoonReload");
         }
 
         if (!hasShot)
