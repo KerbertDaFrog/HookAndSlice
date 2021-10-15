@@ -76,3 +76,35 @@ MonoBehaviour:
     pitch: 0.98
     loop: 1
     source: {fileID: 0}
+  - name: ChainMovement
+    clip: {fileID: 8300000, guid: 6c65ff04ce9bb494ca9a4855de15f145, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.1
+    pitch: 2
+    loop: 1
+    source: {fileID: 0}
+  - name: HarpoonShoot
+    clip: {fileID: 8300000, guid: 0dc833c7d843b3e42846b8abb5983cba, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HarpoonReload
+    clip: {fileID: 8300000, guid: b80d97063974d3746a527cbc09366eb8, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordSwing
+    clip: {fileID: 8300000, guid: 2068991c6e87f904aae250321803f994, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.2
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
