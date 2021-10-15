@@ -38,8 +38,8 @@ public class Sword : MonoBehaviour
                         }
                     }               
                 }
-                Invoke("SwingDone", 1f);
-                //anim.SetBool("swing", true);
+                Invoke("SwingDone", 0.4f);
+                anim.SetBool("swing", true);
                 //Play Animation
                 //Deal Damage to Enemies
             }
@@ -57,7 +57,7 @@ public class Sword : MonoBehaviour
         //    }
         //}       
         swinging = false;
-        //anim.SetBool("swing", false);
+        anim.SetBool("swing", false);
     }
 
     void GetHook()

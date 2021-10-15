@@ -178,6 +178,7 @@ public class Hook : MonoBehaviour
         {
             if (enemies[i] != null)
             {
+                enemies[i].SetState(Enemy.EnemyStates.onHook);
                 // get the world space position of firepoint transform
                 Vector3 onChainPos = firePoint.transform.position;
 
@@ -261,6 +262,7 @@ public class Hook : MonoBehaviour
         //If the trigger collided object has tag "Enemy", then add the Transform to the enemies list.
         if(other.gameObject.tag == "Enemy")
         {
+
             Enemy stabbedEnemy = other.GetComponent<Enemy>();
             enemies.Add(stabbedEnemy);
             stabbedEnemy.SetState(Enemy.EnemyStates.staggered);

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
 	public enum EnemyStates
-    {
+	{
 		idle,
 		attacking,
 		chasing,
@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour
 		dead,
 		onHook,
 		offHook
-    }
-	
+	}
+
 	public EnemyStates currentState;
 
 	[Header("NavMesh")]
@@ -31,19 +31,19 @@ public class Enemy : MonoBehaviour
 	private GameObject damageBox;
 
 	[Header("Movement Speed Variables")]
-	[SerializeField] 
+	[SerializeField]
 	private float walkSpeed = 1f;
-	[SerializeField] 
+	[SerializeField]
 	private float runSpeed = 4f;
 
 	[Header("Attack Variables")]
-	[SerializeField] 
+	[SerializeField]
 	private float timeBetweenAttacks;
-    [SerializeField]
-    private float setAttackDelay;
-    [SerializeField]
-    private float attackDelay;
-    [SerializeField]
+	[SerializeField]
+	private float setAttackDelay;
+	[SerializeField]
+	private float attackDelay;
+	[SerializeField]
 	private float attackRange;
 	[SerializeField]
 	private int damage;
@@ -55,8 +55,8 @@ public class Enemy : MonoBehaviour
 	protected bool playerInAttackRange;
 	[SerializeField]
 	protected bool attacking;
-    [SerializeField]
-    private bool hasAttacked;
+	[SerializeField]
+	private bool hasAttacked;
 	[SerializeField]
 	protected bool isDead = false;
 	[SerializeField]
@@ -128,63 +128,84 @@ public class Enemy : MonoBehaviour
 		if (currentState == EnemyStates.dead)
 			isDead = true;
 
-		if (attacking)
-			anim.SetBool("attack", true);		
-		else if (!attacking)
-			anim.SetBool("attack", false);
 
-        if (!hasAttacked)
-            attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
+		if (!hasAttacked)
+			attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
 
-        EnemyBehaviour();
+		EnemyBehaviour();
+	}
+
+	private void LateUpdate()
+	{
+		DrawFieldOfView();
 	}
 
 	protected virtual void EnemyBehaviour()
-    {
-		if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer && !isDead)
-        {
-			SetState(EnemyStates.idle);
-		}
-
-		if (playerInSightRange && !playerInAttackRange && !isDead)
-        {
-			chasing = true;
-			SetState(EnemyStates.chasing);
-		}
-		else
-        {
-			chasing = false;
-        }
-
-		if (playerInSightRange && playerInAttackRange && !isDead)
-		{
-			attacking = true;
-			//attackDelay = setAttackDelay;
-			//hasAttacked = false;
-			SetState(EnemyStates.attacking);
-		}
-		else
-        {
-			attacking = false;
-        }
-	}
-
-	private void Chase()
 	{
-		currentState = EnemyStates.chasing;
-		if (chasing && !attacking && !isDead)
-        {
-			nav.speed = runSpeed;
-			nav.SetDestination(player.position);
-        }		
-	}
+		if (!isDead)
+		{
+			if (currentState != EnemyStates.onHook || currentState != EnemyStates.staggered || currentState != EnemyStates.dead || currentState != EnemyStates.offHook)
+			{
+				if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
+				{
+					SetState(EnemyStates.idle);
+				}
 
+				if (playerInSightRange && !playerInAttackRange)
+				{
+					if (currentState != EnemyStates.chasing)
+						SetState(EnemyStates.chasing);
+				}
+
+				if (playerInSightRange && playerInAttackRange)
+				{
+					if(currentState != EnemyStates.attacking)
+						SetState(EnemyStates.attacking);
+					//attackDelay = setAttackDelay;
+					//hasAttacked = false;
+				}
+				else
+				{
+					attacking = false;
+				}
+			}
+		}
+
+        switch (currentState)
+        {
+            case EnemyStates.idle:
+                break;
+            case EnemyStates.attacking:
+				Chase();
+				break;
+            case EnemyStates.chasing:
+				Chase();
+                break;
+            case EnemyStates.staggered:
+                break;
+            case EnemyStates.frenzy:
+                break;
+            case EnemyStates.dead:
+                break;
+            case EnemyStates.onHook:
+                break;
+            case EnemyStates.offHook:
+                break;
+        }
+
+    }
+
+
+    protected virtual void Idle() { }
 	protected virtual void Attack()
-    {
-		damageBox.SetActive(true);
+	{
+		// This isn't needed anymore because we're turning on the damagebox in the animation
+		//damageBox.SetActive(true);
+
+
 		//yield return new WaitForSeconds(0.1f);
 		//if(attacking)
-  //      {
+		//      {
 		//	damageBox.SetActive(true);
 		//	yield return new WaitForSeconds(0.1f);
 		//	attacking = false;
@@ -194,14 +215,32 @@ public class Enemy : MonoBehaviour
 		//	damageBox.SetActive(false);
 
 		//hasAttacked = true;
-    }
-
-	IEnumerator OnDeath()
-    {
-		GoToDead();
-		anim.SetBool("dead", true);
-		yield return new WaitForSeconds(1f);
 	}
+	protected virtual void Chase()
+	{
+		nav.speed = runSpeed;
+
+		//Rather than set the target to be position of the player (The enemy wouldn't stop until they overlap you) 
+		// I set it to be just back from the player so they stop when they're in front of you
+
+		// Get vector (direction and distance) to the player. Normalazing turns it into pure direction only
+		Vector3 chasePos = (transform.position - player.position).normalized;
+
+		// multiply chase pos by the attack range turns the direction into the target attackrange distance
+		// Subtracting the new chase pos from the player position returns the target position for attacking
+		chasePos = player.position - chasePos * -attackRange;
+
+		//nav.SetDestination(chasePos);
+		nav.SetDestination(player.position);
+
+	}
+	protected virtual void Die() { }
+	protected virtual void Staggered() { }
+	protected virtual void Frenzy() { }
+	protected virtual void OnHoook() { }
+	protected virtual void OffHook() { }
+
+
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{
@@ -212,70 +251,160 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	private void LateUpdate()
-	{
-		DrawFieldOfView();
-	}
 
-    #region StateManagers
+
+    #region State Operations
 	public virtual void SetState(EnemyStates state)
 	{
-        switch (state)
-        {
-            case EnemyStates.idle:
-				//idle
-                break;
+		if (currentState != state)
+		{
+			#region Leave State Operations
+			switch (currentState)
+			{
+				case EnemyStates.idle:
+					LeaveIdleState();
+					break;
+				case EnemyStates.attacking:
+					LeaveAttackState();
+					break;
+				case EnemyStates.chasing:
+					LeaveChaseState();
+					break;
+				case EnemyStates.staggered:
+					LeaveStaggeredState();
+					break;
+				case EnemyStates.frenzy:
+					LeaveFrenzyState();
+					break;
+				case EnemyStates.dead:
+					LeaveDeadState();
+					break;
+				case EnemyStates.onHook:
+					LeaveOnHookState();
+					break;
+				case EnemyStates.offHook:
+					LeaveOffHookState();
+					break;
+			}
+			#endregion
 
-            case EnemyStates.attacking:
-                //attack
-                StartCoroutine("Attack");
-                break;
+			#region Enter State Operations
+			switch (state)
+			{
+				case EnemyStates.idle:
+					GoToIdleState();
+					break;
 
-            case EnemyStates.chasing:
-                //chasing
-                Chase();
-                break;
+				case EnemyStates.attacking:
+					GoToAttackState();
+					break;
 
-            case EnemyStates.dead:
-                //dead
-                StartCoroutine("OnDeath");
-                break;
+				case EnemyStates.chasing:
+					GoToChaseState();
+					break;
 
-            case EnemyStates.staggered:
-				GoToStaggered();
-				break;
+				case EnemyStates.dead:
+					GoToDeadState();
+					break;
 
-            case EnemyStates.frenzy:
-                break;
+				case EnemyStates.staggered:
+					GoToStaggeredState();
+					break;
 
-            case EnemyStates.onHook:
-				SetSpeed(EnemyStates.onHook);
-                break;
+				case EnemyStates.frenzy:
+					GoToFrenzyState();
+					break;
 
-            case EnemyStates.offHook:
-				SetSpeed(EnemyStates.offHook);
-                break;
-        }
+				case EnemyStates.onHook:
+					GoToOnHookState();
+					SetSpeed(EnemyStates.onHook);
+					break;
 
-        currentState = state;
+				case EnemyStates.offHook:
+					GoToOffHookState();
+					SetSpeed(EnemyStates.offHook);
+					break;
+			}
+			#endregion
+		}
     }
 
-	private void GoToStaggered()
+	#region State Transitions
+	protected virtual void GoToIdleState() 
+	{
+		anim.SetBool("walk", false);
+	}
+	protected virtual void LeaveIdleState() { }
+
+	protected virtual void GoToAttackState()
     {
-		// This is called by SetState
-		currentState = EnemyStates.staggered;
-		anim.SetBool("caught", true);
+		currentState = EnemyStates.attacking;
+		anim.SetBool("attack", true);
+    }
+	protected virtual void LeaveAttackState()
+    {
+		anim.SetBool("attack", false);
     }
 
-	private void GoToDead()
+	protected virtual void GoToChaseState()
     {
-		// This is called from the OnDeath coroutine
+		currentState = EnemyStates.chasing;
+		anim.SetBool("walk", true);
+	}
+	protected virtual void LeaveChaseState()
+    {
+		anim.SetBool("walk", false);
+	}
+
+	protected virtual void GoToDeadState()
+	{
 		currentState = EnemyStates.dead;
 		anim.SetBool("caught", false);
 		anim.SetBool("attack", false);
 		anim.SetBool("walk", false);
 		anim.SetBool("dead", true);
-    }
+	}
+	protected virtual void LeaveDeadState()
+	{
+		anim.SetBool("dead", false);
+	}
+
+	protected virtual void GoToStaggeredState()
+	{
+		currentState = EnemyStates.staggered;
+		anim.SetBool("caught", true);
+		anim.SetBool("walk", false);
+	}
+	protected virtual void LeaveStaggeredState()
+	{
+		//anim.SetBool("caught", false);
+	}
+
+	protected virtual void GoToFrenzyState() 
+	{ currentState = EnemyStates.frenzy; }
+	protected virtual void LeaveFrenzyState() { }
+
+	protected virtual void GoToOnHookState() 
+	{
+		currentState = EnemyStates.onHook;
+		anim.SetBool("caught", true);
+	}
+	protected virtual void LeaveOnHookState() 
+	{
+		anim.SetBool("caught", false);
+	}
+
+	protected virtual void GoToOffHookState() 
+	{
+		currentState = EnemyStates.offHook;
+		anim.SetBool("caught", false);
+	}
+	protected virtual void LeaveOffHookState() { }
+
+
+
+
+    #endregion
 
     public void SetSpeed(EnemyStates speed)
 	{
@@ -290,6 +419,7 @@ public class Enemy : MonoBehaviour
 		}
 	}
     #endregion
+
 
     #region FindTargets
     private void FindVisibleTargets()

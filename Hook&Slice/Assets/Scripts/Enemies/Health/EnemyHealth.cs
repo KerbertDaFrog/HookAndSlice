@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         //if (currentHealth <= 0)
         //    enemy.SetState(Enemy.EnemyStates.dead);
 
-        if (hooked && currentHealth <= 0 || currentHealth <= 0)
+        if (currentHealth <= 0)
             enemy.SetState(Enemy.EnemyStates.dead);
 
         //if (transform.parent == null)
@@ -59,15 +59,15 @@ public class EnemyHealth : MonoBehaviour
     //    }        
     //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Hook" && !hooked)
-        {
-            hook = other.GetComponent<Hook>();
-            hooked = true;
-            //StartCoroutine("TakeDamage");
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Hook" && !hooked)
+    //    {
+    //        hook = other.GetComponent<Hook>();
+    //        hooked = true;
+    //        //StartCoroutine("TakeDamage");
+    //    }
+    //}
 
     public void ClearHook()
     {
