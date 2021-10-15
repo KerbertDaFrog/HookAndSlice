@@ -20,7 +20,7 @@ public class Sword : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
             Invoke("GetHook", 0.1f);
-
+ 
         if(Input.GetMouseButtonDown(1))
         {
             if(!swinging)
@@ -40,6 +40,7 @@ public class Sword : MonoBehaviour
                 }
                 Invoke("SwingDone", 0.4f);
                 anim.SetBool("swing", true);
+                FindObjectOfType<AudioManager>().Play("SwordSwing");
                 //Play Animation
                 //Deal Damage to Enemies
             }
