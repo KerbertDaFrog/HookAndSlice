@@ -23,6 +23,4 @@ public class EnemyDamageBox : MonoBehaviour
     {
         hitPlayer = false;
     }
-
-
 }

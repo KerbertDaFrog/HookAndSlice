@@ -246,12 +246,12 @@ public class Hook : MonoBehaviour
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            if(enemies[i] != null)
+            if (enemies[i] != null)
             {
                 enemies[i].transform.parent = null;
                 enemies[i].SetState(Enemy.EnemyStates.offHook);
                 enemies.Remove(enemies[i]);
-            }           
+            }
         }
         harpoon.staticHook.SetActive(true);
         Destroy(this.gameObject);
