@@ -60,8 +60,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         Debug.Log("oof I took " + _damage + " damage");
-        currentHealth -= _damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
+        currentHealth = Mathf.Clamp(currentHealth -= _damage, 0, setHealth);
         hpBar.value = currentHealth;
         healthText.text = currentHealth + "/" + setHealth;
     }

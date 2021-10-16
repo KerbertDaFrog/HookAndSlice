@@ -27,47 +27,19 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = setHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetHealth()
     {
-        currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
-
-        // DONT FIND IN UPDATE!!! It loops through EVERY gameObject in the scene EVERY FRAME
-        //hook = FindObjectOfType<Hook>();
-
-        //if (currentHealth <= 0)
-        //    enemy.SetState(Enemy.EnemyStates.dead);
-
-        if (currentHealth <= 0)
-            enemy.SetState(Enemy.EnemyStates.dead);
-
-        //if (transform.parent == null)
-        //    hooked = false;
-
-        //if(hooked != false)
-        //    anim.SetBool("caught", true);
-        //else if (hooked != true)
-        //    anim.SetBool("caught", false);
+        return currentHealth;
     }
 
-    //IEnumerator TakeDamage()
-    //{
-    //    while(hooked)
-    //    {
-    //        currentHealth -= hook.damage;
-    //        yield return new WaitForSeconds(1f);
-    //    }        
-    //}
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Hook" && !hooked)
-    //    {
-    //        hook = other.GetComponent<Hook>();
-    //        hooked = true;
-    //        //StartCoroutine("TakeDamage");
-    //    }
-    //}
+    // This needs to get called by the sword when the player attacks
+    public void TakeDamage(int incomingDamage)
+    {
+        currentHealth = Mathf.Clamp(currentHealth -= incomingDamage, 0, setHealth);
+        if(currentHealth == 0)
+            enemy.SetState(Enemy.EnemyStates.dead);
+    }
 
     public void ClearHook()
     {

@@ -9,10 +9,13 @@ public class EnemyDamageBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player" && !hitPlayer )
+        if (!hitPlayer)
         {
-            hitPlayer = true;
-            other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(myself.Damage());
+            if (other.gameObject.tag == "Player")
+            {
+                hitPlayer = true;
+                other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(myself.Damage());
+            }
         }
     }
 
