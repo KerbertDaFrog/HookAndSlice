@@ -59,9 +59,9 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenu.SetActive(true);
         pauseButtons.SetActive(true);
-        settingsPage.SetActive(false);
-
+        settingsPage.SetActive(false);        
         pl.Paused();
+        AudioManager.instance.StopPlaying("ChainMovement");
     }
 
     //unpausing the game
