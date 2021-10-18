@@ -45,8 +45,6 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private GameObject firePoint;
 
-    private StatsManager stats;
-
     [SerializeField]
     private Vector3 origin;
     [SerializeField]
@@ -54,14 +52,14 @@ public class Hook : MonoBehaviour
     
     private void Awake()
     {
-        stats = FindObjectOfType<StatsManager>(); // If you're doing a find then why make the stats manager static?
+        /*stats = FindObjectOfType<StatsManager>();*/ // If you're doing a find then why make the stats manager static? //true :/
         firePoint = GameObject.Find("FirePoint");
         harpoon = FindObjectOfType<Harpoon>();
     }
 
     private void Start()
     {
-        stats.hooksShot += 1;
+        StatsManager._instance.hooksShot += 1;
         origin = transform.position;
         currentTimer = setTimer;
         //Take all of the elements from the hitPoints list in the Harpoon Component and add/copy them to the targets list in this script.
@@ -71,29 +69,30 @@ public class Hook : MonoBehaviour
 
     private void Update()
     {
-        //Pause Menu Stuff: If Paused, current speed is set to 0 until not paused, which will return currentSpeed to the player set speed.
-        if (PauseMenu.paused != true)
-            currentSpeed = speed;
-
-        if (PauseMenu.paused != false)
-            currentSpeed = 0;
-        else if (PauseMenu.paused != true)
-            currentSpeed = speed;
-
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
         if (targets != null && !done)
             target = targets[index];
 
         if(!done)
-            print("my target = " + index);
+            print("my target = " + index);   
 
-        if(!retracted)
+        if(PauseMenu._instance.paused == false)
         {
-            totalDist += dist;
+            //Pause Menu Stuff: If Paused, current speed is set to 0 until not paused, which will return currentSpeed to the player set speed.
+            currentSpeed = speed;
 
-            dist = Vector3.Distance(origin, target);
+            if (!retracted)
+            {
+                totalDist += dist;
 
-            distanceFromGun = Vector3.Distance(this.transform.position, harpoon.transform.position);
+                dist = Vector3.Distance(origin, target);
+
+                distanceFromGun = Vector3.Distance(this.transform.position, harpoon.transform.position);
+            }
+        }
+        else if(PauseMenu._instance == true)
+        {
+            currentSpeed = 0;
         }
        
         origin = transform.position;
@@ -165,11 +164,6 @@ public class Hook : MonoBehaviour
             CheckIfListElementsNull();
             SeperateEnemiesByDistanceOnHook();
         }
-    }
-
-    private void OnDestroy()
-    {
-        Debug.Log("Total distance travelled:" + totalDist);
     }
 
     private void SeperateEnemiesByDistanceOnHook()
@@ -248,13 +242,23 @@ public class Hook : MonoBehaviour
         {
             if (enemies[i] != null)
             {
-                enemies[i].transform.parent = null;
-                enemies[i].SetState(Enemy.EnemyStates.offHook);
-                enemies.Remove(enemies[i]);
+                retracted = true;
             }
         }
+
+        if (enemies.Count == 0)
+            OnHookDestroyed();
+    }
+
+    private void OnHookDestroyed()
+    {
         harpoon.staticHook.SetActive(true);
         Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("Total distance travelled:" + totalDist);
     }
 
     private void OnTriggerEnter(Collider other)
