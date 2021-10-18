@@ -127,7 +127,6 @@ public class Enemy : MonoBehaviour
 		if (currentState == EnemyStates.dead)
 			isDead = true;
 
-
 		if (!hasAttacked)
 			attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
 
