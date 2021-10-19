@@ -3972,6 +3972,26 @@ PrefabInstance:
       propertyPath: obstacleMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: armourPieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 1789415229}
+    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: armourPieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 433411499}
+    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: armourPieces.Array.data[2]
+      value: 
+      objectReference: {fileID: 1672520075}
+    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: armourPieces.Array.data[3]
+      value: 
+      objectReference: {fileID: 1407816618}
+    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: armourPieces.Array.data[4]
+      value: 
+      objectReference: {fileID: 201609775}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6c8a1229c6283342a5de21338357095, type: 3}
 --- !u!195 &1355981232 stripped
