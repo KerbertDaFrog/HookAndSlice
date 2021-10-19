@@ -85,6 +85,8 @@ MonoBehaviour:
   interactIcon: {fileID: 0}
   locked: {fileID: 0}
   doorLight: {fileID: 5421223038651856413}
+  doorTrigger: {fileID: 5013186608175646629}
+  roomsEnemies: {fileID: 0}
 --- !u!1 &5421223038651856413
 GameObject:
   m_ObjectHideFlags: 0

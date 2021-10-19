@@ -23,6 +23,9 @@ public class DoorOpen : MonoBehaviour
     [SerializeField]
     private GameObject doorLight;
 
+    [SerializeField]
+    private BoxCollider doorTrigger;
+
 
     //the quick bodging of enemies being blocked by doors AKA: enemies are off untill door is open
     [SerializeField]
@@ -42,6 +45,7 @@ public class DoorOpen : MonoBehaviour
                 open = true;
                 roomsEnemies.SetActive(true);
                 Destroy(doorLight);
+                Destroy(doorTrigger);
                 InteractOFF();
             }
         }

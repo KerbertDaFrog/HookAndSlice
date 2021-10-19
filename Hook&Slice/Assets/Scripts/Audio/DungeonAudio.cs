@@ -13,8 +13,8 @@ public class DungeonAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<AudioManager>().StopPlaying(priorLevelMusic);
-        FindObjectOfType<AudioManager>().Play(levelMusic);
+        AudioManager.instance.StopPlaying(priorLevelMusic);
+        AudioManager.instance.Play(levelMusic);
     }
 
     // Update is called once per frame

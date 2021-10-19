@@ -33,6 +33,7 @@ public class LevelComplete : MonoBehaviour
         //timeText.text = "" + timeInlevelInt;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        AudioManager.instance.StopPlaying("ChainMovement");
 
     }
 

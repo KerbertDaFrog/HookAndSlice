@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 8601729398779548205}
   - component: {fileID: 8601729398779548206}
   m_Layer: 0
-  m_Name: CameraHolder 1
+  m_Name: CameraHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,6 +685,7 @@ MonoBehaviour:
   hookCancelled: 0
   returned: 0
   currentCDTimer: 0
+  cooldownSlider: {fileID: 0}
 --- !u!1 &8601729398932926710
 GameObject:
   m_ObjectHideFlags: 0
