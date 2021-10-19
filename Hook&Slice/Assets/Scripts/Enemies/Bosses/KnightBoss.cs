@@ -34,6 +34,8 @@ public class KnightBoss : Enemy
             {
                 //A GameObject has been destroyed
 
+                Debug.Log("frenzy");
+
                 //Check which GameObject has been destroyed
                 for(int i = 0; i < armourPieces.Length; ++i)
                 {
