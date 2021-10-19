@@ -113,7 +113,6 @@ public class Enemy : MonoBehaviour
 		}
 
 		StartCoroutine("FindTargetsWithDelay", .2f);
-
 	}
 
 	protected virtual void Update()
@@ -127,7 +126,6 @@ public class Enemy : MonoBehaviour
 
 		if (currentState == EnemyStates.dead)
 			isDead = true;
-
 
 		if (!hasAttacked)
 			attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
@@ -176,7 +174,8 @@ public class Enemy : MonoBehaviour
             case EnemyStates.idle:
                 break;
             case EnemyStates.attacking:
-				Chase();
+				Attack();
+				//Chase();
 				break;
             case EnemyStates.chasing:
 				Chase();
@@ -192,16 +191,15 @@ public class Enemy : MonoBehaviour
             case EnemyStates.offHook:
                 break;
         }
-
     }
 
-
     protected virtual void Idle() { }
+
 	protected virtual void Attack()
 	{
+		anim.SetBool("attack", true);
 		// This isn't needed anymore because we're turning on the damagebox in the animation
 		//damageBox.SetActive(true);
-
 
 		//yield return new WaitForSeconds(0.1f);
 		//if(attacking)
@@ -216,6 +214,7 @@ public class Enemy : MonoBehaviour
 
 		//hasAttacked = true;
 	}
+
 	protected virtual void Chase()
 	{
 		nav.speed = runSpeed;
@@ -234,13 +233,11 @@ public class Enemy : MonoBehaviour
 		nav.SetDestination(player.position);
 
 	}
+
 	protected virtual void Die() { }
 	protected virtual void Staggered() { }
-	protected virtual void Frenzy() { }
 	protected virtual void OnHoook() { }
 	protected virtual void OffHook() { }
-
-
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{
@@ -250,8 +247,6 @@ public class Enemy : MonoBehaviour
 			FindVisibleTargets();
 		}
 	}
-
-
 
     #region State Operations
 	public virtual void SetState(EnemyStates state)
@@ -334,6 +329,7 @@ public class Enemy : MonoBehaviour
 	{
 		anim.SetBool("walk", false);
 	}
+
 	protected virtual void LeaveIdleState() { }
 
 	protected virtual void GoToAttackState()
@@ -341,6 +337,7 @@ public class Enemy : MonoBehaviour
 		currentState = EnemyStates.attacking;
 		anim.SetBool("attack", true);
     }
+
 	protected virtual void LeaveAttackState()
     {
 		anim.SetBool("attack", false);
@@ -351,6 +348,7 @@ public class Enemy : MonoBehaviour
 		currentState = EnemyStates.chasing;
 		anim.SetBool("walk", true);
 	}
+	
 	protected virtual void LeaveChaseState()
     {
 		anim.SetBool("walk", false);
@@ -381,7 +379,10 @@ public class Enemy : MonoBehaviour
 	}
 
 	protected virtual void GoToFrenzyState() 
-	{ currentState = EnemyStates.frenzy; }
+	{ 
+		currentState = EnemyStates.frenzy; 
+	}
+
 	protected virtual void LeaveFrenzyState() { }
 
 	protected virtual void GoToOnHookState() 
@@ -389,6 +390,7 @@ public class Enemy : MonoBehaviour
 		currentState = EnemyStates.onHook;
 		anim.SetBool("caught", true);
 	}
+
 	protected virtual void LeaveOnHookState() 
 	{
 		anim.SetBool("caught", false);
@@ -400,10 +402,6 @@ public class Enemy : MonoBehaviour
 		anim.SetBool("caught", false);
 	}
 	protected virtual void LeaveOffHookState() { }
-
-
-
-
     #endregion
 
     public void SetSpeed(EnemyStates speed)
@@ -419,7 +417,6 @@ public class Enemy : MonoBehaviour
 		}
 	}
     #endregion
-
 
     #region FindTargets
     private void FindVisibleTargets()
@@ -625,6 +622,5 @@ public class Enemy : MonoBehaviour
     {
         return damage;
     }
-
     #endregion
 }

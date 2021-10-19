@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         //print(isGrounded);
 
-        if(!PauseMenu.paused)
+        if(!PauseMenu._instance.paused)
         {
             PlayerInput();
             ControlDrag();

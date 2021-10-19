@@ -46,9 +46,6 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
-
-
         if (currentHealth <= 0 && !dead)
         {
             dead = true;

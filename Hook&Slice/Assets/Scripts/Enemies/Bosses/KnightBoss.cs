@@ -34,6 +34,8 @@ public class KnightBoss : Enemy
             {
                 //A GameObject has been destroyed
 
+                Debug.Log("frenzy");
+
                 //Check which GameObject has been destroyed
                 for(int i = 0; i < armourPieces.Length; ++i)
                 {
@@ -63,11 +65,6 @@ public class KnightBoss : Enemy
         if (!playerInSightRange && !playerInAttackRange)
             currentState = EnemyStates.idle;
 
-        if (currentState == EnemyStates.frenzy)
-            frenzied = true;
-        else
-            frenzied = false;
-
         if (playerInSightRange && !playerInAttackRange)
             currentState = EnemyStates.chasing;
 
@@ -84,29 +81,8 @@ public class KnightBoss : Enemy
         EnemyBehaviour();
     }
 
-    //private GameObject[] ArmourAmount
-    //{
-
-    //}
-    //private void OnArmourRemoved()
-    //{
-    //    if()
-    //    {
-    //        frenzied = true;
-    //    }
-    //}
-
     protected override void EnemyBehaviour()
     {
-        if (currentState == EnemyStates.frenzy)
-        {
-            frenzied = true;
-            SetState(EnemyStates.frenzy);
-        }
-            
-        if (currentState == EnemyStates.staggered)
-            SetState(EnemyStates.staggered);
-
         base.EnemyBehaviour();
     }
 
@@ -117,10 +93,7 @@ public class KnightBoss : Enemy
 
     private void Frenzy()
     {
-        if(frenzied)
-        {
 
-        }
     }
 
     public override void SetState(EnemyStates state)

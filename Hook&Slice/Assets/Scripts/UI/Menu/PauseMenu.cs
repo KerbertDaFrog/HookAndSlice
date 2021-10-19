@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu _instance;
+
     [SerializeField]
     private GameObject pauseMenu;
 
@@ -26,7 +28,19 @@ public class PauseMenu : MonoBehaviour
     //[SerializeField]
     //private GameObject quitPopUp;
 
-    public static bool paused = false;
+    public bool paused = false;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

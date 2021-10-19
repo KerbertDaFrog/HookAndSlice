@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
-    private static StatsManager _instance;
+    public static StatsManager _instance;
 
     public static StatsManager Instance { get { return _instance; } }
 
