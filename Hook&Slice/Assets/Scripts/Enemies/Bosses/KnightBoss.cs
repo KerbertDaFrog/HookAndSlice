@@ -6,7 +6,8 @@ public class KnightBoss : Enemy
 {
     //private List<GameObject> armourPieces = new List<GameObject>();
 
-    private GameObject[] armourPieces;
+    [Header("ArmourPieces")]
+    public GameObject[] armourPieces;
 
     private int armourAmount;
 

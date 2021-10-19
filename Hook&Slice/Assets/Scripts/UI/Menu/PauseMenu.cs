@@ -96,7 +96,6 @@ public class PauseMenu : MonoBehaviour
     {
         settingsPage.SetActive(true);
         pauseButtons.SetActive(false);
-
     }
 
     public void SettingsOFF()
