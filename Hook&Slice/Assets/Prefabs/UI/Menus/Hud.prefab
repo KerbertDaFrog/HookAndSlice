@@ -547,7 +547,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1000/1000
+  m_Text: 100/100
 --- !u!1 &2672857352526812810
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 3337982314690550569}
   - component: {fileID: 7284574349192738059}
   m_Layer: 5
-  m_Name: recharge-bar
+  m_Name: Cooldown Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1631,9 +1631,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354455bf0513fa44cb92aa43b9e3714d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickups: []
   collection: {fileID: 2552598829536021973}
+  collectionText: {fileID: 2552598829536021972}
+  ph: {fileID: 0}
   hpSlider: {fileID: 4297898968441318081}
   hpText: {fileID: 4365006281709833087}
+  harpoon: {fileID: 0}
+  cooldownSlider: {fileID: 7284574349192738059}
+  door: {fileID: 0}
+  icon: {fileID: 5449632705484315458}
 --- !u!1 &5625032996427757494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2337,11 @@ PrefabInstance:
 --- !u!224 &5449632705484315453 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5458704388981697892, guid: 4ba69cbaadbe9564d9582dbf92ba0c40, type: 3}
+  m_PrefabInstance: {fileID: 27525904664163929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5449632705484315458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458704388981697819, guid: 4ba69cbaadbe9564d9582dbf92ba0c40, type: 3}
   m_PrefabInstance: {fileID: 27525904664163929}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &350725317332609306
@@ -3899,3 +3911,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5458704388981697892, guid: 4ba69cbaadbe9564d9582dbf92ba0c40, type: 3}
   m_PrefabInstance: {fileID: 7542845085005390030}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2552598829536021972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5458704388981697818, guid: 4ba69cbaadbe9564d9582dbf92ba0c40, type: 3}
+  m_PrefabInstance: {fileID: 7542845085005390030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2552598829536021973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

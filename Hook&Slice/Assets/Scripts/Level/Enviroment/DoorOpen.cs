@@ -34,6 +34,9 @@ public class DoorOpen : MonoBehaviour
     private bool interact = false;
     private bool open = false;
 
+    public delegate void Interaction(bool interact);
+    public Interaction interaction;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && interact == true)
@@ -69,7 +72,8 @@ public class DoorOpen : MonoBehaviour
     public virtual void InteractON()
     {
         interact = true;
-        interactIcon.SetActive(true);
+        //interactIcon.SetActive(true);
+        interaction(interact);
     }
 
     //Upon leaving the tirgger the player is no longer in range of interacting
@@ -85,8 +89,9 @@ public class DoorOpen : MonoBehaviour
     private void InteractOFF()
     {
         interact = false;
-        interactIcon.SetActive(false);
+        //interactIcon.SetActive(false);
         locked.SetActive(false);
+        interaction(interact);
     }
 
     public void UnLock()

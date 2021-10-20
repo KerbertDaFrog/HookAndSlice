@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Pickup : MonoBehaviour
 {
     [SerializeField]
-    private HudControl HC;
-
-    [SerializeField]
-    private Text confirmationText;
-
-    [SerializeField]
     private string pickupType;
+
+    public delegate void ConfirmHUD(string pickupType);
+    public ConfirmHUD confirmHUD;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            confirmationText.text = "Collected: " + pickupType;
-            HC.CollectionON();
+            confirmHUD(pickupType);
             Result();
             Destroy(gameObject);
         }

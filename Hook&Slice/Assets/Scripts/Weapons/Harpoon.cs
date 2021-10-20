@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 using UnityEngine.UI;
 
 public class Harpoon : MonoBehaviour
@@ -34,13 +35,17 @@ public class Harpoon : MonoBehaviour
     [SerializeField]
     private Slider cooldownSlider;
 
-    private Camera fpsCam;    
+    private Camera fpsCam;
+
+    public delegate void HarpoonCooldown(float remaining, float max);
+    public HarpoonCooldown harpoonCooldown;
 
     private void Start()
     {        
         fpsCam = Camera.main;
-        cooldownSlider.maxValue = setCDTimer;
-        cooldownSlider.value = currentCDTimer;
+        //cooldownSlider.maxValue = setCDTimer;
+        //cooldownSlider.value = currentCDTimer;
+        harpoonCooldown(currentCDTimer, setCDTimer);
     }
 
     private void Update()
@@ -70,7 +75,8 @@ public class Harpoon : MonoBehaviour
         if (returned)
         {
             currentCDTimer = setCDTimer;
-            cooldownSlider.value = currentCDTimer;
+            //cooldownSlider.value = currentCDTimer;
+            harpoonCooldown(currentCDTimer, setCDTimer);
             AudioManager.instance.StopPlaying("ChainMovement");
             AudioManager.instance.Play("HarpoonReload");
             returned = false;
@@ -79,7 +85,8 @@ public class Harpoon : MonoBehaviour
         if (!hasShot)
         {
             currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
-            cooldownSlider.value = currentCDTimer;
+            //cooldownSlider.value = currentCDTimer;
+            harpoonCooldown(currentCDTimer, setCDTimer);
         }
 
         if (hookCancelled)
