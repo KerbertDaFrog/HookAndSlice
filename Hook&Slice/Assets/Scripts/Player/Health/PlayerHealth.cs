@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,12 +13,6 @@ public class PlayerHealth : MonoBehaviour
     private int damageTaken;
     [SerializeField]
     private int healthRestored;
-
-    [SerializeField]
-    private Slider hpBar;
-
-    [SerializeField]
-    private Text healthText;
 
     [SerializeField]
     private bool dead;
@@ -34,13 +28,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private PlayerLook pl;
 
+
+    public delegate void OnHealthChange(float currentHealth, float maxHealth);
+    public OnHealthChange onHealthChange;
+
+
     // Start is called before the first frame update
     private void Start()
     {
         currentHealth = setHealth;
-        hpBar.maxValue = setHealth;
-        hpBar.value = currentHealth;
-        healthText.text = currentHealth + "/" + setHealth;
+        onHealthChange(currentHealth, setHealth);
     }
 
     // Update is called once per frame
@@ -53,14 +50,15 @@ public class PlayerHealth : MonoBehaviour
         }       
     }
 
+
     // This will get called by anything which needs to damage the player
     public void TakeDamage(int _damage)
     {
         Debug.Log("oof I took " + _damage + " damage");
         currentHealth = Mathf.Clamp(currentHealth -= _damage, 0, setHealth);
-        hpBar.value = currentHealth;
-        healthText.text = currentHealth + "/" + setHealth;
+        onHealthChange(currentHealth, setHealth);
     }
+
 
     private void KillPlayer()
     {
@@ -92,7 +90,6 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Healing-yay");
         currentHealth += healthRestored;
         currentHealth = Mathf.Clamp(currentHealth, 0, setHealth);
-        hpBar.value = currentHealth;
-        healthText.text = currentHealth + "/" + setHealth;
+        onHealthChange(currentHealth, setHealth);
     }
 }
