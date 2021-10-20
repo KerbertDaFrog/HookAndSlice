@@ -30,6 +30,9 @@ public class PauseMenu : MonoBehaviour
 
     public bool paused = false;
 
+    public delegate void IsGamePaused(bool paused);
+    public IsGamePaused isGamePaused;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -75,6 +78,7 @@ public class PauseMenu : MonoBehaviour
         pauseButtons.SetActive(true);
         settingsPage.SetActive(false);        
         pl.Paused();
+        isGamePaused(paused);
         AudioManager.instance.StopPlaying("ChainMovement");
     }
 
@@ -84,6 +88,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         paused = false;
         pl.UnPaused();
+        isGamePaused(paused);
         pauseMenu.SetActive(false);
     }
 

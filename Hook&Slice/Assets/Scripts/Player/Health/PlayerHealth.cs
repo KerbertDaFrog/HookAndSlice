@@ -20,9 +20,6 @@ public class PlayerHealth : MonoBehaviour
     private bool triggered;
 
     [SerializeField]
-    private GameObject deathScreen;
-
-    [SerializeField]
     private Hook hook;
 
     [SerializeField]
@@ -31,6 +28,10 @@ public class PlayerHealth : MonoBehaviour
 
     public delegate void OnHealthChange(float currentHealth, float maxHealth);
     public OnHealthChange onHealthChange;
+
+    public delegate void OnDeath();
+    public OnDeath death;
+
 
 
     // Start is called before the first frame update
@@ -65,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
         if(dead)
         {
             Time.timeScale = 0;
-            deathScreen.SetActive(true);
+            death();
             pl.Paused();
             Debug.Log("i ded");
             //Restart scene or something

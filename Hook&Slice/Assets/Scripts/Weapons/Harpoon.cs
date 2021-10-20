@@ -40,6 +40,10 @@ public class Harpoon : MonoBehaviour
     public delegate void HarpoonCooldown(float remaining, float max);
     public HarpoonCooldown harpoonCooldown;
 
+    public PauseMenu pm;
+
+    private bool ispaused;
+
     private void Start()
     {        
         fpsCam = Camera.main;
@@ -48,59 +52,82 @@ public class Harpoon : MonoBehaviour
         harpoonCooldown(currentCDTimer, setCDTimer);
     }
 
+    private void Awake()
+    {
+        pm = FindObjectOfType<PauseMenu>();
+    }
+
+    private void OnEnable()
+    {
+        pm.isGamePaused += GamePause;
+    }
+
+    private void OnDisable()
+    {
+        pm.isGamePaused -= GamePause;
+    }
+
     private void Update()
     {
-        transform.rotation = fpsCam.transform.rotation;
-
-        if (Input.GetMouseButtonDown(0))
+        if (!ispaused)
         {
-            PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);         
+            transform.rotation = fpsCam.transform.rotation;
 
-            if (!hasShot && hitPoints.Count != 0 && currentCDTimer <= 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                hasShot = true;
-                staticHook.SetActive(false);
-                activeHook = Instantiate(hook, firePoint).gameObject;
-                AudioManager.instance.Play("ChainMovement");
-                AudioManager.instance.Play("HarpoonShoot");
+                PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+
+                if (!hasShot && hitPoints.Count != 0 && currentCDTimer <= 0)
+                {
+                    hasShot = true;
+                    staticHook.SetActive(false);
+                    activeHook = Instantiate(hook, firePoint).gameObject;
+                    AudioManager.instance.Play("ChainMovement");
+                    AudioManager.instance.Play("HarpoonShoot");
+                }
+
+                if (!hasShot)
+                    hitPoints.Clear();
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl) && currentCDTimer <= 0 && hasShot)
+                hookCancelled = true;
+
+            if (returned)
+            {
+                currentCDTimer = setCDTimer;
+                //cooldownSlider.value = currentCDTimer;
+                harpoonCooldown(currentCDTimer, setCDTimer);
+                AudioManager.instance.StopPlaying("ChainMovement");
+                AudioManager.instance.Play("HarpoonReload");
+                returned = false;
             }
 
             if (!hasShot)
-                hitPoints.Clear();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl) && currentCDTimer <= 0 && hasShot)
-            hookCancelled = true;
-
-        if (returned)
-        {
-            currentCDTimer = setCDTimer;
-            //cooldownSlider.value = currentCDTimer;
-            harpoonCooldown(currentCDTimer, setCDTimer);
-            AudioManager.instance.StopPlaying("ChainMovement");
-            AudioManager.instance.Play("HarpoonReload");
-            returned = false;
-        }
-
-        if (!hasShot)
-        {
-            currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
-            //cooldownSlider.value = currentCDTimer;
-            harpoonCooldown(currentCDTimer, setCDTimer);
-        }
-
-        if (hookCancelled)
-        {
-            hasShot = false;
-            currentCDTimer = setCDTimer;
-            if(activeHook == null)
             {
-                hookCancelled = false;
+                currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
+                //cooldownSlider.value = currentCDTimer;
+                harpoonCooldown(currentCDTimer, setCDTimer);
             }
-        }
 
-        if (activeHook == null)
-            hasShot = false;
+            if (hookCancelled)
+            {
+                hasShot = false;
+                currentCDTimer = setCDTimer;
+                if (activeHook == null)
+                {
+                    hookCancelled = false;
+                }
+            }
+
+            if (activeHook == null)
+                hasShot = false;
+        }  
+    }
+
+    private void GamePause(bool paused)
+    {
+        ispaused = paused;
     }
 
     #region ReflectionPattern

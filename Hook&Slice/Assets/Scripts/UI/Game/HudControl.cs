@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HudControl : MonoBehaviour
 {
+    private static HudControl _instance;
+
     [Header("Collection")]
 
     public Pickup[] pickups;
@@ -37,15 +39,39 @@ public class HudControl : MonoBehaviour
     [SerializeField]
     private GameObject lockedMessage;
 
-    #region Hooking Things Up
-    //hooking all the things up
+    [Header("GameScreens")]
+
+    
+    [SerializeField]
+    private GameObject deathScreen;
+    [SerializeField]
+    private GameObject winScreen;
+
+
+
+    public static HudControl Instance { get { return _instance; } }
+
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
         pickups = FindObjectsOfType<Pickup>();
         ph = FindObjectOfType<PlayerHealth>();
         harpoon = FindObjectOfType<Harpoon>();
         doors = FindObjectsOfType<DoorOpen>();
         cooldownSlider.maxValue = 1f;
+    }
+
+    private void OnApplicationQuit()
+    {
+        _instance = null;
     }
 
     //connect them:
@@ -55,6 +81,7 @@ public class HudControl : MonoBehaviour
             p.confirmHUD += CollectionON;
         
         ph.onHealthChange += hpChange;
+        ph.death += DeathScreen;
         harpoon.harpoonCooldown += cooldownHarpoon;
         foreach (DoorOpen d in doors)
             d.interaction += DoorInteraction;
@@ -68,15 +95,15 @@ public class HudControl : MonoBehaviour
         foreach(Pickup p in pickups)
             p.confirmHUD -= CollectionON;
         ph.onHealthChange -= hpChange;
+        ph.death -= DeathScreen;
         harpoon.harpoonCooldown -= cooldownHarpoon;
         foreach(DoorOpen o in doors)
             o.interaction -= DoorInteraction;
     }
-    #endregion
 
 
     //Collection Of Items:
-    #region
+    #region Item Collection Feedback
     private void CollectionON(string pickupType)
     {        
         collectionText.text = "Collected: " + pickupType;
@@ -132,4 +159,16 @@ public class HudControl : MonoBehaviour
         lockedMessage.SetActive(lockeddoor);
     }
 
+
+    private void DeathScreen()
+    {
+        deathScreen.SetActive(true);
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+    }
+
+    private void WinScreen()
+    {
+        winScreen.SetActive(true);
+    }
 }
