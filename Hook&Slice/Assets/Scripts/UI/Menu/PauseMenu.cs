@@ -76,8 +76,9 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenu.SetActive(true);
         pauseButtons.SetActive(true);
-        settingsPage.SetActive(false);        
-        pl.Paused();
+        settingsPage.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         isGamePaused(paused);
         AudioManager.instance.StopPlaying("ChainMovement");
     }
@@ -87,7 +88,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         paused = false;
-        pl.UnPaused();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         isGamePaused(paused);
         pauseMenu.SetActive(false);
     }

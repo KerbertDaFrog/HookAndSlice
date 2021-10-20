@@ -47,8 +47,6 @@ public class Harpoon : MonoBehaviour
     private void Start()
     {        
         fpsCam = Camera.main;
-        //cooldownSlider.maxValue = setCDTimer;
-        //cooldownSlider.value = currentCDTimer;
         harpoonCooldown(currentCDTimer, setCDTimer);
     }
 
@@ -96,7 +94,6 @@ public class Harpoon : MonoBehaviour
             if (returned)
             {
                 currentCDTimer = setCDTimer;
-                //cooldownSlider.value = currentCDTimer;
                 harpoonCooldown(currentCDTimer, setCDTimer);
                 AudioManager.instance.StopPlaying("ChainMovement");
                 AudioManager.instance.Play("HarpoonReload");
@@ -106,7 +103,6 @@ public class Harpoon : MonoBehaviour
             if (!hasShot)
             {
                 currentCDTimer = Mathf.Clamp(currentCDTimer -= Time.deltaTime, 0f, setCDTimer);
-                //cooldownSlider.value = currentCDTimer;
                 harpoonCooldown(currentCDTimer, setCDTimer);
             }
 

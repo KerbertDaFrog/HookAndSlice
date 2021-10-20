@@ -67,7 +67,6 @@ public class PlayerHealth : MonoBehaviour
         {
             Time.timeScale = 0;
             death();
-            pl.Paused();
             Debug.Log("i ded");
             //Restart scene or something
         }

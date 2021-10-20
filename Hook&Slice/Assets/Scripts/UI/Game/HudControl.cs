@@ -163,8 +163,8 @@ public class HudControl : MonoBehaviour
     private void DeathScreen()
     {
         deathScreen.SetActive(true);
-        //Cursor.lockState = CursorLockMode.None;
-        //Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void WinScreen()
