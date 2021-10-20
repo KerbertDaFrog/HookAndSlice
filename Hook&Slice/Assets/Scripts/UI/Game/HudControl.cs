@@ -34,7 +34,8 @@ public class HudControl : MonoBehaviour
     public DoorOpen[] doors;
     [SerializeField]
     private GameObject icon;
-
+    [SerializeField]
+    private GameObject lockedMessage;
 
     #region Hooking Things Up
     //hooking all the things up
@@ -57,6 +58,8 @@ public class HudControl : MonoBehaviour
         harpoon.harpoonCooldown += cooldownHarpoon;
         foreach (DoorOpen d in doors)
             d.interaction += DoorInteraction;
+        foreach (DoorOpen o in doors)
+            o.doorLocked += DoorLockedMessage;
     }
 
     //Dissconnect them:
@@ -66,8 +69,8 @@ public class HudControl : MonoBehaviour
             p.confirmHUD -= CollectionON;
         ph.onHealthChange -= hpChange;
         harpoon.harpoonCooldown -= cooldownHarpoon;
-        foreach(DoorOpen d in doors)
-            d.interaction -= DoorInteraction;
+        foreach(DoorOpen o in doors)
+            o.interaction -= DoorInteraction;
     }
     #endregion
 
@@ -122,6 +125,11 @@ public class HudControl : MonoBehaviour
     private void DoorInteraction(bool interact)
     {
         icon.SetActive(interact);
+    }
+
+    private void DoorLockedMessage(bool lockeddoor)
+    {
+        lockedMessage.SetActive(lockeddoor);
     }
 
 }
