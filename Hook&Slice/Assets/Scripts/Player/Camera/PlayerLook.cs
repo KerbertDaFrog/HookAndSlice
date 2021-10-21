@@ -26,12 +26,26 @@ public class PlayerLook : MonoBehaviour
 
 
     //if paused the player can't look around
-    private bool paused = false;
+    public PauseMenu pm;
+
+    private bool ispaused;
 
 
     private void Awake()
     {
         instance = this;
+        pm = FindObjectOfType<PauseMenu>();
+    }
+
+
+    private void OnEnable()
+    {
+        pm.isGamePaused += GamePause;
+    }
+
+    private void OnDisable()
+    {
+        pm.isGamePaused -= GamePause;
     }
 
     // Start is called before the first frame update
@@ -44,7 +58,7 @@ public class PlayerLook : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (!paused)
+        if (!ispaused)
         {
             PlayerInput();
         }
@@ -66,18 +80,9 @@ public class PlayerLook : MonoBehaviour
     }
 
 
-    public void Paused()
+    private void GamePause(bool paused)
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        paused = true;
-    }
-
-    public void UnPaused()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        paused = false;
+        ispaused = paused;
     }
 
 }

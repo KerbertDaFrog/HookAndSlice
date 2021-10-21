@@ -8,21 +8,14 @@ public class DoorOpen : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    
-   
+       
     //is the door able to be opened? 
     [SerializeField] 
     private bool unlocked;
 
-    [SerializeField]
-    private GameObject interactIcon;
-
-    [SerializeField]
-    private GameObject locked;
-
+    //Things that need to turn off when door is open
     [SerializeField]
     private GameObject doorLight;
-
     [SerializeField]
     private BoxCollider doorTrigger;
 
@@ -34,8 +27,13 @@ public class DoorOpen : MonoBehaviour
     private bool interact = false;
     private bool open = false;
 
+
+    //UI systems:
     public delegate void Interaction(bool interact);
     public Interaction interaction;
+
+    public delegate void DoorLocked(bool lockeddoor);
+    public DoorLocked doorLocked;
 
     void Update()
     {
@@ -63,11 +61,10 @@ public class DoorOpen : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player" && !open)
         {
-            locked.SetActive(true);
+            doorLocked(true);
         }
         
     }
-
 
     public virtual void InteractON()
     {
@@ -89,8 +86,7 @@ public class DoorOpen : MonoBehaviour
     private void InteractOFF()
     {
         interact = false;
-        //interactIcon.SetActive(false);
-        locked.SetActive(false);
+        doorLocked(interact);
         interaction(interact);
     }
 
