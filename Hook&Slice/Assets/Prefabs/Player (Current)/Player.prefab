@@ -244,7 +244,7 @@ MonoBehaviour:
   orientation: {fileID: 2401013543476050910}
   isMoving: 0
   isSprinting: 0
-  moveSpeed: 6
+  moveSpeed: 10
   movementMultiplier: 4
   jumpHeight: 2
   rbDrag: 6
