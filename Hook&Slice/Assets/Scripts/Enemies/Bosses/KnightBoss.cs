@@ -6,9 +6,10 @@ public class KnightBoss : Enemy
 {
     //private List<GameObject> armourPieces = new List<GameObject>();
 
-    private GameObject[] armourPieces;
+    //[Header("ArmourPieces")]
+    public GameObject[] armourPieces { get; set; }
 
-    private int armourAmount;
+    public int armourAmount;
 
     private bool staggered;
     private bool frenzied;
@@ -33,8 +34,6 @@ public class KnightBoss : Enemy
             if (armourPieces.Length > value.Length)
             {
                 //A GameObject has been destroyed
-
-                Debug.Log("frenzy");
 
                 //Check which GameObject has been destroyed
                 for(int i = 0; i < armourPieces.Length; ++i)
@@ -77,6 +76,8 @@ public class KnightBoss : Enemy
             anim.SetBool("attack", true);
         else if (!attacking)
             anim.SetBool("attack", false);
+
+        if(ArmourPieces.Length == 0)
 
         EnemyBehaviour();
     }

@@ -236,7 +236,9 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void Die() { }
 	protected virtual void Staggered() { }
-	protected virtual void OnHoook() { }
+
+	protected virtual void OnHook() { }
+
 	protected virtual void OffHook() { }
 
 	IEnumerator FindTargetsWithDelay(float delay)
@@ -388,11 +390,13 @@ public class Enemy : MonoBehaviour
 	protected virtual void GoToOnHookState() 
 	{
 		currentState = EnemyStates.onHook;
+		this.GetComponent<BoxCollider>().isTrigger = true;
 		anim.SetBool("caught", true);
 	}
 
 	protected virtual void LeaveOnHookState() 
 	{
+		this.GetComponent<BoxCollider>().isTrigger = false;
 		anim.SetBool("caught", false);
 	}
 
