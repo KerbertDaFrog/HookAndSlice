@@ -19,11 +19,12 @@ public class PlayerLook : MonoBehaviour
     private float mouseX;
     private float mouseY;
 
-    private float multi = 0.01f;
+    //private float multi = 0.01f;
 
     private float xRot;
     private float yRot;
 
+    private float sesitivity;
 
     //if paused the player can't look around
     public PauseMenu pm;
@@ -35,6 +36,7 @@ public class PlayerLook : MonoBehaviour
     {
         instance = this;
         pm = FindObjectOfType<PauseMenu>();
+        sesitivity = StatsManager.Instance.mouseSensitivity;
     }
 
 
@@ -73,8 +75,8 @@ public class PlayerLook : MonoBehaviour
         mouseX = Input.GetAxisRaw("Mouse X");
         mouseY = Input.GetAxisRaw("Mouse Y");
 
-        yRot += mouseX * sensX * multi;
-        xRot -= mouseY * sensY * multi;
+        yRot += mouseX * sesitivity;
+        xRot -= mouseY * sesitivity;
 
         xRot = Mathf.Clamp(xRot, -90f, 90f);
     }
@@ -83,6 +85,14 @@ public class PlayerLook : MonoBehaviour
     private void GamePause(bool paused)
     {
         ispaused = paused;
+    }
+
+
+    //this gets called from StatsManager Script
+    public void SetPlayerSensitivity(float incomingS)
+    {
+        sensX = sesitivity;
+        sensY = sesitivity;
     }
 
 }

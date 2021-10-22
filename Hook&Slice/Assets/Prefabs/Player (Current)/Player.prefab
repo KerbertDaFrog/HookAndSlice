@@ -151,7 +151,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401013543750177810}
-  m_Material: {fileID: 13400000, guid: b8b86b345cc3e844aa42d9d1c455d594, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -223,10 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842ca2692b690b24395b6873f5013dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 100
-  sensY: 100
+  sensX: 1
+  sensY: 1
   cam: {fileID: 0}
   orientation: {fileID: 2401013543476050910}
+  pm: {fileID: 0}
 --- !u!114 &2401013544465233259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,11 +290,8 @@ MonoBehaviour:
   currentHealth: 0
   damageTaken: 5
   healthRestored: 10
-  hpBar: {fileID: 0}
-  healthText: {fileID: 0}
   dead: 0
   triggered: 0
-  deathScreen: {fileID: 0}
   hook: {fileID: 0}
   pl: {fileID: 2401013544465233258}
 --- !u!1 &2401013544530944609
