@@ -2723,7 +2723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1913291836155811489, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1913291836178511181, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3888,13 +3888,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnightBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 4295101526577440099, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4295101526577440102, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.134
       objectReference: {fileID: 0}
     - target: {fileID: 4295101526577440102, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4295101526577440102, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3932,83 +3936,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4295101526577440102, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295101526577440102, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295101526577440102, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: armourPieces.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: nav
-      value: 
-      objectReference: {fileID: 1355981232}
-    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1629943344}
     - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: damageBox
-      value: 
-      objectReference: {fileID: 1355981233}
-    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1355981234}
-    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: targetMask.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: armourPieces.Array.data[0]
       value: 
-      objectReference: {fileID: 1789415229}
+      objectReference: {fileID: 0}
     - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: armourPieces.Array.data[1]
       value: 
-      objectReference: {fileID: 433411499}
+      objectReference: {fileID: 0}
     - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: armourPieces.Array.data[2]
       value: 
-      objectReference: {fileID: 1672520075}
+      objectReference: {fileID: 0}
     - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: armourPieces.Array.data[3]
       value: 
-      objectReference: {fileID: 1407816618}
+      objectReference: {fileID: 0}
     - target: {fileID: 7878099766332844174, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: armourPieces.Array.data[4]
       value: 
-      objectReference: {fileID: 201609775}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6c8a1229c6283342a5de21338357095, type: 3}
---- !u!195 &1355981232 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 4295101526577440104, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-  m_PrefabInstance: {fileID: 1355981231}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1355981233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4641237462318576440, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-  m_PrefabInstance: {fileID: 1355981231}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1355981234 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7899148833459127956, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-  m_PrefabInstance: {fileID: 1355981231}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1379052247
 PrefabInstance:
   m_ObjectHideFlags: 0
