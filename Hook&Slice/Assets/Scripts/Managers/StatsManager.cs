@@ -12,6 +12,8 @@ public class StatsManager : MonoBehaviour
     public int enemiesKilled;
     public int secretsFound;
 
+    public float mouseSensitivity = 1;
+
     private void Awake()
     {
         if(_instance != null && _instance != this)
