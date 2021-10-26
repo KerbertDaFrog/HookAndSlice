@@ -248,6 +248,7 @@ MonoBehaviour:
   nav: {fileID: 4295101526577440104}
   player: {fileID: 0}
   damageBox: {fileID: 4641237462318576440}
+  goblinCorpse: {fileID: 2059783449519963988, guid: 3e43d8bfdefe8e9458fbf002581cd1fa, type: 3}
   walkSpeed: 0.5
   runSpeed: 1.5
   timeBetweenAttacks: 0

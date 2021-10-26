@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
 	[Header("GameObjects")]
 	[SerializeField]
 	private GameObject damageBox;
+	[SerializeField]
+	private GameObject goblinCorpse;
 
 	[Header("Movement Speed Variables")]
 	[SerializeField]
@@ -363,7 +365,7 @@ public class Enemy : MonoBehaviour
 		anim.SetBool("attack", false);
 		anim.SetBool("walk", false);
 		anim.SetBool("dead", true);
-		StartCoroutine(Dead());
+		StartCoroutine("Dead");
 	}
 
 	//destoying the gameobject after dead - Alex
@@ -371,6 +373,7 @@ public class Enemy : MonoBehaviour
 	IEnumerator Dead()
     {
 		yield return new WaitForSeconds(0.5f);
+		Instantiate(goblinCorpse); //try raycast hit down on ground to instantiate on ground.
 		Destroy(gameObject);
     }
 
