@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1599907680676675383}
   - component: {fileID: 1599907680676675382}
   - component: {fileID: 1599907680676675381}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: light-circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 1599907680692148568}
   - component: {fileID: 1599907680692148575}
   - component: {fileID: 1599907680692148570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599907681623164539}
   - component: {fileID: 1599907681623164538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: torch-side-face-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1599907681785173293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dungeon-torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599907681852271543}
   - component: {fileID: 1599907681852271542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: torch-front-face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599907682300514564}
   - component: {fileID: 1599907682300514571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

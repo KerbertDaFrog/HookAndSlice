@@ -42,15 +42,17 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Goop-blood
+    path: Body Pivot/Body Sprite/Blood Pivot/Blood-sprite
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
       value: {fileID: -3776975483890927425, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
+    - time: 0.3
+      value: {fileID: -3776975483890927425, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
     attribute: m_Sprite
-    path: 
+    path: Body Pivot/Body Sprite
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -69,7 +71,16 @@ AnimationClip:
     - time: 0.3
       value: {fileID: 3147557742615520324, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
     attribute: m_Sprite
-    path: Goop-blood
+    path: Body Pivot/Body Sprite/Blood Pivot/Blood-sprite
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: -3687958486190157365, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
+    - time: 0.33333334
+      value: {fileID: -3687958486190157365, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
+    attribute: m_Sprite
+    path: Head Pivot/Head Sprite
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -80,27 +91,35 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 999586988
+      path: 3699796911
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 0
+      path: 3918892194
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
-      path: 999586988
+      path: 3699796911
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 3908549115
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: -3776975483890927425, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
     - {fileID: -3776975483890927425, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
     - {fileID: 148889278976972453, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
     - {fileID: -6793272988135813273, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
@@ -109,12 +128,14 @@ AnimationClip:
     - {fileID: -6726399595574418067, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
     - {fileID: 3380144211200032481, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
     - {fileID: 3147557742615520324, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
+    - {fileID: -3687958486190157365, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
+    - {fileID: -3687958486190157365, guid: 52dd045cf86ff0446ac4c8cf88444c36, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -155,7 +176,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Goop-blood
+    path: Body Pivot/Body Sprite/Blood Pivot/Blood-sprite
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []
