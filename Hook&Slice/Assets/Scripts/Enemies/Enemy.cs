@@ -134,6 +134,19 @@ public class Enemy : MonoBehaviour
 		EnemyBehaviour();
 	}
 
+	private void FixedUpdate()
+	{
+		int groundMask = 1 << 8;
+
+		RaycastHit hit;
+
+		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, groundMask))
+        {
+			Debug.Log("Did Hit");
+        }
+
+	}
+
 	private void LateUpdate()
 	{
 		DrawFieldOfView();
