@@ -57,8 +57,7 @@ public class Enemy : MonoBehaviour
 	protected bool attacking;
 	[SerializeField]
 	private bool hasAttacked;
-	[SerializeField]
-	protected bool isDead = false;
+	public bool isDead = false;
 	[SerializeField]
 	protected bool chasing;
 	[SerializeField]
@@ -121,7 +120,7 @@ public class Enemy : MonoBehaviour
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
 		//If the enemy has already seen the player, this bool will be checked until death of said enemy.
-		if (playerInSightRange)
+		if (playerInSightRange && !isDead)
 			hasSeenPlayer = true;
 
 		if (currentState == EnemyStates.dead)
@@ -231,10 +230,10 @@ public class Enemy : MonoBehaviour
 
 		//nav.SetDestination(chasePos);
 		nav.SetDestination(player.position);
-
 	}
 
 	protected virtual void Die() { }
+
 	protected virtual void Staggered() { }
 
 	protected virtual void OnHook() { }
@@ -359,11 +358,22 @@ public class Enemy : MonoBehaviour
 	protected virtual void GoToDeadState()
 	{
 		currentState = EnemyStates.dead;
+		this.GetComponent<BoxCollider>().isTrigger = true;
 		anim.SetBool("caught", false);
 		anim.SetBool("attack", false);
 		anim.SetBool("walk", false);
 		anim.SetBool("dead", true);
+		StartCoroutine(Dead());
 	}
+
+	//destoying the gameobject after dead - Alex
+
+	IEnumerator Dead()
+    {
+		yield return new WaitForSeconds(0.5f);
+		Destroy(gameObject);
+    }
+
 	protected virtual void LeaveDeadState()
 	{
 		anim.SetBool("dead", false);
@@ -396,7 +406,10 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void LeaveOnHookState() 
 	{
-		this.GetComponent<BoxCollider>().isTrigger = false;
+		if(!isDead)
+        {
+			this.GetComponent<BoxCollider>().isTrigger = false;
+		}
 		anim.SetBool("caught", false);
 	}
 
@@ -459,11 +472,11 @@ public class Enemy : MonoBehaviour
 			}
 		}
 
-		if (targetsInViewRadius.Length == 0)
+		if (targetsInViewRadius.Length == 0 || isDead)
 			playerInSightRange = false;
 
 
-		if (targetsInAttackRadius.Length == 0)
+		if (targetsInAttackRadius.Length == 0 || isDead)
 			playerInAttackRange = false;
 	}
     #endregion

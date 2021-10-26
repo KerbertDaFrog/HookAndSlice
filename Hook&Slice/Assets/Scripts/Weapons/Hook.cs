@@ -123,9 +123,8 @@ public class Hook : MonoBehaviour
         {
             done = false;
             harpoon.hasShot = false;
-            harpoon.staticHook.SetActive(true);
             harpoon.returned = true;
-            Destroy(this.gameObject);
+            OnHookDestroyed();
         }   
         
         //If the number of enemies on the enemies list is more than 0, start the countdown timer.
@@ -172,7 +171,11 @@ public class Hook : MonoBehaviour
         {
             if (enemies[i] != null)
             {
-                enemies[i].SetState(Enemy.EnemyStates.onHook);
+                if(!enemies[i].isDead)
+                {
+                    enemies[i].SetState(Enemy.EnemyStates.onHook);
+                }
+
                 // get the world space position of firepoint transform
                 Vector3 onChainPos = firePoint.transform.position;
 
@@ -195,7 +198,7 @@ public class Hook : MonoBehaviour
         {
             if (enemies[i] == null)
             {
-                OnHookCancelled();
+                OnHookDestroyed();
             }
         }
     }    
@@ -226,13 +229,19 @@ public class Hook : MonoBehaviour
         //and unparent each enemy from the list then remove all the elements from the list.
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            if(enemies[i] != null)
+            if (enemies[i] != null)
             {
-                enemies[i].transform.parent = null;
-                enemies[i].nav.speed = 1; // Never set the actual enemy speed outside of the enemy. 
-                enemies[i].SetState(Enemy.EnemyStates.offHook);
-                enemies.Remove(enemies[i]);
-            }           
+                if (!enemies[i].isDead)
+                {
+                    enemies[i].nav.speed = 1; // Never set the actual enemy speed outside of the enemy. 
+                    enemies.Remove(enemies[i]);
+                    enemies[i].SetState(Enemy.EnemyStates.offHook);
+                }
+                else
+                {
+                    enemies.Remove(enemies[i]);
+                }
+            }
         }
     }
 
@@ -266,7 +275,6 @@ public class Hook : MonoBehaviour
         //If the trigger collided object has tag "Enemy", then add the Transform to the enemies list.
         if(other.gameObject.tag == "Enemy")
         {
-
             Enemy stabbedEnemy = other.GetComponent<Enemy>();
             enemies.Add(stabbedEnemy);
             stabbedEnemy.SetState(Enemy.EnemyStates.staggered);

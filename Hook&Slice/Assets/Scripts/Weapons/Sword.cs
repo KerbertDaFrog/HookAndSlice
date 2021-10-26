@@ -7,6 +7,9 @@ public class Sword : MonoBehaviour
     [SerializeField]
     private Hook hook;
 
+    [SerializeField]
+    private Enemy enemy;
+
     public bool swinging;
 
     [SerializeField]
@@ -26,37 +29,28 @@ public class Sword : MonoBehaviour
             if(!swinging)
             {
                 swinging = true;
-
-                if (hook && hook.retracted)
-                {
-                    if(hook.enemies != null)
-                    {
-                        for (int i = hook.enemies.Count - 1; i >= 0; i--)
-                        {
-                            Destroy(hook.enemies[i].gameObject);
-                            hook.enemies.Remove(hook.enemies[i]);
-                        }
-                    }               
-                }
-                Invoke("SwingDone", 0.4f);
                 anim.SetBool("swing", true);
                 FindObjectOfType<AudioManager>().Play("SwordSwing");
+                StartCoroutine("SwingDone");
                 //Play Animation
                 //Deal Damage to Enemies
             }
         }
     }
 
-    void SwingDone()
+    IEnumerator SwingDone()
     {
-        //if(hook.enemies != null)
-        //{
-        //    for (int i = hook.enemies.Count - 1; i >= 0; i--)
-        //    {
-        //        Destroy(hook.enemies[i].gameObject);
-        //        hook.enemies.Remove(hook.enemies[i]);
-        //    }
-        //}       
+        if (hook && hook.retracted)
+        {
+            if (hook.enemies != null)
+            {
+                for (int i = hook.enemies.Count - 1; i >= 0; i--)
+                {
+                    hook.enemies[i].SetState(Enemy.EnemyStates.dead);
+                }
+            }
+        }
+        yield return new WaitForSeconds(0.4f);
         swinging = false;
         anim.SetBool("swing", false);
     }
