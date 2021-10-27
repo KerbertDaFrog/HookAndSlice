@@ -258,6 +258,7 @@ public class Hook : MonoBehaviour
                 }
             }
         }
+        OnHookDestroyed();
     }
 
     private void OnHookCancelled()

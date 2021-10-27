@@ -267,7 +267,7 @@ public class Enemy : MonoBehaviour
 	{
 		if (currentState != state)
 		{
-			Debug.LogAssertion(gameObject.name + " is going from " + currentState + " to " + state);
+			Debug.Log("<color=orange>" + gameObject.name + " is going from " + currentState + " to " + state + "</color>");
 
 			#region Leave State Operations
 			switch (currentState)

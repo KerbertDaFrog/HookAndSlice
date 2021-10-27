@@ -61,25 +61,7 @@ public class KnightBoss : Enemy
 
     protected override void Update()
     {
-        if (!playerInSightRange && !playerInAttackRange)
-            currentState = EnemyStates.idle;
-
-        if (playerInSightRange && !playerInAttackRange)
-            currentState = EnemyStates.chasing;
-
-        if (playerInSightRange && playerInAttackRange)
-            currentState = EnemyStates.attacking;
-        else if (!playerInAttackRange)
-            attacking = false;
-
-        if (attacking)
-            anim.SetBool("attack", true);
-        else if (!attacking)
-            anim.SetBool("attack", false);
-
-        if(ArmourPieces.Length == 0)
-
-        EnemyBehaviour();
+        base.Update();
     }
 
     protected override void EnemyBehaviour()
