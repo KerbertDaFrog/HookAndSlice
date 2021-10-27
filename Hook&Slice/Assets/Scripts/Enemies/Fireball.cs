@@ -7,6 +7,9 @@ public class Fireball : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    [SerializeField]
+    private int damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,7 @@ public class Fireball : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //damage
-            other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(12);
+            other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damage);
         }
 
     }
