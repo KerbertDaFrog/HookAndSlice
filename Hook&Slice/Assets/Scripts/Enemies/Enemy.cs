@@ -118,9 +118,6 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		//playerInSightRange = Physics.CheckSphere(transform.position, sightRange, targetMask);
-		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
-
 		//If the enemy has already seen the player, this bool will be checked until death of said enemy.
 		if (playerInSightRange && currentState != EnemyStates.dead)
 			hasSeenPlayer = true;
@@ -140,9 +137,7 @@ public class Enemy : MonoBehaviour
 		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, groundMask))
         {
 
-			Debug.Log("Did Hit");
         }
-
 	}
 
 	private void LateUpdate()
@@ -171,8 +166,6 @@ public class Enemy : MonoBehaviour
 				{
 					if(currentState != EnemyStates.attacking)
 						SetState(EnemyStates.attacking);
-					//attackDelay = setAttackDelay;
-					//hasAttacked = false;
 				}
 				else
 				{
@@ -183,24 +176,11 @@ public class Enemy : MonoBehaviour
 
         switch (currentState)
         {
-            case EnemyStates.idle:
-                break;
             case EnemyStates.attacking:
 				Attack();
-				//Chase();
 				break;
             case EnemyStates.chasing:
 				Chase();
-                break;
-            case EnemyStates.staggered:
-                break;
-            case EnemyStates.frenzy:
-                break;
-            case EnemyStates.dead:
-                break;
-            case EnemyStates.onHook:
-                break;
-            case EnemyStates.offHook:
                 break;
         }
     }
@@ -267,37 +247,7 @@ public class Enemy : MonoBehaviour
 	{
 		if (currentState != state)
 		{
-			Debug.LogAssertion(gameObject.name + " is going from " + currentState + " to " + state);
-
-			#region Leave State Operations
-			switch (currentState)
-			{
-				case EnemyStates.idle:
-					LeaveIdleState();
-					break;
-				case EnemyStates.attacking:
-					LeaveAttackState();
-					break;
-				case EnemyStates.chasing:
-					LeaveChaseState();
-					break;
-				case EnemyStates.staggered:
-					LeaveStaggeredState();
-					break;
-				case EnemyStates.frenzy:
-					LeaveFrenzyState();
-					break;
-				case EnemyStates.dead:
-					LeaveDeadState();
-					break;
-				case EnemyStates.onHook:
-					LeaveOnHookState();
-					break;
-				case EnemyStates.offHook:
-					LeaveOffHookState();
-					break;
-			}
-			#endregion
+			Debug.Log("<color=orange>" + gameObject.name + " is going from " + currentState + " to " + state + "</color>");		
 
 			#region Enter State Operations
 			switch (state)
@@ -337,8 +287,38 @@ public class Enemy : MonoBehaviour
 					break;
 			}
 			#endregion
+
+			#region Leave State Operations
+			switch (currentState)
+			{
+				case EnemyStates.idle:
+					LeaveIdleState();
+					break;
+				case EnemyStates.attacking:
+					LeaveAttackState();
+					break;
+				case EnemyStates.chasing:
+					LeaveChaseState();
+					break;
+				case EnemyStates.staggered:
+					LeaveStaggeredState();
+					break;
+				case EnemyStates.frenzy:
+					LeaveFrenzyState();
+					break;
+				case EnemyStates.dead:
+					LeaveDeadState();
+					break;
+				case EnemyStates.onHook:
+					LeaveOnHookState();
+					break;
+				case EnemyStates.offHook:
+					LeaveOffHookState();
+					break;
+			}
+			#endregion
 		}
-    }
+	}
 
 	#region State Transitions
 	protected virtual void GoToIdleState() 
@@ -351,6 +331,7 @@ public class Enemy : MonoBehaviour
 	protected virtual void GoToAttackState()
     {
 		currentState = EnemyStates.attacking;
+		Attack();
 		anim.SetBool("attack", true);
     }
 
@@ -362,6 +343,7 @@ public class Enemy : MonoBehaviour
 	protected virtual void GoToChaseState()
     {
 		currentState = EnemyStates.chasing;
+		Chase();
 		anim.SetBool("walk", true);
 	}
 	
@@ -408,7 +390,8 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void GoToFrenzyState() 
 	{ 
-		currentState = EnemyStates.frenzy; 
+		currentState = EnemyStates.frenzy;
+		Attack();
 	}
 
 	protected virtual void LeaveFrenzyState() { }
@@ -437,7 +420,7 @@ public class Enemy : MonoBehaviour
 	protected virtual void LeaveOffHookState() { }
     #endregion
 
-    public void SetSpeed(EnemyStates speed)
+    public virtual void SetSpeed(EnemyStates speed)
 	{
 		switch (speed)
 		{

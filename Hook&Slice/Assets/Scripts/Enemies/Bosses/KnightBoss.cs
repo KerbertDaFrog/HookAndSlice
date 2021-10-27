@@ -11,8 +11,14 @@ public class KnightBoss : Enemy
 
     public int armourAmount;
 
-    private bool staggered;
-    private bool frenzied;
+    public enum AttackState
+    {
+        slam,
+        range,
+        summon
+    }
+
+    private AttackState currentAttackState;
 
     protected override void Start()
     {
@@ -61,25 +67,7 @@ public class KnightBoss : Enemy
 
     protected override void Update()
     {
-        if (!playerInSightRange && !playerInAttackRange)
-            currentState = EnemyStates.idle;
-
-        if (playerInSightRange && !playerInAttackRange)
-            currentState = EnemyStates.chasing;
-
-        if (playerInSightRange && playerInAttackRange)
-            currentState = EnemyStates.attacking;
-        else if (!playerInAttackRange)
-            attacking = false;
-
-        if (attacking)
-            anim.SetBool("attack", true);
-        else if (!attacking)
-            anim.SetBool("attack", false);
-
-        if(ArmourPieces.Length == 0)
-
-        EnemyBehaviour();
+        base.Update();
     }
 
     protected override void EnemyBehaviour()
@@ -92,23 +80,35 @@ public class KnightBoss : Enemy
         base.Attack();
     }
 
-    private void Frenzy()
+    private void SlamAttack()
     {
-
+        currentAttackState = AttackState.slam;
+        //slamattack animation
     }
 
-    public override void SetState(EnemyStates state)
+    private void RangeAttack()
     {
-        switch(state)
-        {
-            case EnemyStates.idle:
-                break;
-            case EnemyStates.attacking:
-                Attack();
-                break;
-            case EnemyStates.frenzy:
-                Frenzy();
-                break;
-        }
+        currentAttackState = AttackState.range;
+        //rangeattack animation
+    }
+
+    private void SummonMinions()
+    {
+        currentAttackState = AttackState.summon;
+        
+        //summon animation
+    }
+
+    protected override void GoToFrenzyState()
+    {
+        base.GoToFrenzyState();
+        StartCoroutine("Frenzy");
+    }
+
+    IEnumerator Frenzy()
+    {
+        yield return new WaitForSeconds(1f);
+        SlamAttack();
+
     }
 }
