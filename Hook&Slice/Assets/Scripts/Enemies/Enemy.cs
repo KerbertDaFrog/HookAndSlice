@@ -142,6 +142,7 @@ public class Enemy : MonoBehaviour
 
 		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, groundMask))
         {
+
 			Debug.Log("Did Hit");
         }
 
@@ -217,7 +218,7 @@ public class Enemy : MonoBehaviour
 
 		//yield return new WaitForSeconds(0.1f);
 		//if(attacking)
-		//      {
+		//{
 		//	damageBox.SetActive(true);
 		//	yield return new WaitForSeconds(0.1f);
 		//	attacking = false;

@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public enum Scenes
+    {
+        MainMenu,
+        GameScene,
+    }
+
     private static LevelManager _instance;
 
     public static LevelManager Instance { get { return _instance; } }
