@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
 	protected bool attacking;
 	[SerializeField]
 	private bool hasAttacked;
-	public bool isDead = false;
+	//public bool isDead = false;
 	[SerializeField]
 	protected bool chasing;
 	[SerializeField]
@@ -122,11 +122,8 @@ public class Enemy : MonoBehaviour
 		//playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
 		//If the enemy has already seen the player, this bool will be checked until death of said enemy.
-		if (playerInSightRange && !isDead)
+		if (playerInSightRange && currentState != EnemyStates.dead)
 			hasSeenPlayer = true;
-
-		if (currentState == EnemyStates.dead)
-			isDead = true;
 
 		if (!hasAttacked)
 			attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
@@ -141,9 +138,9 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void EnemyBehaviour()
 	{
-		if (!isDead)
+		if (currentState != EnemyStates.dead)
 		{
-			if (currentState != EnemyStates.onHook || currentState != EnemyStates.staggered || currentState != EnemyStates.dead || currentState != EnemyStates.offHook)
+			if (currentState == EnemyStates.idle || currentState == EnemyStates.chasing || currentState == EnemyStates.attacking)
 			{
 				if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
 				{
@@ -256,6 +253,8 @@ public class Enemy : MonoBehaviour
 	{
 		if (currentState != state)
 		{
+			Debug.LogAssertion(gameObject.name + " is going from " + currentState + " to " + state);
+
 			#region Leave State Operations
 			switch (currentState)
 			{
@@ -409,7 +408,7 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void LeaveOnHookState() 
 	{
-		if(!isDead)
+		if(currentState != EnemyStates.dead)
         {
 			this.GetComponent<BoxCollider>().isTrigger = false;
 		}
@@ -475,11 +474,11 @@ public class Enemy : MonoBehaviour
 			}
 		}
 
-		if (targetsInViewRadius.Length == 0 || isDead)
+		if (targetsInViewRadius.Length == 0 || currentState == EnemyStates.dead)
 			playerInSightRange = false;
 
 
-		if (targetsInAttackRadius.Length == 0 || isDead)
+		if (targetsInAttackRadius.Length == 0 || currentState == EnemyStates.dead)
 			playerInAttackRange = false;
 	}
     #endregion

@@ -49,6 +49,10 @@ public class Hook : MonoBehaviour
     private Vector3 origin;
     [SerializeField]
     private Vector3 target;
+
+    private List<GameObject> hookedEnemies = new List<GameObject>();
+
+    private bool hasDoneThingsOnEnemies = false;
     
     private void Awake()
     {
@@ -158,24 +162,36 @@ public class Hook : MonoBehaviour
         if (totalDist >= maxDist)
             OnHookCancelled();
 
-        if (retracted && enemies.Count > 0)
+
+        //When the hook has been retracted and has not yet operated on the enemies it has it
+        if (retracted && enemies.Count > 0 && hasDoneThingsOnEnemies == false)
         {
-            CheckIfListElementsNull();
-            SeperateEnemiesByDistanceOnHook();
+            IfThereAreZeroEnemiesOnHookDestroyHook();
+
+            foreach(Enemy e in enemies)
+            {
+                if(e.currentState != Enemy.EnemyStates.dead)
+                {
+                    e.SetState(Enemy.EnemyStates.onHook);
+                }
+            }
+
+            hasDoneThingsOnEnemies = true;
+        }
+        
+        if (hasDoneThingsOnEnemies)
+        {
+            // Once enemies have been operated on once this will run
+            SetEnemyPosAndSpacingOnHook();
         }
     }
 
-    private void SeperateEnemiesByDistanceOnHook()
+    private void SetEnemyPosAndSpacingOnHook()
     {
         for (int i = 0; i < enemies.Count; i++)
         {
             if (enemies[i] != null)
-            {
-                if(!enemies[i].isDead)
-                {
-                    enemies[i].SetState(Enemy.EnemyStates.onHook);
-                }
-
+            {               
                 // get the world space position of firepoint transform
                 Vector3 onChainPos = firePoint.transform.position;
 
@@ -192,7 +208,7 @@ public class Hook : MonoBehaviour
         }
     }
 
-    private void CheckIfListElementsNull()
+    private void IfThereAreZeroEnemiesOnHookDestroyHook()
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
@@ -231,11 +247,10 @@ public class Hook : MonoBehaviour
         {
             if (enemies[i] != null)
             {
-                if (!enemies[i].isDead)
+                if (enemies[i].currentState != Enemy.EnemyStates.dead)
                 {
-                    enemies[i].nav.speed = 1; // Never set the actual enemy speed outside of the enemy. 
-                    enemies.Remove(enemies[i]);
                     enemies[i].SetState(Enemy.EnemyStates.offHook);
+                    enemies.Remove(enemies[i]);
                 }
                 else
                 {
@@ -275,9 +290,13 @@ public class Hook : MonoBehaviour
         //If the trigger collided object has tag "Enemy", then add the Transform to the enemies list.
         if(other.gameObject.tag == "Enemy")
         {
-            Enemy stabbedEnemy = other.GetComponent<Enemy>();
-            enemies.Add(stabbedEnemy);
-            stabbedEnemy.SetState(Enemy.EnemyStates.staggered);
+            if (!hookedEnemies.Contains(other.gameObject))
+            {
+                Enemy stabbedEnemy = other.GetComponent<Enemy>();
+                enemies.Add(stabbedEnemy);
+                stabbedEnemy.SetState(Enemy.EnemyStates.staggered);
+                hookedEnemies.Add(other.gameObject);
+            }
         }
     }
 }
