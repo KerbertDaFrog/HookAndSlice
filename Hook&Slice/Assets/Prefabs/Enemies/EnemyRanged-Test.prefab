@@ -282,6 +282,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed78e5f623921fa429aa53319fd88454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2493324569925609034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8906856780865290219}
+  m_Layer: 2
+  m_Name: Fireball-Emitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8906856780865290219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493324569925609034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5830893359513174454}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5284174420627777391
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +422,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4156197355451796743}
+  - {fileID: 8906856780865290219}
   m_Father: {fileID: 7640867332647709082}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -499,6 +530,7 @@ MonoBehaviour:
   nav: {fileID: 7909387273482437758}
   player: {fileID: 0}
   damageBox: {fileID: 1598902269375648302}
+  goblinCorpse: {fileID: 220997183315379370, guid: 3149c9ef03f9f0b4ba3287baf7efb6a3, type: 3}
   walkSpeed: 0.8
   runSpeed: 0.1
   timeBetweenAttacks: 0
