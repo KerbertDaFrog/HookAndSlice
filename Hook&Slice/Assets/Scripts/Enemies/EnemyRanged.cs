@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRanged : Enemy
 {
-    protected override void Attack()
+    protected override void GoToAttackState()
     {
         base.Attack();
 
