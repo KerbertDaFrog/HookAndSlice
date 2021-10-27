@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7275271892707872139}
   - component: {fileID: 7275271892707872138}
   m_Layer: 0
-  m_Name: Quad (68)
-  m_TagString: Untagged
+  m_Name: Tomb
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
