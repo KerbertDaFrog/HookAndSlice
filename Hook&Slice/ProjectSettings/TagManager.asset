@@ -8,6 +8,7 @@ TagManager:
   - Hook
   - DamageBox
   - HealthPotion
+  - Wall
   layers:
   - Default
   - TransparentFX
