@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4295101526577440102}
-  - component: {fileID: 7878099766332844174}
+  - component: {fileID: 4915241174717889225}
   - component: {fileID: 303073293147733644}
   - component: {fileID: 4295101526577440104}
   - component: {fileID: 4295101526577440106}
@@ -151,7 +151,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7878099766332844174
+--- !u!114 &4915241174717889225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,9 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  nav: {fileID: 4295101526577440104}
+  nav: {fileID: 0}
   player: {fileID: 0}
-  damageBox: {fileID: 4641237462318576440}
+  damageBox: {fileID: 0}
+  goblinCorpse: {fileID: 0}
   walkSpeed: 1
   runSpeed: 4
   timeBetweenAttacks: 0
@@ -176,32 +177,26 @@ MonoBehaviour:
   damage: 0
   playerInSightRange: 0
   playerInAttackRange: 0
-  attacking: 0
   hasAttacked: 0
-  isDead: 0
   chasing: 0
   hasSeenPlayer: 0
   viewRadius: 0
   viewAngle: 0
   targetMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   visibleTargets: []
   meshResolution: 0
   edgeResolveIterations: 0
   edgeDstThreshold: 0
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 0}
-  anim: {fileID: 7899148833459127956}
-  armourPieces:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  anim: {fileID: 0}
+  armourPieces: []
+  armourAmount: 0
 --- !u!114 &303073293147733644
 MonoBehaviour:
   m_ObjectHideFlags: 0
