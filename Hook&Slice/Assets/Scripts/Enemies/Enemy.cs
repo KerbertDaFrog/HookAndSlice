@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 	}
 
 	public EnemyStates currentState;
+	private EnemyStates previousState;
 
 	[Header("NavMesh")]
 	public NavMeshAgent nav;
@@ -55,8 +56,6 @@ public class Enemy : MonoBehaviour
 	protected bool playerInSightRange;
 	[SerializeField]
 	protected bool playerInAttackRange;
-	[SerializeField]
-	protected bool attacking;
 	[SerializeField]
 	private bool hasAttacked;
 	//public bool isDead = false;
@@ -149,36 +148,42 @@ public class Enemy : MonoBehaviour
 	{
 		if (currentState != EnemyStates.dead)
 		{
-			if (currentState == EnemyStates.idle || currentState == EnemyStates.chasing || currentState == EnemyStates.attacking)
+			if (currentState == EnemyStates.idle)
 			{
+				if (playerInSightRange && !playerInAttackRange)
+				{
+					SetState(EnemyStates.chasing);
+				}
+				else if (playerInSightRange && playerInAttackRange)
+				{
+					SetState(EnemyStates.attacking);
+				}
+			}
+			else if(currentState == EnemyStates.chasing)
+            {
+				if (playerInSightRange && playerInAttackRange)
+				{
+					SetState(EnemyStates.attacking);
+				}
+			}
+			else if(currentState == EnemyStates.attacking)
+            {
+				if (playerInSightRange && !playerInAttackRange)
+				{
+					SetState(EnemyStates.chasing);
+				}
+			}
+            else
+            {
 				if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
 				{
 					SetState(EnemyStates.idle);
-				}
-
-				if (playerInSightRange && !playerInAttackRange)
-				{
-					if (currentState != EnemyStates.chasing)
-						SetState(EnemyStates.chasing);
-				}
-
-				if (playerInSightRange && playerInAttackRange)
-				{
-					if(currentState != EnemyStates.attacking)
-						SetState(EnemyStates.attacking);
-				}
-				else
-				{
-					attacking = false;
 				}
 			}
 		}
 
         switch (currentState)
         {
-            case EnemyStates.attacking:
-				Attack();
-				break;
             case EnemyStates.chasing:
 				Chase();
                 break;
@@ -186,26 +191,6 @@ public class Enemy : MonoBehaviour
     }
 
     protected virtual void Idle() { }
-
-	protected virtual void Attack()
-	{
-		anim.SetBool("attack", true);
-		// This isn't needed anymore because we're turning on the damagebox in the animation
-		//damageBox.SetActive(true);
-
-		//yield return new WaitForSeconds(0.1f);
-		//if(attacking)
-		//{
-		//	damageBox.SetActive(true);
-		//	yield return new WaitForSeconds(0.1f);
-		//	attacking = false;
-		//}
-
-		//if (!attacking)
-		//	damageBox.SetActive(false);
-
-		//hasAttacked = true;
-	}
 
 	protected virtual void Chase()
 	{
@@ -247,7 +232,8 @@ public class Enemy : MonoBehaviour
 	{
 		if (currentState != state)
 		{
-			Debug.Log("<color=orange>" + gameObject.name + " is going from " + currentState + " to " + state + "</color>");		
+			Debug.Log("<color=orange>" + gameObject.name + " is going from " + currentState + " to " + state + "</color>");
+			previousState = currentState;
 
 			#region Enter State Operations
 			switch (state)
@@ -289,7 +275,7 @@ public class Enemy : MonoBehaviour
 			#endregion
 
 			#region Leave State Operations
-			switch (currentState)
+			switch (previousState)
 			{
 				case EnemyStates.idle:
 					LeaveIdleState();
@@ -323,6 +309,7 @@ public class Enemy : MonoBehaviour
 	#region State Transitions
 	protected virtual void GoToIdleState() 
 	{
+		currentState = EnemyStates.idle;
 		anim.SetBool("walk", false);
 	}
 
@@ -331,7 +318,6 @@ public class Enemy : MonoBehaviour
 	protected virtual void GoToAttackState()
     {
 		currentState = EnemyStates.attacking;
-		Attack();
 		anim.SetBool("attack", true);
     }
 
@@ -342,14 +328,13 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void GoToChaseState()
     {
-		currentState = EnemyStates.chasing;
-		Chase();
 		anim.SetBool("walk", true);
+		currentState = EnemyStates.chasing;
 	}
 	
 	protected virtual void LeaveChaseState()
     {
-		anim.SetBool("walk", false);
+		//anim.SetBool("walk", false);
 	}
 
 	protected virtual void GoToDeadState()
@@ -391,7 +376,6 @@ public class Enemy : MonoBehaviour
 	protected virtual void GoToFrenzyState() 
 	{ 
 		currentState = EnemyStates.frenzy;
-		Attack();
 	}
 
 	protected virtual void LeaveFrenzyState() { }

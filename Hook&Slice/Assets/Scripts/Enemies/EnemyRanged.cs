@@ -21,7 +21,7 @@ public class EnemyRanged : Enemy
 
     protected override void GoToAttackState()
     {
-        base.Attack();
+        base.GoToAttackState();
         attack = true;
         //StartCoroutine(FireballDelay());
 
@@ -29,6 +29,7 @@ public class EnemyRanged : Enemy
 
     protected override void LeaveAttackState()
     {
+        base.LeaveAttackState();
         attack = false;
     }
 
