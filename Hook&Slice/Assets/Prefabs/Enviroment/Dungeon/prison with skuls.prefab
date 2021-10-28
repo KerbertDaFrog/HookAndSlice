@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1441121382570848991}
   - component: {fileID: 1441121382570848990}
   m_Layer: 0
-  m_Name: Quad (64)
-  m_TagString: Untagged
+  m_Name: prison with skuls
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

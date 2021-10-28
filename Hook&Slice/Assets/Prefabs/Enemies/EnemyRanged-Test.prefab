@@ -216,6 +216,7 @@ Transform:
   m_Children:
   - {fileID: 2022440241149290413}
   - {fileID: 6084056631982405839}
+  - {fileID: 8906856780865290219}
   m_Father: {fileID: 5830893359513174454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -305,13 +306,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2493324569925609034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.08}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000005960464}
+  m_LocalPosition: {x: -0, y: 0, z: -0.122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5830893359513174454}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 4156197355451796743}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &5284174420627777391
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +423,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4156197355451796743}
-  - {fileID: 8906856780865290219}
   m_Father: {fileID: 7640867332647709082}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -436,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7640867332647709082}
   - component: {fileID: 4307666406214576002}
+  - component: {fileID: 9115822189806553795}
   m_Layer: 2
   m_Name: animation
   m_TagString: Untagged
@@ -478,6 +479,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9115822189806553795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269432404592601274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323d5c642aaf4294bb67fb14443e8729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballEmmiter: {fileID: 2493324569925609034}
+  fireball: {fileID: 6344162119873926769, guid: 60da016ca096173479287c845e3aa171, type: 3}
+  fireballForce: 2
 --- !u!1 &7909387273482437749
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7909387273482437744}
   - component: {fileID: 7909387273482437745}
+  - component: {fileID: 6508901767162319040}
   - component: {fileID: 5939181695184019354}
   - component: {fileID: 7909387273482437758}
   - component: {fileID: 7909387273482437756}
@@ -536,13 +553,12 @@ MonoBehaviour:
   timeBetweenAttacks: 0
   setAttackDelay: 3
   attackDelay: 0
-  attackRange: 0.5
+  attackRange: 5
   damage: 5
   playerInSightRange: 0
   playerInAttackRange: 0
   attacking: 0
   hasAttacked: 0
-  isDead: 0
   chasing: 0
   hasSeenPlayer: 0
   viewRadius: 6
@@ -560,6 +576,54 @@ MonoBehaviour:
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 0}
   anim: {fileID: 4307666406214576002}
+--- !u!114 &6508901767162319040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909387273482437749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b6ee4dd2e00c7498c04432406c4d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  nav: {fileID: 7909387273482437758}
+  player: {fileID: 0}
+  damageBox: {fileID: 1598902269375648302}
+  goblinCorpse: {fileID: 220997183315379370, guid: 3149c9ef03f9f0b4ba3287baf7efb6a3, type: 3}
+  walkSpeed: 0.8
+  runSpeed: 0.1
+  timeBetweenAttacks: 0
+  setAttackDelay: 3
+  attackDelay: 0
+  attackRange: 5
+  damage: 5
+  playerInSightRange: 0
+  playerInAttackRange: 0
+  attacking: 0
+  hasAttacked: 0
+  chasing: 0
+  hasSeenPlayer: 0
+  viewRadius: 6
+  viewAngle: 360
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleTargets: []
+  meshResolution: 0
+  edgeResolveIterations: 0
+  edgeDstThreshold: 0
+  maskCutawayDst: 0.1
+  viewMeshFilter: {fileID: 0}
+  anim: {fileID: 4307666406214576002}
+  fireballEmmiter: {fileID: 2493324569925609034}
+  fireball: {fileID: 6344162119873926769, guid: 60da016ca096173479287c845e3aa171, type: 3}
+  fireballForce: 100
 --- !u!114 &5939181695184019354
 MonoBehaviour:
   m_ObjectHideFlags: 0

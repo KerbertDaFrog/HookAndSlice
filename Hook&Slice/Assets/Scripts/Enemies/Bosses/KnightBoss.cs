@@ -75,9 +75,9 @@ public class KnightBoss : Enemy
         base.EnemyBehaviour();
     }
 
-    protected override void Attack()
+    protected void Attack()
     {
-        base.Attack();
+
     }
 
     private void SlamAttack()
