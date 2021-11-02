@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class KnightBoss : Enemy
 {
+    [Header("KnightBoss")]
     public List<GameObject> armourPieces = new List<GameObject>();
 
-    //[Header("ArmourPieces")]
-    //public GameObject[] armourPieces { get; set; }
+    public int armourAmount;
 
+    [SerializeField]
+    private GameObject shockWav;
+
+    [SerializeField]
     private int shockWavDam;
 
-    public int armourAmount;
+    [SerializeField]
+    private List<Transform> shockWavSpawns = new List<Transform>();
+
+    [SerializeField]
+    private int shockWavSpawn = 0;
 
     public enum AttackState
     {
@@ -25,55 +33,20 @@ public class KnightBoss : Enemy
 
     protected override void Start()
     {
-        //armourAmount = armourPieces.Length;
-        
         base.Start();
+
+        shockWavSpawn = shockWavSpawns.Count;
     }
-
-    #region ArmourPieces
-    //private GameObject[] ArmourPieces
-    //{
-    //    get { return armourPieces; }
-    //    set
-    //    {
-    //        if (armourPieces == null)
-    //        {
-    //            armourPieces = value;
-    //            return;
-    //        }
-
-    //        if (armourPieces.Length > value.Length)
-    //        {
-    //            //A GameObject has been destroyed
-
-    //            //Check which GameObject has been destroyed
-    //            for(int i = 0; i < armourPieces.Length; ++i)
-    //            {
-    //                for(int j = 0; j < value.Length; ++j)
-    //                {
-    //                    //Check if GameObject is in the new array
-    //                    if(armourPieces[i].GetInstanceID() == value[j].GetInstanceID())
-    //                    {
-    //                        //GameObject still here
-    //                        continue;
-    //                    }
-    //                }
-    //                //If this part of the code is reached, a destroyed GameObject has been found
-    //                Debug.Log("The GameObject #" + i + "has been destroyed!");
-    //            }
-    //        }
-    //        else if(armourPieces.Length < value.Length)
-    //        {
-    //            //A GameObject has been added
-    //        }
-    //        armourPieces = value;
-    //    }   
-    //}
-    #endregion
 
     protected override void Update()
     {
         base.Update();
+
+        //press to test shockwave spawn
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            Instantiate(shockWav);
+        }
     }
 
     protected override void EnemyBehaviour()
@@ -95,6 +68,8 @@ public class KnightBoss : Enemy
     {
         currentAttackState = AttackState.slam;
         yield return new WaitForSeconds(0.1f);
+        //int index = shockWavSpawns.IndexOf;
+        //Instantiate(shockWav, );
         //slamattack animation
         //Instantiate shockwave
     }
