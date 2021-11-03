@@ -13,6 +13,7 @@ public class StatsManager : MonoBehaviour
     public int secretsFound;
 
     public float mouseSensitivity = 1;
+    public bool safeLights;
 
     private void Awake()
     {
