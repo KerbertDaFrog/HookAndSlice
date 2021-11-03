@@ -7818,7 +7818,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818121801}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -12658,6 +12658,22 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 7341591d0edb1a0408a8f2f1b534a341, type: 2}
+    - target: {fileID: 3941779053323486473, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7066994
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941779053323486473, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941779053323486473, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941779053323486473, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5627676301977149610, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_Material
       value: 
