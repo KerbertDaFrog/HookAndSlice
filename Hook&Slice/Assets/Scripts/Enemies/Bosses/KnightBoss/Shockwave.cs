@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Shockwave : MonoBehaviour
 {
-    private KnightBoss damage;
+    [SerializeField]
+    private KnightBoss kb;
 
     private float lifeTime = 1.5f;
 
@@ -12,7 +13,7 @@ public class Shockwave : MonoBehaviour
 
     private void Start()
     {
-        damage = GetComponent<KnightBoss>();
+        kb = GetComponentInParent<KnightBoss>();
     }
 
     private void Update()
@@ -23,10 +24,15 @@ public class Shockwave : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(damage.Damage());
+            other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.ShockwaveDamage());
             Destroy(gameObject);
         }
+    }
+
+    private void ForceFeedbackOnPlayer()
+    {
+
     }
 }

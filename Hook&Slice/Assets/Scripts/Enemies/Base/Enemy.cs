@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private GameObject damageBox;
 	[SerializeField]
-	private GameObject goblinCorpse;
+	private GameObject corpse;
 
 	[Header("Movement Speed Variables")]
 	[SerializeField]
@@ -353,7 +353,7 @@ public class Enemy : MonoBehaviour
 	IEnumerator Dead()
     {
 		yield return new WaitForSeconds(0.5f);
-		Instantiate(goblinCorpse); //try raycast hit down on ground to instantiate on ground.
+		Instantiate(corpse); //try raycast hit down on ground to instantiate on ground.
 		Destroy(gameObject);
     }
 

@@ -21,6 +21,11 @@ public class KnightBoss : Enemy
     [SerializeField]
     private int shockWavSpawn = 0;
 
+    [SerializeField]
+    private GameObject meteorDamage;
+
+    public bool meteorLanded = false;
+
     public enum AttackState
     {
         nil,
@@ -29,7 +34,7 @@ public class KnightBoss : Enemy
         summon
     }
 
-    private AttackState currentAttackState;
+    public AttackState currentAttackState;
 
     protected override void Start()
     {
@@ -45,7 +50,7 @@ public class KnightBoss : Enemy
         //press to test shockwave spawn
         if(Input.GetKeyDown(KeyCode.L))
         {
-            Instantiate(shockWav);
+            Instantiate(shockWav, gameObject.transform, false);
         }
     }
 
@@ -74,10 +79,17 @@ public class KnightBoss : Enemy
         //Instantiate shockwave
     }
 
-    private void RangeAttack()
+    IEnumerator RangeAttack()
     {
         currentAttackState = AttackState.range;
-        //rangeattack animation
+        yield return null;
+        //turn range attack animation on
+        yield return new WaitForSeconds(3f);
+        //turn range attack animation off
+        meteorLanded = true;
+        yield return new WaitForSeconds(3f);
+        meteorLanded = false;
+        
     }
 
     private void SummonMinions()
