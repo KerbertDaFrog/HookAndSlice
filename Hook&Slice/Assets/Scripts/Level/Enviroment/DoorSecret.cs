@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class DoorSecret : MonoBehaviour
 {
-
-    [SerializeField]
-    private Animator anim;
-
     private bool interact = false;
     private bool open = false;
 
@@ -15,11 +11,11 @@ public class DoorSecret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E)&& interact == true)
-        {
-            anim.SetBool("doorOpen", true);
+        if(Input.GetMouseButtonDown(1) && interact == true)
+        { 
             open = true;
             interact = false;
+            Destroy(gameObject);
         }
     }
 
