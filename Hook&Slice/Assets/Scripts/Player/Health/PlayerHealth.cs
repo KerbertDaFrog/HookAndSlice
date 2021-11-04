@@ -51,7 +51,6 @@ public class PlayerHealth : MonoBehaviour
         }       
     }
 
-
     // This will get called by anything which needs to damage the player
     public void TakeDamage(int _damage)
     {
@@ -59,7 +58,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth -= _damage, 0, setHealth);
         onHealthChange(currentHealth, setHealth);
     }
-
 
     private void KillPlayer()
     {
@@ -82,7 +80,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag == "HealthPotion")
         {
             RestoreHealth();
-        }          
+        }
     }
 
     private void RestoreHealth()
