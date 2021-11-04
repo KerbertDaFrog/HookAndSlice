@@ -547,7 +547,7 @@ MonoBehaviour:
   nav: {fileID: 7909387273482437758}
   player: {fileID: 0}
   damageBox: {fileID: 1598902269375648302}
-  goblinCorpse: {fileID: 220997183315379370, guid: 3149c9ef03f9f0b4ba3287baf7efb6a3, type: 3}
+  corpse: {fileID: 220997183315379370, guid: 3149c9ef03f9f0b4ba3287baf7efb6a3, type: 3}
   walkSpeed: 0.8
   runSpeed: 0.1
   timeBetweenAttacks: 0
@@ -557,7 +557,6 @@ MonoBehaviour:
   damage: 5
   playerInSightRange: 0
   playerInAttackRange: 0
-  attacking: 0
   hasAttacked: 0
   chasing: 0
   hasSeenPlayer: 0
@@ -592,7 +591,7 @@ MonoBehaviour:
   nav: {fileID: 7909387273482437758}
   player: {fileID: 0}
   damageBox: {fileID: 1598902269375648302}
-  goblinCorpse: {fileID: 220997183315379370, guid: 3149c9ef03f9f0b4ba3287baf7efb6a3, type: 3}
+  corpse: {fileID: 0}
   walkSpeed: 0.8
   runSpeed: 0.1
   timeBetweenAttacks: 0
@@ -602,7 +601,6 @@ MonoBehaviour:
   damage: 5
   playerInSightRange: 0
   playerInAttackRange: 0
-  attacking: 0
   hasAttacked: 0
   chasing: 0
   hasSeenPlayer: 0
@@ -621,9 +619,6 @@ MonoBehaviour:
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 0}
   anim: {fileID: 4307666406214576002}
-  fireballEmmiter: {fileID: 2493324569925609034}
-  fireball: {fileID: 6344162119873926769, guid: 60da016ca096173479287c845e3aa171, type: 3}
-  fireballForce: 100
 --- !u!114 &5939181695184019354
 MonoBehaviour:
   m_ObjectHideFlags: 0
