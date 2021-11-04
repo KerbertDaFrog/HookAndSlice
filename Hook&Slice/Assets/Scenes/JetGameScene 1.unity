@@ -3923,6 +3923,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4314305306748397054, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5627676301977149610, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_Material
       value: 
@@ -5212,6 +5216,25 @@ Transform:
   m_Father: {fileID: 357115442}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &529737274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4314305306117260416, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+  m_PrefabInstance: {fileID: 200651455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &529737280
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529737274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &878764215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4314305306117260417, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
@@ -5582,6 +5605,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4408988994801688315, guid: 1b187f6465892a546b95ed274c4a39c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408988994801688316, guid: 1b187f6465892a546b95ed274c4a39c9, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4408988994801688317, guid: 1b187f6465892a546b95ed274c4a39c9, type: 3}

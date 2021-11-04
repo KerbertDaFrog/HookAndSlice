@@ -11,6 +11,9 @@ public class Shockwave : MonoBehaviour
 
     private float speed = 10f;
 
+    [SerializeField]
+    private float radius = 1.0f;
+
     private void Start()
     {
         kb = GetComponentInParent<KnightBoss>();
@@ -31,8 +34,9 @@ public class Shockwave : MonoBehaviour
         }
     }
 
-    private void ForceFeedbackOnPlayer()
+    public virtual void OnDrawGizmos()
     {
-
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

@@ -26,6 +26,12 @@ public class KnightBoss : Enemy
 
     public bool meteorLanded = false;
 
+    [SerializeField]
+    private float attackCooldown;
+
+    [SerializeField]
+    private float setAttackCooldown;
+
     public enum AttackState
     {
         nil,
@@ -52,6 +58,18 @@ public class KnightBoss : Enemy
         {
             Instantiate(shockWav, gameObject.transform, false);
         }
+
+        if(attackCooldown <= 0)
+        {
+            //do attack things
+        }
+        
+        if(attackCooldown > 0)
+        {
+            attackCooldown = Mathf.Clamp(attackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
+        }       
+
+        SetAttackState(AttackState.slam);
     }
 
     protected override void EnemyBehaviour()
@@ -64,9 +82,22 @@ public class KnightBoss : Enemy
         return shockWavDam;
     }
 
-    protected void Attack()
+    private void SetAttackState(AttackState state)
     {
+        switch(state)
+        {
+            case AttackState.slam:
+                StartCoroutine(SlamAttack());
+                break;
 
+            case AttackState.range:
+                StartCoroutine(RangeAttack());
+                break;
+
+            case AttackState.summon:
+                StartCoroutine(SummonMinions());
+                break;
+        }
     }
 
     IEnumerator SlamAttack()
@@ -87,16 +118,22 @@ public class KnightBoss : Enemy
         yield return new WaitForSeconds(3f);
         //turn range attack animation off
         meteorLanded = true;
-        yield return new WaitForSeconds(3f);
+        meteorDamage.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        meteorDamage.SetActive(false);
         meteorLanded = false;
-        
     }
 
-    private void SummonMinions()
+    IEnumerator SummonMinions()
     {
         currentAttackState = AttackState.summon;
-        
-        //summon animation
+        yield return null;
+        //turn summon animation on
+        yield return new WaitForSeconds(1f);
+        //do check to see if enemy limit isn't reached
+        //instantiate enemies
+        yield return new WaitForSeconds(1f);
+        //turn summon animation off
     }
 
     protected override void GoToFrenzyState()
