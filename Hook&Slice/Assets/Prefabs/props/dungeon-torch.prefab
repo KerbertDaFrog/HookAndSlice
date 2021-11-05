@@ -124,7 +124,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833054159659757498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9eef9b783a3c8464a8efc447da45bfdb, type: 2}
   m_CullingMode: 0
@@ -404,6 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1599907681785173293}
+  - component: {fileID: 191955734}
   m_Layer: 8
   m_Name: dungeon-torch
   m_TagString: Untagged
@@ -426,6 +427,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &191955734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599907681785173292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e0c99cfb9078f4aa8470dcd0f19819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 833054159659757500}
 --- !u!1 &2142475198372918593
 GameObject:
   m_ObjectHideFlags: 0
