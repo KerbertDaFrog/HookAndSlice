@@ -93,8 +93,7 @@ public class Harpoon : MonoBehaviour
                 hookCancelled = true;
                 AudioManager.instance.StopPlaying("ChainMovement");
                 AudioManager.instance.Play("HarpoonReload");
-            }
-                
+            }              
 
             if (returned)
             {

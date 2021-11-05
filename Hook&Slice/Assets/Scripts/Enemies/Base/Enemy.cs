@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-	public enum EnemyStates
+    #region Fields
+    public enum EnemyStates
 	{
 		idle,
 		attacking,
@@ -96,8 +97,9 @@ public class Enemy : MonoBehaviour
 	[Header("Animator")]
 	[SerializeField]
 	protected Animator anim;
+    #endregion
 
-	private void Awake()
+    private void Awake()
 	{
 		player = GameObject.Find("Player").transform;
 		nav = GetComponent<NavMeshAgent>();
@@ -115,7 +117,8 @@ public class Enemy : MonoBehaviour
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
 
-	protected virtual void Update()
+    #region Updates
+    protected virtual void Update()
 	{
 		//If the enemy has already seen the player, this bool will be checked until death of said enemy.
 		if (playerInSightRange && currentState != EnemyStates.dead)
@@ -139,11 +142,13 @@ public class Enemy : MonoBehaviour
         }
 	}
 
-	private void LateUpdate()
+    private void LateUpdate()
 	{
 		DrawFieldOfView();
 	}
+	#endregion
 
+	#region EnemyBehaviour
 	protected virtual void EnemyBehaviour()
 	{
 		if (currentState != EnemyStates.dead)
@@ -190,7 +195,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void Idle() { }
+	protected virtual void Idle() { }
 
 	protected virtual void Chase()
 	{
@@ -217,17 +222,9 @@ public class Enemy : MonoBehaviour
 	protected virtual void OnHook() { }
 
 	protected virtual void OffHook() { }
+	#endregion
 
-	IEnumerator FindTargetsWithDelay(float delay)
-	{
-		while (true)
-		{
-			yield return new WaitForSeconds(delay);
-			FindVisibleTargets();
-		}
-	}
-
-    #region State Operations
+	#region State Operations
 	public virtual void SetState(EnemyStates state)
 	{
 		if (currentState != state)
@@ -416,10 +413,19 @@ public class Enemy : MonoBehaviour
 				break;
 		}
 	}
-    #endregion
+	#endregion
 
-    #region FindTargets
-    private void FindVisibleTargets()
+	#region FindTargets
+	IEnumerator FindTargetsWithDelay(float delay)
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(delay);
+			FindVisibleTargets();
+		}
+	}
+
+	private void FindVisibleTargets()
 	{
 		visibleTargets.Clear();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
