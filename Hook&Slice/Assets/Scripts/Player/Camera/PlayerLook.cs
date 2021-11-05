@@ -37,7 +37,6 @@ public class PlayerLook : MonoBehaviour
         instance = this;
         pm = FindObjectOfType<PauseMenu>();
         sesitivity = StatsManager.Instance.mouseSensitivity;
-        //sesitivity = 1f;
     }
 
 

@@ -25,6 +25,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private PlayerLook pl;
 
+    [SerializeField]
+    private Animator anim;
+
 
     public delegate void OnHealthChange(float currentHealth, float maxHealth);
     public OnHealthChange onHealthChange;
@@ -56,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("oof I took " + _damage + " damage");
         currentHealth = Mathf.Clamp(currentHealth -= _damage, 0, setHealth);
+        anim.SetTrigger("hurt");
         onHealthChange(currentHealth, setHealth);
     }
 
