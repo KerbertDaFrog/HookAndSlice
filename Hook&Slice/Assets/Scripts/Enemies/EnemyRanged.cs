@@ -13,6 +13,7 @@ public class EnemyRanged : Enemy
         base.GoToAttackState();
         attack = true;
 
+
     }
 
     protected override void LeaveAttackState()
