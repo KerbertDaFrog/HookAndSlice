@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
+    #region Fields
     [SerializeField]
     private float currentSpeed;
     [SerializeField]
@@ -11,13 +12,10 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private float dist;
     //The distance of the hook from the harpoon gun.
-    [SerializeField]
     private float distanceFromGun;
-    [SerializeField]
-    private float setTimer;
+    private float setTimer = 3f;
     [SerializeField]
     private float currentTimer;
-    [SerializeField]
     private float totalDist;
     private float maxDist = 1000f;
     private float gapDist = 0.1f;
@@ -42,6 +40,8 @@ public class Hook : MonoBehaviour
 
     private Harpoon harpoon;
 
+    private Sword sword;
+
     [SerializeField]
     private GameObject firePoint;
 
@@ -53,12 +53,13 @@ public class Hook : MonoBehaviour
     private List<GameObject> hookedEnemies = new List<GameObject>();
 
     private bool hasDoneThingsOnEnemies = false;
-    
+    #endregion
+
     private void Awake()
     {
-        /*stats = FindObjectOfType<StatsManager>();*/ // If you're doing a find then why make the stats manager static? //true :/
         firePoint = GameObject.Find("FirePoint");
         harpoon = FindObjectOfType<Harpoon>();
+        sword = FindObjectOfType<Sword>();
     }
 
     private void Start()
@@ -71,6 +72,7 @@ public class Hook : MonoBehaviour
         this.transform.SetParent(null);
     }
 
+    #region Update
     private void Update()
     {
         //If the targets list is not null, then the Vector3 variable for target will be equal to the first element of targets index.
@@ -129,38 +131,35 @@ public class Hook : MonoBehaviour
             harpoon.hasShot = false;
             harpoon.returned = true;
             OnHookDestroyed();
-        }   
-        
+        }
+
         //If the number of enemies on the enemies list is more than 0, start the countdown timer.
-        if(enemies.Count > 0 && retracted != false)
+        if (enemies.Count > 0 && retracted == true)
             currentTimer = Mathf.Clamp(currentTimer -= Time.deltaTime, 0f, setTimer);
 
         //If the harpoon has been shot (hasShot = true), the Enemy count is more than zero and the hook's distance from the harpoon gun is less than 0.1, set retracting to false and retracted to true.
-        if(harpoon.hasShot != false && enemies.Count > 0 && distanceFromGun < 0.1)
+        if (harpoon.hasShot != false && enemies.Count > 0 && distanceFromGun < 0.1)
         {
             retracting = false;
             retracted = true;
         }
 
         //If retracted not equal to false and the Enemy count is zero, set retracted to false.
-        if(retracted != false && enemies.Count <= 0)
+        if(retracted != false && enemies.Count == 0)
             retracted = false;
 
         //If index larger than maxEnemies than Remove all elements until maxEnemies limit reached.
         if(enemies.Count > maxEnemies)
             enemies.RemoveAt(maxEnemies);
 
-        if(currentTimer <= 0)
+        if (currentTimer <= 0)
             OnTimerEnd();
 
-        if(targets.Count > 0)
+        if (targets.Count > 0)
             PullEnemyToPlayer();
         
-        if(harpoon.hookCancelled)
-            OnHookCancelled();
-
-        if (totalDist >= maxDist)
-            OnHookCancelled();
+        if(harpoon.hookCancelled || totalDist >= maxDist)
+            OnHookRecall();
 
 
         //When the hook has been retracted and has not yet operated on the enemies it has it
@@ -168,7 +167,7 @@ public class Hook : MonoBehaviour
         {
             IfThereAreZeroEnemiesOnHookDestroyHook();
 
-            foreach(Enemy e in enemies)
+            foreach (Enemy e in enemies)
             {
                 if(e.currentState != Enemy.EnemyStates.dead)
                 {
@@ -184,7 +183,13 @@ public class Hook : MonoBehaviour
             // Once enemies have been operated on once this will run
             SetEnemyPosAndSpacingOnHook();
         }
+
+        if(sword.done)
+        {
+            IfThereAreZeroEnemiesOnHookDestroyHook();
+        }
     }
+    #endregion
 
     private void SetEnemyPosAndSpacingOnHook()
     {
@@ -215,6 +220,10 @@ public class Hook : MonoBehaviour
             if (enemies[i] == null)
             {
                 OnHookDestroyed();
+            }
+            else
+            {
+                Debug.Log("is not null");
             }
         }
     }    
@@ -261,7 +270,8 @@ public class Hook : MonoBehaviour
         OnHookDestroyed();
     }
 
-    private void OnHookCancelled()
+    //For loop iterating backwards to see if there are any enemies in the hook list. If not null, then retracted becomes true and if the enemy count is 0, then call OnHookDestroyed()
+    private void OnHookRecall()
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
@@ -275,10 +285,12 @@ public class Hook : MonoBehaviour
             OnHookDestroyed();
     }
 
+    //Destroy Hook and turn on the static(placeholder) sprite.
     private void OnHookDestroyed()
     {
+        harpoon.returned = true;
         harpoon.staticHook.SetActive(true);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     private void OnDestroy()

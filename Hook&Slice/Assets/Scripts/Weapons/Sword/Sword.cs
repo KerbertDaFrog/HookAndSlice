@@ -7,13 +7,12 @@ public class Sword : MonoBehaviour
     [SerializeField]
     private Hook hook;
 
-    [SerializeField]
-    private Enemy enemy;
-
     public bool swinging;
 
+    public bool done;
+
     [SerializeField]
-    private float damage;
+    private int damage;
 
     [SerializeField]
     private Animator anim;
@@ -28,12 +27,11 @@ public class Sword : MonoBehaviour
         {
             if(!swinging)
             {
+                done = false;
                 swinging = true;
                 anim.SetBool("swing", true);
                 FindObjectOfType<AudioManager>().Play("SwordSwing");
                 StartCoroutine("SwingDone");
-                //Play Animation
-                //Deal Damage to Enemies
             }
         }
     }
@@ -50,9 +48,40 @@ public class Sword : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(0.2f);
+        else 
+        if(hook == null)
+        {
+            RaycastHit hit;
+
+            int enemyLayerMask = 1 << 11;
+
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, enemyLayerMask))
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                Debug.Log("Did Hit Enemy");
+                hit.transform.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage);
+
+                float knockbackStrength = 3f;
+
+                Rigidbody rb = hit.transform.gameObject.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    Vector3 dir = hit.transform.position - transform.position;
+                    dir.y = 0;
+
+                    rb.AddForce(dir.normalized * knockbackStrength, ForceMode.Impulse);
+                }
+            }
+            else
+            {
+                Debug.Log("Did Not Hit Enemy");
+            }
+        }
+        yield return new WaitForSeconds(0.4f);
         swinging = false;
         anim.SetBool("swing", false);
+        done = true;
     }
 
     void GetHook()

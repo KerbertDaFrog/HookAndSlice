@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482997147831099552}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Body Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4790732058117213154}
   - component: {fileID: 6181747180134225593}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Blood-sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1303233285358303819}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Head Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346358048933152908}
   - component: {fileID: 7899148833459127956}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 4295101526577440104}
   - component: {fileID: 4295101526577440106}
   - component: {fileID: 4295101526577440105}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: EnemyTest(Gobin)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 5352998104635328187}
   - component: {fileID: 3001851918221225044}
   - component: {fileID: 710538548134432157}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: DamageBox
   m_TagString: DamageBox
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 159425340180257241}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Blood Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4178000212888542884}
   - component: {fileID: 5408343289719255690}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: wave-damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1843338682332373227}
   - component: {fileID: 586860587314091932}
   - component: {fileID: 3228766253132407891}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Head Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4574568018458874953}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: wave-damage-pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 8067436480346663953}
   - component: {fileID: 7964578896518174911}
   - component: {fileID: 1177161283559160594}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Body Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
