@@ -187,7 +187,7 @@ public class Enemy : MonoBehaviour
 			}
 		}
 
-        switch (currentState)
+		switch (currentState)
         {
             case EnemyStates.chasing:
 				Chase();
@@ -307,6 +307,7 @@ public class Enemy : MonoBehaviour
 	protected virtual void GoToIdleState() 
 	{
 		currentState = EnemyStates.idle;
+		anim.SetBool("caught", false);
 		anim.SetBool("walk", false);
 	}
 
@@ -363,12 +364,12 @@ public class Enemy : MonoBehaviour
 	{
 		currentState = EnemyStates.staggered;
 		anim.SetBool("caught", true);
-		anim.SetBool("walk", false);
+		anim.SetBool("walk", false);	
 	}
 	protected virtual void LeaveStaggeredState()
 	{
-		//anim.SetBool("caught", false);
-	}
+        //anim.SetBool("caught", false);
+    }
 
 	protected virtual void GoToFrenzyState() 
 	{ 

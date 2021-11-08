@@ -55,7 +55,9 @@ public class Sword : MonoBehaviour
 
             int enemyLayerMask = 1 << 11;
 
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, enemyLayerMask))
+            float rayLength = 5f;
+
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength, enemyLayerMask))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 Debug.Log("Did Hit Enemy");

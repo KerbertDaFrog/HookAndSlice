@@ -37,6 +37,9 @@ public class Harpoon : MonoBehaviour
 
     private Camera fpsCam;
 
+    [SerializeField]
+    private LayerMask enemy;
+
     public delegate void HarpoonCooldown(float remaining, float max);
     public HarpoonCooldown harpoonCooldown;
 
@@ -155,7 +158,7 @@ public class Harpoon : MonoBehaviour
 
         Ray ray = new Ray(position, direction);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxStepDistance))
+        if (Physics.Raycast(ray, out hit, maxStepDistance, ~enemy))
         {
             direction = Vector3.Reflect(direction, hit.normal);
             position = hit.point;
@@ -186,7 +189,7 @@ public class Harpoon : MonoBehaviour
 
         Ray ray = new Ray(position, direction);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxStepDistance))
+        if (Physics.Raycast(ray, out hit, maxStepDistance, ~enemy))
         {
             direction = Vector3.Reflect(direction, hit.normal);
             hitPoints.Add(hit.point);
