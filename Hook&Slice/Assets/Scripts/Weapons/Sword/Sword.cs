@@ -9,8 +9,10 @@ public class Sword : MonoBehaviour
 
     public bool swinging;
 
+    public bool done;
+
     [SerializeField]
-    private float damage;
+    private int damage;
 
     [SerializeField]
     private Animator anim;
@@ -25,6 +27,7 @@ public class Sword : MonoBehaviour
         {
             if(!swinging)
             {
+                done = false;
                 swinging = true;
                 anim.SetBool("swing", true);
                 FindObjectOfType<AudioManager>().Play("SwordSwing");
@@ -56,7 +59,19 @@ public class Sword : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 Debug.Log("Did Hit Enemy");
-                //other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.ShockwaveDamage());
+                hit.transform.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage);
+
+                float knockbackStrength = 3f;
+
+                Rigidbody rb = hit.transform.gameObject.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    Vector3 dir = hit.transform.position - transform.position;
+                    dir.y = 0;
+
+                    rb.AddForce(dir.normalized * knockbackStrength, ForceMode.Impulse);
+                }
             }
             else
             {
@@ -66,11 +81,7 @@ public class Sword : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         swinging = false;
         anim.SetBool("swing", false);
-    }
-
-    private void DealDamage()
-    {
-
+        done = true;
     }
 
     void GetHook()

@@ -40,6 +40,8 @@ public class Hook : MonoBehaviour
 
     private Harpoon harpoon;
 
+    private Sword sword;
+
     [SerializeField]
     private GameObject firePoint;
 
@@ -57,6 +59,7 @@ public class Hook : MonoBehaviour
     {
         firePoint = GameObject.Find("FirePoint");
         harpoon = FindObjectOfType<Harpoon>();
+        sword = FindObjectOfType<Sword>();
     }
 
     private void Start()
@@ -164,7 +167,7 @@ public class Hook : MonoBehaviour
         {
             IfThereAreZeroEnemiesOnHookDestroyHook();
 
-            foreach(Enemy e in enemies)
+            foreach (Enemy e in enemies)
             {
                 if(e.currentState != Enemy.EnemyStates.dead)
                 {
@@ -179,6 +182,11 @@ public class Hook : MonoBehaviour
         {
             // Once enemies have been operated on once this will run
             SetEnemyPosAndSpacingOnHook();
+        }
+
+        if(sword.done)
+        {
+            IfThereAreZeroEnemiesOnHookDestroyHook();
         }
     }
     #endregion
@@ -212,6 +220,10 @@ public class Hook : MonoBehaviour
             if (enemies[i] == null)
             {
                 OnHookDestroyed();
+            }
+            else
+            {
+                Debug.Log("is not null");
             }
         }
     }    
