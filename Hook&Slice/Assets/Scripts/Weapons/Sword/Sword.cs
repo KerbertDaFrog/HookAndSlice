@@ -78,7 +78,7 @@ public class Sword : MonoBehaviour
                 Debug.Log("Did Not Hit Enemy");
             }
         }
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         swinging = false;
         anim.SetBool("swing", false);
         done = true;
