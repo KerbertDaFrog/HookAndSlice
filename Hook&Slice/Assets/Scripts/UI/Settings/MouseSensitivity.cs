@@ -11,7 +11,7 @@ public class SetMouseSensitivity : MonoBehaviour
     public void SetSensitivity(float _s)
     {
         s = _s;
-        StatsManager.Instance.mouseSensitivity = s;
+        SettingsManager.Instance.mouseSensitivity = s;
     }
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class SetMouseSensitivity : MonoBehaviour
 
     private void OnEnable()
     {
-        s = StatsManager.Instance.mouseSensitivity;
+        s = SettingsManager.Instance.mouseSensitivity;
         slider.value = s;
     }
 

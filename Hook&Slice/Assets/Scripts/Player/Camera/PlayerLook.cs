@@ -36,7 +36,7 @@ public class PlayerLook : MonoBehaviour
     {
         instance = this;
         pm = FindObjectOfType<PauseMenu>();
-        sesitivity = StatsManager.Instance.mouseSensitivity;
+        sesitivity = SettingsManager.Instance.mouseSensitivity;
     }
 
 

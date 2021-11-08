@@ -21,6 +21,6 @@ public class SetLightsSafe : MonoBehaviour
     public void SetToggle(bool _lights)
     {
         lights = _lights;
-        StatsManager.Instance.safeLights = lights;
+        SettingsManager.Instance.safeLights = lights;
     }
 }

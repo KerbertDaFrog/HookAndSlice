@@ -25,6 +25,10 @@ public class MainMenu : MonoBehaviour
     {
         //Add Game Analytics initilisation here.
         mainMenuPage.SetActive(true);
+        settingsPage.SetActive(false);
+        creditsPage.SetActive(false);
+        quitPromptPage.SetActive(false);
+        mainpage = true;
     }
 
     private void Update()
