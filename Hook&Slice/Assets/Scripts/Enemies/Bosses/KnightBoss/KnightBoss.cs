@@ -16,10 +16,7 @@ public class KnightBoss : Enemy
     private int shockWavDam;
 
     [SerializeField]
-    private List<Transform> shockWavSpawns = new List<Transform>();
-
-    [SerializeField]
-    private int shockWavSpawn = 0;
+    private Transform[] shockWavSpawns = new Transform[4];
 
     [SerializeField]
     private GameObject meteorDamage;
@@ -45,8 +42,6 @@ public class KnightBoss : Enemy
     protected override void Start()
     {
         base.Start();
-
-        shockWavSpawn = shockWavSpawns.Count;
     }
 
     protected override void Update()
@@ -56,7 +51,10 @@ public class KnightBoss : Enemy
         //press to test shockwave spawn
         if(Input.GetKeyDown(KeyCode.L))
         {
-            Instantiate(shockWav, gameObject.transform, false);
+            Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
+            Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
+            Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
+            Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
         }
 
         if(attackCooldown <= 0)
@@ -69,7 +67,7 @@ public class KnightBoss : Enemy
             attackCooldown = Mathf.Clamp(attackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
         }       
 
-        SetAttackState(AttackState.slam);
+        //SetAttackState(AttackState.slam);
     }
 
     protected override void EnemyBehaviour()
@@ -104,8 +102,10 @@ public class KnightBoss : Enemy
     {
         currentAttackState = AttackState.slam;
         yield return new WaitForSeconds(0.1f);
-        //int index = shockWavSpawns.IndexOf;
-        //Instantiate(shockWav, );
+        Instantiate(shockWav, shockWavSpawns[0].transform.position, Quaternion.identity);
+        Instantiate(shockWav, shockWavSpawns[1].transform.position, Quaternion.identity);
+        Instantiate(shockWav, shockWavSpawns[2].transform.position, Quaternion.identity);
+        Instantiate(shockWav, shockWavSpawns[3].transform.position, Quaternion.identity);
         //slamattack animation
         //Instantiate shockwave
     }
