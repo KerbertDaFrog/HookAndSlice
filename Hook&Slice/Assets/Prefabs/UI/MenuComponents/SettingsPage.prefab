@@ -569,7 +569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2455425790176850168}
   - component: {fileID: 2455425790176850170}
-  - component: {fileID: 2455425790176850171}
+  - component: {fileID: 4920036635159858516}
   m_Layer: 5
   m_Name: Slider-Volume
   m_TagString: Untagged
@@ -649,9 +649,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: SetVolume
+      - m_Target: {fileID: 4920036635159858516}
+        m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
+        m_MethodName: SetAudioVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -661,7 +661,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2455425790176850171
+--- !u!114 &4920036635159858516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -670,10 +670,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2455425790176850169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9619e87985041ee4284cf76bd1a454c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fcd890ec5f363145aab774d18743c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: 1
+  vol: 1
 --- !u!1 &2455425790265983205
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,8 +686,9 @@ GameObject:
   - component: {fileID: 2455425790265983209}
   - component: {fileID: 2455425790265983206}
   - component: {fileID: 2455425790265983207}
+  - component: {fileID: 8154251092558865107}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: GraphicQualityDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -814,9 +815,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: SetQuality
+      - m_Target: {fileID: 8154251092558865107}
+        m_TargetAssemblyTypeName: SetQuality, Assembly-CSharp
+        m_MethodName: ChangeQuality
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -827,6 +828,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_AlphaFadeSpeed: 0.15
+--- !u!114 &8154251092558865107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2455425790265983205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e448a7fe7618e74e9fd363d64def327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicsetting: 4
 --- !u!1 &2455425790304923588
 GameObject:
   m_ObjectHideFlags: 0

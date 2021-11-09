@@ -10,15 +10,20 @@ public class SettingsManager : MonoBehaviour
 
     public static SettingsManager Instance { get { return _instance; } }
 
+
+
     public float mouseSensitivity = 1;
+
 
     public bool safeLights;
 
+    
+    
     public AudioMixer audioMixer;
-    [SerializeField]
-    private Slider volumeSlider;
-    private float audiovolume = 1f;
 
+    public float audioVolume = 1f;
+
+    public int graphics = 4;
 
     private void Awake()
     {
@@ -36,7 +41,7 @@ public class SettingsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        volumeSlider.value = audiovolume;
+
     }
 
     private void OnApplicationQuit()
@@ -44,15 +49,16 @@ public class SettingsManager : MonoBehaviour
         _instance = null;
     }
 
-    public void SetVolume(float audiosliderValue)
+    public void SetVolume(float vol)
     {
-        audioMixer.SetFloat("MasterVolume", Mathf.Log10(audiosliderValue) * 20);
-        audiovolume = audiosliderValue;
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(vol) * 20);
+        audioVolume = vol;
     }
 
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        graphics = qualityIndex;
     }
 
 }

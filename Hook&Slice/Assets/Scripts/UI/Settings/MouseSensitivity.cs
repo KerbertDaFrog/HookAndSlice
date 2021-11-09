@@ -24,5 +24,4 @@ public class SetMouseSensitivity : MonoBehaviour
         slider.value = s;
     }
 
-
 }
