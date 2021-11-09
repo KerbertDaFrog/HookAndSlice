@@ -258,7 +258,7 @@ public class Hook : MonoBehaviour
             {
                 if (enemies[i].currentState != Enemy.EnemyStates.dead)
                 {
-                    enemies[i].SetState(Enemy.EnemyStates.offHook);
+                    enemies[i].SetState(Enemy.EnemyStates.idle);
                     enemies.Remove(enemies[i]);
                 }
                 else
@@ -301,7 +301,7 @@ public class Hook : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If the trigger collided object has tag "Enemy", then add the Transform to the enemies list.
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy" && !retracted)
         {
             if (!hookedEnemies.Contains(other.gameObject))
             {

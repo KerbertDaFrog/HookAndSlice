@@ -394,7 +394,7 @@ MonoBehaviour:
   triggered: 0
   hook: {fileID: 0}
   pl: {fileID: 2401013544465233258}
-  anim: {fileID: 0}
+  anim: {fileID: 7816005450934319266}
 --- !u!1 &2401013544530944609
 GameObject:
   m_ObjectHideFlags: 0

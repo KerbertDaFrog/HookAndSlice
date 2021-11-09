@@ -37,6 +37,9 @@ public class Harpoon : MonoBehaviour
 
     private Camera fpsCam;
 
+    [SerializeField]
+    private LayerMask enemy;
+
     public delegate void HarpoonCooldown(float remaining, float max);
     public HarpoonCooldown harpoonCooldown;
 
@@ -73,7 +76,7 @@ public class Harpoon : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+                PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.05f, this.transform.forward, maxReflectionCount);
 
                 if (!hasShot && hitPoints.Count != 0 && currentCDTimer <= 0)
                 {
@@ -140,7 +143,7 @@ public class Harpoon : MonoBehaviour
         Gizmos.DrawWireSphere(this.transform.position, 0.25f);
 #endif 
 
-        DrawPredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+        DrawPredictionReflectionPattern(this.transform.position + this.transform.forward * 0.05f, this.transform.forward, maxReflectionCount);
     }
 
     void DrawPredictionReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
@@ -155,7 +158,7 @@ public class Harpoon : MonoBehaviour
 
         Ray ray = new Ray(position, direction);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxStepDistance))
+        if (Physics.Raycast(ray, out hit, maxStepDistance, ~enemy))
         {
             direction = Vector3.Reflect(direction, hit.normal);
             position = hit.point;
@@ -186,7 +189,7 @@ public class Harpoon : MonoBehaviour
 
         Ray ray = new Ray(position, direction);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxStepDistance))
+        if (Physics.Raycast(ray, out hit, maxStepDistance, ~enemy))
         {
             direction = Vector3.Reflect(direction, hit.normal);
             hitPoints.Add(hit.point);
