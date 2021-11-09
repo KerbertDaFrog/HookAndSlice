@@ -76,7 +76,7 @@ public class Harpoon : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+                PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.05f, this.transform.forward, maxReflectionCount);
 
                 if (!hasShot && hitPoints.Count != 0 && currentCDTimer <= 0)
                 {
@@ -143,7 +143,7 @@ public class Harpoon : MonoBehaviour
         Gizmos.DrawWireSphere(this.transform.position, 0.25f);
 #endif 
 
-        DrawPredictionReflectionPattern(this.transform.position + this.transform.forward * 0.75f, this.transform.forward, maxReflectionCount);
+        DrawPredictionReflectionPattern(this.transform.position + this.transform.forward * 0.05f, this.transform.forward, maxReflectionCount);
     }
 
     void DrawPredictionReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
