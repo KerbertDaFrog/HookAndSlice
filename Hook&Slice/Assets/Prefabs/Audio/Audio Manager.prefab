@@ -51,6 +51,7 @@ MonoBehaviour:
     volume: 0.066
     pitch: 0.98
     loop: 1
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
   - name: KnightMusic
     clip: {fileID: 8300000, guid: 1392d2c40802fe441be5ea6b876f229a, type: 3}
@@ -59,6 +60,7 @@ MonoBehaviour:
     volume: 0.5
     pitch: 0.98
     loop: 1
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
   - name: MenuMusic
     clip: {fileID: 8300000, guid: 6ace92dc8cab0b047a208c9d20176a79, type: 3}
@@ -67,6 +69,7 @@ MonoBehaviour:
     volume: 0.5
     pitch: 0.98
     loop: 1
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
   - name: CastleMusic
     clip: {fileID: 8300000, guid: bf53bd418f6758146a93b2d60c75a4ca, type: 3}
@@ -75,6 +78,7 @@ MonoBehaviour:
     volume: 0.5
     pitch: 0.98
     loop: 1
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
   - name: ChainMovement
     clip: {fileID: 8300000, guid: 6c65ff04ce9bb494ca9a4855de15f145, type: 3}
@@ -83,6 +87,7 @@ MonoBehaviour:
     volume: 0.1
     pitch: 2
     loop: 1
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
   - name: HarpoonShoot
     clip: {fileID: 8300000, guid: 0dc833c7d843b3e42846b8abb5983cba, type: 3}
@@ -91,14 +96,16 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
   - name: HarpoonReload
     clip: {fileID: 8300000, guid: b80d97063974d3746a527cbc09366eb8, type: 3}
     pitchVariance: 0
     volumeVariance: 0
-    volume: 0.8
+    volume: 1
     pitch: 1
     loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
   - name: SwordSwing
     clip: {fileID: 8300000, guid: 2068991c6e87f904aae250321803f994, type: 3}
@@ -107,4 +114,5 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1.5
     loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
