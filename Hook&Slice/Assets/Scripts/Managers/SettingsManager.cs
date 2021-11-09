@@ -23,9 +23,6 @@ public class SettingsManager : MonoBehaviour
 
     public int graphics = 4;
 
-    //public delegate void MouseSensitivitySetting();
-    //public MouseSensitivitySetting mouseSetting;
-
 
     private void Awake()
     {

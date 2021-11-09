@@ -36,7 +36,7 @@ public class PlayerLook : MonoBehaviour
     {
         instance = this;
         pm = FindObjectOfType<PauseMenu>();
-        sesitivity = SettingsManager.Instance.mouseSensitivity;
+        
     }
 
 
@@ -55,6 +55,7 @@ public class PlayerLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        sesitivity = SettingsManager.Instance.mouseSensitivity;
     }
 
     // Update is called once per frame

@@ -94,8 +94,8 @@ public class Harpoon : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftControl) && currentCDTimer <= 0 && hasShot)
             {
                 hookCancelled = true;
-                AudioManager.instance.StopPlaying("ChainMovement");
-                AudioManager.instance.Play("HarpoonReload");
+                //AudioManager.instance.StopPlaying("ChainMovement");
+                //AudioManager.instance.Play("HarpoonReload");
             }              
 
             if (returned)
