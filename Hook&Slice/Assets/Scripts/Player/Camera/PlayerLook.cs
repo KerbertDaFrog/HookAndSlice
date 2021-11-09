@@ -81,18 +81,18 @@ public class PlayerLook : MonoBehaviour
         xRot = Mathf.Clamp(xRot, -90f, 90f);
     }
 
-
+    //gets called from PauseMenu
     private void GamePause(bool paused)
     {
         ispaused = paused;
+        sesitivity = SettingsManager.Instance.mouseSensitivity;
     }
 
 
-    //this gets called from StatsManager Script
-    public void SetPlayerSensitivity(float incomingS)
+    //this gets called from SettingsManager Script
+    public void SetPlayerSensitivity()
     {
-        sensX = sesitivity;
-        sensY = sesitivity;
+        //sesitivity = SettingsManager.Instance.mouseSensitivity;
     }
 
 }

@@ -11,19 +11,21 @@ public class SettingsManager : MonoBehaviour
     public static SettingsManager Instance { get { return _instance; } }
 
 
-
     public float mouseSensitivity = 1;
 
 
     public bool safeLights;
 
     
-    
     public AudioMixer audioMixer;
 
     public float audioVolume = 1f;
 
     public int graphics = 4;
+
+    //public delegate void MouseSensitivitySetting();
+    //public MouseSensitivitySetting mouseSetting;
+
 
     private void Awake()
     {
@@ -37,11 +39,6 @@ public class SettingsManager : MonoBehaviour
         }
 
         
-    }
-
-    private void OnEnable()
-    {
-
     }
 
     private void OnApplicationQuit()
