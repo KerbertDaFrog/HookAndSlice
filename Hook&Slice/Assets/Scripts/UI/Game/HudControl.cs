@@ -48,6 +48,8 @@ public class HudControl : MonoBehaviour
     private GameObject winScreen;
 
 
+    [Header("Pause Menu")]
+    public PauseMenu pm;
 
     public static HudControl Instance { get { return _instance; } }
 
@@ -61,6 +63,8 @@ public class HudControl : MonoBehaviour
         {
             _instance = this;
         }
+
+        pm = FindObjectOfType<PauseMenu>();
 
         pickups = FindObjectsOfType<Pickup>();
         ph = FindObjectOfType<PlayerHealth>();
@@ -87,6 +91,7 @@ public class HudControl : MonoBehaviour
             d.interaction += DoorInteraction;
         foreach (DoorOpen o in doors)
             o.doorLocked += DoorLockedMessage;
+
     }
 
     //Dissconnect them:
@@ -165,6 +170,9 @@ public class HudControl : MonoBehaviour
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Time.timeScale = 0;
+        AudioManager.instance.StopPlaying("ChainMovement");
+        pm.ExternalPause();
     }
 
     private void WinScreen()
