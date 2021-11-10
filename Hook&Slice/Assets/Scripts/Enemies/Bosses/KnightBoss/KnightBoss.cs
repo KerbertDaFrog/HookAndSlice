@@ -5,8 +5,6 @@ using UnityEngine;
 public class KnightBoss : Enemy
 {
     [Header("KnightBoss")]
-    public List<GameObject> armourPieces = new List<GameObject>();
-
     public int armourAmount;
 
     [SerializeField]
@@ -17,6 +15,9 @@ public class KnightBoss : Enemy
 
     [SerializeField]
     private Transform[] shockWavSpawns = new Transform[4];
+
+    [SerializeField]
+    private Transform[] summonSpawns = new Transform[3];
 
     [SerializeField]
     private GameObject meteorDamage;
@@ -101,13 +102,13 @@ public class KnightBoss : Enemy
     IEnumerator SlamAttack()
     {
         currentAttackState = AttackState.slam;
-        yield return new WaitForSeconds(0.1f);
-        Instantiate(shockWav, shockWavSpawns[0].transform.position, Quaternion.identity);
-        Instantiate(shockWav, shockWavSpawns[1].transform.position, Quaternion.identity);
-        Instantiate(shockWav, shockWavSpawns[2].transform.position, Quaternion.identity);
-        Instantiate(shockWav, shockWavSpawns[3].transform.position, Quaternion.identity);
         //slamattack animation
-        //Instantiate shockwave
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
+        yield return null;
     }
 
     IEnumerator RangeAttack()
@@ -131,6 +132,10 @@ public class KnightBoss : Enemy
         //turn summon animation on
         yield return new WaitForSeconds(1f);
         //do check to see if enemy limit isn't reached
+        yield return null;
+        Instantiate(shockWav, summonSpawns[0].transform.position, summonSpawns[0].transform.rotation);
+        Instantiate(shockWav, summonSpawns[1].transform.position, summonSpawns[1].transform.rotation);
+        Instantiate(shockWav, summonSpawns[2].transform.position, summonSpawns[2].transform.rotation);
         //instantiate enemies
         yield return new WaitForSeconds(1f);
         //turn summon animation off

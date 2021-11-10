@@ -96,7 +96,9 @@ public class Harpoon : MonoBehaviour
                 hookCancelled = true;
                 AudioManager.instance.StopPlaying("ChainMovement");
                 AudioManager.instance.Play("HarpoonReload");
-            }              
+            }           
+
+            
 
             if (returned)
             {
@@ -126,6 +128,28 @@ public class Harpoon : MonoBehaviour
             if (activeHook == null)
                 hasShot = false;
         }  
+    }
+
+    private void LateUpdate()
+    {
+        if (hasShot)
+        {
+            if (Input.GetMouseButtonDown(0) && currentCDTimer <= 0)
+            {
+                hookCancelled = true;
+                AudioManager.instance.StopPlaying("ChainMovement");
+                AudioManager.instance.Play("HarpoonReload");
+            }
+        }
+    }
+
+    IEnumerator RecallHook()
+    {
+        yield return null;
+        if (hasShot)
+        {
+            
+        }
     }
 
     private void GamePause(bool paused)
