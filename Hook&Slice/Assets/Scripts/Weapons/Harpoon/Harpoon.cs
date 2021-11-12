@@ -39,6 +39,8 @@ public class Harpoon : MonoBehaviour
 
     [SerializeField]
     private LayerMask enemy;
+    [SerializeField]
+    private LayerMask door;
 
     public delegate void HarpoonCooldown(float remaining, float max);
     public HarpoonCooldown harpoonCooldown;
@@ -78,6 +80,8 @@ public class Harpoon : MonoBehaviour
             {
                 PredictionReflectionPattern(this.transform.position + this.transform.forward * 0.05f, this.transform.forward, maxReflectionCount);
 
+                RecallHook();
+
                 if (!hasShot && hitPoints.Count != 0 && currentCDTimer <= 0)
                 {
                     hasShot = true;
@@ -96,9 +100,7 @@ public class Harpoon : MonoBehaviour
                 hookCancelled = true;
                 AudioManager.instance.StopPlaying("ChainMovement");
                 AudioManager.instance.Play("HarpoonReload");
-            }           
-
-            
+            }
 
             if (returned)
             {
@@ -127,28 +129,19 @@ public class Harpoon : MonoBehaviour
 
             if (activeHook == null)
                 hasShot = false;
-        }  
+        }
     }
 
-    private void LateUpdate()
+    private void RecallHook()
     {
         if (hasShot)
         {
-            if (Input.GetMouseButtonDown(0) && currentCDTimer <= 0)
+            if(Input.GetMouseButtonDown(0) && currentCDTimer <= 0)
             {
                 hookCancelled = true;
                 AudioManager.instance.StopPlaying("ChainMovement");
                 AudioManager.instance.Play("HarpoonReload");
             }
-        }
-    }
-
-    IEnumerator RecallHook()
-    {
-        yield return null;
-        if (hasShot)
-        {
-            
         }
     }
 

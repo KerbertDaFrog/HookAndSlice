@@ -16,7 +16,7 @@ public class Shockwave : MonoBehaviour
 
     private void Start()
     {
-        kb = GetComponentInParent<KnightBoss>();
+        kb = FindObjectOfType<KnightBoss>();
     }
 
     private void Update()

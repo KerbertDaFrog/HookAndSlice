@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class KnightBoss : Enemy
 {
-    [Header("KnightBoss")]
+    [Header("Armour")]
     public int armourAmount;
 
+    [Header("ShockWave")]
     [SerializeField]
     private GameObject shockWav;
-
     [SerializeField]
     private int shockWavDam;
-
     [SerializeField]
     private Transform[] shockWavSpawns = new Transform[4];
 
-    [SerializeField]
-    private Transform[] summonSpawns = new Transform[3];
-
+    [Header("Meteors")]
     [SerializeField]
     private GameObject meteorDamage;
-
     public bool meteorLanded = false;
+
+    [Header("Summoning")]
+    [SerializeField]
+    private Transform[] summonSpawns = new Transform[3];
 
     [SerializeField]
     private float attackCooldown;
@@ -58,6 +58,12 @@ public class KnightBoss : Enemy
             Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
         }
 
+        //press to test meteor spawn
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+
+        }
+
         if(attackCooldown <= 0)
         {
             //do attack things
@@ -81,7 +87,7 @@ public class KnightBoss : Enemy
         return shockWavDam;
     }
 
-    private void SetAttackState(AttackState state)
+    public void SetAttackState(AttackState state)
     {
         switch(state)
         {
@@ -102,12 +108,16 @@ public class KnightBoss : Enemy
     IEnumerator SlamAttack()
     {
         currentAttackState = AttackState.slam;
-        //slamattack animation
+        //turn slamattack animation on
         yield return new WaitForSeconds(0.1f);
         Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
+        yield return new WaitForSeconds(2f);
+        //do slam attack again
+        yield return new WaitForSeconds(0.5f);
+        //turn slamattack animation off
         yield return null;
     }
 

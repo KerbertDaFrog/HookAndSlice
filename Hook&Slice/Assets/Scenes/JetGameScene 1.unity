@@ -563,6 +563,10 @@ PrefabInstance:
       propertyPath: shockWavSpawns.Array.data[3]
       value: 
       objectReference: {fileID: 1845996606}
+    - target: {fileID: 4915241174717889225, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: shockWavDam
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5031267844718708905, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -8,12 +8,17 @@ public class ArmourPieces : HookableObjects
 
     public GameObject[] armourPieces = new GameObject[5];
 
+    private void Start()
+    {
+        kb = GetComponentInParent<KnightBoss>();
+    }
+
     private void Update()
     {
         if(hooked)
         {
             StartCoroutine(FallOffKnightBoss());
-        }       
+        }
     }
 
     IEnumerator FallOffKnightBoss()
@@ -25,6 +30,7 @@ public class ArmourPieces : HookableObjects
         yield return null; 
         //play armour falling animation
         yield return new WaitForSeconds(0.5f);
+        kb.SetState(Enemy.EnemyStates.frenzy);
         //tell knight to go to frenzy state
     }
 }
