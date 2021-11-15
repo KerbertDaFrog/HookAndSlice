@@ -371,7 +371,7 @@ MonoBehaviour:
   timeBetweenAttacks: 0
   setAttackDelay: 3
   attackDelay: 0
-  attackRange: 0.5
+  attackRange: 5
   damage: 5
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -459,8 +459,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61, y: 0.99, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.47272235, y: 0.8463968, z: 0.2}
+  m_Center: {x: 0.0114476085, y: 0.052720606, z: 0}
 --- !u!1 &5626786435756715349
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +599,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7179092474773512832}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -607,7 +607,7 @@ Transform:
   - {fileID: 4831793753424253287}
   m_Father: {fileID: 4295101526577440102}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &4360772061962382776
 Animator:
   serializedVersion: 3

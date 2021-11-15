@@ -68,6 +68,11 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void ExternalPause()
+    {
+        isGamePaused(true);
+    }
+
     //pausing the game
     private void PauseGame()
     {
