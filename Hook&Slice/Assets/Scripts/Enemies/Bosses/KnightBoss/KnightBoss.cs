@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class KnightBoss : Enemy
 {
-    [Header("KnightBoss")]
-    public List<GameObject> armourPieces = new List<GameObject>();
-
+    [Header("Armour")]
     public int armourAmount;
 
+    [Header("ShockWave")]
     [SerializeField]
     private GameObject shockWav;
 
@@ -16,16 +15,25 @@ public class KnightBoss : Enemy
     private int shockWavDam;
 
     [SerializeField]
-    private List<Transform> shockWavSpawns = new List<Transform>();
+    private Transform[] shockWavSpawns = new Transform[4];
 
+    [Header("Meteors")]
     [SerializeField]
-    private int shockWavSpawn = 0;
+    private Transform[] meteorSpawns = new Transform[3];
 
     [SerializeField]
     private GameObject meteorDamage;
 
     public bool meteorLanded = false;
 
+    [Header("Summoning")]
+    [SerializeField]
+    private GameObject[] summonedEnemies = new GameObject[2];
+
+    [SerializeField]
+    private Transform[] summonSpawns = new Transform[3];
+
+    [Header("")]
     [SerializeField]
     private float attackCooldown;
 
@@ -45,8 +53,6 @@ public class KnightBoss : Enemy
     protected override void Start()
     {
         base.Start();
-
-        shockWavSpawn = shockWavSpawns.Count;
     }
 
     protected override void Update()
@@ -56,7 +62,25 @@ public class KnightBoss : Enemy
         //press to test shockwave spawn
         if(Input.GetKeyDown(KeyCode.L))
         {
-            Instantiate(shockWav, gameObject.transform, false);
+            SetAttackState(AttackState.slam);
+        }
+
+        //press to test meteor spawn
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+
+        }
+
+        //press to test summon spawn
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SetAttackState(AttackState.summon);
+        }
+        
+        //press to test frenzy MUST NOT BE IN IDLE FOR THIS TO WORK!
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            SetState(EnemyStates.frenzy);
         }
 
         if(attackCooldown <= 0)
@@ -69,7 +93,7 @@ public class KnightBoss : Enemy
             attackCooldown = Mathf.Clamp(attackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
         }       
 
-        SetAttackState(AttackState.slam);
+        //SetAttackState(AttackState.slam);
     }
 
     protected override void EnemyBehaviour()
@@ -82,7 +106,7 @@ public class KnightBoss : Enemy
         return shockWavDam;
     }
 
-    private void SetAttackState(AttackState state)
+    public void SetAttackState(AttackState state)
     {
         switch(state)
         {
@@ -103,11 +127,18 @@ public class KnightBoss : Enemy
     IEnumerator SlamAttack()
     {
         currentAttackState = AttackState.slam;
+        //turn slamattack animation on
         yield return new WaitForSeconds(0.1f);
-        //int index = shockWavSpawns.IndexOf;
-        //Instantiate(shockWav, );
-        //slamattack animation
-        //Instantiate shockwave
+        Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
+        yield return new WaitForSeconds(2f);
+        //do slam attack again
+        yield return new WaitForSeconds(0.5f);
+        //turn slamattack animation off
+        yield return null;
+        currentAttackState = AttackState.nil;
     }
 
     IEnumerator RangeAttack()
@@ -117,23 +148,34 @@ public class KnightBoss : Enemy
         //turn range attack animation on
         yield return new WaitForSeconds(3f);
         //turn range attack animation off
+        yield return null;
+        Instantiate(meteorDamage, meteorSpawns[0].transform.position, Quaternion.identity);
+        Instantiate(meteorDamage, meteorSpawns[1].transform.position, Quaternion.identity);
+        Instantiate(meteorDamage, meteorSpawns[2].transform.position, Quaternion.identity);
         meteorLanded = true;
-        meteorDamage.SetActive(true);
         yield return new WaitForSeconds(1f);
-        meteorDamage.SetActive(false);
         meteorLanded = false;
+        yield return null;
+        currentAttackState = AttackState.nil;
     }
 
     IEnumerator SummonMinions()
     {
         currentAttackState = AttackState.summon;
+        //random meteor locations
         yield return null;
         //turn summon animation on
         yield return new WaitForSeconds(1f);
         //do check to see if enemy limit isn't reached
+        yield return null;
+        Instantiate(summonedEnemies[0], summonSpawns[0].transform.position, summonSpawns[0].transform.rotation);
+        Instantiate(summonedEnemies[1], summonSpawns[1].transform.position, summonSpawns[1].transform.rotation);
+        Instantiate(summonedEnemies[0], summonSpawns[2].transform.position, summonSpawns[2].transform.rotation);
         //instantiate enemies
         yield return new WaitForSeconds(1f);
         //turn summon animation off
+        yield return null;
+        currentAttackState = AttackState.nil;
     }
 
     protected override void GoToFrenzyState()
@@ -149,12 +191,12 @@ public class KnightBoss : Enemy
         {
             yield return null;
         }
-        RangeAttack();
+        StartCoroutine(RangeAttack());
         while(currentAttackState == AttackState.range && currentState != EnemyStates.dead)
         {
             yield return null;
         }
-        SummonMinions();
+        StartCoroutine(SummonMinions());
         while(currentAttackState == AttackState.summon && currentState != EnemyStates.dead)
         {
             yield return null;
