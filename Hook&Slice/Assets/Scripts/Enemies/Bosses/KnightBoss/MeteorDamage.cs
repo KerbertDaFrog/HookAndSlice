@@ -12,7 +12,7 @@ public class MeteorDamage : MonoBehaviour
 
     private void Start()
     {
-        kb = GetComponentInParent<KnightBoss>();
+        kb = FindObjectOfType<KnightBoss>();
         gameObject.SetActive(false);
         GetComponent<SphereCollider>().radius = radius;
     }
