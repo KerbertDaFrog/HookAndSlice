@@ -385,11 +385,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
---- !u!1 &736365263 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 128677376219585570, guid: c6c8a1229c6283342a5de21338357095, type: 3}
-  m_PrefabInstance: {fileID: 1355981231}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &738681925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -789,7 +784,7 @@ PrefabInstance:
     - target: {fileID: 4915241174717889225, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: meteorDamage
       value: 
-      objectReference: {fileID: 736365263}
+      objectReference: {fileID: 6187890182019422512, guid: b442cf5dfc5851243ba71cad23942015, type: 3}
     - target: {fileID: 4915241174717889225, guid: c6c8a1229c6283342a5de21338357095, type: 3}
       propertyPath: summonedEnemies.Array.data[0]
       value: 
