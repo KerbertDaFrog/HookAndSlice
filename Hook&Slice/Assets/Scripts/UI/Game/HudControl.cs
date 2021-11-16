@@ -172,6 +172,8 @@ public class HudControl : MonoBehaviour
         Cursor.visible = true;
         Time.timeScale = 0;
         AudioManager.instance.StopPlaying("ChainMovement");
+        AudioManager.instance.StopPlaying("DungeonMusic");
+        AudioManager.instance.Play("GameOver");
         pm.ExternalPause();
     }
 

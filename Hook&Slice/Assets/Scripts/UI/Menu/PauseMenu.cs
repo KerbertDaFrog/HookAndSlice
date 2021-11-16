@@ -91,6 +91,7 @@ public class PauseMenu : MonoBehaviour
     //unpausing the game
     public void UnpauseGame()
     {
+        AudioManager.instance.Play("MenuButton");
         Time.timeScale = 1;
         paused = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -101,17 +102,20 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
+        AudioManager.instance.Play("MenuButton");
         SceneManager.LoadScene(0);
     }
 
     public void SettingsON()
     {
+        AudioManager.instance.Play("MenuButton");
         settingsPage.SetActive(true);
         pauseButtons.SetActive(false);
     }
 
     public void SettingsOFF()
     {
+        AudioManager.instance.Play("MenuButton");
         settingsPage.SetActive(false);
         pauseButtons.SetActive(true);
     }
@@ -119,6 +123,7 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        AudioManager.instance.Play("MenuButton");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
