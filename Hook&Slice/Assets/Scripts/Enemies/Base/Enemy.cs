@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public enum EnemyStates
 	{
 		idle,
+		seen,
 		attacking,
 		chasing,
 		staggered,
@@ -239,6 +240,10 @@ public class Enemy : MonoBehaviour
 					GoToIdleState();
 					break;
 
+				case EnemyStates.seen:
+					GoToSeenState();
+					break;
+
 				case EnemyStates.attacking:
 					GoToAttackState();
 					break;
@@ -277,24 +282,35 @@ public class Enemy : MonoBehaviour
 				case EnemyStates.idle:
 					LeaveIdleState();
 					break;
+
+				case EnemyStates.seen:
+					LeaveSeenState();
+					break;
+
 				case EnemyStates.attacking:
 					LeaveAttackState();
 					break;
+
 				case EnemyStates.chasing:
 					LeaveChaseState();
 					break;
+
 				case EnemyStates.staggered:
 					LeaveStaggeredState();
 					break;
+
 				case EnemyStates.frenzy:
 					LeaveFrenzyState();
 					break;
+
 				case EnemyStates.dead:
 					LeaveDeadState();
 					break;
+
 				case EnemyStates.onHook:
 					LeaveOnHookState();
 					break;
+
 				case EnemyStates.offHook:
 					LeaveOffHookState();
 					break;
@@ -312,6 +328,14 @@ public class Enemy : MonoBehaviour
 	}
 
 	protected virtual void LeaveIdleState() { }
+
+	protected virtual void GoToSeenState()
+    {
+		currentState = EnemyStates.seen;
+		anim.SetBool("walk", false);
+    }
+
+	protected virtual void LeaveSeenState() { }
 
 	protected virtual void GoToAttackState()
     {
