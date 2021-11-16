@@ -39,6 +39,7 @@ public class MainMenu : MonoBehaviour
             settingsPage.SetActive(false);
             creditsPage.SetActive(false);
             quitPromptPage.SetActive(false);
+            AudioManager.instance.Play("MenuButton");
             mainpage = true;
         }
     }
@@ -46,13 +47,13 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         SceneManager.LoadScene(1);
     }
 
     public void SettingsON()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(false);
         settingsPage.SetActive(true);
         mainpage = false;
@@ -61,7 +62,7 @@ public class MainMenu : MonoBehaviour
 
     public void SettingsOFF()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(true);
         settingsPage.SetActive(false);
         mainpage = true;
@@ -69,7 +70,7 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsON()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(false);
         creditsPage.SetActive(true);
         mainpage = false;
@@ -77,7 +78,7 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsOFF()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(true);
         creditsPage.SetActive(false);
         mainpage = true;
@@ -85,7 +86,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitpromptON()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(false);
         quitPromptPage.SetActive(true);
         mainpage = false;
@@ -94,7 +95,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitpromptOFF()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(true);
         quitPromptPage.SetActive(false);
         mainpage = true;
@@ -102,7 +103,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        //UI audio here
+        AudioManager.instance.Play("MenuButton");
         Application.Quit();
     }
 

@@ -116,3 +116,30 @@ MonoBehaviour:
     loop: 0
     output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: ec156324bc6db984d99360af8b0958b5, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
+    source: {fileID: 0}
+  - name: MenuButton
+    clip: {fileID: 8300000, guid: 5abfab66bcbbd0148803e06d5ea4b812, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.3
+    pitch: 1.8
+    loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
+    source: {fileID: 0}
+  - name: SwordHit
+    clip: {fileID: 8300000, guid: 83492829554fd144dac5acc13132edea, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.3
+    pitch: 1.8
+    loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
+    source: {fileID: 0}

@@ -30,7 +30,6 @@ public class Sword : MonoBehaviour
                 done = false;
                 swinging = true;
                 anim.SetBool("swing", true);
-                FindObjectOfType<AudioManager>().Play("SwordSwing");
                 StartCoroutine("SwingDone");
             }
         }
@@ -42,6 +41,7 @@ public class Sword : MonoBehaviour
         {
             if (hook.enemies != null)
             {
+                FindObjectOfType<AudioManager>().Play("SwordHit");
                 for (int i = hook.enemies.Count - 1; i >= 0; i--)
                 {
                     hook.enemies[i].SetState(Enemy.EnemyStates.dead);
@@ -51,6 +51,8 @@ public class Sword : MonoBehaviour
         else 
         if(hook == null)
         {
+            FindObjectOfType<AudioManager>().Play("SwordSwing");
+
             RaycastHit hit;
 
             int enemyLayerMask = 1 << 11;

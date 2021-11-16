@@ -1124,7 +1124,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &4420784309377232364
 MonoBehaviour:
@@ -1672,6 +1672,7 @@ MonoBehaviour:
   lockedMessage: {fileID: 6507537747453492224}
   deathScreen: {fileID: 2097515583055838899}
   winScreen: {fileID: 5194168169689955651}
+  pm: {fileID: 0}
 --- !u!1 &5625032996427757494
 GameObject:
   m_ObjectHideFlags: 0
