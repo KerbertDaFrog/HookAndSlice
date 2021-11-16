@@ -226,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 4295101526577440099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.80000013, y: 0.8, z: 0.80000013}
   m_Children:
   - {fileID: 4346358048933152908}
   m_Father: {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
   timeBetweenAttacks: 0
   setAttackDelay: 3
   attackDelay: 0
-  attackRange: 0.5
+  attackRange: 0.53
   damage: 5
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -387,8 +387,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 1, z: 0.42071617}
-  m_Center: {x: -2.48836e-16, y: 0, z: -0.035357956}
+  m_Size: {x: 0.6, y: 1, z: 0.81936306}
+  m_Center: {x: -2.7278696e-17, y: 0, z: 0.04642864}
 --- !u!114 &710538548134432157
 MonoBehaviour:
   m_ObjectHideFlags: 0
