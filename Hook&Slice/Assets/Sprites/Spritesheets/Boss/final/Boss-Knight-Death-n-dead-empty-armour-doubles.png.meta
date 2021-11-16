@@ -1,0 +1,658 @@
+fileFormatVersion: 2
+guid: 214b153f94602234ba49a60a63fb4736
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3534082355489745544
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_0
+  - first:
+      213: 6130916038756597149
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_1
+  - first:
+      213: -4170360135452341396
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_2
+  - first:
+      213: -265973659248569974
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_3
+  - first:
+      213: 646894248986283397
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_4
+  - first:
+      213: 7968726776919053752
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_5
+  - first:
+      213: 4379416606851712413
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_6
+  - first:
+      213: 9022251444301788509
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_7
+  - first:
+      213: 2904771476618027264
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_8
+  - first:
+      213: -8228128402617736484
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_9
+  - first:
+      213: -4546899099314151702
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_10
+  - first:
+      213: -7399203744504715387
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_11
+  - first:
+      213: -5702129174067895410
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_12
+  - first:
+      213: 6549029949715084626
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_13
+  - first:
+      213: -7885618496457546779
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_14
+  - first:
+      213: -7453965139847701491
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_15
+  - first:
+      213: -6191821747380090560
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_16
+  - first:
+      213: 6106152071647784660
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_17
+  - first:
+      213: -1631536697489257140
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_18
+  - first:
+      213: 1180277004092376099
+    second: Boss-Knight-Death-n-dead-empty-armour-doubles_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 185
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a21fd8d259b0130800000000000000
+      internalID: 3534082355489745544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 185
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9df4dd77a3651550800000000000000
+      internalID: 6130916038756597149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 185
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6bc9e46d87ef16c0800000000000000
+      internalID: -4170360135452341396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 202
+        width: 51
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81d0e8bd521f4cf0800000000000000
+      internalID: -265973659248569974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 125
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d021e54ea3af800800000000000000
+      internalID: 646894248986283397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_5
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 125
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5576298ca969e60800000000000000
+      internalID: 7968726776919053752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_6
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 155
+        width: 51
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95c7d66330d6cc30800000000000000
+      internalID: 4379416606851712413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_7
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 91
+        width: 42
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55fcdbf2e9753d70800000000000000
+      internalID: 9022251444301788509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_8
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 73
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00121819442df4820800000000000000
+      internalID: 2904771476618027264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_9
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 38
+        width: 43
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2eaa3ffc0dfcd80800000000000000
+      internalID: -8228128402617736484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_10
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 38
+        width: 43
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee16d31c5b26e0c0800000000000000
+      internalID: -4546899099314151702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_11
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 73
+        width: 42
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5876e04a56fb05990800000000000000
+      internalID: -7399203744504715387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_12
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 48
+        width: 47
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83aa443ab7fdd0b0800000000000000
+      internalID: -5702129174067895410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_13
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 48
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25579208a04d2ea50800000000000000
+      internalID: 6549029949715084626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_14
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 29
+        width: 47
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3e56cd1c7a09290800000000000000
+      internalID: -7885618496457546779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_15
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 26
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c9b37b2323e8890800000000000000
+      internalID: -7453965139847701491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_16
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 5
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0490fda2dea321aa0800000000000000
+      internalID: -6191821747380090560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_17
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 5
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dee41715f86db450800000000000000
+      internalID: 6106152071647784660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_18
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 5
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d8324940e9b59e0800000000000000
+      internalID: -1631536697489257140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss-Knight-Death-n-dead-empty-armour-doubles_19
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 5
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3240d7d8eaf216010800000000000000
+      internalID: 1180277004092376099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
