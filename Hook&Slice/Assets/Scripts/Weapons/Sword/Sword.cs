@@ -50,9 +50,7 @@ public class Sword : MonoBehaviour
         }
         else 
         if(hook == null)
-        {
-            FindObjectOfType<AudioManager>().Play("SwordSwing");
-
+        {        
             RaycastHit hit;
 
             int enemyLayerMask = 1 << 11;
@@ -82,6 +80,7 @@ public class Sword : MonoBehaviour
                 Debug.Log("Did Not Hit Enemy");
             }
         }
+        FindObjectOfType<AudioManager>().Play("SwordSwing");
         yield return new WaitForSeconds(0.2f);
         swinging = false;
         anim.SetBool("swing", false);
