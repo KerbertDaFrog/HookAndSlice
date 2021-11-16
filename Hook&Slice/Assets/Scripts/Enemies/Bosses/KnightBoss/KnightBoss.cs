@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KnightBoss : Enemy
 {
+    #region Fields
     [Header("Armour")]
     public int armourAmount;
 
@@ -33,12 +34,15 @@ public class KnightBoss : Enemy
     [SerializeField]
     private Transform[] summonSpawns = new Transform[3];
 
-    [Header("")]
+    [Header("Attack Cooldown")]
     [SerializeField]
     private float attackCooldown;
 
     [SerializeField]
     private float setAttackCooldown;
+
+    [Header("Attack States")]
+    public AttackState currentAttackState;
 
     public enum AttackState
     {
@@ -47,83 +51,135 @@ public class KnightBoss : Enemy
         range,
         summon
     }
-
-    public AttackState currentAttackState;
+    #endregion
 
     protected override void Start()
     {
         base.Start();
+        nav.speed = 0;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        //press to test shockwave spawn
         if(Input.GetKeyDown(KeyCode.L))
+        {
+            int randAttackState = Random.Range(0, 3);
+            if (randAttackState == 0)
+            {
+                SetAttackState(AttackState.slam);
+            }
+            else if (randAttackState == 1)
+            {
+                SetAttackState(AttackState.range);
+            }
+            else if (randAttackState == 2)
+            {
+                SetAttackState(AttackState.summon);
+            }
+            print(randAttackState);
+        }
+
+        //press to test shockwave spawn
+        if(Input.GetKeyDown(KeyCode.Y))
         {
             SetAttackState(AttackState.slam);
         }
 
         //press to test meteor spawn
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-
+            SetAttackState(AttackState.range);
         }
 
         //press to test summon spawn
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             SetAttackState(AttackState.summon);
         }
         
         //press to test frenzy MUST NOT BE IN IDLE FOR THIS TO WORK!
-        if(Input.GetKeyDown(KeyCode.J))
+        if(Input.GetKeyDown(KeyCode.O))
         {
             SetState(EnemyStates.frenzy);
         }
 
-        if(attackCooldown <= 0)
-        {
-            //do attack things
-        }
+        if(currentAttackState != AttackState.nil)
         
         if(attackCooldown > 0)
         {
             attackCooldown = Mathf.Clamp(attackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
-        }       
-
-        //SetAttackState(AttackState.slam);
+        }
     }
 
     protected override void EnemyBehaviour()
     {
-        base.EnemyBehaviour();
-    }
-
-    public int ShockwaveDamage()
-    {
-        return shockWavDam;
-    }
-
-    public void SetAttackState(AttackState state)
-    {
-        switch(state)
+        if (currentState != EnemyStates.dead)
         {
-            case AttackState.slam:
-                StartCoroutine(SlamAttack());
-                break;
-
-            case AttackState.range:
-                StartCoroutine(RangeAttack());
-                break;
-
-            case AttackState.summon:
-                StartCoroutine(SummonMinions());
-                break;
+            if (currentState == EnemyStates.idle)
+            {
+                if (playerInSightRange)
+                {
+                    SetState(EnemyStates.seen);
+                }
+            }
+            else if (currentState == EnemyStates.seen)
+            {
+                if(attackCooldown <= 0)
+                {
+                    SetState(EnemyStates.attacking);
+                }
+            }
+            else if (currentState == EnemyStates.attacking)
+            {
+                if(attackCooldown <= 0)
+                {
+                    int randAttackState = Random.Range(0, 3);
+                    if (randAttackState == 0)
+                    {
+                        SetAttackState(AttackState.slam);
+                    }
+                    else if (randAttackState == 1)
+                    {
+                        SetAttackState(AttackState.range);
+                    }
+                    else if (randAttackState == 2)
+                    {
+                        SetAttackState(AttackState.summon);
+                    }
+                }
+            }
+            else
+            {
+                if (!playerInSightRange && !playerInAttackRange && !hasSeenPlayer)
+                {
+                    SetState(EnemyStates.idle);
+                }
+            }
         }
     }
 
+    IEnumerator Frenzy()
+    {
+        SetAttackState(AttackState.slam);
+        while (currentAttackState == AttackState.slam && currentState != EnemyStates.dead)
+        {
+            yield return null;
+        }
+        SetAttackState(AttackState.range);
+        while (currentAttackState == AttackState.range && currentState != EnemyStates.dead)
+        {
+            yield return null;
+        }
+        SetAttackState(AttackState.summon);
+        while (currentAttackState == AttackState.summon && currentState != EnemyStates.dead)
+        {
+            yield return null;
+        }
+    }
+
+    #region Attacks
     IEnumerator SlamAttack()
     {
         currentAttackState = AttackState.slam;
@@ -138,6 +194,10 @@ public class KnightBoss : Enemy
         yield return new WaitForSeconds(0.5f);
         //turn slamattack animation off
         yield return null;
+        if(currentState != EnemyStates.frenzy)
+        {
+            attackCooldown = setAttackCooldown;
+        }
         currentAttackState = AttackState.nil;
     }
 
@@ -149,13 +209,17 @@ public class KnightBoss : Enemy
         yield return new WaitForSeconds(3f);
         //turn range attack animation off
         yield return null;
-        Instantiate(meteorDamage, meteorSpawns[0].transform.position, Quaternion.identity);
-        Instantiate(meteorDamage, meteorSpawns[1].transform.position, Quaternion.identity);
-        Instantiate(meteorDamage, meteorSpawns[2].transform.position, Quaternion.identity);
+        //Instantiate(meteorDamage, meteorSpawns[0].transform.position, Quaternion.identity);
+        //Instantiate(meteorDamage, meteorSpawns[1].transform.position, Quaternion.identity);
+        //Instantiate(meteorDamage, meteorSpawns[2].transform.position, Quaternion.identity);
         meteorLanded = true;
         yield return new WaitForSeconds(1f);
         meteorLanded = false;
         yield return null;
+        if(currentState != EnemyStates.frenzy)
+        {
+            attackCooldown = setAttackCooldown;
+        }
         currentAttackState = AttackState.nil;
     }
 
@@ -171,35 +235,50 @@ public class KnightBoss : Enemy
         Instantiate(summonedEnemies[0], summonSpawns[0].transform.position, summonSpawns[0].transform.rotation);
         Instantiate(summonedEnemies[1], summonSpawns[1].transform.position, summonSpawns[1].transform.rotation);
         Instantiate(summonedEnemies[0], summonSpawns[2].transform.position, summonSpawns[2].transform.rotation);
-        //instantiate enemies
         yield return new WaitForSeconds(1f);
         //turn summon animation off
         yield return null;
+        if (currentState != EnemyStates.frenzy)
+        {
+            attackCooldown = setAttackCooldown;
+        }
         currentAttackState = AttackState.nil;
     }
+    #endregion
 
+    #region State Operations
+    public void SetAttackState(AttackState state)
+    {
+        switch (state)
+        {
+            case AttackState.nil:
+                currentAttackState = AttackState.nil;
+                break;
+
+            case AttackState.slam:
+                StartCoroutine(SlamAttack());
+                break;
+
+            case AttackState.range:
+                StartCoroutine(RangeAttack());
+                break;
+
+            case AttackState.summon:
+                StartCoroutine(SummonMinions());
+                break;
+        }
+    }
     protected override void GoToFrenzyState()
     {
         base.GoToFrenzyState();
         StartCoroutine("Frenzy");
     }
+    #endregion
 
-    IEnumerator Frenzy()
+    #region Getters
+    public int ShockwaveDamage()
     {
-        StartCoroutine(SlamAttack());
-        while (currentAttackState == AttackState.slam && currentState != EnemyStates.dead)
-        {
-            yield return null;
-        }
-        StartCoroutine(RangeAttack());
-        while(currentAttackState == AttackState.range && currentState != EnemyStates.dead)
-        {
-            yield return null;
-        }
-        StartCoroutine(SummonMinions());
-        while(currentAttackState == AttackState.summon && currentState != EnemyStates.dead)
-        {
-            yield return null;
-        }
+        return shockWavDam;
     }
+    #endregion
 }
