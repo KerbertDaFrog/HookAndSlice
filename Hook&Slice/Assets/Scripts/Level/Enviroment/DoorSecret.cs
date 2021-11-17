@@ -11,7 +11,7 @@ public class DoorSecret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(1) && interact == true)
+        if((Input.GetMouseButtonDown(1) && interact == true) || (Input.GetKeyDown(KeyCode.E) && interact == true))
         { 
             open = true;
             interact = false;
