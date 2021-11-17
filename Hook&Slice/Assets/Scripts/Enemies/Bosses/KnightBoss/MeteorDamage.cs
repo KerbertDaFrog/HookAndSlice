@@ -10,6 +10,17 @@ public class MeteorDamage : MonoBehaviour
     [SerializeField]
     private float radius = 1.0f;
 
+    [SerializeField]
+    private float setLifeTime;
+
+    [SerializeField]
+    private float currentLifeTime;
+
+    private void OnEnable()
+    {
+        currentLifeTime = setLifeTime;
+    }
+
     private void Start()
     {
         kb = FindObjectOfType<KnightBoss>();
@@ -25,11 +36,18 @@ public class MeteorDamage : MonoBehaviour
             {
                 gameObject.SetActive(true);
             }
-            else 
-            if (kb.meteorLanded == false)
-            {
-                gameObject.SetActive(false);
-            }
+            //else 
+            //if (kb.meteorLanded == false)
+            //{
+            //    gameObject.SetActive(false);
+            //}
+        }
+
+        currentLifeTime = Mathf.Clamp(currentLifeTime -= Time.deltaTime, 0f, setLifeTime);
+
+        if (currentLifeTime <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 
