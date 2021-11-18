@@ -94,7 +94,7 @@ MonoBehaviour:
     pitchVariance: 0
     volumeVariance: 0
     volume: 0.5
-    pitch: 1
+    pitch: 0.8
     loop: 0
     output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
