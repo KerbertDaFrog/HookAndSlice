@@ -51,6 +51,7 @@ public class HudControl : MonoBehaviour
     [Header("Pause Menu")]
     public PauseMenu pm;
 
+
     public static HudControl Instance { get { return _instance; } }
 
     private void Awake()
@@ -105,6 +106,7 @@ public class HudControl : MonoBehaviour
         foreach(DoorOpen o in doors)
             o.interaction -= DoorInteraction;
     }
+
 
 
     //Collection Of Items:
@@ -173,12 +175,19 @@ public class HudControl : MonoBehaviour
         Time.timeScale = 0;
         AudioManager.instance.StopPlaying("ChainMovement");
         AudioManager.instance.StopPlaying("DungeonMusic");
+        AudioManager.instance.StopPlaying("KnightMusic");
         AudioManager.instance.Play("GameOver");
         pm.ExternalPause();
     }
 
-    private void WinScreen()
+    public void WinScreen()
     {
         winScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        AudioManager.instance.StopPlaying("ChainMovement");
+        AudioManager.instance.StopPlaying("KnightMusic");
+        pm.ExternalPause();
     }
 }

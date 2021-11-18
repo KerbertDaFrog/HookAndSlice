@@ -12625,7 +12625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1913291835960745192, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 76.78
+      value: 8.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913291835960745192, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.49
       objectReference: {fileID: 0}
     - target: {fileID: 1913291836176057936, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_IsActive
@@ -13160,6 +13164,10 @@ PrefabInstance:
     - target: {fileID: 4732132929784357299, guid: fb12b11d941194d478d612040fa517d7, type: 3}
       propertyPath: m_Name
       value: boss-test-art
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732132929784357299, guid: fb12b11d941194d478d612040fa517d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb12b11d941194d478d612040fa517d7, type: 3}
