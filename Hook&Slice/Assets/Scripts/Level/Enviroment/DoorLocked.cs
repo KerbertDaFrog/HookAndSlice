@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorLocked : Door
+public class DoorLocked : MonoBehaviour
 {
+    [SerializeField]
+    private Animator door;
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        
+        door.SetBool("doorClose", true);
+        door.SetBool("doorOpen", false);
+        Destroy(gameObject);
     }
 
 }
