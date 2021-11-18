@@ -139,15 +139,15 @@ public class Enemy : MonoBehaviour
 
 	private void InstantiateDeadEnemyBody()
     {
-		int groundMask = 1 << 8;
+        int groundMask = 1 << 8;
 
-		RaycastHit hit;
+        RaycastHit hit;
 
-		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, groundMask))
-		{
-			Instantiate(corpse, hit.point, Quaternion.identity);
-		}
-	}
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, groundMask))
+        {
+            Instantiate(corpse, hit.point, Quaternion.identity);
+        }
+    }
 
 	#region EnemyBehaviour
 	protected virtual void EnemyBehaviour()

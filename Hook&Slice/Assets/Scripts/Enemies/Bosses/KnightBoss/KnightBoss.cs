@@ -20,10 +20,7 @@ public class KnightBoss : Enemy
 
     [Header("Meteors")]
     [SerializeField]
-    private Transform[] meteorSpawns = new Transform[3];
-
-    [SerializeField]
-    private GameObject meteorDamage;
+    private GameObject[] meteorDamage = new GameObject[3];
 
     public bool meteorLanded = false;
 
@@ -36,10 +33,9 @@ public class KnightBoss : Enemy
 
     [Header("Attack Cooldown")]
     [SerializeField]
-    private float attackCooldown;
-
+    private float currentAttackCooldown;
     [SerializeField]
-    private float setAttackCooldown;
+    private float setAttackCooldown = 5f;
 
     [Header("Attack States")]
     public AttackState currentAttackState;
@@ -105,11 +101,15 @@ public class KnightBoss : Enemy
             SetState(EnemyStates.frenzy);
         }
 
-        if(currentAttackState != AttackState.nil)
-        
-        if(attackCooldown > 0)
+        if (currentAttackState != AttackState.nil)
         {
-            attackCooldown = Mathf.Clamp(attackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
+
+        }
+
+        if(setAttackCooldown > 0f)
+        {
+            Debug.Log("Counting Down");
+            currentAttackCooldown = Mathf.Clamp(currentAttackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
         }
     }
 
@@ -126,27 +126,36 @@ public class KnightBoss : Enemy
             }
             else if (currentState == EnemyStates.seen)
             {
-                if(attackCooldown <= 0)
+                if(currentAttackCooldown <= 0)
                 {
                     SetState(EnemyStates.attacking);
                 }
             }
             else if (currentState == EnemyStates.attacking)
             {
-                if(attackCooldown <= 0)
+                if(currentAttackCooldown <= 0)
                 {
                     int randAttackState = Random.Range(0, 3);
                     if (randAttackState == 0)
                     {
-                        SetAttackState(AttackState.slam);
+                        if(currentAttackState != AttackState.slam && currentAttackState != AttackState.range && currentAttackState != AttackState.summon)
+                        {
+                            SetAttackState(AttackState.slam);
+                        }                       
                     }
                     else if (randAttackState == 1)
                     {
-                        SetAttackState(AttackState.range);
+                        if (currentAttackState != AttackState.slam && currentAttackState != AttackState.range && currentAttackState != AttackState.summon)
+                        {
+                            SetAttackState(AttackState.range);
+                        }                      
                     }
                     else if (randAttackState == 2)
                     {
-                        SetAttackState(AttackState.summon);
+                        if (currentAttackState != AttackState.slam && currentAttackState != AttackState.range && currentAttackState != AttackState.summon)
+                        {
+                            SetAttackState(AttackState.summon);
+                        }          
                     }
                 }
             }
@@ -190,13 +199,17 @@ public class KnightBoss : Enemy
         Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
         yield return new WaitForSeconds(2f);
+        Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
         //do slam attack again
         yield return new WaitForSeconds(0.5f);
         //turn slamattack animation off
         yield return null;
         if(currentState != EnemyStates.frenzy)
         {
-            attackCooldown = setAttackCooldown;
+            currentAttackCooldown = setAttackCooldown;
         }
         currentAttackState = AttackState.nil;
     }
@@ -209,16 +222,13 @@ public class KnightBoss : Enemy
         yield return new WaitForSeconds(3f);
         //turn range attack animation off
         yield return null;
-        //Instantiate(meteorDamage, meteorSpawns[0].transform.position, Quaternion.identity);
-        //Instantiate(meteorDamage, meteorSpawns[1].transform.position, Quaternion.identity);
-        //Instantiate(meteorDamage, meteorSpawns[2].transform.position, Quaternion.identity);
         meteorLanded = true;
         yield return new WaitForSeconds(1f);
         meteorLanded = false;
         yield return null;
         if(currentState != EnemyStates.frenzy)
         {
-            attackCooldown = setAttackCooldown;
+            currentAttackCooldown = setAttackCooldown;
         }
         currentAttackState = AttackState.nil;
     }
@@ -240,7 +250,7 @@ public class KnightBoss : Enemy
         yield return null;
         if (currentState != EnemyStates.frenzy)
         {
-            attackCooldown = setAttackCooldown;
+            currentAttackCooldown = setAttackCooldown;
         }
         currentAttackState = AttackState.nil;
     }
