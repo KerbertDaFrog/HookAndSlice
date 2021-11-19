@@ -192,7 +192,7 @@ public class KnightBoss : Enemy
     IEnumerator SlamAttack()
     {
         currentAttackState = AttackState.slam;
-        //turn slamattack animation on
+        anim.SetBool("slash", true);
         yield return new WaitForSeconds(0.1f);
         Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
@@ -203,9 +203,8 @@ public class KnightBoss : Enemy
         Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
-        //do slam attack again
         yield return new WaitForSeconds(0.5f);
-        //turn slamattack animation off
+        anim.SetBool("slash,", false);
         yield return null;
         if(currentState != EnemyStates.frenzy)
         {
@@ -219,8 +218,9 @@ public class KnightBoss : Enemy
         currentAttackState = AttackState.range;
         yield return null;
         //turn range attack animation on
+        anim.SetBool("slam", true);
         yield return new WaitForSeconds(3f);
-        //turn range attack animation off
+        anim.SetBool("slam", false);
         yield return null;
         meteorLanded = true;
         yield return new WaitForSeconds(1f);
