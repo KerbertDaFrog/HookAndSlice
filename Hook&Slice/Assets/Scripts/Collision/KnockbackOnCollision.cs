@@ -7,6 +7,11 @@ public class KnockbackOnCollision : MonoBehaviour
     [SerializeField]
     private float knockbackStrength;
 
+    private void Start()
+    {
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
@@ -20,6 +25,6 @@ public class KnockbackOnCollision : MonoBehaviour
 
                 rb.AddForce(dir.normalized * knockbackStrength, ForceMode.Impulse);
             }
-        }      
+        }
     }
 }

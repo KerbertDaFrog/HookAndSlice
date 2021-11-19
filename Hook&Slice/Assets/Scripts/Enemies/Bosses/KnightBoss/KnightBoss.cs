@@ -22,8 +22,6 @@ public class KnightBoss : Enemy
     [SerializeField]
     private GameObject[] meteorDamage = new GameObject[3];
 
-    public bool meteorLanded = false;
-
     [Header("Summoning")]
     [SerializeField]
     private GameObject[] summonedEnemies = new GameObject[2];
@@ -108,11 +106,11 @@ public class KnightBoss : Enemy
 
         if(setAttackCooldown > 0f)
         {
-            Debug.Log("Counting Down");
             currentAttackCooldown = Mathf.Clamp(currentAttackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
         }
     }
 
+    #region EnemyBehaviour
     protected override void EnemyBehaviour()
     {
         if (currentState != EnemyStates.dead)
@@ -168,6 +166,7 @@ public class KnightBoss : Enemy
             }
         }
     }
+    #endregion
 
     IEnumerator Frenzy()
     {
@@ -192,21 +191,22 @@ public class KnightBoss : Enemy
     IEnumerator SlamAttack()
     {
         currentAttackState = AttackState.slam;
+        yield return null;
         anim.SetBool("slash", true);
-        yield return new WaitForSeconds(0.1f);
-        Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
-        Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
-        Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
-        Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.3f);
         Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
         Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
         yield return new WaitForSeconds(0.5f);
-        anim.SetBool("slash,", false);
-        yield return null;
-        if(currentState != EnemyStates.frenzy)
+        Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
+        Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        anim.SetBool("slash", false);      
+        yield return null;    
+        if (currentState != EnemyStates.frenzy)
         {
             currentAttackCooldown = setAttackCooldown;
         }
@@ -219,14 +219,15 @@ public class KnightBoss : Enemy
         yield return null;
         //turn range attack animation on
         anim.SetBool("slam", true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);    
+        meteorDamage[0].SetActive(true);
+        meteorDamage[1].SetActive(true);
+        meteorDamage[2].SetActive(true);
+        meteorDamage[3].SetActive(true);
+        meteorDamage[4].SetActive(true);
         anim.SetBool("slam", false);
         yield return null;
-        meteorLanded = true;
-        yield return new WaitForSeconds(1f);
-        meteorLanded = false;
-        yield return null;
-        if(currentState != EnemyStates.frenzy)
+        if (currentState != EnemyStates.frenzy)
         {
             currentAttackCooldown = setAttackCooldown;
         }
@@ -238,15 +239,15 @@ public class KnightBoss : Enemy
         currentAttackState = AttackState.summon;
         //random meteor locations
         yield return null;
-        //turn summon animation on
-        yield return new WaitForSeconds(1f);
+        anim.SetBool("tap", true);
+        yield return new WaitForSeconds(0.5f);
         //do check to see if enemy limit isn't reached
         yield return null;
         Instantiate(summonedEnemies[0], summonSpawns[0].transform.position, summonSpawns[0].transform.rotation);
         Instantiate(summonedEnemies[1], summonSpawns[1].transform.position, summonSpawns[1].transform.rotation);
         Instantiate(summonedEnemies[0], summonSpawns[2].transform.position, summonSpawns[2].transform.rotation);
-        yield return new WaitForSeconds(1f);
-        //turn summon animation off
+        yield return null;
+        anim.SetBool("tap", false);
         yield return null;
         if (currentState != EnemyStates.frenzy)
         {
