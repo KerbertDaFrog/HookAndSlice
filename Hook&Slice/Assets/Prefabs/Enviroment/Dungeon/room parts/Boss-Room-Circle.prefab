@@ -1096,6 +1096,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 7145139096439179078}
+  normalLevel: {fileID: 0}
+  prisonWall: {fileID: 0}
 --- !u!1 &9149959685814631109
 GameObject:
   m_ObjectHideFlags: 0

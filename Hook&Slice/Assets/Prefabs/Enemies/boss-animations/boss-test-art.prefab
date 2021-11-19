@@ -830,7 +830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6368a7f79860f7641900589c5ac89c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swing: {fileID: 0}
   slamWindup: {fileID: 2222029891419764588}
   slam: {fileID: 4084332118498904069}
   death: {fileID: 5658834468097385999}
