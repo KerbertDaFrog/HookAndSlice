@@ -94,7 +94,7 @@ MonoBehaviour:
     pitchVariance: 0
     volumeVariance: 0
     volume: 0.5
-    pitch: 1
+    pitch: 0.8
     loop: 0
     output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
@@ -136,6 +136,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SwordHit
     clip: {fileID: 8300000, guid: 83492829554fd144dac5acc13132edea, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.3
+    pitch: 1.8
+    loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
+    source: {fileID: 0}
+  - name: BossDeath
+    clip: {fileID: 8300000, guid: f67b8fedaabfb1a418f131f1ee8b11a5, type: 3}
     pitchVariance: 0
     volumeVariance: 0
     volume: 0.3

@@ -82,8 +82,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5013186608175646626}
   unlocked: 0
-  interactIcon: {fileID: 0}
-  locked: {fileID: 0}
   doorLight: {fileID: 5421223038651856413}
   doorTrigger: {fileID: 5013186608175646629}
   roomsEnemies: {fileID: 0}
