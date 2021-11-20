@@ -391,6 +391,7 @@ public class Enemy : MonoBehaviour
 		anim.SetBool("caught", true);
 		anim.SetBool("walk", false);	
 	}
+
 	protected virtual void LeaveStaggeredState()
 	{
         //anim.SetBool("caught", false);

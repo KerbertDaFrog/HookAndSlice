@@ -10,6 +10,7 @@ public class HookableObjects : MonoBehaviour
     {
         if(other.gameObject.tag == "Hook" && !hooked)
         {
+            Debug.Log("Hooked");
             hooked = true;
         }
     }

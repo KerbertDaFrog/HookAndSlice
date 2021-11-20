@@ -17,22 +17,21 @@ public class MeteorDamage : MonoBehaviour
     private float currentLifeTime;
 
     [SerializeField]
-    private KnockbackOnCollision knockBack;
+    private SphereCollider knockBack;
 
     public bool meteorLanded;
 
-    private MeteorDamage meteor;
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+        knockBack = GetComponent<SphereCollider>();
+    }
 
     private void OnEnable()
     {
+        Debug.Log("On");
         currentLifeTime = setLifeTime;
         StartCoroutine("TurnMeteorLandedBoolOnAndOff");
-    }
-
-    private void Awake()
-    {
-        meteor.enabled = false;
-        gameObject.SetActive(false);
     }
 
     private void Start()
@@ -64,18 +63,17 @@ public class MeteorDamage : MonoBehaviour
     IEnumerator TurnMeteorLandedBoolOnAndOff()
     {
         yield return new WaitForSeconds(0.6f);
-        meteor.enabled = true;
         meteorLanded = true;
+        yield return null;
         yield return new WaitForSeconds(0.3f);
-        meteor.enabled = false;
         meteorLanded = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            if(meteorLanded == true)
+            if (meteorLanded == true)
             {
                 other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.Damage());
             }

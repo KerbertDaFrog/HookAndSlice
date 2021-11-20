@@ -139,7 +139,7 @@ public class KnightBoss : Enemy
                         if(currentAttackState != AttackState.slam && currentAttackState != AttackState.range && currentAttackState != AttackState.summon)
                         {
                             SetAttackState(AttackState.slam);
-                        }                       
+                        }
                     }
                     else if (randAttackState == 1)
                     {
@@ -171,20 +171,25 @@ public class KnightBoss : Enemy
     IEnumerator Frenzy()
     {
         SetAttackState(AttackState.slam);
+        Debug.Log("Doing Slam");
         while (currentAttackState == AttackState.slam && currentState != EnemyStates.dead)
         {
             yield return null;
         }
         SetAttackState(AttackState.range);
+        Debug.Log("Doing Range");
         while (currentAttackState == AttackState.range && currentState != EnemyStates.dead)
         {
             yield return null;
         }
         SetAttackState(AttackState.summon);
+        Debug.Log("Doing Summon");
         while (currentAttackState == AttackState.summon && currentState != EnemyStates.dead)
         {
             yield return null;
         }
+        SetState(EnemyStates.staggered);
+        Debug.Log("Frenzy Done");
     }
 
     #region Attacks
@@ -219,14 +224,14 @@ public class KnightBoss : Enemy
         yield return null;
         //turn range attack animation on
         anim.SetBool("slam", true);
-        yield return new WaitForSeconds(0.5f);    
+        yield return new WaitForSeconds(0.5f);
         meteorDamage[0].SetActive(true);
         meteorDamage[1].SetActive(true);
         meteorDamage[2].SetActive(true);
         meteorDamage[3].SetActive(true);
         meteorDamage[4].SetActive(true);
         anim.SetBool("slam", false);
-        yield return null;
+        yield return new WaitForSeconds(4f);
         if (currentState != EnemyStates.frenzy)
         {
             currentAttackCooldown = setAttackCooldown;
@@ -279,6 +284,13 @@ public class KnightBoss : Enemy
                 break;
         }
     }
+    protected override void GoToStaggeredState()
+    {
+        currentState = EnemyStates.staggered;
+        anim.SetBool("stagger", true);
+        Debug.Log("Staggered");
+    }
+
     protected override void GoToFrenzyState()
     {
         base.GoToFrenzyState();

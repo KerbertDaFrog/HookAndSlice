@@ -7,11 +7,6 @@ public class KnockbackOnCollision : MonoBehaviour
     [SerializeField]
     private float knockbackStrength;
 
-    private void Start()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
