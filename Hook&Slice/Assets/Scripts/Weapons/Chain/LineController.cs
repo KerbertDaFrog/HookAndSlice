@@ -15,11 +15,6 @@ public class LineController : MonoBehaviour
 
     //private GameObject firePoint;
 
-    private void Start()
-    {
-        //bouncepoints.AddRange(harpoon.hitPoints);
-    }
-
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
@@ -29,13 +24,9 @@ public class LineController : MonoBehaviour
         //Vector3 firePos = firePoint.transform.position;
     }
 
-
-    public void SetUpLine(Transform[] points)
+    private void Start()
     {
-        lr.positionCount = points.Length;
-        this.points = points;
-
-
+        bouncepoints.AddRange(harpoon.hitPoints);
     }
 
     private void Update()
@@ -46,6 +37,9 @@ public class LineController : MonoBehaviour
         }
     }
 
-
-
+    public void SetUpLine(Transform[] points)
+    {
+        lr.positionCount = points.Length;
+        this.points = points;
+    }
 }

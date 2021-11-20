@@ -26,21 +26,21 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - 
+  - ddd335686907afd0783467584a7395d8
   secretKey:
-  - 
+  - ecdd55db207689ee4459de5c93f3e3acac1f98c7
   Build:
   - 0.1
   SelectedPlatformOrganization:
-  - 
+  - 12games
   SelectedPlatformStudio:
-  - 
+  - roll12
   SelectedPlatformGame:
-  - 
-  SelectedPlatformGameID: ffffffff
+  - HookNSlice
+  SelectedPlatformGameID: bba40200
   SelectedOrganization: 01000000
   SelectedStudio: 01000000
-  SelectedGame: 00000000
+  SelectedGame: 04000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
