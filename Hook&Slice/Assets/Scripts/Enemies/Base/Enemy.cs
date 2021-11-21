@@ -367,6 +367,7 @@ public class Enemy : MonoBehaviour
 		anim.SetBool("attack", false);
 		anim.SetBool("walk", false);
 		anim.SetBool("dead", true);
+		HudControl.Instance.EnemyKillCount();
 		StartCoroutine("Dead");
 	}
 
