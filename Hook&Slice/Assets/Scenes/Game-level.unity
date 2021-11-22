@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 333
       objectReference: {fileID: 0}
+    - target: {fileID: 2847590063578834309, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
+      propertyPath: roomNumber
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3228936620971147068, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.007
@@ -410,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 1913291837126027552}
     - target: {fileID: 7145139096439179079, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
       propertyPath: roomNumber
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7145139096439179079, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
       propertyPath: thisDoor
@@ -1714,7 +1718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1709381034408552171, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: roomNumber
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1817475908570434466, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_IsActive

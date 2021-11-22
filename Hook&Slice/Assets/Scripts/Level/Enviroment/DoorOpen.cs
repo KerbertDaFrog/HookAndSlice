@@ -30,8 +30,6 @@ public class DoorOpen : MonoBehaviour
 
     [Header("Analytics:")]
     [SerializeField]
-    private string thisDoor;
-    [SerializeField]
     private int roomNumber;
 
 
@@ -51,7 +49,7 @@ public class DoorOpen : MonoBehaviour
             {
                 anim.SetBool("doorOpen", true);              
                 open = true;
-                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Dungeon", thisDoor);
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Dungeon", "room: " + roomNumber);
                 HudControl.Instance.ProgressByRoom(roomNumber);
                 roomsEnemies.SetActive(true);
                 Destroy(doorLight);
