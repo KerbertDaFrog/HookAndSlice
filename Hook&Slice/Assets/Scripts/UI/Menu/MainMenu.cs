@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
         creditsPage.SetActive(false);
         quitPromptPage.SetActive(false);
         mainpage = true;
+        Time.timeScale = 1;
     }
 
     private void Update()
