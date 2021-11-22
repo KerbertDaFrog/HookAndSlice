@@ -58,9 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cfb39e06aee2e49a8d458630957c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HC: {fileID: 0}
-  confirmationText: {fileID: 0}
   pickupType: Blue Key
+  key: 1
+  icon: {fileID: 0}
   door: {fileID: 0}
 --- !u!1001 &1210736775961365621
 PrefabInstance:

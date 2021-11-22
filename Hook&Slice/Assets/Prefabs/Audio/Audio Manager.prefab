@@ -152,3 +152,12 @@ MonoBehaviour:
     loop: 0
     output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
     source: {fileID: 0}
+  - name: GoblinDeath
+    clip: {fileID: 8300000, guid: 4b4c94cd685b6cd41bec174c489926ea, type: 3}
+    pitchVariance: 0
+    volumeVariance: 0
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    output: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
+    source: {fileID: 0}

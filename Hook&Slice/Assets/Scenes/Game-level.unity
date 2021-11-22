@@ -729,6 +729,14 @@ PrefabInstance:
       propertyPath: sounds.Array.data[5].pitch
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 3570465845475007721, guid: a4b29f7e14fa1f148b3610578aba04a1, type: 3}
+      propertyPath: sounds.Array.data[12].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570465845475007721, guid: a4b29f7e14fa1f148b3610578aba04a1, type: 3}
+      propertyPath: sounds.Array.data[12].pitch
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3570465845475007726, guid: a4b29f7e14fa1f148b3610578aba04a1, type: 3}
       propertyPath: m_Name
       value: Audio Manager (1)
@@ -1060,6 +1068,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82656dfa0a13cb94091c612f8cedaaf0, type: 3}
+--- !u!1 &1310405975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1913291837105188333, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+  m_PrefabInstance: {fileID: 1913291837126027549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1396584767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7894345153653605762, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
@@ -1648,6 +1661,10 @@ PrefabInstance:
       propertyPath: roomNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 161713469035068894, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: roomsEnemies
+      value: 
+      objectReference: {fileID: 1310405975}
     - target: {fileID: 418700115826181201, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.673
@@ -1874,7 +1891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1913291837105188333, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2215178757324187388, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_IsActive
