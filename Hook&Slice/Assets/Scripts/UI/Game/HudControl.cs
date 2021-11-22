@@ -52,6 +52,27 @@ public class HudControl : MonoBehaviour
     public PauseMenu pm;
 
 
+    [Header("Kill Count")]
+    [SerializeField]
+    private Text killCountText;
+    public int killCount;
+
+    [Header("Stats")]
+    [SerializeField]
+    private Text timeSpentText;
+    [SerializeField]
+    private Text enmiesKilledText;
+    [SerializeField]
+    private Text shotHooksText;
+    [SerializeField]
+    private Text secretsText;
+    //[SerializeField]
+    //private Text deathsText;
+
+    private int hooksShot;
+    private int secretsFound;
+    //private int deaths;
+
     public static HudControl Instance { get { return _instance; } }
 
     private void Awake()
@@ -74,10 +95,6 @@ public class HudControl : MonoBehaviour
         cooldownSlider.maxValue = 1f;
     }
 
-    private void OnApplicationQuit()
-    {
-        _instance = null;
-    }
 
     //connect them:
     private void OnEnable()
@@ -138,7 +155,18 @@ public class HudControl : MonoBehaviour
 
     }
 
+    //Enemy Kill Count Tally
 
+    public void EnemyKillCount()
+    {
+        killCount++;
+        killCountText.text = "Kill Count: " + killCount;
+    }
+
+    public void HookShotCount()
+    {
+        hooksShot++;
+    }
 
     //HealthBar
     private void hpChange(float currentHealth, float maxHealth)
@@ -182,12 +210,37 @@ public class HudControl : MonoBehaviour
 
     public void WinScreen()
     {
+        Debug.Log("win");
         winScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
+        SetStats();
         AudioManager.instance.StopPlaying("ChainMovement");
         AudioManager.instance.StopPlaying("KnightMusic");
         pm.ExternalPause();
     }
+    
+    private void SetStats()
+    {
+        enmiesKilledText.text = killCount.ToString();
+        shotHooksText.text = hooksShot.ToString();
+        secretsText.text = secretsFound.ToString();
+    }
+
+
+    private void ClearStats()
+    {
+        killCount = 0;
+        hooksShot = 0;
+        secretsFound = 0;
+        //deaths = 0;
+    }
+
+
+    private void OnApplicationQuit()
+    {
+        _instance = null;
+    }
+
 }
