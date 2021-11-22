@@ -6,12 +6,15 @@ public class HookableObjects : MonoBehaviour
 {
     protected bool hooked;
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Hook" && !hooked)
+        if(other.gameObject.tag == "Hook")
         {
-            Debug.Log("Hooked");
-            hooked = true;
+            if(hooked == false)
+            {
+                Debug.Log("Hooked");
+                hooked = true;
+            }          
         }
     }
 }

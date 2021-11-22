@@ -10,6 +10,7 @@ TagManager:
   - HealthPotion
   - Wall
   - KnightBoss
+  - ChestPlate
   layers:
   - Default
   - TransparentFX
