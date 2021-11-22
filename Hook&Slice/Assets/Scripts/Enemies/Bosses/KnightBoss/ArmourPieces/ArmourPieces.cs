@@ -6,7 +6,10 @@ public class ArmourPieces : HookableObjects
 {
     private KnightBoss kb;
 
-    public GameObject[] armourPieces = new GameObject[5];
+    private GameObject[] armourPieces = new GameObject[5];
+
+    [SerializeField]
+    private Animator anim;
 
     private void Start()
     {
@@ -15,22 +18,27 @@ public class ArmourPieces : HookableObjects
 
     private void Update()
     {
-        if(hooked)
+        foreach(GameObject armourPiece in armourPieces)
         {
-            StartCoroutine(FallOffKnightBoss());
+            if(armourPiece == null)
+            {
+
+            }
         }
     }
 
-    IEnumerator FallOffKnightBoss()
+    protected override void OnTriggerEnter(Collider other)
     {
-        yield return null;
-        //play sound
-        yield return null;
-        Destroy(gameObject);
-        yield return null; 
-        //play armour falling animation
-        yield return new WaitForSeconds(0.5f);
-        kb.SetState(Enemy.EnemyStates.frenzy);
-        //tell knight to go to frenzy state
+        if(other.gameObject.tag == "Hook")
+        {
+            if(hooked == false)
+            {
+                if(kb.currentState != Enemy.EnemyStates.attacking)
+                {
+                    Debug.Log("Hooked");
+                    hooked = true;
+                }
+            }
+        }
     }
 }

@@ -20,6 +20,6 @@ public class KnockbackOnCollision : MonoBehaviour
 
                 rb.AddForce(dir.normalized * knockbackStrength, ForceMode.Impulse);
             }
-        }      
+        }
     }
 }

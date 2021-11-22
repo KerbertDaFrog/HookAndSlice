@@ -16,46 +16,67 @@ public class MeteorDamage : MonoBehaviour
     [SerializeField]
     private float currentLifeTime;
 
+    [SerializeField]
+    private SphereCollider knockBack;
+
+    public bool meteorLanded;
+
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+        knockBack = GetComponent<SphereCollider>();
+    }
+
     private void OnEnable()
     {
+        Debug.Log("On");
         currentLifeTime = setLifeTime;
+        StartCoroutine("TurnMeteorLandedBoolOnAndOff");
     }
 
     private void Start()
     {
         kb = FindObjectOfType<KnightBoss>();
-        gameObject.SetActive(false);
         GetComponent<SphereCollider>().radius = radius;
     }
 
     private void Update()
     {
-        if(kb.currentAttackState == KnightBoss.AttackState.range)
-        {
-            if(kb.meteorLanded == true)
-            {
-                gameObject.SetActive(true);
-            }
-            //else 
-            //if (kb.meteorLanded == false)
-            //{
-            //    gameObject.SetActive(false);
-            //}
-        }
-
         currentLifeTime = Mathf.Clamp(currentLifeTime -= Time.deltaTime, 0f, setLifeTime);
 
         if (currentLifeTime <= 0)
         {
             gameObject.SetActive(false);
         }
+
+        if (meteorLanded == true)
+        {
+            knockBack.enabled = true;
+            Debug.Log("Knockback turning on");
+        }
+        else if (meteorLanded == false)
+        {
+            knockBack.enabled = false;
+        }
+    }
+
+    IEnumerator TurnMeteorLandedBoolOnAndOff()
+    {
+        yield return new WaitForSeconds(0.6f);
+        meteorLanded = true;
+        yield return null;
+        yield return new WaitForSeconds(0.3f);
+        meteorLanded = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.Damage());
+            if (meteorLanded == true)
+            {
+                other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.Damage());
+            }
         }
     }
 
