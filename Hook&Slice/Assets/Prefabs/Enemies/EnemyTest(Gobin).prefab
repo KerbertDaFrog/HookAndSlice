@@ -276,7 +276,6 @@ MonoBehaviour:
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 0}
   anim: {fileID: 7899148833459127956}
-  corpseSpawn: {fileID: 0}
 --- !u!114 &303073293147733644
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -219,7 +219,9 @@ public class HudControl : MonoBehaviour
     
     private void SetStats()
     {
-        enmiesKilledText.text = "" + killCount;
+        enmiesKilledText.text = killCount.ToString();
+        shotHooksText.text = hooksShot.ToString();
+        secretsText.text = secretsFound.ToString();
     }
 
 
