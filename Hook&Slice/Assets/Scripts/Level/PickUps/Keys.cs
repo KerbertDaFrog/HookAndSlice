@@ -17,5 +17,4 @@ public class Keys : Pickup
         door.UnLock();
         icon.SetActive(true);
     }
-
 }

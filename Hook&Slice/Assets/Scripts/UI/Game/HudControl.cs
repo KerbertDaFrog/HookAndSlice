@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 public class HudControl : MonoBehaviour
 {
@@ -73,6 +74,8 @@ public class HudControl : MonoBehaviour
     private int secretsFound;
     //private int deaths;
 
+    private string currentroom;
+
     public static HudControl Instance { get { return _instance; } }
 
     private void Awake()
@@ -87,8 +90,6 @@ public class HudControl : MonoBehaviour
         }
 
         pm = FindObjectOfType<PauseMenu>();
-
-        pickups = FindObjectsOfType<Pickup>();
         ph = FindObjectOfType<PlayerHealth>();
         harpoon = FindObjectOfType<Harpoon>();
         doors = FindObjectsOfType<DoorOpen>();
@@ -99,9 +100,6 @@ public class HudControl : MonoBehaviour
     //connect them:
     private void OnEnable()
     {
-        foreach(Pickup p in pickups)
-            p.confirmHUD += CollectionON;
-        
         ph.onHealthChange += hpChange;
         ph.death += DeathScreen;
         harpoon.harpoonCooldown += cooldownHarpoon;
@@ -109,14 +107,11 @@ public class HudControl : MonoBehaviour
             d.interaction += DoorInteraction;
         foreach (DoorOpen o in doors)
             o.doorLocked += DoorLockedMessage;
-
     }
 
     //Dissconnect them:
     private void OnDisable()
     {
-        foreach(Pickup p in pickups)
-            p.confirmHUD -= CollectionON;
         ph.onHealthChange -= hpChange;
         ph.death -= DeathScreen;
         harpoon.harpoonCooldown -= cooldownHarpoon;
@@ -128,7 +123,7 @@ public class HudControl : MonoBehaviour
 
     //Collection Of Items:
     #region Item Collection Feedback
-    private void CollectionON(string pickupType)
+    public void CollectionON(string pickupType)
     {        
         collectionText.text = "Collected: " + pickupType;
         collection.SetActive(true);
@@ -194,6 +189,10 @@ public class HudControl : MonoBehaviour
         lockedMessage.SetActive(lockeddoor);
     }
 
+    public void ProgressByRoom(string room)
+    {
+        currentroom = room;
+    }
 
     private void DeathScreen()
     {
@@ -205,6 +204,7 @@ public class HudControl : MonoBehaviour
         AudioManager.instance.StopPlaying("DungeonMusic");
         AudioManager.instance.StopPlaying("KnightMusic");
         AudioManager.instance.Play("GameOver");
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Dungeon", "room: " + currentroom);
         pm.ExternalPause();
     }
 
@@ -218,6 +218,7 @@ public class HudControl : MonoBehaviour
         SetStats();
         AudioManager.instance.StopPlaying("ChainMovement");
         AudioManager.instance.StopPlaying("KnightMusic");
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Dungeon", "Hooks" + hooksShot, "Enemies" + killCount);
         pm.ExternalPause();
     }
     

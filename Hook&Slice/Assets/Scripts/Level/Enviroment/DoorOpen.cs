@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
 
 public class DoorOpen : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class DoorOpen : MonoBehaviour
     private bool interact = false;
     private bool open = false;
 
+    [Header("Analytics:")]
+    [SerializeField]
+    private string thisDoor;
+
 
     //UI systems:
     public delegate void Interaction(bool interact);
@@ -44,6 +49,8 @@ public class DoorOpen : MonoBehaviour
             {
                 anim.SetBool("doorOpen", true);              
                 open = true;
+                GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Dungeon", thisDoor);
+                HudControl.Instance.ProgressByRoom(thisDoor);
                 roomsEnemies.SetActive(true);
                 Destroy(doorLight);
                 Destroy(doorTrigger);
