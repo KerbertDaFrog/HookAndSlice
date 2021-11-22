@@ -725,18 +725,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3570465845475007721, guid: a4b29f7e14fa1f148b3610578aba04a1, type: 3}
-      propertyPath: sounds.Array.data[5].pitch
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3570465845475007721, guid: a4b29f7e14fa1f148b3610578aba04a1, type: 3}
-      propertyPath: sounds.Array.data[12].volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3570465845475007721, guid: a4b29f7e14fa1f148b3610578aba04a1, type: 3}
-      propertyPath: sounds.Array.data[12].pitch
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 3570465845475007726, guid: a4b29f7e14fa1f148b3610578aba04a1, type: 3}
       propertyPath: m_Name
       value: Audio Manager (1)
@@ -1073,23 +1061,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1913291837105188333, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
   m_PrefabInstance: {fileID: 1913291837126027549}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1396584767 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7894345153653605762, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
-  m_PrefabInstance: {fileID: 1913291837126027549}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1396584769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396584767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e0a25c4f00da94684f26a639b7538c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1400600133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1668,6 +1639,10 @@ PrefabInstance:
     - target: {fileID: 418700115826181201, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.673
+      objectReference: {fileID: 0}
+    - target: {fileID: 418700115826181204, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 890077780665222168, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.y
