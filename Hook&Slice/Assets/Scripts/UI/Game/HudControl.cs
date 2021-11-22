@@ -74,7 +74,7 @@ public class HudControl : MonoBehaviour
     private int secretsFound;
     //private int deaths;
 
-    private string currentroom;
+    private int currentroom;
 
     public static HudControl Instance { get { return _instance; } }
 
@@ -189,7 +189,7 @@ public class HudControl : MonoBehaviour
         lockedMessage.SetActive(lockeddoor);
     }
 
-    public void ProgressByRoom(string room)
+    public void ProgressByRoom(int room)
     {
         currentroom = room;
     }
@@ -204,7 +204,7 @@ public class HudControl : MonoBehaviour
         AudioManager.instance.StopPlaying("DungeonMusic");
         AudioManager.instance.StopPlaying("KnightMusic");
         AudioManager.instance.Play("GameOver");
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Dungeon", "room: " + currentroom);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Dungeon", currentroom);
         pm.ExternalPause();
     }
 
