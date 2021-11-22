@@ -89,6 +89,7 @@ public class Harpoon : MonoBehaviour
                     activeHook = Instantiate(hook, firePoint).gameObject;
                     AudioManager.instance.Play("ChainMovement");
                     AudioManager.instance.Play("HarpoonShoot");
+                    HudControl.Instance.HookShotCount();
                 }
 
                 if (!hasShot)

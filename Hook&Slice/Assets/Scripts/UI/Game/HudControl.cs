@@ -163,6 +163,10 @@ public class HudControl : MonoBehaviour
         killCountText.text = "Kill Count: " + killCount;
     }
 
+    public void HookShotCount()
+    {
+        hooksShot++;
+    }
 
     //HealthBar
     private void hpChange(float currentHealth, float maxHealth)
