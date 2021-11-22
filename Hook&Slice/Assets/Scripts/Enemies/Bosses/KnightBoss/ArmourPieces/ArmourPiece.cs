@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ArmourPiece : ArmourPieces
 {
-    private KnightBoss kb;
-
     [SerializeField]
     private bool chestPlate;
 

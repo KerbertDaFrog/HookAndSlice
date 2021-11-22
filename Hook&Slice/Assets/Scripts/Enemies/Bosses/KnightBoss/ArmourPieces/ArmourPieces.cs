@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ArmourPieces : HookableObjects
 {
-    private KnightBoss kb;
+    protected KnightBoss kb;
 
+    [SerializeField]
     private GameObject[] armourPieces = new GameObject[5];
+
+    [SerializeField]
+    private GameObject[] fallingPieces = new GameObject[4];
 
     [SerializeField]
     private Animator anim;
@@ -33,7 +37,7 @@ public class ArmourPieces : HookableObjects
         {
             if(hooked == false)
             {
-                if(kb.currentState != Enemy.EnemyStates.attacking)
+                if(kb.currentState == Enemy.EnemyStates.staggered)
                 {
                     Debug.Log("Hooked");
                     hooked = true;
