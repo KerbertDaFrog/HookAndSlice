@@ -34,6 +34,9 @@ public class Hook : MonoBehaviour
     private int index = 0;
 
     [SerializeField]
+    private GameObject chain;
+
+    [SerializeField]
     private List<Vector3> targets = new List<Vector3>();
 
     public List<Enemy> enemies = new List<Enemy>();
@@ -135,7 +138,10 @@ public class Hook : MonoBehaviour
 
         //If the number of enemies on the enemies list is more than 0, start the countdown timer.
         if (enemies.Count > 0 && retracted == true)
+        {
             currentTimer = Mathf.Clamp(currentTimer -= Time.deltaTime, 0f, setTimer);
+        }
+
 
         //If the harpoon has been shot (hasShot = true), the Enemy count is more than zero and the hook's distance from the harpoon gun is less than 0.1, set retracting to false and retracted to true.
         if (harpoon.hasShot != false && enemies.Count > 0 && distanceFromGun < 0.1)
@@ -166,7 +172,7 @@ public class Hook : MonoBehaviour
         if (retracted && enemies.Count > 0 && hasDoneThingsOnEnemies == false)
         {
             IfThereAreZeroEnemiesOnHookDestroyHook();
-
+            
             foreach (Enemy e in enemies)
             {
                 if(e.currentState != Enemy.EnemyStates.dead)
@@ -174,7 +180,7 @@ public class Hook : MonoBehaviour
                     e.SetState(Enemy.EnemyStates.onHook);
                 }
             }
-
+            chain.SetActive(false);
             hasDoneThingsOnEnemies = true;
         }
         

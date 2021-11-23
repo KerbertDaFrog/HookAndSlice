@@ -20,6 +20,14 @@ public class EnemyHealth : MonoBehaviour
 
     private Enemy enemy;
 
+    [Header("Damage Feedback")]
+    [SerializeField]
+    private SpriteRenderer sr;
+    [SerializeField]
+    private Material originalmat;
+    [SerializeField]
+    private Material damagemat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +45,19 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int incomingDamage)
     {
         currentHealth = Mathf.Clamp(currentHealth -= incomingDamage, 0, setHealth);
-        if(currentHealth == 0)
+        StartCoroutine("DamageFeedback");
+        if (currentHealth == 0)
+        {
             enemy.SetState(Enemy.EnemyStates.dead);
+        }
+    }
+
+    IEnumerator DamageFeedback()
+    {
+        sr.material = damagemat;
+        yield return new WaitForSeconds(0.1f);
+        sr.material = originalmat;
+        yield return null;
     }
 
     public void ClearHook()

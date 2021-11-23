@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using GameAnalyticsSDK;
 
 public class Pickup : MonoBehaviour
 {
@@ -12,20 +13,27 @@ public class Pickup : MonoBehaviour
     public delegate void ConfirmHUD(string pickupType);
     public ConfirmHUD confirmHUD;
 
+    [SerializeField]
+    private bool key = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            confirmHUD(pickupType);
+            HudControl.Instance.CollectionON(pickupType);
             Result();
+            if (key)
+            {
+                GameAnalytics.NewDesignEvent(pickupType);
+            }
             Destroy(gameObject);
         }
+  
     }
 
     public virtual void Result()
     {
-        //Debug.Log("things are supposed to happen here");
+
     }
 
 }

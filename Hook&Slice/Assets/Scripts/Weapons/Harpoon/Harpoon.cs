@@ -140,8 +140,6 @@ public class Harpoon : MonoBehaviour
             if(Input.GetMouseButtonDown(0) && currentCDTimer <= 0)
             {
                 hookCancelled = true;
-                AudioManager.instance.StopPlaying("ChainMovement");
-                AudioManager.instance.Play("HarpoonReload");
             }
         }
     }

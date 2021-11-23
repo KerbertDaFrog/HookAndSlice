@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class TestDamage : MonoBehaviour
 {
+    [Header("Damage Feedback")]
+    [SerializeField]
     private SpriteRenderer mat;
+    [SerializeField]
+    private Material originalmat;
+    [SerializeField]
+    private Material damagemat;
+
 
     private void OnEnable()
     {
-        mat = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
@@ -16,17 +23,27 @@ public class TestDamage : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.N))
         {
-            TakeDamage();
+            //TakeDamage();
+
+            StartCoroutine("TakeDamageColor");
         }
     }
 
-    IEnumerator TakeDamageColor()
+    IEnumerator DamageFeedback()
     {
+        mat.material = damagemat;
+        yield return new WaitForSeconds(0.1f);
+        mat.material = originalmat;
         yield return null;
     }
 
     private void TakeDamage()
     {
         mat.material.SetColor("_EmissionColor", Color.grey);
+    }
+
+    private void TakeDamageV2()
+    {
+        mat.material = damagemat;
     }
 }

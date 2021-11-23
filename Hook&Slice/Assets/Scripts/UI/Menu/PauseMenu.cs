@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -103,6 +104,7 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         AudioManager.instance.Play("MenuButton");
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Undefined, "Bail to Main Menu");
         SceneManager.LoadScene(0);
     }
 

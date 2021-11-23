@@ -57,6 +57,7 @@ MonoBehaviour:
   retracted: 0
   damage: 10
   maxEnemies: 5
+  chain: {fileID: 5067117453910135529}
   targets: []
   enemies: []
   firePoint: {fileID: 0}
@@ -132,6 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a39c0d2f3896af40ab03dff32c1eb65, type: 3}
+--- !u!1 &5067117453910135529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7489486349484072026, guid: 0a39c0d2f3896af40ab03dff32c1eb65, type: 3}
+  m_PrefabInstance: {fileID: 2423504347500138163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1957342825086942093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4218716924565730622, guid: 0a39c0d2f3896af40ab03dff32c1eb65, type: 3}

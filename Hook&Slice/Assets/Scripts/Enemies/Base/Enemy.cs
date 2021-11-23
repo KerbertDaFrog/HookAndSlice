@@ -368,6 +368,7 @@ public class Enemy : MonoBehaviour
 		anim.SetBool("walk", false);
 		anim.SetBool("dead", true);
 		HudControl.Instance.EnemyKillCount();
+		//AudioManager.instance.Play("GoblinDeath");
 		StartCoroutine("Dead");
 	}
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class MainMenu : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Add Game Analytics initilisation here.
+        GameAnalytics.Initialize();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Main Menu");
         mainMenuPage.SetActive(true);
         settingsPage.SetActive(false);
         creditsPage.SetActive(false);
@@ -49,6 +51,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         AudioManager.instance.Play("MenuButton");
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game");
         SceneManager.LoadScene(1);
     }
 

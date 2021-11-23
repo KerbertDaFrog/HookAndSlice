@@ -356,7 +356,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 7f6d632d359c4d6419f7b8220cd32ca6, type: 2}
   m_audioClip: {fileID: 8300000, guid: 48f92300465528f4db4edf8a2ee81cf0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -538,6 +538,9 @@ MonoBehaviour:
   hooked: 0
   hook: {fileID: 0}
   anim: {fileID: 4360772061962382776}
+  sr: {fileID: 4583581796267668371}
+  originalmat: {fileID: 2100000, guid: 34e06f6877052924dab82d03f5ba84ff, type: 2}
+  damagemat: {fileID: 2100000, guid: 37cb674d5c0faee48b3cd37f51c3a8a9, type: 2}
 --- !u!195 &4295101526577440104
 NavMeshAgent:
   m_ObjectHideFlags: 0

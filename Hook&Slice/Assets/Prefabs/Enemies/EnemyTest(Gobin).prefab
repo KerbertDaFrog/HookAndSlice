@@ -293,6 +293,9 @@ MonoBehaviour:
   hooked: 0
   hook: {fileID: 0}
   anim: {fileID: 7899148833459127956}
+  sr: {fileID: 7964578896518174911}
+  originalmat: {fileID: 2100000, guid: 34e06f6877052924dab82d03f5ba84ff, type: 2}
+  damagemat: {fileID: 2100000, guid: 37cb674d5c0faee48b3cd37f51c3a8a9, type: 2}
 --- !u!195 &4295101526577440104
 NavMeshAgent:
   m_ObjectHideFlags: 0
