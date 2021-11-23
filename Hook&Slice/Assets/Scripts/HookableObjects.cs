@@ -8,13 +8,13 @@ public class HookableObjects : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Hook")
+        if (other.gameObject.tag == "Hook")
         {
-            if(hooked == false)
+            if (hooked == false)
             {
                 Debug.Log("Hooked");
                 hooked = true;
-            }          
+            }
         }
     }
 }

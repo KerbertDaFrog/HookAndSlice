@@ -50,6 +50,7 @@ public class KnightBoss : Enemy
     protected override void Start()
     {
         base.Start();
+        currentAttackCooldown = 5f;
         nav.speed = 0;
     }
 
@@ -99,6 +100,11 @@ public class KnightBoss : Enemy
             SetState(EnemyStates.frenzy);
         }
 
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            SetState(EnemyStates.staggered);
+        }
+
         if (currentAttackState != AttackState.nil)
         {
 
@@ -106,7 +112,10 @@ public class KnightBoss : Enemy
 
         if(setAttackCooldown > 0f)
         {
-            currentAttackCooldown = Mathf.Clamp(currentAttackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
+            if(currentState == EnemyStates.seen)
+            {
+                currentAttackCooldown = Mathf.Clamp(currentAttackCooldown -= Time.deltaTime, 0f, setAttackCooldown);
+            }       
         }
     }
 
@@ -154,6 +163,13 @@ public class KnightBoss : Enemy
                         {
                             SetAttackState(AttackState.summon);
                         }          
+                    }
+                }
+                else if(currentAttackState == AttackState.nil)
+                {
+                    if(currentState != EnemyStates.frenzy)
+                    {
+                        SetState(EnemyStates.seen);
                     }
                 }
             }
@@ -265,6 +281,7 @@ public class KnightBoss : Enemy
     #region State Operations
     public void SetAttackState(AttackState state)
     {
+        Debug.Log("<color=green>" + gameObject.name + " is going from " + currentState + " to " + state + "</color>");
         switch (state)
         {
             case AttackState.nil:
@@ -284,6 +301,7 @@ public class KnightBoss : Enemy
                 break;
         }
     }
+
     protected override void GoToStaggeredState()
     {
         currentState = EnemyStates.staggered;
@@ -294,6 +312,7 @@ public class KnightBoss : Enemy
     protected override void GoToFrenzyState()
     {
         base.GoToFrenzyState();
+        anim.SetBool("stagger", false);
         StartCoroutine("Frenzy");
     }
     #endregion
