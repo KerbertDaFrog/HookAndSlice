@@ -20,7 +20,7 @@ public class KnightBoss : Enemy
 
     [Header("Meteors")]
     [SerializeField]
-    private GameObject[] meteorDamage = new GameObject[3];
+    private GameObject[] meteorDamage = new GameObject[7];
 
     [Header("Summoning")]
     [SerializeField]
@@ -37,6 +37,8 @@ public class KnightBoss : Enemy
 
     [Header("Attack States")]
     public AttackState currentAttackState;
+
+    private bool frenzyDone;
 
     public enum AttackState
     {
@@ -103,11 +105,6 @@ public class KnightBoss : Enemy
         if(Input.GetKeyDown(KeyCode.K))
         {
             SetState(EnemyStates.staggered);
-        }
-
-        if (currentAttackState != AttackState.nil)
-        {
-
         }
 
         if(setAttackCooldown > 0f)
@@ -246,6 +243,9 @@ public class KnightBoss : Enemy
         meteorDamage[2].SetActive(true);
         meteorDamage[3].SetActive(true);
         meteorDamage[4].SetActive(true);
+        meteorDamage[5].SetActive(true);
+        meteorDamage[6].SetActive(true);
+        meteorDamage[7].SetActive(true);
         anim.SetBool("slam", false);
         yield return new WaitForSeconds(4f);
         if (currentState != EnemyStates.frenzy)
@@ -315,7 +315,26 @@ public class KnightBoss : Enemy
         anim.SetBool("stagger", false);
         StartCoroutine("Frenzy");
     }
+
+    //protected override void GoToDeadState()
+    //{
+    //    currentState = EnemyStates.dead;
+    //    this.GetComponent<BoxCollider>().isTrigger = true;
+    //    anim.SetBool("caught", false);
+    //    anim.SetBool("attack", false);
+    //    anim.SetBool("walk", false);
+    //    anim.SetBool("dead", true);
+    //    HudControl.Instance.EnemyKillCount();
+    //    //AudioManager.instance.Play("GoblinDeath");
+    //    //StartCoroutine("Dead");
+    //}
     #endregion
+
+    //protected override IEnumerator Dead()
+    //{
+    //    yield return null;
+    //    Destroy(gameObject);
+    //}
 
     #region Getters
     public int ShockwaveDamage()

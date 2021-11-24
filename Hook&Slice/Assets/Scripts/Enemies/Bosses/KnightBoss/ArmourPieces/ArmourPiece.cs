@@ -24,7 +24,7 @@ public class ArmourPiece : ArmourPieces
     {
         if(hooked == true)
         {
-            hooked = false;
+            hooked = false;           
             StartCoroutine(FallOffKnightBoss());
         }
 
@@ -43,12 +43,13 @@ public class ArmourPiece : ArmourPieces
         Instantiate(fallingArmour, fallingArmourPos, armourPiece.transform.rotation);
         Debug.Log("Turning Ghost Armour on");
         ghostArmor.SetActive(true);
-        yield return null;
+        yield return null;       
         Destroy(armourPiece.gameObject);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f);    
         Debug.Log("Knight Boss Going to Frenzy");
         kb.SetState(Enemy.EnemyStates.frenzy);
         yield return null;
         Destroy(gameObject);
+        yield return null;
     }
 }
