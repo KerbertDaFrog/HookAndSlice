@@ -127,6 +127,7 @@ public class PauseMenu : MonoBehaviour
     {
         AudioManager.instance.Play("MenuButton");
         SettingsManager.Instance.winstate = false;
+        SettingsManager.Instance.deathstate = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

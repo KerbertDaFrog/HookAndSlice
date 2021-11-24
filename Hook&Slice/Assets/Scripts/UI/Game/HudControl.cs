@@ -204,6 +204,7 @@ public class HudControl : MonoBehaviour
         AudioManager.instance.StopPlaying("DungeonMusic");
         AudioManager.instance.StopPlaying("KnightMusic");
         AudioManager.instance.Play("GameOver");
+        SettingsManager.Instance.deathstate = true;
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Dungeon", currentroom);
         pm.ExternalPause();
     }

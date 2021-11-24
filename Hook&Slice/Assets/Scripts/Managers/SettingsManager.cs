@@ -24,6 +24,7 @@ public class SettingsManager : MonoBehaviour
     public int graphics = 4;
 
     public bool winstate = false;
+    public bool deathstate = false;
 
     private void Awake()
     {
