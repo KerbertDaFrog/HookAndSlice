@@ -126,6 +126,7 @@ public class PauseMenu : MonoBehaviour
     public void RestartLevel()
     {
         AudioManager.instance.Play("MenuButton");
+        SettingsManager.Instance.winstate = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

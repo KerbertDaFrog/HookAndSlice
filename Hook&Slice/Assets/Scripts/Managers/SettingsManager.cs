@@ -23,6 +23,7 @@ public class SettingsManager : MonoBehaviour
 
     public int graphics = 4;
 
+    public bool winstate = false;
 
     private void Awake()
     {

@@ -216,6 +216,7 @@ public class HudControl : MonoBehaviour
         Cursor.visible = true;
         Time.timeScale = 0;
         SetStats();
+        SettingsManager.Instance.winstate = true;
         AudioManager.instance.StopPlaying("ChainMovement");
         AudioManager.instance.StopPlaying("KnightMusic");
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Dungeon", "Hooks" + hooksShot, "Enemies" + killCount);
