@@ -19,7 +19,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject quitPromptPage;
 
-
+    //[SerializeField]
+    //private Animator cameraAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,8 @@ public class MainMenu : MonoBehaviour
         quitPromptPage.SetActive(false);
         mainpage = true;
         Time.timeScale = 1;
+        //cameraAnim.SetBool("settings", false);
+        //cameraAnim.SetBool("credits", false);
     }
 
     private void Update()
@@ -60,6 +63,7 @@ public class MainMenu : MonoBehaviour
         AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(false);
         settingsPage.SetActive(true);
+        //cameraAnim.SetBool("settings", true);
         mainpage = false;
     }
 
@@ -69,6 +73,7 @@ public class MainMenu : MonoBehaviour
         AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(true);
         settingsPage.SetActive(false);
+        //cameraAnim.SetBool("settings", false);
         mainpage = true;
     }
 
@@ -77,6 +82,7 @@ public class MainMenu : MonoBehaviour
         AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(false);
         creditsPage.SetActive(true);
+        //cameraAnim.SetBool("credits", false);
         mainpage = false;
     }
 
@@ -85,6 +91,7 @@ public class MainMenu : MonoBehaviour
         AudioManager.instance.Play("MenuButton");
         mainMenuPage.SetActive(true);
         creditsPage.SetActive(false);
+        //cameraAnim.SetBool("credits", false);
         mainpage = true;
     }
 
