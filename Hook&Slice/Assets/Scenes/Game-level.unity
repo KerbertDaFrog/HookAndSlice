@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: f570dadebe57d164dbc79cd9acfac884, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a22d6432351b4ef4cb7ad9fe6194e402, type: 2}
 --- !u!1 &197177689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 109602821349538939, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 161713469035068894, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: thisDoor
       value: First Door (door 1)
@@ -1810,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1913291835960745192, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 87.26
+      value: 91.64
       objectReference: {fileID: 0}
     - target: {fileID: 1913291835960745192, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2107,6 +2111,14 @@ PrefabInstance:
     - target: {fileID: 4022724669498729488, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314305306117260417, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.9969997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314305306117260417, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.099998474
       objectReference: {fileID: 0}
     - target: {fileID: 4657350625837644980, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_AnchorMin.y

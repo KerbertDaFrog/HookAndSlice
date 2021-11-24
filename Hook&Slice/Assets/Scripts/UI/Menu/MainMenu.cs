@@ -19,6 +19,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject quitPromptPage;
 
+    [SerializeField]
+    private GameObject liveMage;
+
+    [SerializeField]
+    private GameObject corpses;
+
+    [SerializeField]
+    private GameObject bloodsplatters;
+
+    private bool win;
+    private bool loose;
+
     //[SerializeField]
     //private Animator cameraAnim;
 
@@ -33,9 +45,32 @@ public class MainMenu : MonoBehaviour
         quitPromptPage.SetActive(false);
         mainpage = true;
         Time.timeScale = 1;
+        win = SettingsManager.Instance.winstate;
+        loose = SettingsManager.Instance.deathstate;
+        if (win)
+        {
+            corpses.SetActive(true);
+            liveMage.SetActive(false);
+            bloodsplatters.SetActive(false);
+        }
+        else if (loose)
+        {
+            corpses.SetActive(false);
+            liveMage.SetActive(true);
+            bloodsplatters.SetActive(true);
+        }
+        else
+        {
+            corpses.SetActive(false);
+            liveMage.SetActive(true);
+            bloodsplatters.SetActive(false);
+        }
+
         //cameraAnim.SetBool("settings", false);
         //cameraAnim.SetBool("credits", false);
     }
+
+
 
     private void Update()
     {
@@ -55,6 +90,8 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.instance.Play("MenuButton");
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Game");
+        SettingsManager.Instance.winstate = false;
+        SettingsManager.Instance.deathstate = false;
         SceneManager.LoadScene(1);
     }
 
