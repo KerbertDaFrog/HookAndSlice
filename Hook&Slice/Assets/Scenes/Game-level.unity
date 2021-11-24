@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: f570dadebe57d164dbc79cd9acfac884, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a22d6432351b4ef4cb7ad9fe6194e402, type: 2}
 --- !u!1 &197177689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1369,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e90b24335589e54b8afe0bdc8df344b, type: 3}
+--- !u!1 &1622192249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4594251884928859001, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+  m_PrefabInstance: {fileID: 1913291837126027549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1622192250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622192249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c847759e78a17e419d9f829977cbdc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
 --- !u!1001 &1780166167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1624,6 +1642,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 109602821349538939, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 161713469035068894, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: thisDoor
       value: First Door (door 1)
@@ -1810,7 +1832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1913291835960745192, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 87.26
+      value: 94.66
       objectReference: {fileID: 0}
     - target: {fileID: 1913291835960745192, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2107,6 +2129,14 @@ PrefabInstance:
     - target: {fileID: 4022724669498729488, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314305306117260417, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.7800007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314305306117260417, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.20000076
       objectReference: {fileID: 0}
     - target: {fileID: 4657350625837644980, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
       propertyPath: m_AnchorMin.y
