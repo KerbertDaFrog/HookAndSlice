@@ -17,6 +17,10 @@ public class ArmourPiece : ArmourPieces
 
     private void Start()
     {
+        if(gameObject.tag == "ChestPlate")
+        {
+            gameObject.SetActive(false);
+        }
         fallingArmourPos = new Vector3(gameObject.transform.position.x, 0f, gameObject.transform.position.z);
     }
 
@@ -38,16 +42,26 @@ public class ArmourPiece : ArmourPieces
     {       
         yield return null;
         //play sound
-        yield return null;
-        Debug.Log("Instantiating Falling Armour");
-        Instantiate(fallingArmour, fallingArmourPos, armourPiece.transform.rotation);
-        Debug.Log("Turning Ghost Armour on");
-        ghostArmor.SetActive(true);
+        if(gameObject.tag != "ChestPlate")
+        {
+            yield return null;
+            Debug.Log("Instantiating Falling Armour");
+            Instantiate(fallingArmour, fallingArmourPos, armourPiece.transform.rotation);
+            Debug.Log("Turning Ghost Armour on");
+            ghostArmor.SetActive(true);
+        }      
         yield return null;       
         Destroy(armourPiece.gameObject);
-        yield return new WaitForSeconds(0.5f);    
-        Debug.Log("Knight Boss Going to Frenzy");
-        kb.SetState(Enemy.EnemyStates.frenzy);
+        yield return new WaitForSeconds(0.5f);       
+        if(kb.frenzyDone == false)
+        {
+            Debug.Log("Knight Boss Going to Frenzy");
+            kb.SetState(Enemy.EnemyStates.frenzy);
+        }
+        else if(kb.frenzyDone == true)
+        {
+            kb.frenzyDone = false;
+        }
         yield return null;
         Destroy(gameObject);
         yield return null;

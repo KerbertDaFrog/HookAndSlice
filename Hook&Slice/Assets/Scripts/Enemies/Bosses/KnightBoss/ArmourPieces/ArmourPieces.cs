@@ -10,6 +10,12 @@ public class ArmourPieces : HookableObjects
     [SerializeField]
     private List<GameObject> armourPieces = new List<GameObject>();
 
+    [SerializeField]
+    private GameObject chestPlate;
+
+    [SerializeField]
+    private GameObject chestPlateGlow;
+
     private void Awake()
     {
         kb = GetComponentInParent<KnightBoss>();
@@ -26,11 +32,26 @@ public class ArmourPieces : HookableObjects
             }
         }
 
-        if(armourPieces.Count == 0)
+        if(armourPieces.Count == 0 && chestPlate == null)
         {
             Debug.Log("Setting Boss State to Dead");
             kb.SetState(Enemy.EnemyStates.dead);
         }
+
+        if(armourPieces.Count == 0)
+        {
+            chestPlate.SetActive(true);
+        }
+
+        if(kb.currentState == Enemy.EnemyStates.staggered && armourPieces.Count == 0)
+        {
+            chestPlateGlow.SetActive(true);
+        }
+        else
+        {
+            chestPlateGlow.SetActive(false);
+        }
+
     }
 
     protected override void OnTriggerEnter(Collider other)

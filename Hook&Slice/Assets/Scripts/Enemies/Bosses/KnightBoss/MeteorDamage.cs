@@ -29,7 +29,6 @@ public class MeteorDamage : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("On");
         currentLifeTime = setLifeTime;
         StartCoroutine("TurnMeteorLandedBoolOnAndOff");
     }
@@ -52,7 +51,6 @@ public class MeteorDamage : MonoBehaviour
         if (meteorLanded == true)
         {
             knockBack.enabled = true;
-            Debug.Log("Knockback turning on");
         }
         else if (meteorLanded == false)
         {
