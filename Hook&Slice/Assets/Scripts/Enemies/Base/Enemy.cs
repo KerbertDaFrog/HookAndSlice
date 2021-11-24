@@ -372,9 +372,7 @@ public class Enemy : MonoBehaviour
 		StartCoroutine("Dead");
 	}
 
-	//destoying the gameobject after dead - Alex
-
-	IEnumerator Dead()
+	protected virtual IEnumerator Dead()
     {
 		yield return new WaitForSeconds(0.5f);
 		InstantiateDeadEnemyBody();
