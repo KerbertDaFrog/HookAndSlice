@@ -4,40 +4,51 @@ using UnityEngine;
 
 public class ArmourPiece : ArmourPieces
 {
-    private KnightBoss kb;
+    [SerializeField]
+    private GameObject armourPiece;
 
     [SerializeField]
-    private bool chestPlate;
+    private GameObject fallingArmour;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject ghostArmor;
+
+    private Vector3 fallingArmourPos;
+
+    private void Start()
     {
-        if(gameObject.tag == "ChestPlate")
-        {
-            chestPlate = true;
-        }
+        fallingArmourPos = new Vector3(gameObject.transform.position.x, 0f, gameObject.transform.position.z);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (hooked == true)
+        if(hooked == true)
         {
+            hooked = false;
             StartCoroutine(FallOffKnightBoss());
+        }
+
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            Instantiate(fallingArmour, fallingArmourPos, armourPiece.transform.rotation);
         }
     }
 
     IEnumerator FallOffKnightBoss()
-    {
+    {       
         yield return null;
         //play sound
         yield return null;
-        Destroy(gameObject);
+        Debug.Log("Instantiating Falling Armour");
+        Instantiate(fallingArmour, fallingArmourPos, armourPiece.transform.rotation);
+        Debug.Log("Turning Ghost Armour on");
+        ghostArmor.SetActive(true);
         yield return null;
-        //instantiate falling armour
+        Destroy(armourPiece.gameObject);
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Knight Boss Going to Frenzy");
         kb.SetState(Enemy.EnemyStates.frenzy);
-        //tell knight to go to frenzy state
+        yield return null;
+        Destroy(gameObject);
     }
 }

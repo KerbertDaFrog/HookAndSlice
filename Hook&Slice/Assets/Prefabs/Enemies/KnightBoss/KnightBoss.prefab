@@ -253,8 +253,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6757620108172536336}
   - component: {fileID: 2659742688690274984}
-  - component: {fileID: 7362313550307938555}
-  m_Layer: 0
+  - component: {fileID: 8322299587629572941}
+  m_Layer: 11
   m_Name: LegPiece2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,9 +286,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7362313550307938555
+--- !u!114 &8322299587629572941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,11 +297,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1544024891204187195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd911c8ca3296a4fabf9bd684bcefda, type: 3}
+  m_Script: {fileID: 11500000, guid: ab90163469c45ad4face93ec6c2c8126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  chestPlate: 0
+  kb: {fileID: 0}
+  fallingArmour: {fileID: 371538128063960820, guid: c7a1edc54692e7a4f8f8eaea74b47ffe, type: 3}
 --- !u!1 &1912695419314808605
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,8 +312,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4882638114324879348}
   - component: {fileID: 2542027197176851838}
-  - component: {fileID: 6054446972206219942}
-  m_Layer: 0
+  - component: {fileID: 5097256215736059565}
+  m_Layer: 11
   m_Name: Pauldron2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,9 +345,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6054446972206219942
+--- !u!114 &5097256215736059565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,11 +356,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1912695419314808605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd911c8ca3296a4fabf9bd684bcefda, type: 3}
+  m_Script: {fileID: 11500000, guid: ab90163469c45ad4face93ec6c2c8126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  chestPlate: 0
+  kb: {fileID: 0}
+  fallingArmour: {fileID: 8034385653206724873, guid: 3031dcb39f65d5f469d8895a65202f76, type: 3}
 --- !u!1 &3551735693857524781
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,8 +495,8 @@ GameObject:
   m_Name: KnightBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4295101526577440102
 Transform:
@@ -642,7 +642,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!65 &4295101526577440105
 BoxCollider:
@@ -753,6 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3956778197468237433}
   - component: {fileID: 1644366758400201445}
+  - component: {fileID: 8616879132250653563}
   m_Layer: 0
   m_Name: ChestPiece
   m_TagString: ChestPlate
@@ -785,8 +786,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8616879132250653563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434655863971351649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab90163469c45ad4face93ec6c2c8126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kb: {fileID: 0}
+  fallingArmour: {fileID: 0}
 --- !u!1 &5997442639483936294
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,8 +842,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6794049506047780589}
   - component: {fileID: 8877527689514244924}
-  - component: {fileID: 4389163887911220121}
-  m_Layer: 0
+  - component: {fileID: 5512977959949015665}
+  m_Layer: 11
   m_Name: LegPiece1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,9 +875,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4389163887911220121
+--- !u!114 &5512977959949015665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -871,11 +886,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6225656176631608769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd911c8ca3296a4fabf9bd684bcefda, type: 3}
+  m_Script: {fileID: 11500000, guid: ab90163469c45ad4face93ec6c2c8126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  chestPlate: 0
+  kb: {fileID: 0}
+  fallingArmour: {fileID: 7113997920339001238, guid: d05aa37e6ec08cb429bab135bfaf15cc, type: 3}
 --- !u!1 &6705591702975178962
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,8 +964,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4968408657348112035}
   - component: {fileID: 5463957492034477580}
-  - component: {fileID: 2716521249533889709}
-  m_Layer: 0
+  - component: {fileID: 3854421366921685254}
+  m_Layer: 11
   m_Name: Pauldron1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,9 +997,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2716521249533889709
+--- !u!114 &3854421366921685254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -993,11 +1008,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7345898284947158962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd911c8ca3296a4fabf9bd684bcefda, type: 3}
+  m_Script: {fileID: 11500000, guid: ab90163469c45ad4face93ec6c2c8126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  chestPlate: 0
+  kb: {fileID: 0}
+  fallingArmour: {fileID: 6490841030588961058, guid: 12b00774cb30f2547bcd9fd15d397e21, type: 3}
 --- !u!1 &7522711364061959922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3732694335276501862}
-  - component: {fileID: 6335337481556954936}
+  - component: {fileID: 129845584}
   m_Layer: 0
   m_Name: ArmourPieces
   m_TagString: Untagged
@@ -1034,7 +1049,7 @@ Transform:
   m_Father: {fileID: 4295101526577440102}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6335337481556954936
+--- !u!114 &129845584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1043,10 +1058,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7522711364061959922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c281f16dc73b91f499dc7587567dea2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 95aef515d9daa744ea8e13e7f316da33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  kb: {fileID: 0}
 --- !u!1001 &1590905478825807380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1262,14 +1277,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5405f996d3458bf4288170a50c30f5ba, type: 3}
---- !u!1 &8275932728590750601 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2548480667501626236, guid: 5405f996d3458bf4288170a50c30f5ba, type: 3}
-  m_PrefabInstance: {fileID: 5873821266498867445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8275932728590750600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2548480667501626237, guid: 5405f996d3458bf4288170a50c30f5ba, type: 3}
+  m_PrefabInstance: {fileID: 5873821266498867445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8275932728590750601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2548480667501626236, guid: 5405f996d3458bf4288170a50c30f5ba, type: 3}
   m_PrefabInstance: {fileID: 5873821266498867445}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7292025229581792147

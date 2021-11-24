@@ -4,27 +4,12 @@ using UnityEngine;
 
 public class ArmourPieces : HookableObjects
 {
-    private KnightBoss kb;
-
-    private GameObject[] armourPieces = new GameObject[5];
-
     [SerializeField]
-    private Animator anim;
+    protected KnightBoss kb;
 
-    private void Start()
+    private void Awake()
     {
         kb = GetComponentInParent<KnightBoss>();
-    }
-
-    private void Update()
-    {
-        foreach(GameObject armourPiece in armourPieces)
-        {
-            if(armourPiece == null)
-            {
-
-            }
-        }
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -33,12 +18,12 @@ public class ArmourPieces : HookableObjects
         {
             if(hooked == false)
             {
-                if(kb.currentState != Enemy.EnemyStates.attacking)
+                if(kb.currentState == Enemy.EnemyStates.staggered)
                 {
                     Debug.Log("Hooked");
                     hooked = true;
                 }
-            }
+            }          
         }
     }
 }
