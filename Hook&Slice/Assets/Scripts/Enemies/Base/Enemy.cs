@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 	}
 
 	public EnemyStates currentState;
-	private EnemyStates previousState;
+	public EnemyStates previousState;
 
 	[Header("NavMesh")]
 	public NavMeshAgent nav;
@@ -394,7 +394,7 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void LeaveStaggeredState()
 	{
-        //anim.SetBool("caught", false);
+        anim.SetBool("caught", false);
     }
 
 	protected virtual void GoToFrenzyState() 
@@ -411,7 +411,7 @@ public class Enemy : MonoBehaviour
 		anim.SetBool("caught", true);
 	}
 
-	protected virtual void LeaveOnHookState() 
+	protected virtual void LeaveOnHookState()
 	{
 		if(currentState != EnemyStates.dead)
         {

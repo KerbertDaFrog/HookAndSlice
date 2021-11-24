@@ -49,8 +49,7 @@ public class Sword : MonoBehaviour
                 }
             }
         }
-        else 
-        if(hook == null)
+        else if(hook == null)
         {        
             RaycastHit hit;
 
