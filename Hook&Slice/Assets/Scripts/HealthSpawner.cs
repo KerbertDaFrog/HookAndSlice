@@ -41,11 +41,7 @@ public class HealthSpawner : MonoBehaviour
         {
             healthPotionExists = true;
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.tag == "HealthPotion")
+        else if(other.gameObject.tag != "HealthPotion")
         {
             healthPotionExists = false;
         }

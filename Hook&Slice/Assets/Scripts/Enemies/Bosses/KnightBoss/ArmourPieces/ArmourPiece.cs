@@ -50,7 +50,7 @@ public class ArmourPiece : ArmourPieces
             Debug.Log("Turning Ghost Armour on");
             ghostArmor.SetActive(true);
         }      
-        yield return null;       
+        yield return null;
         Destroy(armourPiece.gameObject);
         yield return new WaitForSeconds(0.5f);       
         if(kb.frenzyDone == false)
