@@ -27,10 +27,19 @@ public class Shockwave : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.ShockwaveDamage());
-            Destroy(gameObject);
+            if(other.gameObject.tag == "Player")
+            {
+                other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.ShockwaveDamage());
+                Destroy(gameObject);
+            }
+            else if(other.gameObject.tag == "Enemy")
+            {
+                Debug.Log("Shockwave Killed Enemy");
+                other.gameObject.GetComponent<Enemy>().SetState(Enemy.EnemyStates.dead);
+                Destroy(gameObject);
+            }
         }
     }
 

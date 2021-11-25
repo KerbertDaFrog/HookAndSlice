@@ -55,8 +55,11 @@ public class ArmourPiece : ArmourPieces
         yield return new WaitForSeconds(0.5f);       
         if(kb.frenzyDone == false)
         {
-            Debug.Log("Knight Boss Going to Frenzy");
-            kb.SetState(Enemy.EnemyStates.frenzy);
+            if(kb.currentState != Enemy.EnemyStates.dead)
+            {
+                Debug.Log("Knight Boss Going to Frenzy");
+                kb.SetState(Enemy.EnemyStates.frenzy);
+            }         
         }
         else if(kb.frenzyDone == true)
         {
