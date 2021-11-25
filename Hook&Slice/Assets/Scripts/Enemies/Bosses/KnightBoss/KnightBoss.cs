@@ -74,57 +74,57 @@ public class KnightBoss : Enemy
     {
         base.Update();
 
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            int randAttackState = Random.Range(0, 3);
-            if (randAttackState == 0)
-            {
-                SetAttackState(AttackState.slam);
-            }
-            else if (randAttackState == 1)
-            {
-                SetAttackState(AttackState.range);
-            }
-            else if (randAttackState == 2)
-            {
-                SetAttackState(AttackState.summon);
-            }
-            print(randAttackState);
-        }
+        //if(Input.GetKeyDown(KeyCode.L))
+        //{
+        //    int randAttackState = Random.Range(0, 3);
+        //    if (randAttackState == 0)
+        //    {
+        //        SetAttackState(AttackState.slam);
+        //    }
+        //    else if (randAttackState == 1)
+        //    {
+        //        SetAttackState(AttackState.range);
+        //    }
+        //    else if (randAttackState == 2)
+        //    {
+        //        SetAttackState(AttackState.summon);
+        //    }
+        //    print(randAttackState);
+        //}
 
-        //press to test shockwave spawn
-        if(Input.GetKeyDown(KeyCode.Y))
-        {
-            SetAttackState(AttackState.slam);
-        }
+        ////press to test shockwave spawn
+        //if(Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    SetAttackState(AttackState.slam);
+        //}
 
-        //press to test meteor spawn
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            SetAttackState(AttackState.range);
-        }
+        ////press to test meteor spawn
+        //if (Input.GetKeyDown(KeyCode.U))
+        //{
+        //    SetAttackState(AttackState.range);
+        //}
 
-        //press to test summon spawn
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            SetAttackState(AttackState.summon);
-        }
+        ////press to test summon spawn
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    SetAttackState(AttackState.summon);
+        //}
         
-        //press to test frenzy MUST NOT BE IN IDLE FOR THIS TO WORK!
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            SetState(EnemyStates.frenzy);
-        }
+        ////press to test frenzy MUST NOT BE IN IDLE FOR THIS TO WORK!
+        //if(Input.GetKeyDown(KeyCode.O))
+        //{
+        //    SetState(EnemyStates.frenzy);
+        //}
 
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            SetState(EnemyStates.staggered);
-        }
+        //if(Input.GetKeyDown(KeyCode.K))
+        //{
+        //    SetState(EnemyStates.staggered);
+        //}
 
-        if(Input.GetKeyDown(KeyCode.B))
-        {
-            attacksDone++;
-        }
+        //if(Input.GetKeyDown(KeyCode.B))
+        //{
+        //    attacksDone++;
+        //}
 
         if(currentAttackCooldown > 0f)
         {
