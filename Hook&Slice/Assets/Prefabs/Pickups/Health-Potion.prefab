@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 3242012598317738354}
   m_Layer: 0
   m_Name: Health-Potion
-  m_TagString: Untagged
+  m_TagString: HealthPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +246,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4c038130b5f094dbba4bd2d562fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HC: {fileID: 0}
-  confirmationText: {fileID: 0}
   pickupType: Health Potion
+  key: 0

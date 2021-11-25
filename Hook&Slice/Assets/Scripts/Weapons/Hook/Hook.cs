@@ -292,7 +292,7 @@ public class Hook : MonoBehaviour
     }
 
     //Destroy Hook and turn on the static(placeholder) sprite.
-    private void OnHookDestroyed()
+    public void OnHookDestroyed()
     {
         harpoon.returned = true;
         harpoon.staticHook.SetActive(true);

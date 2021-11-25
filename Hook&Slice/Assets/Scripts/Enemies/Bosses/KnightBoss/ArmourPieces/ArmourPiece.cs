@@ -57,8 +57,11 @@ public class ArmourPiece : ArmourPieces
         {
             if(kb.currentState != Enemy.EnemyStates.dead)
             {
-                Debug.Log("Knight Boss Going to Frenzy");
-                kb.SetState(Enemy.EnemyStates.frenzy);
+                if(gameObject.tag != "ChestPlate")
+                {
+                    Debug.Log("Knight Boss Going to Frenzy");
+                    kb.SetState(Enemy.EnemyStates.frenzy);
+                }          
             }         
         }
         else if(kb.frenzyDone == true)

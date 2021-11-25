@@ -54,7 +54,6 @@ public class ArmourPieces : HookableObjects
         {
             chestPlateGlow.SetActive(false);
         }
-
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -66,6 +65,7 @@ public class ArmourPieces : HookableObjects
                 if(kb.currentState == Enemy.EnemyStates.staggered)
                 {
                     Debug.Log("Hooked");
+                    other.gameObject.GetComponent<Hook>().OnHookDestroyed();
                     hooked = true;
                 }
             }          

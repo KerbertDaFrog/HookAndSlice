@@ -192,118 +192,130 @@ public class KnightBoss : Enemy
 
     IEnumerator Frenzy()
     {
-        SetAttackState(AttackState.slam);
-        Debug.Log("Doing Slam");
-        while (currentAttackState == AttackState.slam && currentState != EnemyStates.dead)
+        if(currentState != EnemyStates.dead)
         {
+            SetAttackState(AttackState.slam);
+            Debug.Log("Doing Slam");
+            while (currentAttackState == AttackState.slam && currentState != EnemyStates.dead)
+            {
+                yield return null;
+            }
+            SetAttackState(AttackState.range);  
+            Debug.Log("Doing Range");
+            while (currentAttackState == AttackState.range && currentState != EnemyStates.dead)
+            {
+                yield return null;
+            }
+            SetAttackState(AttackState.summon);        
+            Debug.Log("Doing Summon");
+            while (currentAttackState == AttackState.summon && currentState != EnemyStates.dead)
+            {
+                yield return null;
+            }
+            frenzyDone = true;
             yield return null;
-        }
-        SetAttackState(AttackState.range);
-        Debug.Log("Doing Range");
-        while (currentAttackState == AttackState.range && currentState != EnemyStates.dead)
-        {
+            currentStaggeredTimer = setStaggeredTimer;
             yield return null;
+            SetState(EnemyStates.staggered);
+            Debug.Log("Frenzy Done");
         }
-        SetAttackState(AttackState.summon);
-        Debug.Log("Doing Summon");
-        while (currentAttackState == AttackState.summon && currentState != EnemyStates.dead)
-        {
-            yield return null;
-        }
-        frenzyDone = true;
-        yield return null;
-        currentStaggeredTimer = setStaggeredTimer;
-        yield return null;
-        SetState(EnemyStates.staggered);     
-        Debug.Log("Frenzy Done");
     }
 
     #region Attacks
     IEnumerator SlamAttack()
     {
-        if(currentAttackState != AttackState.range && currentAttackState != AttackState.summon)
+        if(currentState != EnemyStates.dead)
         {
-            Debug.Log("Doing Slam");
-            currentAttackState = AttackState.slam;
-            yield return null;
-            anim.SetBool("slash", true);
-            yield return new WaitForSeconds(0.3f);
-            Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
-            Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
-            Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
-            Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
-            yield return new WaitForSeconds(0.5f);
-            Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
-            Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
-            Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
-            Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
-            yield return new WaitForSeconds(0.1f);
-            anim.SetBool("slash", false);
-            yield return null;
-            if (currentState != EnemyStates.frenzy)
+            if (currentAttackState != AttackState.range && currentAttackState != AttackState.summon)
             {
-                currentAttackCooldown = setAttackCooldown;
-                attacksDone++;
+                Debug.Log("Doing Slam");
+                currentAttackState = AttackState.slam;
+                yield return null;
+                anim.SetBool("slash", true);
+                yield return new WaitForSeconds(0.3f);
+                Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
+                Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
+                Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
+                Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
+                yield return new WaitForSeconds(0.5f);
+                Instantiate(shockWav, shockWavSpawns[0].transform.position, shockWavSpawns[0].transform.rotation);
+                Instantiate(shockWav, shockWavSpawns[1].transform.position, shockWavSpawns[1].transform.rotation);
+                Instantiate(shockWav, shockWavSpawns[2].transform.position, shockWavSpawns[2].transform.rotation);
+                Instantiate(shockWav, shockWavSpawns[3].transform.position, shockWavSpawns[3].transform.rotation);
+                yield return new WaitForSeconds(0.1f);
+                anim.SetBool("slash", false);
+                yield return null;
+                if (currentState != EnemyStates.frenzy)
+                {
+                    currentAttackCooldown = setAttackCooldown;
+                    attacksDone++;
+                }
+                currentAttackState = AttackState.nil;
             }
-            currentAttackState = AttackState.nil;
-        }     
+        }
     }
 
     IEnumerator RangeAttack()
     {
-        if(currentAttackState != AttackState.slam && currentAttackState != AttackState.summon)
+        if(currentState != EnemyStates.dead)
         {
-            Debug.Log("Doing Range");
-            currentAttackState = AttackState.range;
-            yield return null;
-            //turn range attack animation on
-            anim.SetBool("slam", true);
-            yield return new WaitForSeconds(0.5f);
-            meteorDamage[0].SetActive(true);
-            meteorDamage[1].SetActive(true);
-            meteorDamage[2].SetActive(true);
-            meteorDamage[3].SetActive(true);
-            meteorDamage[4].SetActive(true);
-            meteorDamage[5].SetActive(true);
-            meteorDamage[6].SetActive(true);
-            meteorDamage[7].SetActive(true);
-            anim.SetBool("slam", false);
-            if(currentState == EnemyStates.frenzy)
+            if (currentAttackState != AttackState.slam && currentAttackState != AttackState.summon)
             {
-                yield return new WaitForSeconds(2f);
+                Debug.Log("Doing Range");
+                currentAttackState = AttackState.range;
+                yield return null;
+                //turn range attack animation on
+                anim.SetBool("slam", true);
+                yield return new WaitForSeconds(0.5f);
+                meteorDamage[0].SetActive(true);
+                meteorDamage[1].SetActive(true);
+                meteorDamage[2].SetActive(true);
+                meteorDamage[3].SetActive(true);
+                meteorDamage[4].SetActive(true);
+                meteorDamage[5].SetActive(true);
+                meteorDamage[6].SetActive(true);
+                meteorDamage[7].SetActive(true);
+                anim.SetBool("slam", false);
+                if (currentState == EnemyStates.frenzy)
+                {
+                    yield return new WaitForSeconds(2f);
+                }
+                else if (currentState != EnemyStates.frenzy)
+                {
+                    currentAttackCooldown = setAttackCooldown;
+                    attacksDone++;
+                }
+                currentAttackState = AttackState.nil;
             }
-            else if (currentState != EnemyStates.frenzy)
-            {
-                currentAttackCooldown = setAttackCooldown;
-                attacksDone++;
-            }
-            currentAttackState = AttackState.nil;
-        }      
+        }
     }
 
     IEnumerator SummonMinions()
     {
-        if(currentAttackState != AttackState.slam && currentAttackState != AttackState.range)
+        if(currentState != EnemyStates.dead)
         {
-            Debug.Log("Doing Summon");
-            currentAttackState = AttackState.summon;
-            //random meteor locations
-            yield return null;
-            anim.SetBool("tap", true);
-            yield return new WaitForSeconds(0.5f);
-            Instantiate(summonedEnemies[0], summonSpawns[0].transform.position, summonSpawns[0].transform.rotation);
-            Instantiate(summonedEnemies[1], summonSpawns[1].transform.position, summonSpawns[1].transform.rotation);
-            Instantiate(summonedEnemies[0], summonSpawns[2].transform.position, summonSpawns[2].transform.rotation);
-            yield return null;
-            anim.SetBool("tap", false);
-            yield return null;
-            if (currentState != EnemyStates.frenzy)
+            if (currentAttackState != AttackState.slam && currentAttackState != AttackState.range)
             {
-                currentAttackCooldown = setAttackCooldown;
-                attacksDone++;
+                Debug.Log("Doing Summon");
+                currentAttackState = AttackState.summon;
+                //random meteor locations
+                yield return null;
+                anim.SetBool("tap", true);
+                yield return new WaitForSeconds(0.5f);
+                Instantiate(summonedEnemies[0], summonSpawns[0].transform.position, summonSpawns[0].transform.rotation);
+                Instantiate(summonedEnemies[1], summonSpawns[1].transform.position, summonSpawns[1].transform.rotation);
+                Instantiate(summonedEnemies[0], summonSpawns[2].transform.position, summonSpawns[2].transform.rotation);
+                yield return null;
+                anim.SetBool("tap", false);
+                yield return null;
+                if (currentState != EnemyStates.frenzy)
+                {
+                    currentAttackCooldown = setAttackCooldown;
+                    attacksDone++;
+                }
+                currentAttackState = AttackState.nil;
             }
-            currentAttackState = AttackState.nil;
-        }      
+        }
     }
     #endregion
 
@@ -353,6 +365,7 @@ public class KnightBoss : Enemy
     protected override void GoToDeadState()
     {
         currentState = EnemyStates.dead;
+        currentAttackState = AttackState.nil;
         this.GetComponent<BoxCollider>().isTrigger = true;
         anim.SetBool("caught", false);
         anim.SetBool("attack", false);
