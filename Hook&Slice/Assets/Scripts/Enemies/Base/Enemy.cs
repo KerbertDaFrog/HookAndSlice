@@ -394,7 +394,7 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void LeaveStaggeredState()
 	{
-        anim.SetBool("caught", false);
+        //anim.SetBool("caught", false);
     }
 
 	protected virtual void GoToFrenzyState() 
