@@ -69,11 +69,20 @@ public class MeteorDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
         {
             if (meteorLanded == true)
             {
-                other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.Damage());
+                if(other.gameObject.tag == "Player")
+                {
+                    other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage(kb.Damage());
+                }
+                else if(other.gameObject.tag == "Enemy")
+                {
+                    Debug.Log("Meteor killing enemy");
+                    other.gameObject.GetComponent<Enemy>().SetState(Enemy.EnemyStates.dead);
+                }
+                
             }
         }
     }

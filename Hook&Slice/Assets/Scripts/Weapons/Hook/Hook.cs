@@ -17,7 +17,7 @@ public class Hook : MonoBehaviour
     [SerializeField]
     private float currentTimer;
     private float totalDist;
-    private float maxDist = 1000f;
+    private float maxDist = 100f;
     private float gapDist = 0.1f;
 
     [SerializeField]

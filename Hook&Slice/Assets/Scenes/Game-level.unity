@@ -430,6 +430,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.536
       objectReference: {fileID: 0}
+    - target: {fileID: 3946093318912343271, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
+      propertyPath: kb
+      value: 
+      objectReference: {fileID: 1171054987}
+    - target: {fileID: 3946093318912343271, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2048816579}
+    - target: {fileID: 3946093318912343271, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
+      propertyPath: roomNumber
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4675891794475131670, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
       propertyPath: m_RootOrder
       value: 329
@@ -1446,6 +1458,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1171054987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4915241174717889225, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+  m_PrefabInstance: {fileID: 1833422351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9bcb98ce400e44798aa78aea27532c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1208521939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2233,6 +2256,14 @@ PrefabInstance:
       propertyPath: meteorDamage.Array.data[7]
       value: 
       objectReference: {fileID: 1334132949}
+    - target: {fileID: 4915241174717889225, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: setAttackCooldown
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522711364061959922, guid: c6c8a1229c6283342a5de21338357095, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6c8a1229c6283342a5de21338357095, type: 3}
 --- !u!4 &1853966005 stripped
@@ -2595,6 +2626,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2548480667501626236, guid: 5405f996d3458bf4288170a50c30f5ba, type: 3}
   m_PrefabInstance: {fileID: 1960703135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2048816576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2847590063578834310, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
+  m_PrefabInstance: {fileID: 458610719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2048816579 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2847590063578834308, guid: 564ff019926b8d84988ea4f54720b3cc, type: 3}
+  m_PrefabInstance: {fileID: 458610719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2048816581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048816576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e01943b5b4d95428ccb6a0cab98600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kb: {fileID: 1171054987}
+  anim: {fileID: 2048816579}
+  roomNumber: 12
 --- !u!4 &901353407107477389
 Transform:
   m_ObjectHideFlags: 0
@@ -3435,7 +3491,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1403292873972556988, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ae4ea7c6578da143a413132b0ab00db, type: 3}
 --- !u!4 &1913291837126027550 stripped
 Transform:

@@ -51,6 +51,7 @@ public class KnightBoss : Enemy
     [SerializeField]
     private float setStaggeredTimer;
 
+    private ParticleSystem ps;
     public enum AttackState
     {
         nil,
@@ -68,63 +69,12 @@ public class KnightBoss : Enemy
         currentStaggeredTimer = setStaggeredTimer;
         currentAttackCooldown = setAttackCooldown;
         nav.speed = 0;
+        ps = GetComponentInChildren<ParticleSystem>();
     }
 
     protected override void Update()
     {
         base.Update();
-
-        //if(Input.GetKeyDown(KeyCode.L))
-        //{
-        //    int randAttackState = Random.Range(0, 3);
-        //    if (randAttackState == 0)
-        //    {
-        //        SetAttackState(AttackState.slam);
-        //    }
-        //    else if (randAttackState == 1)
-        //    {
-        //        SetAttackState(AttackState.range);
-        //    }
-        //    else if (randAttackState == 2)
-        //    {
-        //        SetAttackState(AttackState.summon);
-        //    }
-        //    print(randAttackState);
-        //}
-
-        ////press to test shockwave spawn
-        //if(Input.GetKeyDown(KeyCode.Y))
-        //{
-        //    SetAttackState(AttackState.slam);
-        //}
-
-        ////press to test meteor spawn
-        //if (Input.GetKeyDown(KeyCode.U))
-        //{
-        //    SetAttackState(AttackState.range);
-        //}
-
-        ////press to test summon spawn
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    SetAttackState(AttackState.summon);
-        //}
-        
-        ////press to test frenzy MUST NOT BE IN IDLE FOR THIS TO WORK!
-        //if(Input.GetKeyDown(KeyCode.O))
-        //{
-        //    SetState(EnemyStates.frenzy);
-        //}
-
-        //if(Input.GetKeyDown(KeyCode.K))
-        //{
-        //    SetState(EnemyStates.staggered);
-        //}
-
-        //if(Input.GetKeyDown(KeyCode.B))
-        //{
-        //    attacksDone++;
-        //}
 
         if(currentAttackCooldown > 0f)
         {
@@ -407,18 +357,22 @@ public class KnightBoss : Enemy
         anim.SetBool("caught", false);
         anim.SetBool("attack", false);
         anim.SetBool("walk", false);
-        anim.SetBool("dead", true);
         HudControl.Instance.EnemyKillCount();
-        AudioManager.instance.Play("GoblinDeath");
         StartCoroutine("Dead");
     }
     #endregion
 
-    //protected override IEnumerator Dead()
-    //{
-    //    yield return null;
-    //    Destroy(gameObject);
-    //}
+    protected override IEnumerator Dead()
+    {
+        ps.Play(true);
+        yield return new WaitForSeconds(0.7f);
+        ps.Stop();
+        anim.SetBool("dead", true);
+        yield return new WaitForSeconds(0.7f);
+        InstantiateDeadEnemyBody();
+        yield return null;
+        Destroy(gameObject);
+    }
 
     #region Getters
     public int ShockwaveDamage()

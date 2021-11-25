@@ -40,7 +40,10 @@ public class ArmourPieces : HookableObjects
 
         if(armourPieces.Count == 0)
         {
-            chestPlate.SetActive(true);
+            if(kb.currentState != Enemy.EnemyStates.dead)
+            {
+                chestPlate.SetActive(true);
+            }          
         }
 
         if(kb.currentState == Enemy.EnemyStates.staggered && armourPieces.Count == 0)

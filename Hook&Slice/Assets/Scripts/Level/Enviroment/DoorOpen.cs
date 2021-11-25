@@ -5,11 +5,9 @@ using GameAnalyticsSDK;
 
 public class DoorOpen : MonoBehaviour
 {
-
     [SerializeField]
     private Animator anim;
 
-       
     //is the door able to be opened? 
     [SerializeField] 
     private bool unlocked;
@@ -20,18 +18,17 @@ public class DoorOpen : MonoBehaviour
     [SerializeField]
     private BoxCollider doorTrigger;
 
-
     //the quick bodging of enemies being blocked by doors AKA: enemies are off untill door is open
     [SerializeField]
     private GameObject roomsEnemies;
 
     private bool interact = false;
+    [SerializeField]
     private bool open = false;
 
     [Header("Analytics:")]
     [SerializeField]
     private int roomNumber;
-
 
     //UI systems:
     public delegate void Interaction(bool interact);

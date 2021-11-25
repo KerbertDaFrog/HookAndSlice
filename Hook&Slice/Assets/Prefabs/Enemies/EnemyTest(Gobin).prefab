@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  previousState: 0
   nav: {fileID: 4295101526577440104}
   player: {fileID: 0}
   damageBox: {fileID: 4641237462318576440}
@@ -276,6 +277,7 @@ MonoBehaviour:
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 0}
   anim: {fileID: 7899148833459127956}
+  kb: {fileID: 0}
 --- !u!114 &303073293147733644
 MonoBehaviour:
   m_ObjectHideFlags: 0

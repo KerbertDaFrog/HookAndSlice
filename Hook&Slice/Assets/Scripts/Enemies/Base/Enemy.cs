@@ -98,11 +98,16 @@ public class Enemy : MonoBehaviour
 	[Header("Animator")]
 	[SerializeField]
 	protected Animator anim;
+
+	[SerializeField]
+	private KnightBoss kb;
     #endregion
 
     private void Awake()
 	{
+		kb = FindObjectOfType<KnightBoss>();
 		player = GameObject.Find("Player").transform;
+		//^^Try to change these in the future^^
 		nav = GetComponent<NavMeshAgent>();
 	}
 
@@ -128,6 +133,15 @@ public class Enemy : MonoBehaviour
 		if (!hasAttacked)
 			attackDelay = Mathf.Clamp(attackDelay -= Time.deltaTime, 0f, setAttackDelay);
 
+		if(gameObject.tag == "Enemy")
+        {
+			if (kb.currentState == EnemyStates.dead)
+			{
+				Debug.Log("Kill");
+				SetState(EnemyStates.dead);
+			}
+		}	
+
 		EnemyBehaviour();
 	}
 
@@ -137,7 +151,7 @@ public class Enemy : MonoBehaviour
 	}
 	#endregion
 
-	private void InstantiateDeadEnemyBody()
+	protected void InstantiateDeadEnemyBody()
     {
         int groundMask = 1 << 8;
 
