@@ -1061,7 +1061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3732694335276501862}
-  - component: {fileID: 129845584}
+  - component: {fileID: 6528538200645051269}
   m_Layer: 0
   m_Name: ArmourPieces
   m_TagString: Untagged
@@ -1088,7 +1088,7 @@ Transform:
   m_Father: {fileID: 4295101526577440102}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &129845584
+--- !u!114 &6528538200645051269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7522711364061959922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95aef515d9daa744ea8e13e7f316da33, type: 3}
+  m_Script: {fileID: 11500000, guid: c281f16dc73b91f499dc7587567dea2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   kb: {fileID: 0}
