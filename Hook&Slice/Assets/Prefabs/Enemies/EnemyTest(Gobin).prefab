@@ -261,7 +261,7 @@ MonoBehaviour:
   hasAttacked: 0
   chasing: 0
   hasSeenPlayer: 0
-  viewRadius: 10
+  viewRadius: 8
   viewAngle: 360
   targetMask:
     serializedVersion: 2

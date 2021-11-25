@@ -7,29 +7,34 @@ public class Door : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    private bool open;
+
+    private bool playerinside;
+    private bool healthpotion;
+
     [SerializeField]
-    private GameObject interactIcon;
+    private GameObject healthItem;
+    [SerializeField]
+    private GameObject potionSpawn;
 
-    private bool interact = false;
-    //private bool open = false;
-
-
-
-    // Update is called once per frame
-    void Update()
+    public void DoorOpen()
     {
-        
+        anim.SetBool("doorOpen", true);
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        playerinside = true;
     }
 
-    private void InteractON()
+    private void OnTriggerExit(Collider other)
     {
-        interact = true;
-        interactIcon.SetActive(true);
+        if(other.gameObject.tag == "Player")
+        {
+            playerinside = false;
+            anim.SetBool("doorClose", true);
+        }
     }
-
 }
