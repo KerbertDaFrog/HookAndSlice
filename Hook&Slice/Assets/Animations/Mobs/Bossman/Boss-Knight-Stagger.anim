@@ -50,15 +50,15 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 450921926944856354, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
+      value: {fileID: 1434437231446686701, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
     - time: 0.25
-      value: {fileID: 2958487831024921109, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
+      value: {fileID: 5172293525180167738, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
     - time: 0.5
-      value: {fileID: 450921926944856354, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
+      value: {fileID: 1434437231446686701, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
     - time: 0.75
-      value: {fileID: -8238792883566930365, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
+      value: {fileID: -4175524802560345676, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
     - time: 1
-      value: {fileID: 450921926944856354, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
+      value: {fileID: 1434437231446686701, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
     attribute: m_Sprite
     path: layer3-pauldron-right
     classID: 212
@@ -300,11 +300,11 @@ AnimationClip:
     - {fileID: -5581888688494892680, guid: cca3b0066c2851c4487caac3d10b34e0, type: 3}
     - {fileID: 8558921913256880368, guid: cca3b0066c2851c4487caac3d10b34e0, type: 3}
     - {fileID: -5581888688494892680, guid: cca3b0066c2851c4487caac3d10b34e0, type: 3}
-    - {fileID: 450921926944856354, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
-    - {fileID: 2958487831024921109, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
-    - {fileID: 450921926944856354, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
-    - {fileID: -8238792883566930365, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
-    - {fileID: 450921926944856354, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
+    - {fileID: 1434437231446686701, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
+    - {fileID: 5172293525180167738, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
+    - {fileID: 1434437231446686701, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
+    - {fileID: -4175524802560345676, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
+    - {fileID: 1434437231446686701, guid: 2e8f63a4a5a0481419e07df9cf647619, type: 3}
     - {fileID: 6366780814716666463, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
     - {fileID: -1015764586189297009, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}
     - {fileID: 6366780814716666463, guid: de1f286ec0fd1f8469aba52d23d3b3ca, type: 3}

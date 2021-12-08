@@ -26,6 +26,8 @@ public class SettingsManager : MonoBehaviour
     public bool winstate = false;
     public bool deathstate = false;
 
+    public bool bossRoomReached = false;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
