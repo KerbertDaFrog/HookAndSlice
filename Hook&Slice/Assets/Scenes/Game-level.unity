@@ -1070,10 +1070,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c65b9e4a1908764898eb0070832f9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetType: 0
-  folderPath: Screenshots/
-  targetKey: 101
-  size: 2
 --- !u!1001 &1490230905
 PrefabInstance:
   m_ObjectHideFlags: 0

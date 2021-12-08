@@ -100,6 +100,8 @@ public class HudControl : MonoBehaviour
         harpoon = FindObjectOfType<Harpoon>();
         doors = FindObjectsOfType<DoorOpen>();
         cooldownSlider.maxValue = 1f;
+        hooksShot = SettingsManager.Instance.hooksshot;
+        killCount = SettingsManager.Instance.killcount;
     }
 
 
@@ -205,9 +207,11 @@ public class HudControl : MonoBehaviour
         if (bossRoom)
         {
             bossResetButton.SetActive(true);
+            normalResetButton.SetActive(false);
         }
         else
         {
+            bossResetButton.SetActive(false);
             normalResetButton.SetActive(true);
         }
         deathScreen.SetActive(true);
