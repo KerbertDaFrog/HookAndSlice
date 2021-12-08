@@ -28,6 +28,10 @@ public class SettingsManager : MonoBehaviour
 
     public bool bossRoomReached = false;
 
+    public int killcount = 0;
+    public int hooksshot = 0;
+
+
     private void Awake()
     {
         if (_instance != null && _instance != this)

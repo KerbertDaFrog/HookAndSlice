@@ -131,4 +131,12 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void BossLevel()
+    {
+        AudioManager.instance.Play("MenuButton");
+        SettingsManager.Instance.winstate = false;
+        SettingsManager.Instance.deathstate = false;
+        SceneManager.LoadScene("BossRoom");
+    }
+
 }

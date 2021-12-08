@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Alex-work.unity
     guid: ecee107fa13cfa44e835400111321a75
+  - enabled: 1
+    path: Assets/Scenes/BossRoom.unity
+    guid: 2ce84a3705962064faaf764f2cd085b5
   m_configObjects: {}

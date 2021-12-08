@@ -48,6 +48,12 @@ public class HudControl : MonoBehaviour
     [SerializeField]
     private GameObject winScreen;
 
+    [SerializeField]
+    private GameObject normalResetButton;
+    [SerializeField]
+    private GameObject bossResetButton;
+
+    public bool bossRoom = false;
 
     [Header("Pause Menu")]
     public PauseMenu pm;
@@ -196,6 +202,14 @@ public class HudControl : MonoBehaviour
 
     private void DeathScreen()
     {
+        if (bossRoom)
+        {
+            bossResetButton.SetActive(true);
+        }
+        else
+        {
+            normalResetButton.SetActive(true);
+        }
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -205,6 +219,8 @@ public class HudControl : MonoBehaviour
         AudioManager.instance.StopPlaying("KnightMusic");
         AudioManager.instance.Play("GameOver");
         SettingsManager.Instance.deathstate = true;
+        SettingsManager.Instance.hooksshot = hooksShot;
+        SettingsManager.Instance.killcount = killCount;
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Dungeon", currentroom);
         pm.ExternalPause();
     }
@@ -218,6 +234,9 @@ public class HudControl : MonoBehaviour
         Time.timeScale = 0;
         SetStats();
         SettingsManager.Instance.winstate = true;
+        SettingsManager.Instance.bossRoomReached = false;
+        SettingsManager.Instance.hooksshot = 0;
+        SettingsManager.Instance.killcount = 0;
         AudioManager.instance.StopPlaying("ChainMovement");
         AudioManager.instance.StopPlaying("KnightMusic");
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Dungeon", "Hooks" + hooksShot, "Enemies" + killCount);

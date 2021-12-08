@@ -29,6 +29,7 @@ public class BossRoom : MonoBehaviour
         door.SetBool("doorOpen", false);
         prisonWall.SetActive(false);
         SettingsManager.Instance.bossRoomReached = true;
+        HudControl.Instance.bossRoom = true;
         Destroy(gameObject);
     }
 
