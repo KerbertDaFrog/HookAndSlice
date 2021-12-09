@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34de69310a3b3544b86f2066c8d6c244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setHealth: 100
+  setHealth: 50
   currentHealth: 0
   hooked: 0
   hook: {fileID: 0}

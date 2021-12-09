@@ -22494,7 +22494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 43}
+  m_AnchoredPosition: {x: 16, y: 57}
   m_SizeDelta: {x: 100, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5627806392127004511
@@ -23633,11 +23633,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7653149721432491964, guid: 08c7d89d456e985459f60e3d2475d99b, type: 3}
       propertyPath: m_Text
-      value: 'Woody Cizadlo
+      value: 'Woody C
 
-        Jacob Grossman
+        Jacob G
 
-        David Peters
+        David P
+
+        Rob N
 
         and
         the spider living in our coders computer'
