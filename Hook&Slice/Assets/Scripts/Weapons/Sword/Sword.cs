@@ -57,26 +57,23 @@ public class Sword : MonoBehaviour
 
             float rayLength = 5f;
 
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength, enemyLayerMask))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayLength, enemyLayerMask) && hit.transform.tag == "Enemy")
             {
-                if(gameObject.tag == "Enemy")
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                Debug.Log("Did Hit Enemy");
+                hit.transform.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage);
+
+                float knockbackStrength = 3f;
+
+                Rigidbody rb = hit.transform.gameObject.GetComponent<Rigidbody>();
+
+                if (rb != null)
                 {
-                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    Debug.Log("Did Hit Enemy");
-                    hit.transform.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage);
+                    Vector3 dir = hit.transform.position - transform.position;
+                    dir.y = 0;
 
-                    float knockbackStrength = 3f;
-
-                    Rigidbody rb = hit.transform.gameObject.GetComponent<Rigidbody>();
-
-                    if (rb != null)
-                    {
-                        Vector3 dir = hit.transform.position - transform.position;
-                        dir.y = 0;
-
-                        rb.AddForce(dir.normalized * knockbackStrength, ForceMode.Impulse);
-                    }
-                }             
+                    rb.AddForce(dir.normalized * knockbackStrength, ForceMode.Impulse);
+                }
             }
             else
             {
