@@ -205,10 +205,12 @@ public class HudControl : MonoBehaviour
         if (bossRoom)
         {
             bossResetButton.SetActive(true);
+            normalResetButton.SetActive(false);
         }
         else
         {
             normalResetButton.SetActive(true);
+            bossResetButton.SetActive(false);
         }
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
