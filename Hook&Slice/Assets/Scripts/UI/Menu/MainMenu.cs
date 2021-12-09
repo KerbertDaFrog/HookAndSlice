@@ -49,6 +49,7 @@ public class MainMenu : MonoBehaviour
         loose = SettingsManager.Instance.deathstate;
         SettingsManager.Instance.hooksshot = 0;
         SettingsManager.Instance.killcount = 0;
+        SettingsManager.Instance.timeskilled = 0;
         if (win)
         {
             corpses.SetActive(true);

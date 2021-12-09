@@ -30,6 +30,7 @@ public class SettingsManager : MonoBehaviour
 
     public int killcount = 0;
     public int hooksshot = 0;
+    public int timeskilled = 0;
 
 
     private void Awake()
