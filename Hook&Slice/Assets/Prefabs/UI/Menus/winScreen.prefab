@@ -679,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7966198215965627747, guid: 966d407241c0205419b74b2de1a8a176, type: 3}
       propertyPath: m_Text
-      value: 'Secrets Found:'
+      value: 'Deaths:'
       objectReference: {fileID: 0}
     - target: {fileID: 7966198215965627747, guid: 966d407241c0205419b74b2de1a8a176, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -899,7 +899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4868313757591980426, guid: 966d407241c0205419b74b2de1a8a176, type: 3}
       propertyPath: m_Name
-      value: SecretsFoundText
+      value: DeathsText
       objectReference: {fileID: 0}
     - target: {fileID: 7966198215965627747, guid: 966d407241c0205419b74b2de1a8a176, type: 3}
       propertyPath: m_Text

@@ -72,13 +72,10 @@ public class HudControl : MonoBehaviour
     [SerializeField]
     private Text shotHooksText;
     [SerializeField]
-    private Text secretsText;
-    //[SerializeField]
-    //private Text deathsText;
+    private Text deathsText;
 
     private int hooksShot;
-    private int secretsFound;
-    //private int deaths;
+    private int deaths;
 
     private int currentroom;
 
@@ -100,8 +97,16 @@ public class HudControl : MonoBehaviour
         harpoon = FindObjectOfType<Harpoon>();
         doors = FindObjectsOfType<DoorOpen>();
         cooldownSlider.maxValue = 1f;
+
     }
 
+    private void Start()
+    {
+        killCount = SettingsManager.Instance.killcount;
+        killCountText.text = "Kill Count: " + killCount;
+        hooksShot = SettingsManager.Instance.hooksshot;
+        deaths = SettingsManager.Instance.timeskilled;
+    }
 
     //connect them:
     private void OnEnable()
@@ -202,13 +207,16 @@ public class HudControl : MonoBehaviour
 
     private void DeathScreen()
     {
+        deaths++;
         if (bossRoom)
         {
             bossResetButton.SetActive(true);
+            normalResetButton.SetActive(false);
         }
         else
         {
             normalResetButton.SetActive(true);
+            bossResetButton.SetActive(false);
         }
         deathScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -221,9 +229,11 @@ public class HudControl : MonoBehaviour
         SettingsManager.Instance.deathstate = true;
         SettingsManager.Instance.hooksshot = hooksShot;
         SettingsManager.Instance.killcount = killCount;
+        SettingsManager.Instance.timeskilled = deaths;
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Dungeon", currentroom);
         pm.ExternalPause();
     }
+
 
     public void WinScreen()
     {
@@ -247,7 +257,8 @@ public class HudControl : MonoBehaviour
     {
         enmiesKilledText.text = killCount.ToString();
         shotHooksText.text = hooksShot.ToString();
-        secretsText.text = secretsFound.ToString();
+        deathsText.text = deaths.ToString();
+
     }
 
 
@@ -255,7 +266,7 @@ public class HudControl : MonoBehaviour
     {
         killCount = 0;
         hooksShot = 0;
-        secretsFound = 0;
+
         //deaths = 0;
     }
 
